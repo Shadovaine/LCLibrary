@@ -1,2 +1,20 @@
-# Linux-Command-Library
-My personal collection of Linux command breakdowns, which include syntax explanation, list of most common options used, and real-world examples.
+
+# 🐧 Linux Command Library
+
+Welcome to my personal Linux command library — a curated collection of commands, options, and breakdowns as I train for the CompTIA Linux+ certification and real-world sysadmin work.
+
+## 📁 Topics Covered
+
+- File & Directory Management
+- User & Group Commands
+- Permissions & Ownership
+- Networking Tools
+- Process Management
+- Archiving & Compression (`tar`, `gzip`, etc.)
+- Scripting & Automation
+- Security Hardening
+
+## 📌 Example Command Breakdown
+
+```bash
+find /etc -type f -name "*.conf" -user root -mtime -2
