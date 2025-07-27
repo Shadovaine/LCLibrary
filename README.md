@@ -14,14 +14,16 @@ Welcome to my personal Linux command library — a curated collection of command
 - Scripting & Automation
 - Security Hardening
 
-## 📌 Example Command Breakdown
+## 📌 Example Command 
 
 ```bash
 find /etc -type f -name "*.conf" -user root -mtime -2
 
-	•	find: Search command
-	•	/etc: Start directory
-	•	-type f: Find files only
-	•	-name "*.conf": Config files
-	•	-user root: Owned by root
-	•	-mtime -2: Modified in the last 2 days
+ 
+	Command Breakdown
+	-find: Search command
+	- /etc: Start directory
+	- -type f: Find files only
+	- -name "*.conf": Config files
+	- -user root: Owned by root
+	- -mtime -2: Modified in the last 2 days
