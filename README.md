@@ -18,9 +18,9 @@ Welcome to my personal Linux command library — a curated collection of command
 Search for Files Matching Criteria
 
 <pre>
-```bash
+bash
 find /etc -type f -name "*.conf" -user root -mtime -2
-```
+
 </pre>	
 
  **Breakdown**:
