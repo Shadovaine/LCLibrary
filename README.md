@@ -15,11 +15,11 @@ Welcome to my personal Linux command library — a curated collection of command
 - Security Hardening
 
 ## 📌 Example Command 
-
+find-Search for Files Matching Criteria
 
 ```find /etc -type f -name "*.conf" -user root -mtime -2```
  
-	###Command Breakdown###
+
 	- -find: Search command
 	-  /etc: Start directory
 	- -type f: Find files only
