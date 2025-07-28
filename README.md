@@ -17,12 +17,17 @@ Welcome to my personal Linux command library — a curated collection of command
 ### 📌 Example Command: `find` 
 Search for Files Matching Criteria
 
-```find /etc -type f -name "*.conf" -user root -mtime -2```
- 
-	`find` - Search utility
-  	`/etc` - Starting directory
-   	`-type f` - Files only
-    	`-name "*.conf" - Only `.conf` files
-     	`-user root` - Owned by root
-      	`-mtime -2` - Modified in the last 2 days
+<pre>
+```bash
+find /etc -type f -name "*.conf" -user root -mtime -2
+```
+</pre>	
+
+ **Breakdown**:
+ - `find`: Search utility
+ - `/etc`: Starting directory
+ - `-type f`: Files only
+ - `-name "*.conf"`: Only `.conf` files
+ - `-user root`: Owned by root
+ - `-mtime -2`: Modified in the last 2 days
 	
