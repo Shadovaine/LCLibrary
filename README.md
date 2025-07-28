@@ -20,9 +20,9 @@ Welcome to my personal Linux command library — a curated collection of command
 find /etc -type f -name "*.conf" -user root -mtime -2
 ```
  
-	Command Breakdown
-	-find: Search command
-	- /etc: Start directory
+	###Command Breakdown###
+	- -find: Search command
+	-  /etc: Start directory
 	- -type f: Find files only
 	- -name "*.conf": Config files
 	- -user root: Owned by root
