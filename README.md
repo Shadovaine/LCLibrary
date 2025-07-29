@@ -5,14 +5,21 @@ Welcome to my personal Linux command library — a curated collection of command
 
 ## 📁 Topics Covered
 
+- Archiving & Compression
+- Disk and FileSystem Management
 - File & Directory Management
-- User & Group Commands
-- Permissions & Ownership
 - Networking Tools
+- Package Management
+- Permissions & Ownership
 - Process Management
-- Archiving & Compression (`tar`, `gzip`, etc.)
 - Scripting & Automation
+- Search & Filter Management
 - Security Hardening
+- System Information and Monitoring
+- TroubleShooting Management
+- User & Group Management
+- WildCards
+- Viewing and Edit Management
 
 ### 📌 Example Command: `find` 
 Search for Files Matching Criteria
