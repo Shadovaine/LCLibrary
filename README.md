@@ -5,7 +5,7 @@ Welcome to my personal Linux command library — a curated collection of command
 
 ## 📁 Topics Covered
 
-- [File & Directory Management](fileanddirectorymanagement/file_and_directory_management.md)
+- File & Directory Management
 - User & Group Commands
 - Permissions & Ownership
 - Networking Tools
