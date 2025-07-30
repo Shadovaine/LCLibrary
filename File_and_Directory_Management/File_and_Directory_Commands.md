@@ -2,7 +2,7 @@
 
 ## Commands for manipulating files and directories
 
-**ls**
+**ls - list**
 
 ### **Syntax**
 - ls [option][directory]
@@ -14,10 +14,12 @@
 - **-R**:     Recursively list subdirectories
 - **-S**:     Sort by file sizes
 
-**Example**
- ls -alh /etc
+##### **Example**
+- ls -alh /etc
+###### **Breakdown**
+- **ls**: 
 
-**cd**
+**cd -Change Directory**
 
 **Syntax**
 cd [directory]
