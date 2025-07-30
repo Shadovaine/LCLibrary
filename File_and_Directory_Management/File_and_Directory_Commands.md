@@ -2,7 +2,7 @@
 
 ## Commands for manipulating files and directories
 
-**ls - list**
+## **ls - list**
 
 ### **Syntax**
 - ls [option][directory]
@@ -16,30 +16,40 @@
 
 ##### **Example**
 - ls -alh /etc
-###### **Breakdown**
-- **ls**: 
 
-**cd -Change Directory**
+##### **Breakdown**
+- **ls**:   Command to list contents 
+- **-a**:   Tells ls to show all files including the hidden files
+- **-l**:   Makes ls to list directory files in long listing format
+- **-h**:   Converts the file's raw bites into a human readable format
+- **/etc**: Target Directory
+'''
 
-**Syntax**
-cd [directory]
+## **cd - Change Directory**
 
-**Options**
-cd         Go to home directory
-cd ~       Same as above
-cd -       Switch to previous directory.
-cd ..      Move up one level
+### **Syntax**
+- cd [directory]
 
+#### **Options**
+- **cd**:    Go to home directory
+- **cd ~**:  Same as above
+- **cd -**:  Switch to previous directory.
+- **cd ..**: Move up one level
 
-**Example**
-cd /var/log
+##### **Example**
+- cd /var/log
 
-**pwd**
+##### **Breakdown**
+- **cd**:       Change directory command
+- **/var/log**: Target Directory to change to
+'''
+   
+## **pwd - print working directory**
 
-**Syntax**
-pwd [options]
+### **Syntax**
+- pwd [options]
 
-**Options**
+#### **Options**
 -p      Shows physical path ( resolves symlink)
 
 **Example**
