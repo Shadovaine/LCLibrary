@@ -4,15 +4,15 @@
 
 **ls**
 
-**Syntax**
-ls [option][directory]
+### **Syntax**
+- ls [option][directory]
 
-**Option**
--a     Show all files (include hidden ones)
--l     Long listing format
--h     Human-reachable file sizes
--R     Recursively list subdirectories
--S     Sort by file sizes
+#### **Option**
+- **-a**:     Show all files (include hidden ones)
+- **-l**:     Long listing format
+- **-h**:     Human-reachable file sizes
+- **-R**:     Recursively list subdirectories
+- **-S**:     Sort by file sizes
 
 **Example**
  ls -alh /etc
