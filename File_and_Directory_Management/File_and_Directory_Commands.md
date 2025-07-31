@@ -72,16 +72,28 @@
 #### **Example**
 - mkdir -pv /tmp/dragon/nest
 
-**rmdir**
+##### **Breakdown**
+- **mkdir**: Command to tell system to make a new directory
+- **-p**:    Will create parent directories
+- **-v**:    Shows all created directories 
+***
 
-**Syntax**
-rmdir [options] directory_name
+## **rmdir**
 
-**Options**
-—ignore-fail-on-non-empty      Ignore errors for non-empty dirs 
+### **Syntax**
+- rmdir [options] directory_name
 
-**Example**
-rmdir empty_folder
+### **Options**
+
+- **-ignore-fail-on-non-empty**:      Ignore errors for non-empty dirs 
+
+#### **Example**
+- rmdir empty_folder
+
+##### **Breakdown**
+- **rmdir**:    Command to remove directory
+- **empty_folder**: name of directory to be removed
+***
 
 **cp** 
 
