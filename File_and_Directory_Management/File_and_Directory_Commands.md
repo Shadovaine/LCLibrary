@@ -84,7 +84,6 @@
 - rmdir [options] directory_name
 
 ### **Options**
-
 - **-ignore-fail-on-non-empty**:      Ignore errors for non-empty dirs 
 
 #### **Example**
@@ -95,19 +94,21 @@
 - **empty_folder**: name of directory to be removed
 ***
 
-**cp** 
+## **cp** 
 
-**Syntax**
-cp [options] source destination
+### **Syntax**
+- cp [options] source destination
 
-**Options**
--r      Copy directories recursively
--u      Copy only if source is newer
--v      Verbose outpost (show what is copied)
--i      Prompt before overwriting
+### **Options**
+- **-r**:   Copy directories recursively
+- **-u**:   Copy only if source is newer
+- **-v**:   Verbose outpost (show what is copied)
+- **-i**:   Prompt before overwriting
 
-**Example**
-cp -ruv /source/dir /backup/dir
+#### **Example**
+- cp -ruv /source/dir /backup/dir
+
+##### **Breakdown**
 
 **mv** 
 
