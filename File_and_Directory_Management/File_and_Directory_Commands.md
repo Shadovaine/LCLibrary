@@ -58,18 +58,19 @@
 ##### **Breakdown**
 - **pwd**:   print working directory command
 - **-p**:    Will print the physical path
+'''
 
-**mkdir**
+## **mkdir**
 
-**Syntax**
-mkdir [options] directory_name
+### **Syntax**
+- mkdir [options] directory_name
 
-**Options**
--p      Create parent directories as needed
--v      Shows created directories (verbose)
+### **Options**
+- **-p**:   Create parent directories as needed
+- **-v**:   Shows created directories (verbose)
 
-**Example**
- mkdir -pv /tmp/dragon/nest
+#### **Example**
+- mkdir -pv /tmp/dragon/nest
 
 **rmdir**
 
