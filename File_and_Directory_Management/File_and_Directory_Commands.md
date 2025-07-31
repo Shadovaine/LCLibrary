@@ -109,10 +109,17 @@
 - cp -ruv /source/dir /backup/dir
 
 ##### **Breakdown**
+- **-cp**:   Copy Command
+- **-r**:    Causes recursive copying
+- **-u**:    Says to only copy if source is newer
+- **-v**:    Verbose posting
+- **/source/dir**:  Source location
+- **/backup/dir**:  Destination Location
+   
 
-**mv** 
+## **mv** 
 
-**Syntax**
+## **Syntax**
 mv [options] source destination
 
 **Options**
