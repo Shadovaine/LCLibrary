@@ -50,10 +50,14 @@
 - pwd [options]
 
 #### **Options**
--p      Shows physical path ( resolves symlink)
+- **-p**:    Shows physical path ( resolves symlink)
 
-**Example**
-pwd -p
+#### **Example**
+- pwd -p
+
+##### **Breakdown**
+- **pwd**:   print working directory command
+- **-p**:    Will print the physical path
 
 **mkdir**
 
