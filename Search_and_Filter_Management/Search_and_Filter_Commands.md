@@ -1,10 +1,11 @@
-Searching and Filtering
+# **Searching and Filtering**
 
-Grep 
+## **Grep**
 
-grep [options] pattern [file…] 
+## **Syntax**
+- grep [options] pattern [file…] 
 
-Options
+### **Options**
 -i.           Case-insensitive search
 -r or -R. Recursive search through directories
 -v.           Invert match ( show lines not matching)
@@ -13,25 +14,23 @@ Options
 -c.          Count matching lines
 —color.  Highlight matches
 
-Ex:
+#### **Examples**
+- grep -i "password" /etc/passwd
 
-grep -i "password" /etc/passwd
 
-
-egrep
+## **egrep**
 - extended grep (supports extended regex( regular expression))
 
-egrep [OPTIONS] PATTERN [FILE...]
+## **Syntax**
+- egrep [OPTIONS] PATTERN [FILE...]
 
-Options
-
+### **Options**
 -i	Ignore case.
 -v	Invert match (show non-matching).
 -r	Recursive search.
 -c	Count matches.
 
-Ex:
-
+#### **Wxamples**
 Find lines with “error” or “fail”:
 egrep "error|fail" logfile.txt
 
@@ -44,40 +43,38 @@ Recursive search for .conf files:
 egrep -r "Listen" /etc/apache2/
 
 
-fgrep
+## **fgrep**
 - Literal grep (searches fixed strings, no regex)
 
-fgrep [OPTIONS] PATTERN [FILE...]
+## **Suntax**
+- fgrep [OPTIONS] PATTERN [FILE...]
 
-Options
-
+### **Options**
 -i	Ignore case.
 -v	Invert match.
 -r	Recursive search.
 -c	Count matches.
 
-Ex:
-
+#### **Examples**
 Find exact string:
 fgrep "if [ $USER == root ]" script.sh
 
 Recursive literal search:
 fgrep -r "127.0.0.1" /etc/
 
-cut
+## **cut**
 - extract sections from lines of text
 
-cut [OPTIONS] [FILE...]
+## **Syntax**
+- cut [OPTIONS] [FILE...]
 
-Options
-
+### **Options**
 -b LIST	Extract specific bytes.
 -c LIST	Extract specific characters.
 -d DELIM	Specify field delimiter (default is tab).
 -f LIST	Specify fields (with -d).
 
-Ex:
-
+#### **Examples**
 Get first 10 characters of each line:
 cut -c 1-10 file.txt
 
@@ -89,78 +86,70 @@ cut -d ":" -f 1 /etc/passwd | sort
 
 
 
-sed 
+## **sed** 
+- Stream editor for text manipulation
 
-Stream editor for text manipulation
+## **Syntax**
+-sed [OPTIONS] 'SCRIPT' [FILE...]
 
-sed [OPTIONS] 'SCRIPT' [FILE...]
-
-Options
-
+### **Options**
 i	Edit files in place (overwrite).
 -n	Suppress automatic printing.
 -e	Add script commands.
 
-Ex:
-
+#### **Examples**
 sed 's/foo/bar/g' file.txt	Replace “foo” with “bar” globally.
 sed -n '5,10p' file.txt	Print lines 5–10.
 sed '/^#/d' file.txt	Delete comment lines starting with #.
 
 
 
-awk 
+## **awk**
+- Text processing and reporting
 
-Text processing and reporting
+## **Syntax*
+- awk [OPTIONS] 'PATTERN { ACTION }' [FILE...]
 
-awk [OPTIONS] 'PATTERN { ACTION }' [FILE...]
-
-Options
-
+### **Options**
 -F	Set field separator (default: space).
 
-Ex:
-
+#### **Examples**
 awk '{print $1}' file.txt	Print first column.
 awk -F: '{print $1}' /etc/passwd	Print usernames from passwd.
 awk '$3 > 1000' /etc/passwd	Print lines where field 3 > 1000.
 
 
 
-sort 
+## **sort**
+-Sort text lines
 
-Sort text lines
+## **Syntax**
+- sort [OPTIONS] [FILE]
 
-sort [OPTIONS] [FILE]
-
-Options
-
+### **Options**
 -r	Reverse sort order.
 -n	Numeric sort.
 -u	Unique lines only (like uniq).
 -k	Sort by specific field/column.
 
-Ex:
-
+### **Examples**
 sort -n -k2 file.txt
 Sort numerically on the second column.
 
 
 
-uniq 
+## **uniq**
+- Filter out repeated lines
 
-Filter out repeated lines
+## **Syntax**
+- uniq [OPTIONS] [INPUT [OUTPUT]]
 
-uniq [OPTIONS] [INPUT [OUTPUT]]
-
-Options
-
+## **Options**
 -c	Prefix lines with counts.
 -d	Show only duplicate lines.
 -u	Show only unique lines.
 
-Ex:
-
+### **Examples**
 sort file.txt | uniq -c
 Counts unique sorted lines.
 
