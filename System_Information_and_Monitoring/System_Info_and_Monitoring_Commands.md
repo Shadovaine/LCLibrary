@@ -1,19 +1,19 @@
-System Information and Monitoring
+# **System Information and Monitoring**
 
-uname 
-Shows system information (kernel, architecture, etc.)
+## **uname**
+- Shows system information (kernel, architecture, etc.)
 
-uname [OPTIONS]
+## **Synatax**
+- uname [OPTIONS]
 
-Options
+### **Options**
 -a	Show all system information.
 -r	Show kernel release.
 -s	Show kernel name.
 -n	Show network hostname.
 -m	Show machine hardware name (arch).
 
-Ex:
-
+#### **Examples**
 Show kernel name:
 uname 
 
@@ -23,69 +23,66 @@ uname -a
  Show only architecture:
 uname -m
 
-uptime
+## **uptime**
+- Displays how long the system has been running.
 
-Displays how long the system has been running.
+## **Syntax**
+- uptime
 
-uptime
-
-Options
-
-Show uptime and load averages:
+### **Options**
+- Show uptime and load averages:
 uptime
 
 Output: 14:36:29 up 3 days, 5:42, 3 users, load average: 0.08, 0.05, 0.01)
 
-free
+## **free**
+- Shows RAM and swap usage.
 
-Shows RAM and swap usage.
+## **Syntax**
+- free [OPTIONS]
 
-free [OPTIONS]
-
-Options
+## **Options**
 -h	Human-readable (MB, GB).
 -m	Show output in MB.
 -g	Show output in GB.
 -t	Show totals.
 
-Ex:
-
+## **Examples**
 Show memory in MB:
-free -m
+- free -m
 
 Human-readable format:
 free -h
 
-df
+## **df**
+- Shows disk usage of file systems.
 
-Shows disk usage of file systems.
+## **Syntax**
+- df [OPTIONS] [FILESYSTEM]
 
-df [OPTIONS] [FILESYSTEM]
-
-Options
+### **Options**
 -h	Human-readable sizes.
 -T	Show filesystem type.
 -a	Include pseudo, duplicate, and inaccessible file systems.
 
-Ex:
-
+### **Examples**
 Show disk usage in human-readable format:
 df -h
 
 Show filesystem types:
 df -T
 
-dmesg
+## **dmesg**
+- Prints kernel ring buffer messages (boot logs, driver info).
 
-Prints kernel ring buffer messages (boot logs, driver info).
+## **Syntax**
+- dmesg [OPTIONS]
 
-dmesg [OPTIONS]
-
-Options
+## **Options**
 -T	Print human-readable timestamps.
 -k	Only show kernel messages.
- Ex:
-
+ 
+### **Examples**
 Show boot logs:
 dmesg | less
 
@@ -96,29 +93,28 @@ dmesg -T
 dmesg | grep usb
 
 
-lsblk
+## **lsblk**
+- Lists block devices (disks, partitions, etc.)
 
-Lists block devices (disks, partitions, etc.)
+### **Syntax**
+- lsblk [OPTIONS]
 
-lsblk [OPTIONS]
-
-Options
+## **Options**
 -f	Show filesystem info.
 -a	Show all devices.
 
-Ex:
-
+### **Examples**
 Show block devices tree:
 lsblk
 
 Show with filesystem info:
 lsblk -f
 
-lscpu
+## **lscpu**
+- Displays CPU architecture info.
 
-Displays CPU architecture info.
-
-lscpu
+## **Examples**
+- lscpu
 
 Show CPU details:
 lscpu
@@ -126,19 +122,17 @@ lscpu
 Outputs info like cores, threads, architecture, etc.)
 
 
-iostat
+## **iostat**
+- Shows CPU and disk I/O statistics. (Requires sysstat package)
 
-Shows CPU and disk I/O statistics. (Requires sysstat package)
+## **Syntax**
+- iostat [OPTIONS] [INTERVAL [COUNT]]
 
-iostat [OPTIONS] [INTERVAL [COUNT]]
-
-Options
-
+## **Options**
 -c	CPU utilization only.
 -d	Device utilization only.
 
-Ex:
-
+### **Examples**
 Show CPU and disk stats:
 iostat
 
@@ -148,16 +142,16 @@ iostat 2 3
 Show only CPU stats
 iostat -c
 
-vmstat
+## **vmstat**
+- Reports virtual memory, CPU activity, I/O stats.
 
-Reports virtual memory, CPU activity, I/O stats.
+## **Syntax**
+- vmstat [OPTIONS] [DELAY [COUNT]]
 
-vmstat [OPTIONS] [DELAY [COUNT]]
-
-Options
+## **Options**
 -s	Show memory stats in table form.
 
-Ex
+## **Examples**
 One-shot report:
 vmstat
 
@@ -167,14 +161,15 @@ vmstat 2 5
 Memory stats summary:
 vmstat -s
 
-dstat – All-in-one performance viewer
-Syntax
-dstat [options]
+## **dstat – All-in-one performance viewer**
 
-Ex:
+## **Syntax**
+- dstat [options]
+
+## ** Examples**
 dstat -cdngyt
 
-Options:
+### **Options**
 	•	-c → CPU
 	•	-d → Disk
 	•	-n → Network
@@ -183,19 +178,16 @@ Options:
 	•	-t → Time
 
 
+## **w**
+- Shows who is logged in and what they’re doing.
 
-w
+## **Syntax**
+- w [OPTIONS] [USER]
 
-Shows who is logged in and what they’re doing.
-
-w [OPTIONS] [USER]
-
-Options
-
+## **Options**
 -h	Don’t print header.
 
-Ex:
-
+## **Examples**
 Show active users and processes:
 w
 
@@ -203,34 +195,32 @@ Show only user “jake”:
 w Jake
 
 
-who
+## **who**
+- Shows who is logged in
 
-Shows who is logged in
+## **Syntax**
+- who [OPTIONS]
 
-who [OPTIONS]
-
-Options
-
+## **Options**
 H	Print column headers.
 -u	Include idle time.
 
-Ex:
-
+### **Examples**
 List logged-in users:
 who
 
 Show with headers:
 who -H
 
-watch – Repeat a command at intervals
+## **watch – Repeat a command at intervals**
 
-Syntax:
-watch [option] command
+## **Syntax**
+- watch [option] command
 
-Ex:
-watch -n 1 'df -h'
+## **Examples**
+-watch -n 1 'df -h'
 
-Options:
+### **Options**
 	•	-n → Interval in seconds
 	•	-d → Highlight changes
 
