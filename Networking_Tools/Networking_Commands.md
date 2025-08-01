@@ -155,47 +155,47 @@ ip route show
 ## **syntax**
 - ts [command]
 
-Ex:
-echo 'nmap -sV 192.168.1.0/24' | ts
-ts -l         # list jobs
-ts -c         # clear all
+### **Examples**
+- echo 'nmap -sV 192.168.1.0/24' | ts
+- ts -l         # list jobs
+- ts -c         # clear all
 
 Use case: Queue multiple scans, backups, or cracking jobs without screen or tmux.
 
-error – CLI error message explainer
-	•	Category: Developer Helper / Debugging
+## **error – CLI error message explainer**
 
-Syntax: error [error-message]
+## **Syntax**
+- error [error-message]
 
-Ex:
-error "permission denied"
+### **Example**
+- error "permission denied"
 
 Function: Searches known forums and docs to explain common Linux, Bash, or language errors.
 
 🧠 IR Use: Explain odd messages during breach recovery or system misbehavior.
 
 
-systemd-analyze – Diagnose boot performance
-	•	Category: Performance / System Boot Analysis
+## **systemd-analyze – Diagnose boot performance**
 
-Syntax:
-systems-analyze
+## **Syntax**
+- systemd-analyze
 
-Ex:
-systemd-analyze blame
+## **Example**
+- systems-analyze blame
 
-
-Options:
-	•	blame → Show which services delayed boot
-	•	critical-chain → Dependency tree and timing
+### **Options**
+- blame Show which services delayed boot
+- critical-chain Dependency tree and timing
 
 🧠 Use case: Optimize startup or spot malicious services delaying boot.
 
-lazydocker – TUI for Docker management
+## **lazydocker – TUI for Docker management**
 
-Syntax: lazydocker
-Ex:
-lazydocker
+## **Syntax** 
+- lazydocker
+
+## **Example**
+- lazydocker
 
 Function: View running containers, images, logs, volumes in a slick terminal interface.
 
@@ -395,8 +395,8 @@ Options:
 	•	Filters work like tcpdump (ip.addr==192.168.0.5)
 
 
-lsof -i – List network connections and the programs using them
-	•	Category: Network / Process Mapping
+## **lsof - List network connections and the programs using them**
+
 
 Syntax:
 sudo lsof -i
@@ -405,13 +405,13 @@ Ex:
 sudo lsof -i :22          # Who’s using SSH  
 sudo lsof -i tcp@localhost:8080
 
-ipcalc – IP calculator for CIDR, subnetting, broadcast, etc.
+## **ipcalc – IP calculator for CIDR, subnetting, broadcast, etc.**
 
-Syntax:
-ipcalc [ip-address/cidr]
+## **Syntax**
+- ipcalc [ip-address/cidr]
 
-Ex:
-ipcalc 192.168.1.5/24
+### **Example**
+- ipcalc 192.168.1.5/24
 
 Output:
 	•	Network address
@@ -422,11 +422,11 @@ Output:
 
 ## **wormhole**( – Encrypted file transfer between systems
 
-Syntax:
-wormhole send [filename]
-wormhole receive
+## **Syntax**
+- wormhole send [filename]
+- wormhole receive
 
-Ex:
+### **Example**
 wormhole send secrets.tar.gz
 
 Features:
