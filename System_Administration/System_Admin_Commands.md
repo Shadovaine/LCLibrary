@@ -1,9 +1,9 @@
-System Administration
+# **System Administration**
 
-sudo (Superuser Do)
+## **sudo (Superuser Do)**
+-Run a command as another user (usually root).
 
-Run a command as another user (usually root).
-
+## **Syntax**
 sudo [OPTIONS] COMMAND
 
 Options
