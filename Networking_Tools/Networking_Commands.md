@@ -197,14 +197,13 @@ Function: Searches known forums and docs to explain common Linux, Bash, or langu
 ## **Example**
 - lazydocker
 
-Function: View running containers, images, logs, volumes in a slick terminal interface.
+View running containers, images, logs, volumes in a slick terminal interface.
 
-fabric – Python-based remote shell & deployment tool
+## **fabric – Python-based remote shell & deployment tool**
 	•	Category: Automation / DevOps / Red Teaming
 
-Syntax:
-
-fab [task]
+## **Syntax**
+- fab [task]
 
 Ex: (in fabfile.py)
 def deploy():
@@ -216,12 +215,12 @@ fab deploy
 
 Think of it as a programmable SSH runner across multiple servers — great for ops or mass remote changes.
 
-asciinema – Record and share terminal sessions
+## **asciinema – Record and share terminal sessions**
 
-Syntax:
-asciinema rec [filename]
+## **Syntax**
+- asciinema rec [filename]
 
-Ex:
+### **Examples**
 asciinema rec install_hardened_linux.cast
 
 Playback: asciinema play install_hardened_linux.cast
@@ -229,23 +228,20 @@ Playback: asciinema play install_hardened_linux.cast
 Perfect for: creating tutorials, logging incident response steps, or leaving a trail for blue teams or audits.
 
 
+## **netstat**
+- Displays network connections, routing tables, and interface stats. (Legacy—ss replaces it in modern systems)
 
-netstat
+## **Syntax**
+- netstat [OPTIONS]
 
-Displays network connections, routing tables, and interface stats. (Legacy—ss replaces it in modern systems)
-
-netstat [OPTIONS]
-
-Options
-
+### **Options**
 -t	Show TCP connections only.
 -u	Show UDP connections only.
 -l	Show listening ports.
 -n	Show numerical addresses (don’t resolve DNS).
 -p	Show process using the socket.
 
-Ex:
-
+##### **Examples**
  Show all connections:
 netstat -a
 
@@ -259,20 +255,20 @@ Show process names:
 netstat -tulpn
 
 
-ss
+## **ss**
+- A faster, more modern replacement for netstat.
 
-A faster, more modern replacement for netstat.
+## **Syntax**
+- ss [OPTIONS]
 
-ss [OPTIONS]
-
+### **Options**
 -t	Show TCP connections.
 -u	Show UDP connections.
 -l	Show listening sockets.
 -n	Show numerical addresses.
 -p	Show processes using sockets.
 
-Ex:
-
+##### **Examples**
  Show all TCP connections:
 ss -t
 
@@ -285,23 +281,20 @@ ss -tunap
  Show UDP connections:
 ss -u
 
+## **rsync**
+- Efficiently syncs files/directories between locations.
 
+## **Syntax**
+- rsync [OPTIONS] SOURCE DEST
 
-rsync
-
-Efficiently syncs files/directories between locations.
-
-rsync [OPTIONS] SOURCE DEST
-
-Options
+### **Options**
 -a	Archive mode (preserve permissions, symlinks).
 -v	Verbose output.
 -z	Compress data during transfer.
 --delete	Delete files in dest not present in source.
 -P	Show progress and keep partially transferred files.
 
-Ex:
-
+##### **Examples**
  Sync two directories:
 rsync -av /home/jake/ /mnt/backup/
 
@@ -312,14 +305,13 @@ Mirror source to destination (delete extras):
 rsync -av --delete /source/ /dest/
 
 
-ftp
+## **ftp**
+- Connect to an FTP server and transfer files.
 
-Connect to an FTP server and transfer files.
+## **Syntax**
+- ftp [OPTIONS] HOST
 
-ftp [OPTIONS] HOST
-
-Options
-
+### **Options**
 get	Download a file.
 put	Upload a file.
 ls	List files on server.
@@ -327,8 +319,7 @@ cd	Change directory on server.
 mget	Download multiple files.
 mput	Upload multiple files.
 
-Ex:
-
+#### **Wxamples**
  Connect to an FTP server:
 ftp ftp.example.com
 
@@ -348,10 +339,10 @@ ftp> bye
 ## **Syntax**
 mtr [options] [host]
 
-Ex:
-mtr google.com
+### **Examples**
+- mtr google.com
 
-Options:
+#### **Options**
 	•	-r → Report mode (non-interactive)
 	•	-c [n] → Number of pings
 	•	-b → Show both IPs and hostnames
