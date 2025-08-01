@@ -18,15 +18,14 @@ tar [OPTIONS] [ARCHIVE_FILE] [FILES/DIRS...]
 - **-J**:	Compress archive with xz.
 
 ### **Example**
+- Create an archive:
+- tar -cvf backup.tar /home/jake
 
-Create an archive:
-tar -cvf backup.tar /home/jake
+- Create a gzip-compressed archive:
+- tar -czvf backup.tar.gz /home/jake
 
-Create a gzip-compressed archive:
-tar -czvf backup.tar.gz /home/jake
-
-List contents of an archive:
-tar -tvf backup.tar.gz
+- List contents of an archive:
+- tar -tvf backup.tar.gz
 
 Extract an archive:
 tar -xvf backup.tar
