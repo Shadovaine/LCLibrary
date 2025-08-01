@@ -4,7 +4,7 @@
 - Used to create, extract, and manage archive files (commonly .tar, .tar.gz, .tar.bz2).
 - Common extensions *.tar,*.tar.gz, *.tar.bz2
 
-- **Syntax**
+## **Syntax**
 tar [OPTIONS] [ARCHIVE_FILE] [FILES/DIRS...]
 
 ### **Options**
