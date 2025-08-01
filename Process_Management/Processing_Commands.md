@@ -1,21 +1,19 @@
-Process Management
+# **Process Management**
 
-ps
+## **ps**
+- Shows a snapshot of current processes.
 
-Shows a snapshot of current processes.
+##** Syntax**
+- ps [OPTIONS]
 
-ps [OPTIONS]
-
-Options
-
+## **Options**
 	Show all processes (alias for -A).
 -f	Full-format listing.
 -u USER	Show processes for a specific user.
 -o	Customize output format.
 aux	BSD style: show all processes with details.
 
-Ex:
-
+#### **Examples**
 Show all running processes:
 ps -e
 
@@ -31,19 +29,18 @@ ps aux
 Show only PID and COMMAND columns:
 ps -eo pid,comm
 
-top
-
+## **top**
 Real-time view of processes and resource usage.
 
-top [OPTIONS]
+## **Syntax**
+-top [OPTIONS]
 
-Options
+## **Options**
 -u USER	Show processes for a specific user.
 -p PID	Monitor only the given PID.
 -n N	Update screen N times then exit.
 
-Ex:
-
+####**Examples**
 Run top:
 top
 
@@ -53,9 +50,9 @@ top -u jake
 Monitor only PID 1234:
 top -p 1234
 
-htop
-
+## **htop**
 An improved, interactive version of top. (If not installed, use sudo apt install htop)
+
 
 htop
 
