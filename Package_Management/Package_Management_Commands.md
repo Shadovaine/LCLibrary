@@ -1,12 +1,12 @@
-Package Management
+# **Package Management**
 
-apt (Advanced Package Tool)
+## **apt (Advanced Package Tool)**
+- Used on Debian-based systems (Ubuntu, Linux Mint, Kali).
 
-Used on Debian-based systems (Ubuntu, Linux Mint, Kali).
+## **Syntax**
+- apt [OPTIONS] COMMAND [PACKAGE...]
 
-apt [OPTIONS] COMMAND [PACKAGE...]
-
-Options
+### **Options**
 update	Update package index (fetches latest lists).
 upgrade	Upgrade installed packages.
 install PACKAGE	Install a package.
@@ -15,8 +15,7 @@ purge PACKAGE	Remove package and configs.
 search TERM	Search for a package.
 show PACKAGE	Show package details.
 
-Ex:
-
+#### **Examples**
 Update repositories:
 sudo apt update
 
@@ -33,20 +32,19 @@ Purge package (remove configs too):
 sudo apt purge apache2
 
 
-snap
+## **snap**
+-Used for Snap packages (sandboxed apps, Ubuntu’s default).
 
-Used for Snap packages (sandboxed apps, Ubuntu’s default).
+## **Syntax**
+- snap [OPTIONS] COMMAND [PACKAGE...]
 
-snap [OPTIONS] COMMAND [PACKAGE...]
-
-Options
+### **Options**
 find TERM	Search for a snap package.
 install PACKAGE	Install a snap package.
 remove PACKAGE	Remove a snap package.
 refresh	Update installed snaps.
 
-Ex:
-
+#### **Examples**
 Search for VS Code:
 snap find code
 
@@ -57,21 +55,20 @@ Update snaps:
 sudo snap refresh
 
 
-dpkg (Debian Package Manager)
+## **dpkg (Debian Package Manager)**
+- The low-level tool for handling .deb files.
 
-The low-level tool for handling .deb files.
+## **Syntax**
+- dpkg [OPTIONS] PACKAGE
 
-dpkg [OPTIONS] PACKAGE
-
-Options
+### **Options**
 i FILE.deb	Install a .deb file.
 -r PACKAGE	Remove a package.
 -P PACKAGE	Purge (remove configs too).
 -l	List installed packages.
 -L PACKAGE	List files installed by a package.
 
-Ex:
-
+#### **Example**
 Install a .deb file:
 sudo dpkg -i google-chrome.deb
 
@@ -86,20 +83,19 @@ dpkg -L vim
 
 
 
-yum (Yellowdog Updater Modified)
+## **yum (Yellowdog Updater Modified)**
+-For RHEL/CentOS 7 and earlier. (Now mostly replaced by dnf).
 
-For RHEL/CentOS 7 and earlier. (Now mostly replaced by dnf).
-
+## **Syntax**
 yum [OPTIONS] COMMAND [PACKAGE...]
 
-Options
+### **Options**
 install PACKAGE	Install a package.
 remove PACKAGE	Remove a package.
 update	Update all packages.
 search TERM	Search for a package.
 
-Ex:
-
+#### **Examples**
 Install httpd:
 sudo yum install httpd
 
@@ -110,21 +106,19 @@ Search for nginx:
 yum search nginx
 
 
+## **dnf (Dandified YUM)**
+- The modern replacement for yum on RHEL/CentOS 8+ and Fedora.
 
-dnf (Dandified YUM)
+## ** Syntax**
+-dnf [OPTIONS] COMMAND [PACKAGE...]
 
-The modern replacement for yum on RHEL/CentOS 8+ and Fedora.
-
-dnf [OPTIONS] COMMAND [PACKAGE...]
-
-Options
+### **Options**
 install PACKAGE	Install a package.
 remove PACKAGE	Remove a package.
 upgrade	Upgrade all packages.
 search TERM	Search for a package.
 
-Ex:
-
+#### **Examples**
 Install git:
 sudo dnf install git
 
@@ -135,20 +129,19 @@ Search for docker:
 dnf search docker
 
 
-rpm (Red Hat Package Manager)
+## **rpm (Red Hat Package Manager)**
+-Low-level package management for .rpm files.
 
-Low-level package management for .rpm files.
+## **Syntax**
+-rpm [OPTIONS] PACKAGE
 
-rpm [OPTIONS] PACKAGE
-
-Options
+### **Options**
 -i FILE.rpm	Install a .rpm file.
 -e PACKAGE	Remove a package.
 -q PACKAGE	Query package status.
 -ql PACKAGE	List installed files from package.
 
-Ex:
-
+#### **Examples**
 Install a .rpm file:
 sudo rpm -i package.rpm
 
@@ -159,20 +152,19 @@ rpm -q httpd
 rpm -ql httpd
 
 
-flatpak
+## **flatpak**
+- For Flatpak apps (cross-distro sandboxed apps).
 
-For Flatpak apps (cross-distro sandboxed apps).
+## **Syntax**
+- flatpak [OPTIONS] COMMAND [PACKAGE...]
 
-flatpak [OPTIONS] COMMAND [PACKAGE...]
-
-Options
+### **Options**
 search TERM	Search for apps.
 install REMOTE APP	Install an app.
 run APP	Run an installed app.
 update	Update installed apps.
 
-Ex:
-
+#### **Examples**
 Search for Spotify:
 flatpak search spotify
 
