@@ -1,17 +1,17 @@
-Networking Commands
+# **Networking Commands**
 
-ping
+## **ping**
 - check connectivity to another host
 
+## **Syntax**
 ping [OPTIONS] DESTINATION
 
-Options
-
+### **Options**
 -c N	Stop after sending N packets.
 -i S	Interval between packets (in seconds).
 -t N	Set time-to-live (TTL).
 
-Ex:
+#### **Examples**
 
 Ping google.com until stopped:
 ping google.com
@@ -25,96 +25,79 @@ ping -i 2 google.com
 Check TTL value:
 ping -t 64 google.com
 
-ssh
+## **ssh**
+- Secure remote login
 
-Secure remote login
+## **Syntax**
+- ssh [OPTIONS] [USER@]HOST
 
-ssh [OPTIONS] [USER@]HOST
-
-Options
-
+### **Options**
 -p	Specify port.
 -i	Use identity file (SSH key).
 -L	Local port forwarding.
 
-Ex:
-
+#### **Examples**
 ssh -i ~/.ssh/id_rsa jake@192.168.1.50
 Login with a specific key.
 
+## **scp**
+- Securely copy files between systems
 
+## **Syntax**
+- scp [OPTIONS] SOURCE [USER@]HOST:DEST
 
-scp 
-
-Securely copy files between systems
-
-scp [OPTIONS] SOURCE [USER@]HOST:DEST
-
-Options
-
+### **Options**
 -P	Specify port.
 -r	Copy directories recursively.
 
-Ex:
-
+#### **Examples**
 scp file.txt jake@192.168.1.50:/home/jake/
 Copy file to remote host.
 
+## **wget**
+- Download files from the web
 
+## **Syntax**
+- wget [OPTIONS] URL
 
-wget
-
-Download files from the web
-
-wget [OPTIONS] URL
-
-Options
-
-	Description
+## **Options**
 -O FILE	Save as specified filename.
 -c	Resume incomplete download.
 --limit-rate	Limit download speed.
 
-Ex:
-
+## **Example**
 wget -O ubuntu.iso http://example.com/ubuntu.iso
 
+## **curl**
+- Transfer data from/to server
 
+## **Syntax**
+- curl [OPTIONS] URL
 
-curl 
-
-Transfer data from/to server
-
-curl [OPTIONS] URL
-
-Options
-
+## **Options**
 -O	Save file with original name.
 -L	Follow redirects.
 -u	Use username:password authentication.
 -X	Specify HTTP request method.
 -d	Send data in POST request.
 
-Ex:
-
+## **Examples**
 curl -O http://example.com/file.txt
 curl -u user:pass https://api.example.com/data
 
-ifconfig
+## **ifconfig**
+- Displays or configures network interfaces. (Legacy tool—ip replaces it in modern systems)
 
-Displays or configures network interfaces. (Legacy tool—ip replaces it in modern systems)
+## **Syntax**
+- ifconfig [INTERFACE] [OPTIONS]
 
-ifconfig [INTERFACE] [OPTIONS]
-
-Options
-
+### **Options**
 (no args)	Show all active interfaces.
 up	Enable a network interface.
 down	Disable a network interface.
 inet ADDRESS	Assign IP address to interface.
 
-Ex:
-
+#### **Examples**
 View all interfaces:
 ifconfig
 
@@ -127,20 +110,18 @@ ifconfig eth0 down
 Set IP address:
 ifconfig eth0 192.168.1.100
 
-ip
+## **ip**
+- The modern replacement for ifconfig and route.
 
-The modern replacement for ifconfig and route.
+## **Syntax**
+- ip [OBJECT] [OPTIONS]
 
-ip [OBJECT] [OPTIONS]
-
-Options
-
+### **Options**
 addr	Show/modify IP addresses.
 link	Show/modify interfaces.
 route	Show/modify routing table.
 
-Ex:
-
+#### **Examples**
  Show all IP addresses:
 ip addr
 
@@ -153,17 +134,19 @@ ip route add default via 192.168.1.1
 View routes:
 ip route show
 
-taskwarrior – Terminal task/project manager
- Syntax: 
-task [command]
+## **taskwarrior**
+– Terminal task/project manager
 
-Ex:
-task add "Finish Linux+ drills"
-task list
+## **Syntax:** 
+- task [command]
 
-Options:
-	•	add, list, done, delete, modify
-	•	Supports due dates, priorities, tags
+### **Examples**
+- task add "Finish Linux+ drills"
+- task list
+
+#### **Options**
+- add, list, done, delete, modify
+- Supports due dates, priorities, tags
 
 🧠 Great for tracking recon, post-exploit steps, or learning goals in CLI-only setups
 
@@ -437,7 +420,7 @@ Output:
 	•	Host range
 
 
-wormhole – Encrypted file transfer between systems
+## **wormhole**( – Encrypted file transfer between systems
 
 Syntax:
 wormhole send [filename]
@@ -447,9 +430,9 @@ Ex:
 wormhole send secrets.tar.gz
 
 Features:
-	•	Uses PAKE (Password-Authenticated Key Exchange)
-	•	No server required — transfers peer-to-peer
-	•	Must be installed on both systems
+Uses PAKE (Password-Authenticated Key Exchange)
+No server required — transfers peer-to-peer
+ Must be installed on both systems
 
 
 
