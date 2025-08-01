@@ -1,12 +1,12 @@
-User and Group Management
+# **User and Group Management**
 
-useradd 
+## **useradd**
 - creates a new user
 
-useradd [OPTIONS] USERNAME
+## **Syntax**
+-useradd [OPTIONS] USERNAME
 
-Options
-
+### **Options**
 -m	Create the user’s home directory.
 -d DIR	Specify custom home directory.
 -s SHELL	Specify login shell (e.g., /bin/bash).
@@ -15,8 +15,7 @@ Options
 -G GROUPS	Add to supplementary groups (comma-separated).
 -c COMMENT	Set user description/comment (GECOS field).
 
-Ex:
-
+#### **Examples**
 Create a user with default settings:
 sudo useradd jake
 
@@ -30,13 +29,13 @@ Create user and assign to group “admins”:
 sudo useradd -m -G admins jake
 
 
+## **usermod**
+- Modify an existing user account.
 
-usermod
+## **Syntax**
+- usermod [OPTIONS] USERNAME
 
-Modify an existing user account.
-
-usermod [OPTIONS] USERNAME
-
+## **Options**
 -l NEWNAME	Change the username.
 -d DIR	Change home directory.
 -m	Move existing files to new home directory.
@@ -45,8 +44,7 @@ usermod [OPTIONS] USERNAME
 -G GROUPS	Set supplementary groups.
 -a -G GROUPS	Add user to supplementary groups (append).
 
-Ex:
-
+### **Examples**
 Change username from “jake” to “shadow”:
 sudo usermod -l shadow jake
 
@@ -60,21 +58,20 @@ sudo usermod -d /home/dragon -m jake
 sudo usermod -a -G sudo jake
 
 
-passwd
+## **passwd**
+- Set or change a user’s password.
 
-Set or change a user’s password.
+## **Syntax**
+- passwd [OPTIONS] [USERNAME]
 
-passwd [OPTIONS] [USERNAME]
-
-Options
-(no args)	Change the current user’s password.
-USERNAME	Change password for another user.
+## **Options**
+- (no args)	Change the current user’s password.
+- USERNAME	Change password for another user.
 -l USERNAME	Lock user account.
 -u USERNAME	Unlock user account.
 -e USERNAME	Expire user’s password (force change on next login).
 
-Ex:
-
+## **Examples**
 Change your password:
 passwd
 
@@ -89,19 +86,16 @@ sudo passwd -u jake
 
 
 
-groupadd
+## **groupadd**
+- Create a new group.
 
-Create a new group.
-
-
+## **Syntax**
 groupadd [OPTIONS] GROUPNAME
 
-Options
+## **Options**
+- -g GID	Specify a group ID.
 
--g GID	Specify a group ID.
-
-Ex:
-
+### **Examples**
  Create a group called “admins”:
 sudo groupadd admins
 
@@ -110,13 +104,13 @@ sudo groupadd -g 1001 developers
 
 
 
-groups
+## **groups**
+- Show which groups a user belongs to.
 
-Show which groups a user belongs to.
+## **Syntax**
+- groups [USERNAME]
 
-groups [USERNAME]
-
-Options
+### **Options**
  Show your groups:
 groups
 
@@ -125,20 +119,19 @@ groups jake
 
 
 
-id
+## **id**
+- Show a user’s UID, GID, and group memberships.
 
-Show a user’s UID, GID, and group memberships.
+## **Syntax**
+- id [OPTIONS] [USERNAME]
 
-id [OPTIONS] [USERNAME]
-
-Options
+## **Options**
 -u	Show only the UID.
 -g	Show only the GID.
 -G	Show all group IDs.
 -n	Show names instead of numeric IDs.
 
-Ex:
-
+## **Examples**
 Show your user and group IDs:
 id
 
