@@ -136,6 +136,7 @@ ip route show
 
 ## **taskwarrior**
 – Terminal task/project manager
+- Great for tracking recon, post-exploit steps, or learning goals in CLI-only setups
 
 ## **Syntax:** 
 - task [command]
@@ -148,10 +149,9 @@ ip route show
 - add, list, done, delete, modify
 - Supports due dates, priorities, tags
 
-🧠 Great for tracking recon, post-exploit steps, or learning goals in CLI-only setups
 
-ts – Task spooler (run background jobs and queue them)
-	•	Category: Job Queueing
+## **ts – Task spooler (run background jobs and queue them)
+
 syntax:
 ts [command]
 
