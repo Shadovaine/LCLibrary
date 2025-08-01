@@ -343,9 +343,9 @@ ftp> put myfile.txt
 Exit FTP:
 ftp> bye
 
-mtr – Combine traceroute + ping into real-time network map
+## **mtr – Combine traceroute + ping into real-time network map**
 
-Syntax:
+## **Syntax**
 mtr [options] [host]
 
 Ex:
@@ -357,13 +357,13 @@ Options:
 	•	-b → Show both IPs and hostnames
 	•	-w → Wide report mode
 
-mosh – Mobile Shell (better ssh for flaky networks)
+## **mosh – Mobile Shell (better ssh for flaky networks)**
 	•	Category: Remote Connectivity
 
-Syntax:
-mosh  user@host
+## **Syntax**
+-mosh  user@host
 
-Ex:
+## **Example**
 mosh jake@192.168.1.50
 
 Benefits:
@@ -371,37 +371,36 @@ Benefits:
 	•	Auto-reconnects after drops
 	•	Uses UDP instead of TCP
 
-dog – Modern replacement for dig (DNS queries)
+## **dog – Modern replacement for dig (DNS queries)**
 	•	Category: DNS Tool
 	•	Syntax: dog [domain]
-Ex:
-dog chat.openai.com
 
-Options:
+### **Example**
+- dog chat.openai.com
+
+## **Options**
 	•	@1.1.1.1 → Query a specific DNS server
 	•	-t A → Query record type (e.g., A, MX, TXT, etc.)
 
-termshark – Wireshark in your terminal
-	•	Category: Packet Analysis
+## **termshark – Wireshark in your terminal**
 
-Syntax:
-termshark -i [interface]
+## **Syntax**
+- termshark -i [interface]
 
-Ex:
-sudo termshark -i eth0
+### **Example**
+- sudo termshark -i eth0
 
-Options:
+#### **Options**
 	•	Navigate packet layers with arrow keys
 	•	Filters work like tcpdump (ip.addr==192.168.0.5)
 
 
 ## **lsof - List network connections and the programs using them**
 
+## **Syntax**
+- sudo lsof -i
 
-Syntax:
-sudo lsof -i
-
-Ex:
+### ** Examples**
 sudo lsof -i :22          # Who’s using SSH  
 sudo lsof -i tcp@localhost:8080
 
