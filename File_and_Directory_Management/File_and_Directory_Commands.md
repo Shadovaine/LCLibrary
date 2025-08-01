@@ -58,9 +58,8 @@
 ##### **Breakdown**
 - **pwd**:   print working directory command
 - **-p**:    Will print the physical path
-'''
 
-## **mkdir**
+## **mkdir - make a new directory**
 
 ### **Syntax**
 - mkdir [options] directory_name
@@ -76,9 +75,8 @@
 - **mkdir**: Command to tell system to make a new directory
 - **-p**:    Will create parent directories
 - **-v**:    Shows all created directories 
-***
 
-## **rmdir**
+## **rmdir - remove a directory**
 
 ### **Syntax**
 - rmdir [options] directory_name
@@ -92,7 +90,6 @@
 ##### **Breakdown**
 - **rmdir**:    Command to remove directory
 - **empty_folder**: name of directory to be removed
-***
 
 ## **cp** 
 
@@ -115,174 +112,194 @@
 - **-v**:    Verbose posting
 - **/source/dir**:  Source location
 - **/backup/dir**:  Destination Location
-   
 
-## **mv** 
+## **mv - moves a file** 
 
 ## **Syntax**
 mv [options] source destination
 
-**Options**
--i      Prompt before overwrite
--v      Verbose output
--u      Move only if source is newer
+### **Options**
+- **-i**:  Prompt before overwrite
+- **-v**:  Verbose output
+- **-u**:  Move only if source is newer
 
-**Example**
- mv -iv file.txt /tmp/
+#### **Example**
+ - mv -iv file.txt /tmp/
 
-**rm** 
+##### **Breakdown**
+- **mv**:   Move Command
+- **-i**:   Verify with user before overwrite
+- **-v**:   Verbose output
+- **file.txt**:  Source file
+- **/tmp/**:     Destination location
+  
+## **rm - removes files** 
 
+## **Syntax**
 rm [options] target
 
-**Options**
--r      Remove directories and contents recursively
--f      Force deletion (ignore errors/prompts)
--i      Prompts before each deletion.
--v      Verbose output
+### **Options**
+- **-r**:   Remove directories and contents recursively
+- **-f**:   Force deletion (ignore errors/prompts)
+- **-i**:   Prompts before each deletion.
+- **-v**:   Verbose output
 
-**Example**
-rm -rf /tmp/testdir
+#### **Example**
+- rm -rf /tmp/testdir
 
-**touch**
+##### **Breakdown**
+- **rm**:   Remove command
+- **-r**:   Recursive removal
+- **-f**:   Forced Deletion
+- **/tmp/testdir**:   Target file to be deleted
+ 
+## **touch - create a file**
 
-**Syntax**
-touch [options] file_name
+## **Syntax**
+- touch [options] file_name
 
-**Options**
--c      Don’t create file if it doesn’t exist
+### **Options**
+- **-c**:   Don’t create file if it doesn’t exist
 
-**Example**
-touch dragon.txt
+#### **Example**
+- touch dragon.txt
 
-**Echo**
-
-**Syntax**
-echo [options] [string]
-
-**Options**
--n      Don’t print newline at end
--e      Enable interpretation of escapes
-
-**Example**
- echo -e “Watcher\nmode”
-
-**Find**
-Search files and directories
-
-**Syntax**
-find [PATH] [OPTIONS] [EXPRESSION]
-
-**Options**
--name   Match filenames
--type   Specify type (f for file, d for dir)
--size   Search by size ( e.g +10m, -1G)
--exec   Execute a command on found items
--mtime  Modified in last N days
--atime  Accessed in last N days
--print  Print full path of each file
--perm   World writable (others have permission to write)
-
-**Examples**
-find /var/log -name "*.log" -exec rm {} \;
-
-**tree**
-shows directory structure in a tree like form
-
-**Syntax**
-tree [OPTIONS] [DIRECTORY]
-
-OPTIONS] → Modify the output (like depth, showing hidden files, etc.)
-	•	[DIRECTORY] → The directory you want to view. If omitted, defaults to current directory (.).
-
-tree
-shows current directory
-
-tree -a
-shows all hidden files also
+##### **Breakdown**
+- **touch**:  Create a file Command
+- **dragon.txt**:  Name of new file
 
 
-**Locate**
-Searches filesystem
+## **Echo - Print what is in string""**
 
-**Syntax**
-locate [OPTIONS] PATTERN
+## **Syntax**
+- echo [options] [string]
 
-**Example**
-locate passwd find all files named passwd
+### **Options**
+- **-n**:   Don’t print newline at end
+- **-e**:   Enable interpretation of escapes
 
-**ripgrep - aka rg**
-Lightning-fast file search
+#### **Example**
+ - echo -e “Watcher\nmode”
 
-**Syntax**
-rg [pattern] [path]
+##### **Breakdown**
+- **echo**:  Print Command
+- **-e**:    Don't print newline at end
+- **"Watcher/nmode"**: String to be printed
 
-**Options**
--i      Case-insensitive
--n      Show line numbers
--l      List filenames only
+## **Find - Searches files and directories**
 
-**Example**
-rg "sudo" /etc
+## **Syntax**
+- find [PATH] [OPTIONS] [EXPRESSION]
 
-**fd**
- Modern find alternative
+### **Options**
+- **-name**:   Match filenames
+- **-type**:   Specify type (f for file, d for dir)
+- **-size**:   Search by size ( e.g +10m, -1G)
+- **-exec**:   Execute a command on found items
+- **-mtime**:  Modified in last N days
+- **-atime**:  Accessed in last N days
+- **-print**:  Print full path of each file
+- **-perm**:   World writable (others have permission to write)
 
-**Syntax**
-fd [pattern] [path]
+#### **Examples**
+- find /var/log -name "*.log" -exec rm {} \;
 
-**Options**
--e      File extension filter (e.g., -e txt)
--H      Include hidden files
--t f|d  Search for files or directories
+##### **Breakdown**
+- **-find**:    Search Command
+- **/var/log**: path to file
+- **-name**:    Directs to match a filename
+- **"*.log"**:  portion of file name to be searched for
+- **-exec**:    says to execute the following command
+- **rm**:       Command to be executed
+- **{}**:       A placeholder for each file as find command searches each file
+- **\;**:       The end of the -exec command
+   
+## **tree - displays directory structure in a tree like form**
 
-**Example**
-fd passwd /etc
+## **Syntax**
+- tree [OPTIONS] [DIRECTORY]
+
+### **OPTIONS**
+- **-a**:  Show all hidden files
+
+#### **Example**
+- tree -a /home
+- 
+##### **Breakdown**
+- **tree**:   Command to create tree form
+- **-a**:     show all hidden files
+- **/home**:  target directory
+
+## **Locate - Searches filesystem**
+
+## **Syntax**
+- locate [OPTIONS] PATTERN
+
+### **Example**
+- locate passwd find all files named passwd
+
+## **ripgrep(rg) - Lightning-fast file search Command**
+
+## **Syntax**
+- rg [pattern] [path]
+
+### **Options**
+- **-i**:      Case-insensitive
+- **-n**:      Show line numbers
+- **-l**:      List filenames only
+
+#### **Example**
+- rg "sudo" /etc
+
+## **fd - find command alternative**
+
+## **Syntax**
+- fd [pattern] [path]
+
+### **Options**
+- **-e**:   File extension filter (e.g., -e txt)
+- **-H**:   Include hidden files
+- **-t f|d**:  Search for files or directories
+
+#### **Example**
+- fd passwd /etc
+
+## **fzf-Interactive fuzzy file finder**
+
+## **Syntax**
+- fzf
+
+### **Example**
+- find -type f | fzf
+
+## **ranger - file manager**
+
+## **Syntax**
+- ranger
+
+### **Example**
+- ranger /etc
+
+## **zoxide - a smarter cd command*
+
+## **Syntax** 
+- zoxide [dir]
+
+### **Example**
+- z /etc
 
 
-**fzf**
-Interactive fuzzy file finder
-Can integrate with vim, tmux, bash or zsh key bindings
-Default: pipes input and lets you search interactively
+## **exa - Modern ls command**
 
-**Syntax**
-fzf
+## **Syntax**
+- exa [options] [path]
 
-**Example**
-find -type f | fzf
-	
-**ranger**
-Terminal file manager with previews
+### **Options**
+- **-l**: Long format
+- **-a**: Show hidden files
 
-**Syntax**
-ranger
-
-**Example**
-ranger /etc
-
-**zoxide**
-Smarter cd command
-
-**Syntax** 
-zoxide [dir]
-
-**Example**
-z /etc
--	Learns your habits
-
-**exa**
-Modern ls replacement with colors & icons
-	•	Category: File Listing
-
- **Syntax**
- exa [options] [path]
-
-**Options**
-	•	-l → Long format
-	•	-a → Show hidden files
-	•	--tree → Directory tree view 
-
-**Example**
-exa -la --tree /etc
+#### **Example**
+- exa -la --tree /etc
 
 
 
