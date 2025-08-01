@@ -1,6 +1,6 @@
 # **Linux wildcards**
 
-## ** * **
+## *
 - matches zero or more characters in a file name
 
 ### **Examples**
