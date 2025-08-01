@@ -18,7 +18,7 @@ tar [OPTIONS] [ARCHIVE_FILE] [FILES/DIRS...]
 - **-J**:	Compress archive with xz.
 
 ### **Example**
-- Create an archive:
+- __Create an archive:__
  tar -cvf backup.tar /home/jake
 
 - Create a gzip-compressed archive:
