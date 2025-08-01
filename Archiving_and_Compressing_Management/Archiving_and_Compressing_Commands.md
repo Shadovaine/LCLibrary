@@ -8,16 +8,16 @@
 tar [OPTIONS] [ARCHIVE_FILE] [FILES/DIRS...]
 
 ### **Options**
--c	Create a new archive.
--x	Extract files from an archive.
--t	List archive contents.
--v	Verbose (show progress).
--f FILE	Use archive file FILE.
--z	Compress archive with gzip.
--j	Compress archive with bzip2.
--J	Compress archive with xz.
+- **-c**:	Create a new archive.
+- **-x**:	Extract files from an archive.
+- **-t**:	List archive contents.
+- **-v**:	Verbose (show progress).
+- **-f**: FILE	Use archive file FILE.
+- **-z**:	Compress archive with gzip.
+- **-j**:	Compress archive with bzip2.
+- **-J**:	Compress archive with xz.
 
-#### **Example**
+### **Example**
 
 Create an archive:
 tar -cvf backup.tar /home/jake
