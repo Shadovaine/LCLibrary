@@ -19,7 +19,7 @@ tar [OPTIONS] [ARCHIVE_FILE] [FILES/DIRS...]
 
 ### **Example**
 - __Create an archive:__
- tar -cvf backup.tar /home/jake
+&nbsp;tar -cvf backup.tar /home/jake
 
 - Create a gzip-compressed archive:
 tar -czvf backup.tar.gz /home/jake
