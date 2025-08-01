@@ -1,6 +1,6 @@
 # **Archiving and Compressing Management**
 
-## **tar -Tape Archive**
+## **tar - Tape Archive**
 - Used to create, extract, and manage archive files (commonly .tar, .tar.gz, .tar.bz2).
 - Common extensions *.tar,*.tar.gz, *.tar.bz2
 
@@ -8,51 +8,60 @@
 tar [OPTIONS] [ARCHIVE_FILE] [FILES/DIRS...]
 
 ### **Options**
-- **-c**:	Create a new archive.
-- **-x**:	Extract files from an archive.
-- **-t**:	List archive contents.
-- **-v**:	Verbose (show progress).
-- **-f**: FILE	Use archive file FILE.
-- **-z**:	Compress archive with gzip.
-- **-j**:	Compress archive with bzip2.
-- **-J**:	Compress archive with xz.
+- `-c`:	Create a new archive.
+- `-x`:	Extract files from an archive.
+- `-t`:	List archive contents.
+- `-v`:	Verbose (show progress).
+- `-f`: FILE	Use archive file FILE.
+- `-z`:	Compress archive with gzip.
+- `-j`:	Compress archive with bzip2.
+- `-J`:	Compress archive with xz.
 
-### **Example**
+### **Examples**
 - __Create an archive:__
-&nbsp;tar -cvf backup.tar /home/jake
+- `tar -cvf backup.tar /home/sue`
 
-- Create a gzip-compressed archive:
-tar -czvf backup.tar.gz /home/jake
+- __Create a gzip-compressed archive:__
+- `tar -czvf backup.tar.gz /home/sue`
 
-- List contents of an archive:
-tar -tvf backup.tar.gz
+- __List contents of an archive:__
+- `tar -tvf backup.tar.gz`
 
-Extract an archive:
-tar -xvf backup.tar
+- __Extract an archive:__
+- `tar -xvf backup.tar`
 
-Extract to a specific directory:
-tar -xvf backup.tar -C /tmp
+- __Extract to a specific directory:__
+- `tar -xvf backup.tar -C /tmp`
+
 
 ## **gzip**
-- Compresses files using gzip algorithm.
+- Compresses files
+- Alias for gunzip
 
 ## **Syntax**
 - gzip [OPTIONS] FILE
 
 ### **Options**
--k	Keep original file.
--r	Compress files in directories recursively.
--d	Decompress files (alias for gunzip).
+- `-k`:	Keep original file.
+- `-r`:	Compress files in directories recursively.
+- `-d`:	Decompress files.
+- `-c`: Write output to `stdout`
+- `-f`: Force compression even if the file has multiple links or already exists.
+- `-l`: List information about the compressed file.
+- `-t`: Test the integrity of a compressed file
+- `-v`: Verbose mode
+- `-q`: Quiet mode
+- `-#`: Set compression level ( 1 is the fastest/least compressed and 9 is slowest/most compressed).
 
-#### **Example**
-Compress a file:
-gzip file.txt
+### **Examples**
+- __Compress a file:__
+- `gzip file.txt`
 
-Compress but keep original:
-gzip -k file.txt
+- __Compress but keep original:__
+- `gzip -k file.txt`
 
-Decompress with gzip:
-gzip -d file.txt.gz
+- __Decompress with gzip:__
+- `gzip -d file.txt.gz`
 
 
 ## **gunzip**
@@ -61,37 +70,49 @@ gzip -d file.txt.gz
 ## **Syntax**
 - gunzip [OPTIONS] FILE.gz
 
-### **Example**
+### **Options**
+- `-k`:  Keep the original `.gz` file after decompression
+- `-c`:  Write output to `stdout` instead of creating a file
+- `-f`:  Force decompression (overwrites existing files without prompting).
+- `-l`:  Lit information about the compressed file (size, compression ratio).
+- `-t`:  Test the integrity of a compressed file without extraction.
+- `-v`:  Verbose mode
+- `-q`:  Quiet mode
 
-Decompress a file:
-gunzip file.txt.gz
+### **Examples**
+-__Decompress a file:__
+- `gunzip file.txt.gz`
 
-(Restores: file.txt)
-
-Keep compressed file after decompressing:
-gunzip -k file.txt.gz
+- __Keep compressed file after decompressing:__
+- `gunzip -k file.txt.gz`
 
 
 ## **zip**
 - Compresses files into .zip archives.
 
 ## **Syntax**
-zip [OPTIONS] ARCHIVE_NAME.zip FILES...
+- zip [OPTIONS] ARCHIVE_NAME.zip FILES...
 
 ### **Options**
--r	Include directories recursively.
--e	Encrypt the archive (with password).
+- `-r`:	 Include directories recursively.
+- `-e`: 	Encrypt the archive (with password).
+- `-q`:  Quiet mode
+- `-v`:  Verbose mode
+- `-9`:  Maximum compression
+- `-0`:  No compression
+- `-u`:  Update existing zip file
+- `-d`:  Delete file from an existing zip archive.
 
-#### **Example**
+### **Example**
+- __Create a zip archive:__
+- `zip archive.zip file1.txt file2.txt`
 
-Create a zip archive:
-zip archive.zip file1.txt file2.txt
+- __Zip a directory:__
+- `zip -r archive.zip /home/sue`
 
-Zip a directory:
-zip -r archive.zip /home/jake
+- __Create password-protected zip:__
+- `zip -e archive.zip secret.txt`
 
-Create password-protected zip:
-zip -e archive.zip secret.txt
 
 ## **unzip**
 - Extracts .zip archives.
@@ -100,42 +121,53 @@ zip -e archive.zip secret.txt
 - unzip [OPTIONS] ARCHIVE_NAME.zip
 
 ### **Options**
--l	List contents of the zip file.
--d DIR	Extract to a specific directory.
+- `-l`:	 List contents of the zip file.
+- `-d`:  DIR	Extract to a specific directory.
+- `-v`:  Verbose mode
+- `-t`:  Test the integrity of the zip file without extraction.
+- `-q`:  Quiet mode
+- `-n`:  Never overwrite existing files (skip duplicates).
+- `-j`:  Junk paths (ignore folder structure inside the archive, extract all files into the current directory).
+- `-x <file>`: Exclude specific file from being extracted. 
 
-#### **Example**
+### **Example**
+-__Extract a zip archive:__
+- `unzip archive.zip`
 
- Extract a zip archive:
-unzip archive.zip
+ -__Extract to a directory:__
+- `unzip archive.zip -d /tmp`
 
- Extract to a directory:
-unzip archive.zip -d /tmp
-
- List archive contents:
-unzip -l archive.zip
+- __List archive contents:__
+- `unzip -l archive.zip`
 
 
 ## **bzip2**
 - Compresses files using bzip2 algorithm.
-
+- Alias for bunzip2
 ## **Syntax**
 - bzip2 [OPTIONS] FILE
 
 ### **Options**
--k	Keep original file.
--d	Decompress (alias for bunzip2).
+- `-k`:	 Keep original file.
+- `-d`: 	Decompress.
+- `-f`:  Force overwrite if the output file already exists.
+- `-t`:  Test the integrity of a compressed file.
+- `-v`:  Verbose mode
+- `-q`:  Quiet mode
+- `-1` to `9`: Sets compression level.
+- `-c`:  Write output to `stdout`.
+- `-repretitive-best`:  Optimize for files with many repeated sequences.
+   
+### **Example**
+- __Compress a file:__
+- `bzip2 file.txt`
 
-#### **Example**
+- __Decompress:__
+- `bzip2 -d file.txt.bz2`
 
-Compress a file:
-bzip2 file.txt
-(Output: file.txt.bz2)
+- __Keep original file:__
+- `bzip2 -k file.txt`
 
-Decompress:
-bzip2 -d file.txt.bz2
-
-Keep original file:
-bzip2 -k file.txt
 
 ## **xz**
 - Compresses files using xz algorithm (high compression).
@@ -144,18 +176,24 @@ bzip2 -k file.txt
 - xz [OPTIONS] FILE
 
 ### **Options**
--k	Keep original file.
--d	Decompress.
+- `-k`:	 Keep original file.
+- `-d`: 	Decompress a file.
+- `-f`:  Force overwrite if the output file already exists.
+- `-t`:  Test the integrity of a compressed file.
+- `-v`:  Verbose mode
+- `-q`:  Quiet mode
+- `-1` to `-9`: Set compression level
+- `-c`:  Write output to `stdout`.
+- `--threads=NUM`:  Use multithreading to speed up compression or decompression.
+- `--single-stream`:  Decompress only the first stream in a multi-stream `.xz` file.
 
-#### **Examples**
+### **Examples**
+- __Compress a file:__
+- `xz file.txt`
 
-Compress a file:
-xz file.txt
-(Output: file.txt.xz)
+- __Decompress:__
+- `xz -d file.txt.xz`
 
-Decompress:
-xz -d file.txt.xz
-
-Keep original file:
-xz -k file.txt
+- __Keep original file:__
+- `xz -k file.txt`
 
