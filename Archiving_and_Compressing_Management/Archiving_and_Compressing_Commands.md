@@ -1,13 +1,13 @@
-Archiving and Compressing Files
+# **Archiving and Compressing Management**
 
-tar (Tape Archive)
+## **tar -Tape Archive**
+- Used to create, extract, and manage archive files (commonly .tar, .tar.gz, .tar.bz2).
+- Common extensions *.tar,*.tar.gz, *.tar.bz2
 
-Used to create, extract, and manage archive files (commonly .tar, .tar.gz, .tar.bz2).
-
+## **Syntax**
 tar [OPTIONS] [ARCHIVE_FILE] [FILES/DIRS...]
 
-Options
-
+### **Options**
 -c	Create a new archive.
 -x	Extract files from an archive.
 -t	List archive contents.
@@ -17,7 +17,7 @@ Options
 -j	Compress archive with bzip2.
 -J	Compress archive with xz.
 
-Ex:
+#### **Example**
 
 Create an archive:
 tar -cvf backup.tar /home/jake
@@ -34,21 +34,18 @@ tar -xvf backup.tar
 Extract to a specific directory:
 tar -xvf backup.tar -C /tmp
 
+## **gzip**
+- Compresses files using gzip algorithm.
 
-gzip
+## **Syntax**
+- gzip [OPTIONS] FILE
 
-Compresses files using gzip algorithm.
-
-gzip [OPTIONS] FILE
-
-Options
-
+### **Options**
 -k	Keep original file.
 -r	Compress files in directories recursively.
 -d	Decompress files (alias for gunzip).
 
-Ex:
-
+#### **Example**
 Compress a file:
 gzip file.txt
 
@@ -59,13 +56,13 @@ Decompress with gzip:
 gzip -d file.txt.gz
 
 
-gunzip
+## **gunzip**
+- Decompresses .gz files.
 
-Decompresses .gz files.
+## **Syntax**
+- gunzip [OPTIONS] FILE.gz
 
-gunzip [OPTIONS] FILE.gz
-
-Ex:
+### **Example**
 
 Decompress a file:
 gunzip file.txt.gz
@@ -76,18 +73,17 @@ Keep compressed file after decompressing:
 gunzip -k file.txt.gz
 
 
-zip
+## **zip**
+- Compresses files into .zip archives.
 
-Compresses files into .zip archives.
-
+## **Syntax**
 zip [OPTIONS] ARCHIVE_NAME.zip FILES...
 
-Options
-
+### **Options**
 -r	Include directories recursively.
 -e	Encrypt the archive (with password).
 
-Ex:
+#### **Example**
 
 Create a zip archive:
 zip archive.zip file1.txt file2.txt
@@ -98,18 +94,17 @@ zip -r archive.zip /home/jake
 Create password-protected zip:
 zip -e archive.zip secret.txt
 
+## **unzip**
+- Extracts .zip archives.
 
-unzip
+## **Syntax**
+- unzip [OPTIONS] ARCHIVE_NAME.zip
 
-Extracts .zip archives.
-
-unzip [OPTIONS] ARCHIVE_NAME.zip
-
-Options
+### **Options**
 -l	List contents of the zip file.
 -d DIR	Extract to a specific directory.
 
-Ex:
+#### **Example**
 
  Extract a zip archive:
 unzip archive.zip
@@ -121,17 +116,17 @@ unzip archive.zip -d /tmp
 unzip -l archive.zip
 
 
-bzip2
+## **bzip2**
+- Compresses files using bzip2 algorithm.
 
-Compresses files using bzip2 algorithm.
+## **Syntax**
+- bzip2 [OPTIONS] FILE
 
-bzip2 [OPTIONS] FILE
-
-Options
+### **Options**
 -k	Keep original file.
 -d	Decompress (alias for bunzip2).
 
-Ex:
+#### **Example**
 
 Compress a file:
 bzip2 file.txt
@@ -143,19 +138,17 @@ bzip2 -d file.txt.bz2
 Keep original file:
 bzip2 -k file.txt
 
+## **xz**
+- Compresses files using xz algorithm (high compression).
 
+## **Syntax**
+- xz [OPTIONS] FILE
 
-xz
-
-Compresses files using xz algorithm (high compression).
-
-xz [OPTIONS] FILE
-
-Options
+### **Options**
 -k	Keep original file.
 -d	Decompress.
 
-Ex:
+#### **Examples**
 
 Compress a file:
 xz file.txt
