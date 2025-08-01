@@ -60,7 +60,7 @@ Copy file to remote host.
 ## **Syntax**
 - wget [OPTIONS] URL
 
-## **Options**
+### **Options**
 -O FILE	Save as specified filename.
 -c	Resume incomplete download.
 --limit-rate	Limit download speed.
@@ -74,7 +74,7 @@ wget -O ubuntu.iso http://example.com/ubuntu.iso
 ## **Syntax**
 - curl [OPTIONS] URL
 
-## **Options**
+### **Options**
 -O	Save file with original name.
 -L	Follow redirects.
 -u	Use username:password authentication.
@@ -150,10 +150,10 @@ ip route show
 - Supports due dates, priorities, tags
 
 
-## **ts – Task spooler (run background jobs and queue them)
+## **ts – Task spooler (run background jobs and queue them)**
 
-syntax:
-ts [command]
+## **syntax**
+- ts [command]
 
 Ex:
 echo 'nmap -sV 192.168.1.0/24' | ts
