@@ -1,8 +1,7 @@
-Special Purpose/Advanced Tools - Debugging/Network Security
+# **Troubleshooting Tools - Debugging/Network Security**
 
-strace (System Trace)
-
-Traces system calls and signals made by a process.
+## **strace (System Trace)**
+-Traces system calls and signals made by a process.
 
 strace [OPTIONS] COMMAND
 strace [OPTIONS] -p PID
