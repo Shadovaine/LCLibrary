@@ -3,7 +3,7 @@
 ## **ps**
 - Shows a snapshot of current processes.
 
-##** Syntax**
+## **Syntax**
 - ps [OPTIONS]
 
 ## **Options**
@@ -40,7 +40,7 @@ Real-time view of processes and resource usage.
 -p PID	Monitor only the given PID.
 -n N	Update screen N times then exit.
 
-####**Examples**
+#### **Examples**
 Run top:
 top
 
@@ -51,13 +51,12 @@ Monitor only PID 1234:
 top -p 1234
 
 ## **htop**
-An improved, interactive version of top. (If not installed, use sudo apt install htop)
+- An improved, interactive version of top. (If not installed, use sudo apt install htop)
 
-
+## **Syntax**
 htop
 
-Ex:
-
+### **Examples**
 Run htop:
 htop
 
@@ -65,49 +64,44 @@ Use arrow keys to navigate and F9 to kill a process.
 ✅ Press F6 to sort by a column (e.g., CPU usage).
 
 
-glances – System Monitor (like top/htop but on steroids)
+## **glances – System Monitor (like top/htop but on steroids)**
 
-Syntax
-
+## **Syntax**
 glances 
 
-Ex:
-
+### **Examples**
 glances -w
 
-Options
-
+#### **Options**
 	-w → Run web server mode
 	•	-t → Set refresh time
 
-iotop – Monitor disk I/O per process
+## **iotop – Monitor disk I/O per process**
 
-Syntax
-Sudo iotop 
+## **Syntax**
+-Sudo iotop 
 
-Ex:
-sudo iotop -o
+### **Examples**
+-sudo iotop -o
 
-Options
-
+#### **Options**
 	-o → Show only processes doing I/O
 	•	-a → Accumulate I/O over time
 
 
 
-kill
+## **kill**
+- Send a signal (default: TERM) to a process.
 
-Send a signal (default: TERM) to a process.
+## **Syntax**
+- kill [OPTIONS] PID
 
-kill [OPTIONS] PID
-
-Options
+### **Options**
 -l	List all available signals.
 -9	Send SIGKILL (force kill).
 -15	Send SIGTERM (default).
 
-Ex:
-
+#### **Example**
 Gracefully terminate PID 1234:
 kill 1234
 
@@ -118,49 +112,46 @@ List signals:
 kill -l
 
 
-killall
+## **killall**
+- Kills processes by name instead of PID.
 
-Kills processes by name instead of PID.
+## **Syntax**
+- killall [OPTIONS] PROCESS_NAME
 
-killall [OPTIONS] PROCESS_NAME
-
-Options
+### **Options**
 -i	Prompt before killing.
 -v	Verbose (show what was killed).
 
-Ex:
-
+#### **Examples**
 Kill all processes named “firefox”:
 killall firefox
 
 Prompt before killing:
 killall -i python3
 
-jobs
+## **jobs**
+- Lists background jobs in the current shell session.
 
-Lists background jobs in the current shell session.
+## **Syntax**
+- jobs [OPTIONS]
 
-jobs [OPTIONS]
-
-Options
+### **Options**
 -l	Show PIDs of background jobs.
 
-Ex:
-
+#### **Examples**
 List background jobs:
 jobs
 
 List jobs with PID:
 jobs -l
 
-bg
+## **bg**
+- Resumes a stopped job in the background.
 
-Resumes a stopped job in the background.
+## **Syntax**
+- bg [JOB_SPEC]
 
-bg [JOB_SPEC]
-
-Ex:
-
+*** **Examples**
 Resume job #1 in background:
 bg %1
 
@@ -168,14 +159,13 @@ Resume most recent stopped job:
 bg
 
 
-fg
+## **fg**
+- Brings a background job to the foreground.
 
-Brings a background job to the foreground.
+## ** Syntax**
+- fg [JOB_SPEC]
 
-fg [JOB_SPEC]
-
-Ex:
-
+## **Examples**
 Bring job #1 to foreground:
 fg %1
 
@@ -183,17 +173,16 @@ Bring most recent background job:
 fg
 
 
-nice
+## **nice**
+- Starts a process with a specific priority (lower is higher priority).
 
-Starts a process with a specific priority (lower is higher priority).
+## **Syntax**
+- nice [OPTIONS] COMMAND
 
-nice [OPTIONS] COMMAND
-
-Options
+## **Options**
 -n VALUE	Set priority adjustment (-20 to 19).
 
-Ex:
-
+### **Examples**
  Run a script with lower priority:
 nice -n 10 ./backup.sh
 
@@ -201,13 +190,14 @@ nice -n 10 ./backup.sh
 sudo nice -n -20 ./critical_task.sh
 
 
-nice
+## **nice**
 -Set the priority of a process at startup
 -When launching a new process
 
-Syntax:
-nice -n 10 command
+## **Syntax**
+- nice -n 10 command
 
+## **Options**
 	-n: Nice value (range: -20 to 19)
 	•	Lower = higher priority (e.g., -5 = more CPU time)
 	•	Higher = lower priority (e.g., 10 = gets CPU when available)
@@ -219,10 +209,9 @@ Starts the tar process with low priority (15 = nice to others).
 
 
 
-renice
-
-Changes the priority of an already running process.
-After the process has started
+## **renice**
+- Changes the priority of an already running process.
+- After the process has started
 
 renice PRIORITY -p PID
 
