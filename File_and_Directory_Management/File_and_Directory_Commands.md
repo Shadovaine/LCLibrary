@@ -1,4 +1,4 @@
-# **File and Directory Management**
+'# **File and Directory Management**
 
 ## Commands for manipulating files and directories
 
@@ -67,8 +67,9 @@ cd /var/log
 - `--version`:  Shows version information.
 - 
 ### **Example**
-- `pwd -p`
-
+```bash
+pwd -p
+```
 
 ### **Breakdown**
 - `pwd`:   print working directory command
@@ -89,7 +90,9 @@ cd /var/log
 - `--version`:  Show version information.
   
 ### **Example**
-- `mkdir -pv /tmp/dragon/nest`
+```bash
+mkdir -pv /tmp/dragon/nest
+```
 
 ### **Breakdown**
 - `mkdir`:  Command to tell system to make a new directory
@@ -112,7 +115,9 @@ cd /var/log
 - `--version`:  Show version informawtion
 
 ### **Example**
-- `rmdir empty_folder`
+```bash
+rmdir empty_folder
+```
 
 ### **Breakdown**
 - `rmdir`:  Command to remove directory
@@ -133,7 +138,9 @@ cd /var/log
 - `-i`:   Prompt before overwriting
 
 ### **Example**
-- `cp -ruv /source/dir /backup/dir`
+```bash
+cp -ruv /source/dir /backup/dir
+```
 
 ### **Breakdown**
 - `-cp`:   Copy Command
@@ -156,7 +163,9 @@ cd /var/log
 - `-u`:  Move only if source is newer
 
 ### **Example**
- - `mv -iv file.txt /tmp/`
+```bash
+mv -iv file.txt /tmp/
+```
 
 ### **Breakdown**
 - `mv`:  Move Command
@@ -178,7 +187,9 @@ cd /var/log
 - `-v`:  Verbose output
 
 ### **Example**
-- `rm -rf /tmp/testdir`
+```bash
+rm -rf /tmp/testdir
+```
 
 ### **Breakdown**
 - `rm`:  Remove command
@@ -186,6 +197,7 @@ cd /var/log
 - `-f`:  Forced Deletion
 - `/tmp/testdir`:  Target file to be deleted
  
+
 ## Command: touch
 **Description:** Creates a file
 
