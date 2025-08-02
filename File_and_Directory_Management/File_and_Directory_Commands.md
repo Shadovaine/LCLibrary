@@ -67,9 +67,8 @@ cd /var/log
 - `--version`:  Shows version information.
 - 
 ### **Example**
-'''bash
 - `pwd -p`
-'''
+
 
 ### **Breakdown**
 - `pwd`:   print working directory command
