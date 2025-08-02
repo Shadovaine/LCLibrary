@@ -392,7 +392,9 @@ fd passwd /etc
 - `-q <query>`:  Starts with a preloaded query.
 - `-e`:  Exact match mode.
 - `--nth <range>`:  Restricts search to specific fields in the UI.
-- `--width-nth <range> 
+- `--width-nth <range>:  Display only specific fields in the UI
+- `--delimiter <str>:  Define a custom field delimiter.
+
 ### **Example**
 ```bash
 find -type f | fzf
