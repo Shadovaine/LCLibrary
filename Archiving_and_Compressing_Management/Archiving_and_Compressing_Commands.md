@@ -13,8 +13,7 @@
 
 
 ## ** Command: tar 
-
-- Common extensions *.tar,*.tar.gz, *.tar.bz2
+**Description:** Archives multiple files into on file.
 
 ## **Syntax**
 tar [OPTIONS] [ARCHIVE_FILE] [FILES/DIRS...]
@@ -30,20 +29,34 @@ tar [OPTIONS] [ARCHIVE_FILE] [FILES/DIRS...]
 - `-J`:	Compress archive with xz.
 
 ### **Examples**
-- __Create an archive:__
-- `tar -cvf backup.tar /home/sue`
+- **Create an archive:**
 
-- __Create a gzip-compressed archive:__
-- `tar -czvf backup.tar.gz /home/sue`
+```bash
+tar -cvf backup.tar /home/sue
+```
 
-- __List contents of an archive:__
-- `tar -tvf backup.tar.gz`
+- **Create a gzip-compressed archive:**
 
-- __Extract an archive:__
-- `tar -xvf backup.tar`
+```bash
+tar -czvf backup.tar.gz /home/sue
+```
 
-- __Extract to a specific directory:__
-- `tar -xvf backup.tar -C /tmp`
+- **List contents of an archive:**
+
+```bash
+tar -tvf backup.tar.gz
+```
+
+- **Extract an archive:**
+```bash
+tar -xvf backup.tar
+```
+
+- **Extract to a specific directory:**
+
+```bash
+tar -xvf backup.tar -C /tmp
+```
 
 
 ## **gzip**
