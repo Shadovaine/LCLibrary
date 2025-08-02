@@ -334,7 +334,7 @@ rm -rf /tmp/testdir
 
 
 ## Command: fd
-**Description** ~find~ command alternative
+**Description** `find` command alternative
 
 ## **Syntax**
 - `fd [pattern] [path]`
@@ -354,7 +354,9 @@ rm -rf /tmp/testdir
 - `fzf`
 
 ### **Example**
-- `find -type f | fzf`
+```bash
+find -type f | fzf
+```
 
 ## Command: ranger
 **Description** File manager
@@ -366,17 +368,22 @@ rm -rf /tmp/testdir
 - `ranger /etc`
 
 ## Command: zoxide
-**Description:** A smarter cd command
+**Description:** A smarter `cd` command
 
 ## **Syntax** 
 - `zoxide [dir]`
 - 
 ### **Example**
-- `z /etc`
+```bash
+z /etc
+```
 
+### **Breakdown**
+- `z`:  `zoxide` command
+- `/etc`: target location.
 
 ## Command: exa 
-**Description** Modern ls command
+**Description** Modern `ls` command
 
 ## **Syntax**
 - exa [options] [path]
@@ -397,7 +404,9 @@ rm -rf /tmp/testdir
 - `--icons`:  Show file-type icons 
 
 ### **Example**
-- `exa -la -T /etc`
+```bash
+exa -la -T /etc
+```
 
 ### **Breakdown**
 - `exa`:  exa command
