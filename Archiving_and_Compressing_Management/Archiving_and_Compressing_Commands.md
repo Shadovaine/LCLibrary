@@ -29,7 +29,7 @@ tar [OPTIONS] [ARCHIVE_FILE] [FILES/DIRS...]
 - `-J`:	Compress archive with xz.
 
 ### **Extensions**
-- `.tar`:  Raw tar achive with no compression. **Fastest**
+- `.tar`:  Raw tar achive with no compression. - **Fastest**
 - `.tar.gz` or `.tgz`: A tar archive compressed with `gzip`. **Fast**
 - `.tar.bz2`: Compressed with `bzip2`. **Medium**
 - `.tar.xz`: Compressed with `xz`. **Slow**
