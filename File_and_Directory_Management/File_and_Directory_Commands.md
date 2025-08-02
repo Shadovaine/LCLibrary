@@ -55,7 +55,7 @@ cd /var/log
 
    
 ## Command: pwd 
-**Description** Print working directory
+**Description:** Print working directory
 
 ## **Syntax**
 - pwd [options]
@@ -75,7 +75,7 @@ cd /var/log
 
 
 ## Command: mkdir 
-**Description** Makes a new directory
+**Description:** Makes a new directory
 
 ## **Syntax**
 - `mkdir [options] directory_name`
@@ -98,7 +98,7 @@ cd /var/log
 
 
 ## Command: rmdir
-**Descriptions** removes a directory
+**Descriptions:** Removes a directory
 
 ## **Syntax**
 - `rmdir [options] directory_name`
@@ -119,7 +119,7 @@ cd /var/log
 
 
 ## Command: cp 
-**Description** Makes a copy of a file or directory to destination location
+**Description:** Makes a copy of a file or directory to destination location
                 It does leave an original copy in source location
 
 ## **Syntax**
@@ -143,7 +143,7 @@ cd /var/log
 - `/backup/dir`:  Destination Location
 
 ## Command: mv 
-**Description** Moves a file or directory to a destination location.
+**Description:** Moves a file or directory to a destination location.
                 It does not leave an original copy in source location
 
 ## **Syntax**
@@ -165,7 +165,7 @@ cd /var/log
 - `/tmp/`:  Destination location
   
 ## Command: rm 
-**Description** Removes files or directories 
+**Description:** Removes files or directories 
 
 ## **Syntax**
 - `rm [options] target`
@@ -186,7 +186,7 @@ cd /var/log
 - `/tmp/testdir`:  Target file to be deleted
  
 ## Command: touch
-**Description** Creates a file
+**Description:** Creates a file
 
 ## **Syntax**
 - `touch [options] file_name`
@@ -207,8 +207,8 @@ cd /var/log
 - `dragon.txt`:  Name of new file
 
 
-## **Command: Echo
-**Description** Print what is in the string" "
+## **Command: echo
+**Description:** Print what is in the string" "
 
 ## **Syntax**
 -`echo [options] [string]`
@@ -226,8 +226,8 @@ cd /var/log
 - `"Watcher/nmode"`:  String to be printed
 
 
-## **Find**
-- Searches files and directories
+## Command: find
+**Description** Searches files and directories
 
 ## **Syntax**
 - `find [PATH] [OPTIONS] [EXPRESSION]`
@@ -255,8 +255,8 @@ cd /var/log
 - `{}`:  A placeholder for each file as find command searches each file
 - `\;`:  The end of the -exec command
    
-## **tree** 
-- displays directory structure in a tree like form
+## Command: tree
+**Description:** Displays directory structure in a tree like form
 
 ## **Syntax**
 - `tree [OPTIONS] [DIRECTORY]`
@@ -273,8 +273,8 @@ cd /var/log
 - `/home`:  Target directory
 
 
-## **Locate**
-- Searches filesystem
+## Command: Locate
+**Description:** Searches filesystem
 
 ## **Syntax**
 - `locate [OPTIONS] PATTERN`
@@ -282,8 +282,8 @@ cd /var/log
 ### **Example**
 - locate passwd find all files named passwd
 
-## **ripgrep(rg)**
-- Lightning-fast file search Command
+## Command: ripgrep(rg)
+**Descriptions:** Lightning-fast file search Command
 
 ## **Syntax**
 - `rg [pattern] [path]`
@@ -297,8 +297,8 @@ cd /var/log
 - `rg "sudo" /etc`
 
 
-## **fd**
-- find command alternative
+## Command: fd
+**Description** ~find~ command alternative
 
 ## **Syntax**
 - `fd [pattern] [path]`
@@ -311,8 +311,8 @@ cd /var/log
 ### **Example**
 - `fd passwd /etc`
 
-## **fzf**
--Interactive fuzzy file finder
+## Command: fzf
+**Description:** Interactive fuzzy file finder
 
 ## **Syntax**
 - `fzf`
@@ -320,8 +320,8 @@ cd /var/log
 ### **Example**
 - `find -type f | fzf`
 
-## **ranger**
-- file manager
+## Command: ranger
+**Description** File manager
 
 ## **Syntax**
 - `ranger`
@@ -329,8 +329,8 @@ cd /var/log
 ### **Example**
 - `ranger /etc`
 
-## **zoxide**
-- a smarter cd command
+## Command: zoxide
+**Description:** A smarter cd command
 
 ## **Syntax** 
 - `zoxide [dir]`
