@@ -1,7 +1,19 @@
 # **Archiving and Compressing Management**
 
-## **tar - Tape Archive**
-- Used to create, extract, and manage archive files (commonly .tar, .tar.gz, .tar.bz2).
+## **Commands used to create, extract, and manage archive files.**
+
+## **Table of Contents**
+- `tar`
+- `gzip`
+- `gunzip`
+- `zip`
+- `unzip`
+- `bzip2`
+- `xz`
+
+
+## ** Command: tar 
+
 - Common extensions *.tar,*.tar.gz, *.tar.bz2
 
 ## **Syntax**
