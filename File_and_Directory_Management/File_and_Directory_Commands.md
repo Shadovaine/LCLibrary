@@ -183,7 +183,12 @@ cp -ruv /source/dir /backup/dir
 ### **Options**
 - `-i`:  Prompt before overwrite
 - `-v`:  Verbose output
-- `-u`:  Move only if source is newer
+- `-u`:  Move only if source is newer.
+- `-f`:  Force move.
+- `-n`:  Never overwrite an existing file.
+- `-t <dir>`:  Specify the target directory explicitly.
+- `--backup[CONTROL]`:  Make a backup of each destination file.
+- `--strip-trailing-slashes`:  Removes trailing slashes from source arguments.
 
 ### **Example**
 ```bash
@@ -208,6 +213,11 @@ mv -iv file.txt /tmp/
 - `-f`:  Force deletion (ignore errors/prompts)
 - `-i`:  Prompts before each deletion.
 - `-v`:  Verbose output
+- `-I`:  Less intrusive interactive mode.
+- `-d`:  Remove empty directories.
+- `--preserve-root`:  Prevents rm from operating recursively.
+- `--no-preserve-root`:  Removes the protection from \.
+- `--one-file-system`:  when deleting recursively, skip files on other file systems.
 
 ### **Example**
 ```bash
@@ -236,7 +246,9 @@ rm -rf /tmp/testdir
 - `-r`:  Use the timestamp from another file instead of the current time.
 
 ### **Example**
-- `touch dragon.txt`
+```bash
+touch dragon.txt
+```
 
 ### **Breakdown**
 - `touch`:  Create a file Command
@@ -252,9 +264,22 @@ rm -rf /tmp/testdir
 ### **Options**
 - `-n`:  Don’t print newline at end
 - `-e`:  Enable interpretation of escapes
+- `-E`:  Disable interpretation of escape sequence.
+
+### **Escape sequences (paired with -e)**
+- `\n`:  Newline.
+- `\t`:  Horizontal tab.
+- `\v`:  Vertical tab.
+- `\r`:  Carriage return.
+- `\b`:  Backspace.
+- `\a`:  Alert.
+- `\\`:  Backslash.
+- `\c`:  Suppress further output.
 
 ### **Example**
- - `echo -e “Watcher\nmode”`
+```bash
+echo -e “Watcher\nmode”
+```
 
 ### **Breakdown**
 - `echo`:  Print Command
@@ -334,8 +359,14 @@ tree -a /home
 
 ### **Example**
 ```bash
-locate passwd find all files named passwd
+locate -i -n 10 readme
 ```
+
+### ** Breakdown**
+- `locate`:  `locate` command
+- `-i`:  Make the search case-insensitive
+- `-n 10`:  Sets the amount of lines to print out to 10 lines.
+- `readme`:  target pattern
 
 
 ## Command: ripgrep(rg)
@@ -348,6 +379,40 @@ locate passwd find all files named passwd
 - `-i`:  Case-insensitive
 - `-n`:  Show line numbers
 - `-l`:  List filenames only
+- `-S`:  Smart case: case-insensitive unless the oattern has upper cass letters.
+- `-F`:  Treat the pattern as a literal string.
+- `-e <pattern>`:  Explicitly specific a search pattern.
+- `-w`:  Match whole words only.
+- `-x`:  Match the entire line.
+- `-g <glob>`:  Includes only files matching the glob pattern.
+- `-T <ext>`:  Excludes a certain file type.
+- `-t <type>`:  Searches only files of a certain type.
+- `-u`:  Search hidden and ignored files.
+- `-uu`: Seach hidden and ifnored files.
+- `-iglob <pattern>`:  Case-insensitive glob matching
+- `-hidden`:  Include hidden files or directories.
+- `-n`:  Show line numbers.
+- `-H`:  Always show the filename in results.
+- `-l`:  Print only filenames with matches.
+- `-L`:  Print only filenames without matches.
+- `-o`:  Show onlythe matching part of each line.
+- `-v`:  Invert match.
+- `-c`:  Show the count of matches per file.
+- `--stats:  Show search statistics.
+- `-r <replacements>`:  Use regex replacements.
+- `-m <NUM>`:  Limit the number of matches.
+- `--max-columns <NUM>`:  Truncate long lines to the column width in the output.
+- `--max-depth <NUM>`:  Limit search depth.
+- `--follow`:  Follow symlink.
+- `--no-messages`:  Suppress error messages.
+- `--color <when>`:  Control color. always, never, auto.
+- `--heading`:  Shows file names as headings.
+- `--no-heading`:  Disables headings.
+- `--json`:  Output results in JSON format.
+- `--pretty`:  Pretty print results with colors and context.
+- `-A <NUM>`:  Show NUM lines after each match.
+- `-B <NUM>`:  Show NUM lines before each match.
+- `-C <NUM>`:  Show NUM lines of context.
 
 ### **Example**
 ```bash
@@ -370,6 +435,25 @@ rg "sudo" /etc
 - `-e`:  File extension filter (e.g., -e txt)
 - `-H`:  Include hidden files
 - `-t f|d`:  Search for files or directories
+- `-I`:  Include ignored files.
+- `-u`:  Search unrestricted files including hidden and ignored files.
+- `-e <ext>`:  Search only files with the spwcific extension.
+- `-g <glob>`:  Search using glob patterns not regex patterns.
+- `-t <type>`:  Filter by type. f(file, d(directory), 1(symlink), x(excutable), e(empty)
+- `-E <pattern>`:  Exclude file, directories matching the pattern.
+- `-l`:  long form format.
+- `-0`:  Separate results with a null character instead of new line
+- `-x <cmd>`:  Execute a command on each search result.
+- `-X <cmd>`:  Similar to `-x`, but passes all results to command at once.
+- `-j <num>`:  Limit the numberof threads used for searching.
+- `-d <depth>`:  limit the maximum search depth.
+- `-p`:  Search only given path with no aearch in subdirectories.
+- `-a`:  Print absolute paths instead of relative ones.
+- `-c <color>`:  Control color output. auto, never, always.
+- `-s`:  Show symlink instead of resolving them.
+- `-i`:  Case-insensitive search.
+- `-s`:  Case-sensitive search.
+- `-F`:  Treat the pattern as a literal string.
 
 ### **Example**
 ```bash
@@ -394,6 +478,20 @@ fd passwd /etc
 - `--nth <range>`:  Restricts search to specific fields in the UI.
 - `--width-nth <range>:  Display only specific fields in the UI
 - `--delimiter <str>:  Define a custom field delimiter.
+- `-m`:  Multi-select mode.
+- `--no-sort`:  Preserve input order.
+- `--no-mouse`:  Disable mouse support.
+- `--height <size>: Show the UI in the smaller window.
+- `--layout <style>:  Control layout.
+- `--preview <command>`:  Shows a preview window of the command.
+- `--preview-window <opts>:  Control preview window position and size.
+- `--ansi`:  Enable ANSI color codes.
+- `--no-clear`:  Don't clear the screen when fzf exits.
+- `--print-query`:  Print the sesrch query on exit.
+- `--print0`:  Output selected items seperated by a null character.
+- `--bind <key:action>:  Create custom key bindings.
+- `--toggle-sort`:  Keybinding to toggle sort.
+- `--expect <keys>`:  Returned the key pressed before selection.
 
 ### **Example**
 ```bash
