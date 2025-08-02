@@ -388,6 +388,11 @@ fd passwd /etc
 ## **Syntax**
 - `fzf`
 
+## **Options**
+- `-q <query>`:  Starts with a preloaded query.
+- `-e`:  Exact match mode.
+- `--nth <range>`:  Restricts search to specific fields in the UI.
+- `--width-nth <range> 
 ### **Example**
 ```bash
 find -type f | fzf
