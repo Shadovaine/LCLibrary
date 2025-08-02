@@ -301,7 +301,9 @@ rm -rf /tmp/testdir
 - `-a`:  Show all hidden files
 
 ### **Example**
-- `tree -a /home`
+```bash
+tree -a /home
+```
   
 ### **Breakdown**
 - `tree`:  Command to create tree form
@@ -315,8 +317,26 @@ rm -rf /tmp/testdir
 ## **Syntax**
 - `locate [OPTIONS] PATTERN`
 
+### **Options**
+- `-i`:  Case-insensitive search
+- `-c`:  Prints out the number of matches instead of listing them.
+- `-n NUM`:  Will only print out the desired amount inputed.
+- `-r REGEX`:  Searches using regular expression.
+- `-w`:  Matches whole words.
+- `-b`:  Matches only the basename.
+- `-1 NUM`:  Limits results to stated amount.
+- `-0`:  outputs results sepersted by a null character instead of a new line.
+- `-q`:  Quiet mode.
+- `-d DBPATH`:  Uses a specific database and not the default database.
+- `-e`:  only prints existing files.
+- `-S`: Shows database statistics.
+- `-V`:  Shows version information.
+
 ### **Example**
-- locate passwd find all files named passwd
+```bash
+locate passwd find all files named passwd
+```
+
 
 ## Command: ripgrep(rg)
 **Descriptions:** Lightning-fast file search Command
@@ -330,7 +350,14 @@ rm -rf /tmp/testdir
 - `-l`:  List filenames only
 
 ### **Example**
-- `rg "sudo" /etc`
+```bash
+rg "sudo" /etc
+```
+
+### **Breakdown**
+- `rg`:  `rg` command
+- `"sudo"`:  Selected pattern.
+- `/etc`:  Targeted location.
 
 
 ## Command: fd
@@ -345,7 +372,15 @@ rm -rf /tmp/testdir
 - `-t f|d`:  Search for files or directories
 
 ### **Example**
-- `fd passwd /etc`
+```bash
+fd passwd /etc
+```
+
+### **Breakdown**
+- `fd`:  'fd' command
+- `passwd`:  target pattern
+- `/etc`:  target location to find pattern.
+
 
 ## Command: fzf
 **Description:** Interactive fuzzy file finder
@@ -358,6 +393,13 @@ rm -rf /tmp/testdir
 find -type f | fzf
 ```
 
+### **Breakdown**
+- `find`:  `find` command
+- `-type f`:  directs `find` command to loook in files
+- `|`:  `pipe` command thats say it takes output from `find` and will send it through `fzf`
+- `fzf`: Fuzzy file finder.
+
+
 ## Command: ranger
 **Description** File manager
 
@@ -365,7 +407,13 @@ find -type f | fzf
 - `ranger`
 
 ### **Example**
-- `ranger /etc`
+```bash
+ranger /etc
+```
+
+### **Breakdown**
+- `ranger`:  Command
+- `/etc`:  Target location
 
 ## Command: zoxide
 **Description:** A smarter `cd` command
