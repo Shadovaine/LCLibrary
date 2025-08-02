@@ -2,6 +2,28 @@
 
 ## Commands for manipulating files and directories
 
+## Table of Contents
+- **ls**
+- **cd**
+- **pwd**
+- **mkdir**
+- **rmdir**
+- **cp**
+- **mv**
+- **rm**
+- **touch**
+- **echo**
+- **find**
+- **tree**
+- **locate**
+- **ripgrep**
+- **fd**
+- **fzf**
+- **ranger**
+- **zoxide**
+- **exa**
+
+
 ## Command: ls 
 **Descriptions:** Lists files in a directory
 
@@ -149,6 +171,7 @@ cp -ruv /source/dir /backup/dir
 - `-v`:    Verbose posting
 - `/source/dir`:  Source location
 - `/backup/dir`:  Destination Location
+
 
 ## Command: mv 
 **Description:** Moves a file or directory to a destination location.
