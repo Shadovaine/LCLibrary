@@ -2,11 +2,11 @@
 
 ## Commands for manipulating files and directories
 
-## **ls** 
-- lists files in a directory
+## Command: ls 
+**Descriptions:** Lists files in a directory
 
 ## **Syntax**
-- ls[option][directory]
+- ls [option] [directory]
 
 ### **Option**
 - `-a`:  Show all files (include hidden ones)
@@ -16,293 +16,359 @@
 - `-S`:  Sort by file sizes
 
 ### **Example**
-- ls -alh /etc
+```bash
+ls -alh /etc
+```
 
-##### **Breakdown**
-- **ls**:   Command to list contents 
-- **-a**:   Tells ls to show all files including the hidden files
-- **-l**:   Makes ls to list directory files in long listing format
-- **-h**:   Converts the file's raw bites into a human readable format
-- **/etc**: Target Directory
-'''
+### **Breakdown**
+- `ls`:   Command to list contents 
+- `-a`:   Tells ls to show all files including the hidden files
+- `-l`:   Makes ls to list directory files in long listing format
+- `-h`:   Converts the file's raw bites into a human readable format
+- `/etc`: Target Directory
 
-## **cd - Change Directory**
 
-### **Syntax**
+## Command: cd 
+**Description:** Change Directory
+ 
+## **Syntax**
 - cd [directory]
 
-#### **Options**
-- **cd**:    Go to home directory
-- **cd ~**:  Same as above
-- **cd -**:  Switch to previous directory.
-- **cd ..**: Move up one level
+### **Special Behaviors (cd does not have options due to it being built into the shell)**
+- `cd`:    Go to home directory
+- `cd ~`:  Same as above
+- `cd -`:  Switch to previous directory.
+- `cd ..`: Move up one level
+- `cd /'path'`:  Go to a specific directory
+- `cd ../..`:  Move up two levels.
+- `cd ./dirname`:  Enter a directory in the current location explicitly
+- `cd ~username`:  Change to another user's home directory
 
-##### **Example**
-- cd /var/log
+### **Example**
+```bash
+cd /var/log
+```
 
-##### **Breakdown**
-- **cd**:       Change directory command
-- **/var/log**: Target Directory to change to
-'''
+### **Breakdown**
+- `cd`:  Change directory command
+- `/var/log`:  Target Directory to change to `/var/log`
+
    
-## **pwd - print working directory**
+## Command: pwd 
+**Description** Print working directory
 
-### **Syntax**
+## **Syntax**
 - pwd [options]
 
-#### **Options**
-- **-p**:    Shows physical path ( resolves symlink)
-
-#### **Example**
-- pwd -p
-
-##### **Breakdown**
-- **pwd**:   print working directory command
-- **-p**:    Will print the physical path
-
-## **mkdir - make a new directory**
-
-### **Syntax**
-- mkdir [options] directory_name
-
 ### **Options**
-- **-p**:   Create parent directories as needed
-- **-v**:   Shows created directories (verbose)
+- `-p`:  Shows physical path ( resolves symlink)
+- `-L`:  Show the logical path.
+- `--help`:  Display help for the command.
+- `--version`:  Shows version information.
+- 
+### **Example**
+- `pwd -p`
 
-#### **Example**
-- mkdir -pv /tmp/dragon/nest
+### **Breakdown**
+- `pwd`:   print working directory command
+- `-p`:    Will print the physical path
 
-##### **Breakdown**
-- **mkdir**: Command to tell system to make a new directory
-- **-p**:    Will create parent directories
-- **-v**:    Shows all created directories 
 
-## **rmdir - remove a directory**
-
-### **Syntax**
-- rmdir [options] directory_name
-
-### **Options**
-- **-ignore-fail-on-non-empty**:      Ignore errors for non-empty dirs 
-
-#### **Example**
-- rmdir empty_folder
-
-##### **Breakdown**
-- **rmdir**:    Command to remove directory
-- **empty_folder**: name of directory to be removed
-
-## **cp** 
-
-### **Syntax**
-- cp [options] source destination
-
-### **Options**
-- **-r**:   Copy directories recursively
-- **-u**:   Copy only if source is newer
-- **-v**:   Verbose outpost (show what is copied)
-- **-i**:   Prompt before overwriting
-
-#### **Example**
-- cp -ruv /source/dir /backup/dir
-
-##### **Breakdown**
-- **-cp**:   Copy Command
-- **-r**:    Causes recursive copying
-- **-u**:    Says to only copy if source is newer
-- **-v**:    Verbose posting
-- **/source/dir**:  Source location
-- **/backup/dir**:  Destination Location
-
-## **mv - moves a file** 
+## Command: mkdir 
+**Description** Makes a new directory
 
 ## **Syntax**
-mv [options] source destination
+- `mkdir [options] directory_name`
 
 ### **Options**
-- **-i**:  Prompt before overwrite
-- **-v**:  Verbose output
-- **-u**:  Move only if source is newer
-
-#### **Example**
- - mv -iv file.txt /tmp/
-
-##### **Breakdown**
-- **mv**:   Move Command
-- **-i**:   Verify with user before overwrite
-- **-v**:   Verbose output
-- **file.txt**:  Source file
-- **/tmp/**:     Destination location
+- `-p`:  Create parent directories as needed
+- `-v`:  Shows created directories (verbose)
+- `-m`:  Set permissions when creating the directory
+- `--help`:  Display help information.
+- `--version`:  Show version information.
   
-## **rm - removes files** 
+### **Example**
+- `mkdir -pv /tmp/dragon/nest`
+
+### **Breakdown**
+- `mkdir`:  Command to tell system to make a new directory
+- `-p`:  Will create parent directories
+- `-v`:  Shows all created directories 
+- `/tmp/dragon/nest`:  Target directory
+
+
+## Command: rmdir
+**Descriptions** removes a directory
 
 ## **Syntax**
-rm [options] target
+- `rmdir [options] directory_name`
 
 ### **Options**
-- **-r**:   Remove directories and contents recursively
-- **-f**:   Force deletion (ignore errors/prompts)
-- **-i**:   Prompts before each deletion.
-- **-v**:   Verbose output
+- `-ignore-fail-on-non-empty`:  Ignore errors for non-empty dirs 
+- `-p`:  Remove the directory and its parent directories if they become empty.
+- `-v`:  Verbose mode
+- `--help`:  Display help information
+- `--version`:  Show version informawtion
 
-#### **Example**
-- rm -rf /tmp/testdir
+### **Example**
+- `rmdir empty_folder`
 
-##### **Breakdown**
-- **rm**:   Remove command
-- **-r**:   Recursive removal
-- **-f**:   Forced Deletion
-- **/tmp/testdir**:   Target file to be deleted
+### **Breakdown**
+- `rmdir`:  Command to remove directory
+- `empty_folder`:  Name of directory to be removed
+
+
+## Command: cp 
+**Description** Makes a copy of a file or directory to destination location
+                It does leave an original copy in source location
+
+## **Syntax**
+- `cp [options] source destination`
+
+### **Options**
+- `-r`:   Copy directories recursively
+- `-u`:   Copy only if source is newer
+- `-v`:   Verbose outpost (show what is copied)
+- `-i`:   Prompt before overwriting
+
+### **Example**
+- `cp -ruv /source/dir /backup/dir`
+
+### **Breakdown**
+- `-cp`:   Copy Command
+- `-r`:    Causes recursive copying
+- `-u`:    Says to only copy if source is newer
+- `-v`:    Verbose posting
+- `/source/dir`:  Source location
+- `/backup/dir`:  Destination Location
+
+## Command: mv 
+**Description** Moves a file or directory to a destination location.
+                It does not leave an original copy in source location
+
+## **Syntax**
+- `mv [options] source destination`
+
+### **Options**
+- `-i`:  Prompt before overwrite
+- `-v`:  Verbose output
+- `-u`:  Move only if source is newer
+
+### **Example**
+ - `mv -iv file.txt /tmp/`
+
+### **Breakdown**
+- `mv`:  Move Command
+- `-i`:  Verify with user before overwrite
+- `-v`:  Verbose output
+- `file.txt`:  Source file
+- `/tmp/`:  Destination location
+  
+## Command: rm 
+**Description** Removes files or directories 
+
+## **Syntax**
+- `rm [options] target`
+
+### **Options**
+- `-r`:  Remove directories and contents recursively
+- `-f`:  Force deletion (ignore errors/prompts)
+- `-i`:  Prompts before each deletion.
+- `-v`:  Verbose output
+
+### **Example**
+- `rm -rf /tmp/testdir`
+
+### **Breakdown**
+- `rm`:  Remove command
+- `-r`:  Recursive removal
+- `-f`:  Forced Deletion
+- `/tmp/testdir`:  Target file to be deleted
  
-## **touch - create a file**
+## Command: touch
+**Description** Creates a file
 
 ## **Syntax**
-- touch [options] file_name
+- `touch [options] file_name`
 
 ### **Options**
-- **-c**:   Don’t create file if it doesn’t exist
+- `-c` or `--no-create`:  Don’t create file if it doesn’t exist
+- `-a`:  Change only the access time of the file.
+- `-m`:  Changes only the modification time of the file.
+- `-d`:  Set a specific date/time instead of using the current time
+- `-t`:  Set a specific timestamp
+- `-r`:  Use the timestamp from another file instead of the current time.
 
-#### **Example**
-- touch dragon.txt
+### **Example**
+- `touch dragon.txt`
 
-##### **Breakdown**
-- **touch**:  Create a file Command
-- **dragon.txt**:  Name of new file
+### **Breakdown**
+- `touch`:  Create a file Command
+- `dragon.txt`:  Name of new file
 
 
-## **Echo - Print what is in string""**
+## **Command: Echo
+**Description** Print what is in the string" "
 
 ## **Syntax**
-- echo [options] [string]
+-`echo [options] [string]`
 
 ### **Options**
-- **-n**:   Don’t print newline at end
-- **-e**:   Enable interpretation of escapes
+- `-n`:  Don’t print newline at end
+- `-e`:  Enable interpretation of escapes
 
-#### **Example**
- - echo -e “Watcher\nmode”
+### **Example**
+ - `echo -e “Watcher\nmode”`
 
-##### **Breakdown**
-- **echo**:  Print Command
-- **-e**:    Don't print newline at end
-- **"Watcher/nmode"**: String to be printed
+### **Breakdown**
+- `echo`:  Print Command
+- `-e`:  Don't print newline at end
+- `"Watcher/nmode"`:  String to be printed
 
-## **Find - Searches files and directories**
+
+## **Find**
+- Searches files and directories
 
 ## **Syntax**
-- find [PATH] [OPTIONS] [EXPRESSION]
+- `find [PATH] [OPTIONS] [EXPRESSION]`
 
 ### **Options**
-- **-name**:   Match filenames
-- **-type**:   Specify type (f for file, d for dir)
-- **-size**:   Search by size ( e.g +10m, -1G)
-- **-exec**:   Execute a command on found items
-- **-mtime**:  Modified in last N days
-- **-atime**:  Accessed in last N days
-- **-print**:  Print full path of each file
-- **-perm**:   World writable (others have permission to write)
+- `-name`:  Match filenames
+- `-type`:  Specify type (f for file, d for dir)
+- `-size`:  Search by size ( e.g +10m, -1G)
+- `-exec`:  Execute a command on found items
+- `-mtime`:  Modified in last N days
+- `-atime`:  Accessed in last N days
+- `-print`:  Print full path of each file
+- `-perm`:  World writable (others have permission to write)
 
-#### **Examples**
-- find /var/log -name "*.log" -exec rm {} \;
+### **Examples**
+- `find /var/log -name "*.log" -exec rm {} \;`
 
-##### **Breakdown**
-- **-find**:    Search Command
-- **/var/log**: path to file
-- **-name**:    Directs to match a filename
-- **"*.log"**:  portion of file name to be searched for
-- **-exec**:    says to execute the following command
-- **rm**:       Command to be executed
-- **{}**:       A placeholder for each file as find command searches each file
-- **\;**:       The end of the -exec command
+### **Breakdown**
+- `-find`:  Search Command
+- `/var/log`:  Path to file
+- `-name`:  Directs to match a filename
+- `"*.log"`:  portion of file name to be searched for
+- `-exec`:  Says to execute the following command
+- `rm`:  Command to be executed
+- `{}`:  A placeholder for each file as find command searches each file
+- `\;`:  The end of the -exec command
    
-## **tree - displays directory structure in a tree like form**
+## **tree** 
+- displays directory structure in a tree like form
 
 ## **Syntax**
-- tree [OPTIONS] [DIRECTORY]
+- `tree [OPTIONS] [DIRECTORY]`
 
 ### **OPTIONS**
-- **-a**:  Show all hidden files
+- `-a`:  Show all hidden files
 
-#### **Example**
-- tree -a /home
-- 
-##### **Breakdown**
-- **tree**:   Command to create tree form
-- **-a**:     show all hidden files
-- **/home**:  target directory
+### **Example**
+- `tree -a /home`
+  
+### **Breakdown**
+- `tree`:  Command to create tree form
+- `-a`:  Show all hidden files
+- `/home`:  Target directory
 
-## **Locate - Searches filesystem**
+
+## **Locate**
+- Searches filesystem
 
 ## **Syntax**
-- locate [OPTIONS] PATTERN
+- `locate [OPTIONS] PATTERN`
 
 ### **Example**
 - locate passwd find all files named passwd
 
-## **ripgrep(rg) - Lightning-fast file search Command**
+## **ripgrep(rg)**
+- Lightning-fast file search Command
 
 ## **Syntax**
-- rg [pattern] [path]
+- `rg [pattern] [path]`
 
 ### **Options**
-- **-i**:      Case-insensitive
-- **-n**:      Show line numbers
-- **-l**:      List filenames only
+- `-i`:  Case-insensitive
+- `-n`:  Show line numbers
+- `-l`:  List filenames only
 
-#### **Example**
-- rg "sudo" /etc
+### **Example**
+- `rg "sudo" /etc`
 
-## **fd - find command alternative**
+
+## **fd**
+- find command alternative
 
 ## **Syntax**
-- fd [pattern] [path]
+- `fd [pattern] [path]`
 
 ### **Options**
-- **-e**:   File extension filter (e.g., -e txt)
-- **-H**:   Include hidden files
-- **-t f|d**:  Search for files or directories
-
-#### **Example**
-- fd passwd /etc
-
-## **fzf-Interactive fuzzy file finder**
-
-## **Syntax**
-- fzf
+- `-e`:  File extension filter (e.g., -e txt)
+- `-H`:  Include hidden files
+- `-t f|d`:  Search for files or directories
 
 ### **Example**
-- find -type f | fzf
+- `fd passwd /etc`
 
-## **ranger - file manager**
+## **fzf**
+-Interactive fuzzy file finder
 
 ## **Syntax**
-- ranger
+- `fzf`
 
 ### **Example**
-- ranger /etc
+- `find -type f | fzf`
 
-## **zoxide - a smarter cd command*
+## **ranger**
+- file manager
+
+## **Syntax**
+- `ranger`
+
+### **Example**
+- `ranger /etc`
+
+## **zoxide**
+- a smarter cd command
 
 ## **Syntax** 
-- zoxide [dir]
-
+- `zoxide [dir]`
+- 
 ### **Example**
-- z /etc
+- `z /etc`
 
 
-## **exa - Modern ls command**
+## Command: exa 
+**Description** Modern ls command
 
 ## **Syntax**
 - exa [options] [path]
 
 ### **Options**
-- **-l**: Long format
-- **-a**: Show hidden files
+- `-l`:  Long format
+- `-a`:  Show hidden files
+- `-la` or `-al`:  Combine long format and hidden files.
+- `-1`:  list one file per line.
+- `-s`:  Sort by the file size.
+- `-s name`:  Sort by name.
+- `-s modified`:  Sort by modification time.
+- `-r`:  Reverse the sort order.
+- `-T`:  Display a tree view of directories.
+- `-L <num>`:  Limit depth of recursion in tree view.
+- `--git`:  Show Git status for files.
+- `-@`:  Show extended attributes.
+- `--icons`:  Show file-type icons 
 
-#### **Example**
-- exa -la --tree /etc
+### **Example**
+- `exa -la -T /etc`
 
-
+### **Breakdown**
+- `exa`:  exa command
+- `-l`:  Long format
+- `-a`:  Show hidden files.
+- `-T`:  Put in tree viewing form
+- `/etc`:  Target directory
 
 
 
