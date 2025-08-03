@@ -1,47 +1,130 @@
 # **Networking Commands**
 
-## **ping**
-- check connectivity to another host
+## **Commands used in network communications, diagnostics, system monitoring, and remote file transfer**
+
+## **Table of Contents**
+- `ping`
+- `ssh`
+- `scp`
+- `wget`
+- `curl`
+- `ifconfig`
+- `ip`
+- `taskwarrior`
+- `ts`
+- `error`
+- `systemd-analyze`
+- `lazydocker`
+- `fabric`
+- `asciinema`
+- `netstat`
+- `ss`
+- `rsync`
+- `ftp`
+- `mtr`
+- `mosh`
+- `dog`
+- `termshark`
+- `lsof`
+- `ipcalc`
+- `wormhole`
+
+## Command: ping
+**Description** Check connectivity to another host
 
 ## **Syntax**
 ping [OPTIONS] DESTINATION
 
 ### **Options**
--c N	Stop after sending N packets.
--i S	Interval between packets (in seconds).
--t N	Set time-to-live (TTL).
+- `-c <NUM>`:  Stop after sending N packets.
+- `-i <interval>`:  Interval between packets (in seconds).
+- `-t <ttl>`:  Set time-to-live (TTL).
+- `-s <size>`:  Set the size of the packet payload.
+- `-W <timeout>`:  Set timeout to wait for a reply.
+- `-q`:  Quiet output.
+- `-v`:  Verbose mode.
+- `-f`:  Flood ping (root required).
+- `-D`:  Print timestamps for each reply.
+- `-I <iface>`:  Specify network interface to use.
+- `-4`:  Force IPv4 ping.
+- `-6`:  Force IPv6 ping.
 
 #### **Examples**
 
-Ping google.com until stopped:
+- **Ping google.com until stopped:**
+
+```bash  
 ping google.com
+```
 
-Send 5 packets:
+## **Breakdown**
+- `ping`:  Check connectivity command.
+- `google.com`:  Target location.
+  
+- **Send 5 packets:**
+
+```bash
 ping -c 5 google.com
+```
 
-Set 2-second interval between packets:
+## **Breakdown**
+- `ping`:  Check connectivity command.
+- `-c 5`:  Stop after 5 packets.
+- `google.com`:  Target location.
+
+- **Set 2-second interval between packets:**
+
+```bash
 ping -i 2 google.com
+```
 
-Check TTL value:
+## **Breakdown**
+- `ping`:  Check connectivity command.
+- `-i 2`:  Interval of 2 sec in between packets.
+- `google.com`:  target location.
+  
+- **Check TTL value:**
+
+```bash
 ping -t 64 google.com
+```
 
-## **ssh**
-- Secure remote login
+## **Breakdown**
+- `ping`:  Check connectivity command.
+- `-t 2`:  Time to live value of 2.
+- `google.com`:  target location.
+
+  
+## Command: ssh
+**Description** Secure remote login
 
 ## **Syntax**
 - ssh [OPTIONS] [USER@]HOST
 
 ### **Options**
--p	Specify port.
--i	Use identity file (SSH key).
--L	Local port forwarding.
+- `-p <port>`:  Specify port.
+- `-i <identity>`:  Use identity file (SSH key).
+- `-L [bind:]port:host:hostport`:  Local port forwarding.
+- `-l <user>`:  Log in as a specific user.
+- `-v`:  Verbose mode.
+- `-C`:  Enable compression.
+- `-x`:  Enable X11 forwarding.
+- `-R [bind:]port:host:hostpost`:  Remote port forwarding.
+- `-D <port>`:  Dynamic port forwarding.
+- `-N`:  No remote command execution.
+- `-T`:  Disable pseudo-terminal allocation.
+- `-o <option>`:  Pass custom SSH client option.
+- `-4`:  Force IPv4.
+- `-6`:  Force IPv6.
+- `-q`:  Quiet mode. 
 
-#### **Examples**
-ssh -i ~/.ssh/id_rsa jake@192.168.1.50
+### **Examples**
+
+ssh -i ~/.ssh/id_rsa jake@192.168.1.50`
 Login with a specific key.
 
-## **scp**
-- Securely copy files between systems
+## Command: scp
+**Description** Securely copy files between systems
 
 ## **Syntax**
 - scp [OPTIONS] SOURCE [USER@]HOST:DEST
@@ -50,7 +133,7 @@ Login with a specific key.
 -P	Specify port.
 -r	Copy directories recursively.
 
-#### **Examples**
+### **Examples**
 scp file.txt jake@192.168.1.50:/home/jake/
 Copy file to remote host.
 
@@ -65,7 +148,7 @@ Copy file to remote host.
 -c	Resume incomplete download.
 --limit-rate	Limit download speed.
 
-## **Example**
+### **Example**
 wget -O ubuntu.iso http://example.com/ubuntu.iso
 
 ## **curl**
@@ -81,7 +164,7 @@ wget -O ubuntu.iso http://example.com/ubuntu.iso
 -X	Specify HTTP request method.
 -d	Send data in POST request.
 
-## **Examples**
+### **Examples**
 curl -O http://example.com/file.txt
 curl -u user:pass https://api.example.com/data
 
@@ -97,7 +180,7 @@ up	Enable a network interface.
 down	Disable a network interface.
 inet ADDRESS	Assign IP address to interface.
 
-#### **Examples**
+### **Examples**
 View all interfaces:
 ifconfig
 
@@ -121,7 +204,7 @@ addr	Show/modify IP addresses.
 link	Show/modify interfaces.
 route	Show/modify routing table.
 
-#### **Examples**
+### **Examples**
  Show all IP addresses:
 ip addr
 
@@ -145,7 +228,7 @@ ip route show
 - task add "Finish Linux+ drills"
 - task list
 
-#### **Options**
+### **Options**
 - add, list, done, delete, modify
 - Supports due dates, priorities, tags
 
@@ -241,7 +324,7 @@ Perfect for: creating tutorials, logging incident response steps, or leaving a t
 -n	Show numerical addresses (don’t resolve DNS).
 -p	Show process using the socket.
 
-##### **Examples**
+### **Examples**
  Show all connections:
 netstat -a
 
@@ -268,7 +351,7 @@ netstat -tulpn
 -n	Show numerical addresses.
 -p	Show processes using sockets.
 
-##### **Examples**
+### **Examples**
  Show all TCP connections:
 ss -t
 
@@ -294,7 +377,7 @@ ss -u
 --delete	Delete files in dest not present in source.
 -P	Show progress and keep partially transferred files.
 
-##### **Examples**
+### **Examples**
  Sync two directories:
 rsync -av /home/jake/ /mnt/backup/
 
@@ -319,7 +402,7 @@ cd	Change directory on server.
 mget	Download multiple files.
 mput	Upload multiple files.
 
-#### **Wxamples**
+### **Wxamples**
  Connect to an FTP server:
 ftp ftp.example.com
 
@@ -342,7 +425,7 @@ mtr [options] [host]
 ### **Examples**
 - mtr google.com
 
-#### **Options**
+### **Options**
 	•	-r → Report mode (non-interactive)
 	•	-c [n] → Number of pings
 	•	-b → Show both IPs and hostnames
@@ -369,7 +452,7 @@ Benefits:
 ### **Example**
 - dog chat.openai.com
 
-## **Options**
+### **Options**
 	•	@1.1.1.1 → Query a specific DNS server
 	•	-t A → Query record type (e.g., A, MX, TXT, etc.)
 
@@ -381,7 +464,7 @@ Benefits:
 ### **Example**
 - sudo termshark -i eth0
 
-#### **Options**
+### **Options**
 	•	Navigate packet layers with arrow keys
 	•	Filters work like tcpdump (ip.addr==192.168.0.5)
 
