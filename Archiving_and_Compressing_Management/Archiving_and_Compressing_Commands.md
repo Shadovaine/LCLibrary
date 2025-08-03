@@ -12,7 +12,7 @@
 - `xz`
 
 
-## ** Command: tar 
+## Command: tar 
 **Description:** Archives multiple files into on file.
 
 ## **Syntax**
