@@ -287,23 +287,51 @@ curl -u user:pass https://api.example.com/data
 - ifconfig [INTERFACE] [OPTIONS]
 
 ### **Options**
-(no args)	Show all active interfaces.
-up	Enable a network interface.
-down	Disable a network interface.
-inet ADDRESS	Assign IP address to interface.
+- `(No arguement)`:  Show all active interfaces.
+- `ifconfig -a`:  Show all interfaces.
+- `ifconfig <iface>`:  Show details of a specific interface.
+- `ifconfig <iface> up`:  Enable an interface.
+- `ifconfig <iface> down`:  Disable an interface.
+- `ifconfig <iface> <IP>`:  Assign IP address.
+- `netmask <mask>`:  Set subnet mask.
+- `broadcast <addr>`:  Set broadcast address.
+- `add <IP>`:  Add a secondary IP.
+- `del <IP>`:  Remove an IP address.
+- `hw ether <MAC>`:  Change MAC address.
+- `mtu <size>`:  Set MTU size.
+- `promisc`:  Enable promiscuous mode.
+- `-promisc`:  Disable promiscuous mode.
+- `allmulti`:  Enable all-multicast mode.
+- `-allmulti`:  Disable all-multicast mode.
+- `debug`:  Enable debugging on the interface.
+- `-debug`:  Disable debugging on the interface. 
 
 ### **Examples**
-View all interfaces:
+
+**View all interfaces:**
+
+```bash
 ifconfig
+```
+**Breakdown**
+**Bring up an interface:**
 
-Bring up an interface:
+```bash
 ifconfig eth0 up
+```
 
- Bring down an interface:
+**Bring down an interface:**
+
+```bash
 ifconfig eth0 down
+```
 
-Set IP address:
+**Set IP address:**
+
+```bash
 ifconfig eth0 192.168.1.100
+```
+
 
 ## **ip**
 - The modern replacement for ifconfig and route.
