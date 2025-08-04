@@ -41,7 +41,7 @@
 ```bash
 ls -alh /etc
 ```
- **Breakdown**
+### **Breakdown**
 - `ls`:   Command to list contents 
 - `-a`:   Tells ls to show all files including the hidden files
 - `-l`:   Makes ls to list directory files in long listing format
