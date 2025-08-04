@@ -173,10 +173,20 @@ rmdir empty_folder
 - `cp [options] source destination`
 
 ### **Options**
-- `-r`:   Copy directories recursively
-- `-u`:   Copy only if source is newer
-- `-v`:   Verbose outpost (show what is copied)
-- `-i`:   Prompt before overwriting
+- `-r`:  Copy directories recursively
+- `-u`:  Copy only if source is newer
+- `-v`:  Verbose outpost (show what is copied)
+- `-i`:  Prompt before overwriting
+- `-a`:  Archive mode
+- `-f`:  Force overwrite
+- `-n`:  No overwrite skip files thar already exist at destination.
+- `-p`:  Preserve file attributes
+- `-d`:  Preserve symlinks
+- `-L`:  Dereference symlinks
+- `-P`:  Never dereference symlinks
+- `--parents`:  Preserve full path of source when copying to destination.
+- `--remove-destination`:  Remove destination before copying.
+- `--backup`:  Create a backup of each existing destination file before copying. 
 
 ### **Example**
 
@@ -601,20 +611,27 @@ ranger -t file1.txt
 
 
 ## Command: zoxide
-**Description:** A smarter `cd` command
+**Description:** A smarter `cd` command. Aliases include `z` and `zi`.
 
 ## **Syntax** 
-- `zoxide [OPTIONS] <CO
-- 
+- `z [OPTIONS] [KEYWORD]
+
+### **Options**
+- `z [query]`:  Jumps to the highest-rainked directory that matches your search.
+- `-i` or `--interactive`: Opens fuzzy selector loop.
+- `-l` or `--list`:  Show all matching paths instead of jumping.
+- `-s` or `--score`:  Along with list, display frecency.
+- `-t` or `--type <dir|file>`:  Filter by directory or file type.
+  
 ### **Example**
 
 ```bash
-z /etc
+z projects
 ```
 
 ### **Breakdown**
 - `z`:  `zoxide` command
-- `/etc`: target location.
+- `projects`:  Target query
 
 
 ## Command: exa 
