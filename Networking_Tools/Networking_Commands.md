@@ -49,47 +49,47 @@ ping [OPTIONS] DESTINATION
 - `-4`:  Force IPv4 ping.
 - `-6`:  Force IPv6 ping.
 
-#### **Examples**
+### **Examples**
 
-- **Ping google.com until stopped:**
+**Ping google.com until stopped:**
 
 ```bash  
 ping google.com
 ```
 
-**Breakdown**
+### **Breakdown**
 - `ping`:  Check connectivity command.
 - `google.com`:  Target location.
   
-- **Send 5 packets:**
+**Send 5 packets:**
 
 ```bash
 ping -c 5 google.com
 ```
 
-**Breakdown**
+### **Breakdown**
 - `ping`:  Check connectivity command.
 - `-c 5`:  Stop after 5 packets.
 - `google.com`:  Target location.
 
-- **Set 2-second interval between packets:**
+**Set 2-second interval between packets:**
 
 ```bash
 ping -i 2 google.com
 ```
 
-**Breakdown**
+### **Breakdown**
 - `ping`:  Check connectivity command.
 - `-i 2`:  Interval of 2 sec in between packets.
 - `google.com`:  target location.
   
-- **Check TTL value:**
+**Check TTL value:**
 
 ```bash
 ping -t 64 google.com
 ```
 
-**Breakdown**
+### **Breakdown**
 - `ping`:  Check connectivity command.
 - `-t 2`:  Time to live value of 2.
 - `google.com`:  target location.
@@ -126,7 +126,7 @@ ping -t 64 google.com
 ssh -i ~/.ssh/id_rsa jake@192.168.1.50`
 ```
 
-**Breakdown**
+### **Breakdown**
 - `ssh`:  Secure shell command.
 - `-i ~/.ssh/id_rsa`:  Specific file with SSH key.
 - `sue@192.168.1.50`: Hostname with IPv4 address.
@@ -162,7 +162,7 @@ ssh -i ~/.ssh/id_rsa jake@192.168.1.50`
 scp file.txt sue@192.168.1.50:/home/sue/
 ```
 
-**Breakdown**
+### **Breakdown**
 - `scp`:  Secure coping command.
 - `file.txt`:  File to copy.
 - `sue@192.168.1.50:/home/sue/`:  hostname with IPv4 address and target location.
@@ -212,7 +212,7 @@ scp file.txt sue@192.168.1.50:/home/sue/
 wget -O ubuntu.iso http://example.com/ubuntu.iso
 ```
 
-**Breakdown**
+### **Breakdown**
 - `wget`:  Download command.
 - `-O ubuntu.iso`:  Directs to save as a specific filename.
 - `http://example.com/ubuntu.iso`:  Target web location.
@@ -262,7 +262,7 @@ wget -O ubuntu.iso http://example.com/ubuntu.iso
 curl -O http://example.com/file.txt
 ```
 
-**Breakdown**
+### **Breakdown**
 - `curl`:  Transfer file command.
 - `-O`:  Directs to save file with original name.
 - `http://example.com/file.txt`:  Target file.
@@ -273,15 +273,15 @@ curl -O http://example.com/file.txt
 curl -u user:pass https://api.example.com/data
 ```
 
-**Breakdown**
+### **Breakdown**
 - `curl`:  Transfile file command.
 - `-u`:  Directs to authenticate with username and password.
 - `user:pass`:  username and password to authenticate.
 - `https://api.example.com/data`:  Target location.
 
 
-## **ifconfig**
-- Displays or configures network interfaces. (Legacy tool—ip replaces it in modern systems)
+## **Command: ifconfig**
+**Descriptions** Displays or configures network interfaces. (Legacy tool—ip replaces it in modern systems)
 
 ## **Syntax**
 - ifconfig [INTERFACE] [OPTIONS]
@@ -309,17 +309,22 @@ curl -u user:pass https://api.example.com/data
 ### **Examples**
 
 **View all interfaces:**
-
 ```bash
 ifconfig
 ```
-**Breakdown**
-**Bring up an interface:**
 
+### **Breakdown**
+- `ifconfig`:  Shows all interfaces.
+
+**Bring up an interface:**
 ```bash
 ifconfig eth0 up
 ```
 
+### **Breakdown**
+- `ifcongig`:  Show interface.
+- `eth0`:  Selected interface.
+- `up`:  Enable selected interface. 
 **Bring down an interface:**
 
 ```bash
