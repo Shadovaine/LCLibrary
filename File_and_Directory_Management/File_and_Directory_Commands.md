@@ -264,9 +264,9 @@ rm -rf /tmp/testdir
 - `-c` or `--no-create`:  Don’t create file if it doesn’t exist
 - `-a`:  Change only the access time of the file.
 - `-m`:  Changes only the modification time of the file.
-- `-d`:  Set a specific date/time instead of using the current time
-- `-t`:  Set a specific timestamp
-- `-r`:  Use the timestamp from another file instead of the current time.
+- `-d <time>`:  Set a specific date/time instead of using the current time
+- `-t <stamp>`:  Set a specific timestamp
+- `-r <file>`:  Use the timestamp from another file instead of the current time.
 
 ### **Example**
 
@@ -557,31 +557,54 @@ find -type f | fzf
 
 
 ## Command: ranger
-**Description** File manager
+**Description** Terminal-based file manager that lets you navigate, preview, and manage files efficiently.
 
 ## **Syntax**
 - ranger`[options] [path]
 
 ### **Options**
-- `-d`:  Debug mode.
-- `-c`:  Start ranger without loading any configuration files.
-- 
+- `-d` or `--debug`:  Debug mode.
+- `-c` or `--clean`:  Start ranger without loading any configuration files.
+- `-r` or `--confdir`:  Specify an alternate configuration directory.
+- `--copy-config`:  Copy default config files to config directory for customization.
+- `-f` or `--fail-unless-cd`:  Exit if the initial directory chosen is invalid.
+- `-p` or `--profile`:  Enable profiling.
+- `-s` or `--selectfile`:  Select a file in the given directory when launching.
+- `-w` or `--choosefiles`:  Output the chosen file paths to a file instead of running ranger normally.
+- `-t` or `--choosefile`:  Same as `--choosefiles`, but for a single file.
+- `-m` or `--choosefile-multiple`:  Same as `--choosefile` but allows multiple files.
+- `-q` or `--list-unused-keys`:  List all keybindings that aren't mapped in the current configuration.
+
+### **Keybindings**
+- `h`:  Go to parent directory
+- `l` or `Enter`:  Enter directory
+- `j`:  Move down
+- `k`:  Move up
+- `/`:  Search
+- `y`:  Yank file path
+- `p`:  Paste
+- `d`:  Delete
+- `r`:  Rename
+- `:`:  Command mode
+- `q`:  Quit
+  
 ### **Example**
 
 ```bash
-ranger /etc
+ranger -t file1.txt
 ```
 
 ### **Breakdown**
-- `ranger`:  Command
-- `/etc`:  Target location
+- `ranger`:  File Manager Command
+- `-t`:  Directs output to a specific file
+- `file1.txt`:  Target file.
 
 
 ## Command: zoxide
 **Description:** A smarter `cd` command
 
 ## **Syntax** 
-- `zoxide [dir]`
+- `zoxide [OPTIONS] <CO
 - 
 ### **Example**
 
