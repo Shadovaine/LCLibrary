@@ -3,25 +3,25 @@
 ## Commands for manipulating files and directories
 
 ## Table of Contents
-- **ls**
-- **cd**
-- **pwd**
-- **mkdir**
-- **rmdir**
-- **cp**
-- **mv**
-- **rm**
-- **touch**
-- **echo**
-- **find**
-- **tree**
-- **locate**
-- **ripgrep**
-- **fd**
-- **fzf**
-- **ranger**
-- **zoxide**
-- **exa**
+- `ls`
+- `cd`
+- `pwd`
+- `mkdir`
+- `rmdir`
+- `cp`
+- `mv`
+- `rm`
+- `touch`
+- `echo`
+- `find`
+- `tree`
+- `locate`
+- `ripgrep`
+- `fd`
+- `fzf`
+- `ranger`
+- `zoxide`
+- `exa`
 
 
 ## Command: ls 
@@ -41,8 +41,7 @@
 ```bash
 ls -alh /etc
 ```
-
-### **Breakdown**
+ **Breakdown**
 - `ls`:   Command to list contents 
 - `-a`:   Tells ls to show all files including the hidden files
 - `-l`:   Makes ls to list directory files in long listing format
@@ -70,8 +69,7 @@ ls -alh /etc
 ```bash
 cd /var/log
 ```
-
-### **Breakdown**
+**Breakdown**
 - `cd`:  Change directory command
 - `/var/log`:  Target Directory to change to `/var/log`
 
@@ -89,11 +87,11 @@ cd /var/log
 - `--version`:  Shows version information.
 - 
 ### **Example**
+
 ```bash
 pwd -p
 ```
-
-### **Breakdown**
+**Breakdown**
 - `pwd`:   print working directory command
 - `-p`:    Will print the physical path
 
@@ -102,7 +100,7 @@ pwd -p
 **Description:** Makes a new directory
 
 ## **Syntax**
-- `mkdir [options] directory_name`
+- mkdir [options] directory_name`
 
 ### **Options**
 - `-p`:  Create parent directories as needed
@@ -112,11 +110,11 @@ pwd -p
 - `--version`:  Show version information.
   
 ### **Example**
+
 ```bash
 mkdir -pv /tmp/dragon/nest
 ```
-
-### **Breakdown**
+**Breakdown**
 - `mkdir`:  Command to tell system to make a new directory
 - `-p`:  Will create parent directories
 - `-v`:  Shows all created directories 
@@ -137,11 +135,11 @@ mkdir -pv /tmp/dragon/nest
 - `--version`:  Show version informawtion
 
 ### **Example**
+
 ```bash
 rmdir empty_folder
 ```
-
-### **Breakdown**
+ **Breakdown**
 - `rmdir`:  Command to remove directory
 - `empty_folder`:  Name of directory to be removed
 
@@ -160,11 +158,11 @@ rmdir empty_folder
 - `-i`:   Prompt before overwriting
 
 ### **Example**
+
 ```bash
 cp -ruv /source/dir /backup/dir
 ```
-
-### **Breakdown**
+**Breakdown**
 - `-cp`:   Copy Command
 - `-r`:    Causes recursive copying
 - `-u`:    Says to only copy if source is newer
@@ -191,17 +189,18 @@ cp -ruv /source/dir /backup/dir
 - `--strip-trailing-slashes`:  Removes trailing slashes from source arguments.
 
 ### **Example**
+
 ```bash
 mv -iv file.txt /tmp/
 ```
-
-### **Breakdown**
+**Breakdown**
 - `mv`:  Move Command
 - `-i`:  Verify with user before overwrite
 - `-v`:  Verbose output
 - `file.txt`:  Source file
 - `/tmp/`:  Destination location
   
+
 ## Command: rm 
 **Description:** Removes files or directories 
 
@@ -220,11 +219,11 @@ mv -iv file.txt /tmp/
 - `--one-file-system`:  when deleting recursively, skip files on other file systems.
 
 ### **Example**
+
 ```bash
 rm -rf /tmp/testdir
 ```
-
-### **Breakdown**
+**Breakdown**
 - `rm`:  Remove command
 - `-r`:  Recursive removal
 - `-f`:  Forced Deletion
@@ -246,11 +245,11 @@ rm -rf /tmp/testdir
 - `-r`:  Use the timestamp from another file instead of the current time.
 
 ### **Example**
+
 ```bash
 touch dragon.txt
 ```
-
-### **Breakdown**
+**Breakdown**
 - `touch`:  Create a file Command
 - `dragon.txt`:  Name of new file
 
@@ -277,11 +276,11 @@ touch dragon.txt
 - `\c`:  Suppress further output.
 
 ### **Example**
+
 ```bash
 echo -e “Watcher\nmode”
 ```
-
-### **Breakdown**
+**Breakdown**
 - `echo`:  Print Command
 - `-e`:  Don't print newline at end
 - `"Watcher/nmode"`:  String to be printed
@@ -304,9 +303,11 @@ echo -e “Watcher\nmode”
 - `-perm`:  World writable (others have permission to write)
 
 ### **Examples**
-- `find /var/log -name "*.log" -exec rm {} \;`
 
-### **Breakdown**
+```bash
+find /var/log -name "*.log" -exec rm {} \;
+```
+**Breakdown**
 - `-find`:  Search Command
 - `/var/log`:  Path to file
 - `-name`:  Directs to match a filename
@@ -316,6 +317,7 @@ echo -e “Watcher\nmode”
 - `{}`:  A placeholder for each file as find command searches each file
 - `\;`:  The end of the -exec command
    
+
 ## Command: tree
 **Description:** Displays directory structure in a tree like form
 
@@ -326,11 +328,11 @@ echo -e “Watcher\nmode”
 - `-a`:  Show all hidden files
 
 ### **Example**
+
 ```bash
 tree -a /home
 ```
-  
-### **Breakdown**
+**Breakdown**
 - `tree`:  Command to create tree form
 - `-a`:  Show all hidden files
 - `/home`:  Target directory
@@ -358,11 +360,11 @@ tree -a /home
 - `-V`:  Shows version information.
 
 ### **Example**
+
 ```bash
 locate -i -n 10 readme
 ```
-
-### ** Breakdown**
+**Breakdown**
 - `locate`:  `locate` command
 - `-i`:  Make the search case-insensitive
 - `-n 10`:  Sets the amount of lines to print out to 10 lines.
@@ -415,11 +417,11 @@ locate -i -n 10 readme
 - `-C <NUM>`:  Show NUM lines of context.
 
 ### **Example**
+
 ```bash
 rg "sudo" /etc
 ```
-
-### **Breakdown**
+**Breakdown**
 - `rg`:  `rg` command
 - `"sudo"`:  Selected pattern.
 - `/etc`:  Targeted location.
@@ -456,11 +458,11 @@ rg "sudo" /etc
 - `-F`:  Treat the pattern as a literal string.
 
 ### **Example**
+
 ```bash
 fd passwd /etc
 ```
-
-### **Breakdown**
+**Breakdown**
 - `fd`:  'fd' command
 - `passwd`:  target pattern
 - `/etc`:  target location to find pattern.
@@ -494,11 +496,11 @@ fd passwd /etc
 - `--expect <keys>`:  Returned the key pressed before selection.
 
 ### **Example**
+
 ```bash
 find -type f | fzf
 ```
-
-### **Breakdown**
+**Breakdown**
 - `find`:  `find` command
 - `-type f`:  directs `find` command to loook in files
 - `|`:  `pipe` command thats say it takes output from `find` and will send it through `fzf`
@@ -512,11 +514,11 @@ find -type f | fzf
 - `ranger`
 
 ### **Example**
+
 ```bash
 ranger /etc
 ```
-
-### **Breakdown**
+**Breakdown**
 - `ranger`:  Command
 - `/etc`:  Target location
 
@@ -527,13 +529,14 @@ ranger /etc
 - `zoxide [dir]`
 - 
 ### **Example**
+
 ```bash
 z /etc
 ```
-
-### **Breakdown**
+**Breakdown**
 - `z`:  `zoxide` command
 - `/etc`: target location.
+
 
 ## Command: exa 
 **Description** Modern `ls` command
@@ -557,11 +560,11 @@ z /etc
 - `--icons`:  Show file-type icons 
 
 ### **Example**
+
 ```bash
 exa -la -T /etc
 ```
-
-### **Breakdown**
+**Breakdown**
 - `exa`:  exa command
 - `-l`:  Long format
 - `-a`:  Show hidden files.
