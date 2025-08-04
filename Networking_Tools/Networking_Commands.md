@@ -57,7 +57,7 @@ ping [OPTIONS] DESTINATION
 ping google.com
 ```
 
-## **Breakdown**
+**Breakdown**
 - `ping`:  Check connectivity command.
 - `google.com`:  Target location.
   
@@ -67,7 +67,7 @@ ping google.com
 ping -c 5 google.com
 ```
 
-## **Breakdown**
+**Breakdown**
 - `ping`:  Check connectivity command.
 - `-c 5`:  Stop after 5 packets.
 - `google.com`:  Target location.
@@ -78,7 +78,7 @@ ping -c 5 google.com
 ping -i 2 google.com
 ```
 
-## **Breakdown**
+**Breakdown**
 - `ping`:  Check connectivity command.
 - `-i 2`:  Interval of 2 sec in between packets.
 - `google.com`:  target location.
@@ -89,7 +89,7 @@ ping -i 2 google.com
 ping -t 64 google.com
 ```
 
-## **Breakdown**
+**Breakdown**
 - `ping`:  Check connectivity command.
 - `-t 2`:  Time to live value of 2.
 - `google.com`:  target location.
@@ -120,53 +120,165 @@ ping -t 64 google.com
 
 ### **Examples**
 
-ssh -i ~/.ssh/id_rsa jake@192.168.1.50`
-Login with a specific key.
+**Login with a specific key.**
 
+```bash
+ssh -i ~/.ssh/id_rsa jake@192.168.1.50`
+```
+
+**Breakdown**
+- `ssh`:  Secure shell command.
+- `-i ~/.ssh/id_rsa`:  Specific file with SSH key.
+- `sue@192.168.1.50`: Hostname with IPv4 address.
+
+  
 ## Command: scp
-**Description** Securely copy files between systems
+**Description** Securely copies files between systems.
 
 ## **Syntax**
 - scp [OPTIONS] SOURCE [USER@]HOST:DEST
 
 ### **Options**
--P	Specify port.
--r	Copy directories recursively.
+- `-P <port>`:  Specify port.
+- `-P`:  Preserves file attributes.
+- `-r`:  Copy directories recursively.
+- `-C`:  Enables compression during transfer.
+- `-v`:  Verbose mode.
+- `-q`:  Quiet mode.
+- `-l <limit>`:  Limits bandwidth.
+- `-1 <identify>`:  Specifies an SSH private key file for authentication.
+- `-0 <option>`:  Passes SSH options directly.
+- `-S<program>`:  Use a different SSH program.
+- `-4`:  Forces IPv4.
+- `-6`:  Forces IPv6.
+- `-B`:  Batch mode.
+- `-T`:  Disable strict filename escaping.
 
 ### **Examples**
-scp file.txt jake@192.168.1.50:/home/jake/
-Copy file to remote host.
 
-## **wget**
-- Download files from the web
+**Copy file to remote host.**
+
+```bash
+scp file.txt sue@192.168.1.50:/home/sue/
+```
+
+**Breakdown**
+- `scp`:  Secure coping command.
+- `file.txt`:  File to copy.
+- `sue@192.168.1.50:/home/sue/`:  hostname with IPv4 address and target location.
+  
+
+## **Command: wget**
+**Description** Download files from the web.
 
 ## **Syntax**
 - wget [OPTIONS] URL
 
 ### **Options**
--O FILE	Save as specified filename.
--c	Resume incomplete download.
---limit-rate	Limit download speed.
+- `-O <FILE>`:  Save as specified filename.
+- `-c`:  Resume incomplete download.
+- `-P <dir>`:  Save files to a specific directory.
+- `-q`:  Quiet mode.
+- `-nv`:  Less verbose.
+- `-v`:  Verbose mode.
+- `-N`:  Only download if newer than local copy.
+- `--user=<user>`:  Set HTTP/FTP username.
+- `--password=<pass>`:  Set HTTP/FTP password.
+- `--header="<header>"`:  Add custom header.
+- `--no-check-certificate`:  Ignore SSL certificate errors.
+- `-r`:  Recursive download.
+- `-l`:  <depth>`:  Set recursion depth.
+- `-np`:  No parent directories.
+- `-nd`:  No directory structure.
+- `-A <list>`:  Accept only certain file types.
+- `-R <list>`:  Reject certain file types.
+- `--limit-rate=<rate>`:  Limit download speed.
+- `-W <seconds>`:  Wait between downloads.
+- `--random-wait`:  Random delay between downloads.
+- `--tries=<n>`:  Retry download N times.
+- `--timeout=<seconds>`:  Set timeout.
+- `--retry-connrefused`:  Retry if connection is refused.
+- `-b`:  Run in background.
+- `-S`:  Show server response headers.
+- `-d`:  Debug output.
+- `-e robots=off`:  Ignore robots.txt.
+- `--mirror`:  Mirro an entire website.
 
 ### **Example**
-wget -O ubuntu.iso http://example.com/ubuntu.iso
 
-## **curl**
-- Transfer data from/to server
+**Download a file and rename it**
+
+```bash
+wget -O ubuntu.iso http://example.com/ubuntu.iso
+```
+
+**Breakdown**
+- `wget`:  Download command.
+- `-O ubuntu.iso`:  Directs to save as a specific filename.
+- `http://example.com/ubuntu.iso`:  Target web location.
+  
+
+## **Command: curl**
+**Description** Transfer data from/to server
 
 ## **Syntax**
 - curl [OPTIONS] URL
 
 ### **Options**
--O	Save file with original name.
--L	Follow redirects.
--u	Use username:password authentication.
--X	Specify HTTP request method.
--d	Send data in POST request.
-
+- `-O`:  Save file with original name.
+- `-L`:  Follow redirects.
+- `-u`: Use username:password authentication.
+- `-C -`:  Resume a download.
+- `-s`:  Silent (no progress or errors.)
+- `-S`:  Show errors even when `-s` is used.
+- `-v`:  Verbose mode.
+- `-k`:  Ignore SSL certificate validation.
+- `-u  user:pass`:  HTTP Basic authentication.
+- `-H "<header>"`:  Add a custom header.
+- `-b <cookie>`:  Send cookie.
+- `-c <cookie-file>`:  Save cookie to file.
+- `--compressed`:  Request compressed response.
+- `-X <method>`:  Specify HTTP request method.
+- `-d @file.json`:  Send JSON from file.
+- `--data-urlencode "<data>"`:  URL-encode data before sending.
+- `-F "field=@file"`:  File upload.
+- `--limit-rate <speed>`:  Limit download speed.
+- `-r <range>`:  Download byte range.
+- `--max-time <seconds>`:  Set a timeout.
+- `-D <file>`:  Save response headers to a file.
+- `-W "<format>"`:  Custom output formatting.
+- `-I`:  Fetch only headers.
+- `--resolve`:  Manually resolve domain to an IP.
+- `--interface <iface>`:  Use specific network interface.
+- `--socks5 <host:port>`:  Route through SOCKS5 proxy.
+- `--retry <n>`:  Retry failed requests.
+- `--retry-all-errors`:  Retry on all errors.
+  
 ### **Examples**
+
+**Save file with original name:**
+
+```bash
 curl -O http://example.com/file.txt
+```
+
+**Breakdown**
+- `curl`:  Transfer file command.
+- `-O`:  Directs to save file with original name.
+- `http://example.com/file.txt`:  Target file.
+
+**Authenticating with username and password:**
+
+```bash
 curl -u user:pass https://api.example.com/data
+```
+
+**Breakdown**
+- `curl`:  Transfile file command.
+- `-u`:  Directs to authenticate with username and password.
+- `user:pass`:  username and password to authenticate.
+- `https://api.example.com/data`:  Target location.
+
 
 ## **ifconfig**
 - Displays or configures network interfaces. (Legacy tool—ip replaces it in modern systems)
