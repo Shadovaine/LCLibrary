@@ -1,4 +1,4 @@
-'# **File and Directory Management**
+# **File and Directory Management**
 
 ## Commands for manipulating files and directories
 
@@ -36,11 +36,27 @@
 - `-h`:  Human-reachable file sizes
 - `-R`:  Recursively list subdirectories
 - `-S`:  Sort by file sizes
+- `-A`:  Show all files except `.` and `..`.
+- `-d`:  List directories themselves.
+- `-F`:  Append `/` to directories, `*` to executables, `@` to symlinks.
+- `-t`:  Sort by modification time.
+- `-r`:  Reverse the sort order.
+- `-1`:  Force one entry per line.
+- `-i`:  Show the inode number of each file.
+- `-p`:  Append `/` to directories similar to `-F`.
+- `-g`:  Long listing format without showing owner.
+- `-G`:  Suppress group information in long listing format.
+- `-q`:  Show non-printable characters as `?`.
+- `-X`:  Sort by file extension.
+- `--color`:  Colorize the output.
+- `--group-directories-first`:  List directories before files.
 
 ### **Example**
+
 ```bash
 ls -alh /etc
 ```
+
 ### **Breakdown**
 - `ls`:   Command to list contents 
 - `-a`:   Tells ls to show all files including the hidden files
@@ -66,9 +82,11 @@ ls -alh /etc
 - `cd ~username`:  Change to another user's home directory
 
 ### **Example**
+
 ```bash
 cd /var/log
 ```
+
 ### **Breakdown**
 - `cd`:  Change directory command
 - `/var/log`:  Target Directory to change to `/var/log`
@@ -542,8 +560,12 @@ find -type f | fzf
 **Description** File manager
 
 ## **Syntax**
-- `ranger`
+- ranger`[options] [path]
 
+### **Options**
+- `-d`:  Debug mode.
+- `-c`:  Start ranger without loading any configuration files.
+- 
 ### **Example**
 
 ```bash
@@ -553,6 +575,7 @@ ranger /etc
 ### **Breakdown**
 - `ranger`:  Command
 - `/etc`:  Target location
+
 
 ## Command: zoxide
 **Description:** A smarter `cd` command
