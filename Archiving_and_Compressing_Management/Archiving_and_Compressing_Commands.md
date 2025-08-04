@@ -54,7 +54,8 @@ tar [OPTIONS] [ARCHIVE_FILE] [FILES/DIRS...]
 - **Very Fast**
 
 ### **Examples**
-- **Create an archive:**
+
+### **Create an archive:**
 
 ```bash
 tar -cvf backup.tar /home/sue
@@ -68,7 +69,7 @@ tar -cvf backup.tar /home/sue
 - `backup.tar`:  Name of archive file
 - `/home/sue`:  Source file/directory to be archived.
 
-- **Create a gzip-compressed archive:**
+### **Create a gzip-compressed archive:**
 
 ```bash
 tar -czvf backup.tar.gz /home/sue
@@ -83,7 +84,7 @@ tar -czvf backup.tar.gz /home/sue
 - `backup.tar.gz`:  Name of archive file.
 - `/home/sue`:  Source file/directory to be archived.
 
-- **List contents of an archive:**
+### **List contents of an archive:**
 
 ```bash
 tar -tvf backup.tar.gz
@@ -96,7 +97,8 @@ tar -tvf backup.tar.gz
 - `-f`:  Directs source FILE to use archive FILE.
 - `backup.tar.gz`:  Name of archived file to list.
 
-- **Extract an archive:**
+### **Extract an archive:**
+
 ```bash
 tar -xvf backup.tar
 ```
@@ -108,7 +110,7 @@ tar -xvf backup.tar
 - `-f`:  Directs source FILE to use archive FILE.
 - `backup.tar`:  Archived file to extract.
 
-- **Extract to a specific directory:**
+### **Extract to a specific directory:**
 
 ```bash
 tar -xvf backup.tar -C /tmp
@@ -144,7 +146,8 @@ tar -xvf backup.tar -C /tmp
 - `-#`:  Set compression level ( 1 is the fastest/least compressed and 9 is slowest/most compressed).
 
 ### **Examples**
-- **Compress a file:**
+
+### **Compress a file:**
   
 ```bash
 gzip file.txt
@@ -154,7 +157,7 @@ gzip file.txt
 - `gzip`:  File Compression Command.
 - `file.txt`:  file to be compressed.
 
-- **Compress but keep original:**
+### **Compress but keep original:**
   
 ```bash
 gzip -k file.txt
@@ -165,7 +168,7 @@ gzip -k file.txt
 - `-k`:  Keep original file.
 - `file.txt`:  file to be compressed.
   
-- **Decompress with gzip:**
+### **Decompress with gzip:**
   
 ```bash
 gzip -d file.txt.gz
@@ -195,7 +198,8 @@ gzip -d file.txt.gz
 - `-d`:  Decompress (for gzip, but default for gunzip).
 
 ### **Examples**
--**Decompress a file:**
+
+### **Decompress a file:**
 
 ```bash
 gunzip file.txt.gz
@@ -205,7 +209,7 @@ gunzip file.txt.gz
 - `gunzip`:  Decompression Command.
 - `file.txt.gz`:  Archived File to Decompress.
   
-- **Keep compressed file after decompressing:**
+### **Keep compressed file after decompressing:**
 
 ```bash
 gunzip -k file.txt.gz
@@ -239,7 +243,8 @@ gunzip -k file.txt.gz
 - `-m`:  Move files into the archive
 
 ### **Example**
-- **Create a zip archive:**
+
+### **Create a zip archive:**
 
 ```bash
 zip archive.zip file1.txt file2.txt
@@ -250,7 +255,7 @@ zip archive.zip file1.txt file2.txt
 - `archive.zip`:  Target archive file.
 - `file1.txt file2.txt`:  Files to be compressed.
   
-- **Zip a directory:**
+### **Zip a directory:**
 
 ```bash
 zip -r archive.zip /home/sue
@@ -262,7 +267,7 @@ zip -r archive.zip /home/sue
 - `archive.zip`:  Target archive file.
 - `/home/sue`:  Directory to compress.
   
-- **Create password-protected zip:**
+### **Create password-protected zip:**
 
 ```bash  
 zip -e archive.zip secret.txt
@@ -296,7 +301,8 @@ zip -e archive.zip secret.txt
 - `-o`:  Overwrite files automatically without prompting.
 
 ### **Example**
-- **Extract a zip archive:**
+
+### **Extract a zip archive:**
 
 ```bash  
 unzip archive.zip
@@ -306,7 +312,7 @@ unzip archive.zip
 - `unzip`:  Extraction Command.
 - `archive.zip`:  target file to be extracted.
     
- - **Extract to a directory:**
+### **Extract to a directory:**
 
 ```bash
 unzip archive.zip -d /tmp
@@ -318,11 +324,12 @@ unzip archive.zip -d /tmp
 - `-d`:  Directs extractiong to a specific directory.
 - `/tmp`:  Specific location for extaction.
   
-- **List archive contents:**
+### **List archive contents:**
 
 ```bash  
 unzip -l archive.zip
 ```
+
 ### **Breakdown**
 - `unzip`:  Extraction command.
 - `-l`:  List contents of file.
@@ -347,10 +354,10 @@ unzip -l archive.zip
 - `-repretitive-best`:  Optimize for files with many repeated sequences.
 - `-z`:  Force compression.
 - `-s`:  Reduce memory usage.
-  
    
 ### **Example**
-- **Compress a file:**
+
+### **Compress a file:**
 
 ```bash
 bzip2 file.txt
@@ -360,7 +367,7 @@ bzip2 file.txt
 - `bzip2`:  Compression Command.
 - `file.txt`:  Target file.
   
-- **Decompress:**
+### **Decompress:**
 
 ```bash  
 bzip2 -d file.txt.bz2
@@ -371,7 +378,7 @@ bzip2 -d file.txt.bz2
 - `-d`:  Directs to decompress file.
 - `file.txt.bz2`:  target file.
   
-- **Keep original file:**
+### **Keep original file:**
 
 ```bash  
 bzip2 -k file.txt
@@ -402,7 +409,8 @@ bzip2 -k file.txt
 - `--single-stream`:  Decompress only the first stream in a multi-stream `.xz` file.
 
 ### **Examples**
-- **Compress a file:**
+
+### **Compress a file:**
 
 ```bash  
 xz file.txt
@@ -412,7 +420,7 @@ xz file.txt
 - `xz`:  Compression Command.
 - `file.txt`:  target file.
   
-- **Decompress:**
+### **Decompress:**
 
 ```bash  
 xz -d file.txt.xz
@@ -422,7 +430,8 @@ xz -d file.txt.xz
 - `xz`:  Compression Command.
 - `-d`:  Directs to decompress file.
 - `file.txt.xz`:  target file.
-- **Keep original file:**
+
+### **Keep original file:**
 
 ```bash  
 xz -k file.txt
@@ -430,5 +439,7 @@ xz -k file.txt
 
 ### **Breakdown**
 - `xz`:  Compression Command.
+- `-k`:  Directs to keep original file.
+- `file.txt`:  Target File. 
 - `-k`:  Directs to keep original file.
 - `file.txt`:  target file.
