@@ -69,7 +69,7 @@ ls -alh /etc
 ```bash
 cd /var/log
 ```
-**Breakdown**
+### **Breakdown**
 - `cd`:  Change directory command
 - `/var/log`:  Target Directory to change to `/var/log`
 
@@ -85,13 +85,14 @@ cd /var/log
 - `-L`:  Show the logical path.
 - `--help`:  Display help for the command.
 - `--version`:  Shows version information.
-- 
+  
 ### **Example**
 
 ```bash
 pwd -p
 ```
-**Breakdown**
+
+### **Breakdown**
 - `pwd`:   print working directory command
 - `-p`:    Will print the physical path
 
@@ -114,6 +115,7 @@ pwd -p
 ```bash
 mkdir -pv /tmp/dragon/nest
 ```
+
 **Breakdown**
 - `mkdir`:  Command to tell system to make a new directory
 - `-p`:  Will create parent directories
@@ -139,6 +141,7 @@ mkdir -pv /tmp/dragon/nest
 ```bash
 rmdir empty_folder
 ```
+
  **Breakdown**
 - `rmdir`:  Command to remove directory
 - `empty_folder`:  Name of directory to be removed
@@ -162,7 +165,8 @@ rmdir empty_folder
 ```bash
 cp -ruv /source/dir /backup/dir
 ```
-**Breakdown**
+
+### **Breakdown**
 - `-cp`:   Copy Command
 - `-r`:    Causes recursive copying
 - `-u`:    Says to only copy if source is newer
@@ -193,7 +197,8 @@ cp -ruv /source/dir /backup/dir
 ```bash
 mv -iv file.txt /tmp/
 ```
-**Breakdown**
+
+### **Breakdown**
 - `mv`:  Move Command
 - `-i`:  Verify with user before overwrite
 - `-v`:  Verbose output
@@ -223,7 +228,8 @@ mv -iv file.txt /tmp/
 ```bash
 rm -rf /tmp/testdir
 ```
-**Breakdown**
+
+### **Breakdown**
 - `rm`:  Remove command
 - `-r`:  Recursive removal
 - `-f`:  Forced Deletion
@@ -249,7 +255,8 @@ rm -rf /tmp/testdir
 ```bash
 touch dragon.txt
 ```
-**Breakdown**
+
+### **Breakdown**
 - `touch`:  Create a file Command
 - `dragon.txt`:  Name of new file
 
@@ -280,7 +287,8 @@ touch dragon.txt
 ```bash
 echo -e “Watcher\nmode”
 ```
-**Breakdown**
+
+### **Breakdown**
 - `echo`:  Print Command
 - `-e`:  Don't print newline at end
 - `"Watcher/nmode"`:  String to be printed
@@ -307,7 +315,8 @@ echo -e “Watcher\nmode”
 ```bash
 find /var/log -name "*.log" -exec rm {} \;
 ```
-**Breakdown**
+
+### **Breakdown**
 - `-find`:  Search Command
 - `/var/log`:  Path to file
 - `-name`:  Directs to match a filename
@@ -326,13 +335,31 @@ find /var/log -name "*.log" -exec rm {} \;
 
 ### **OPTIONS**
 - `-a`:  Show all hidden files
-
+- `-d`:  List directories
+- `-L <num>`:  Limit display to a specific number of directory levels.
+- `-f`:  Print full path prefix for each file.
+- `-F`:  Append `/` to directories, `*` to executables, @ to symlinks.
+- `-p`:  Print file permissions.
+- `-u`:  Print the username of the file owner.
+- `-g`:  Print the group name of the file owner.
+- `-s`:  Print file sizes in bytes.
+- `-h`:  Print file sizes in human readalbe format.
+- `-P <pattern>`:  Display only files matching a wildcard pattern.
+- `-I <pattern>`:  Exclude files or directories matching a wildcard pattern.
+- `-C`:  Enable colorized output.
+- `-n`:  Disable colorized output.
+- `-q`:  Print non-printable characters as `?`.
+- `--du`:  Print directory sizes.
+- `--prune`:  Prune empty directories from the output.
+- `--dirsfirst`:  List directories before files.
+  
 ### **Example**
 
 ```bash
 tree -a /home
 ```
-**Breakdown**
+
+### **Breakdown**
 - `tree`:  Command to create tree form
 - `-a`:  Show all hidden files
 - `/home`:  Target directory
@@ -364,7 +391,8 @@ tree -a /home
 ```bash
 locate -i -n 10 readme
 ```
-**Breakdown**
+
+### **Breakdown**
 - `locate`:  `locate` command
 - `-i`:  Make the search case-insensitive
 - `-n 10`:  Sets the amount of lines to print out to 10 lines.
@@ -421,7 +449,8 @@ locate -i -n 10 readme
 ```bash
 rg "sudo" /etc
 ```
-**Breakdown**
+
+### **Breakdown**
 - `rg`:  `rg` command
 - `"sudo"`:  Selected pattern.
 - `/etc`:  Targeted location.
@@ -462,7 +491,8 @@ rg "sudo" /etc
 ```bash
 fd passwd /etc
 ```
-**Breakdown**
+
+### **Breakdown**
 - `fd`:  'fd' command
 - `passwd`:  target pattern
 - `/etc`:  target location to find pattern.
@@ -500,7 +530,8 @@ fd passwd /etc
 ```bash
 find -type f | fzf
 ```
-**Breakdown**
+
+### **Breakdown**
 - `find`:  `find` command
 - `-type f`:  directs `find` command to loook in files
 - `|`:  `pipe` command thats say it takes output from `find` and will send it through `fzf`
@@ -518,7 +549,8 @@ find -type f | fzf
 ```bash
 ranger /etc
 ```
-**Breakdown**
+
+### **Breakdown**
 - `ranger`:  Command
 - `/etc`:  Target location
 
@@ -533,7 +565,8 @@ ranger /etc
 ```bash
 z /etc
 ```
-**Breakdown**
+
+### **Breakdown**
 - `z`:  `zoxide` command
 - `/etc`: target location.
 
@@ -564,7 +597,8 @@ z /etc
 ```bash
 exa -la -T /etc
 ```
-**Breakdown**
+
+### **Breakdown**
 - `exa`:  exa command
 - `-l`:  Long format
 - `-a`:  Show hidden files.
