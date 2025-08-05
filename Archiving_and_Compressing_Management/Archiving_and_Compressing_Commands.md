@@ -11,7 +11,6 @@
 - `bzip2`
 - `xz`
 
-
 ## Command: tar 
 **Description:** Archives multiple files into on file.
 
@@ -19,44 +18,42 @@
 tar [OPTIONS] [ARCHIVE_FILE] [FILES/DIRS...]
 
 ### **Options**
-- `-c`:	 Create a new archive.
-- `-x`:	 Extract files from an archive.
-- `-t`:	 List archive contents.
-- `-v`:	 Verbose (show progress).
-- `-f`:  FILE	Use archive file FILE.
-- `-z`:	 Compress archive with gzip.
-- `-j`:	 Compress archive with bzip2.
-- `-J`:	 Compress archive with xz.
-- `-p`:  Preserve file permissions.
-- `--same-owner`:  Preserve original file ownership.
-- `-C`:  Change to a specific directory before extracting.
-- `-A`:  Append tar files to an existing archive.
-- `-r`:  Append files to the end of an archive.
-- `-u`:  Append only files that area newer than what is in the archive.
-- `--remove-files`:  Remove files after adding them to the archive.
-- `--exclude=PATTERN`:  Exclude files matching a pattern.
-- `--wildcards`:  Enable wildcard matching for patterns.
-- `--overwrite`:  Overwrite existing file during extraction.
-- `--strip-components=N`:  Remove the firest N directory components when extracting
-- `-k`:  Do not overwrite existing files when extracting.
-- `-lzma`:  LZMA compression.
+| Option | Description | Example |
+|--------|-------------|---------|
+| `-c` |	Create a new archive. | `tar -cf backup.tar /home/original` |
+| `-x` | Extract files from an archive. | `tar -xf backup.tar` |
+| `-t` | List archive contents. | `tar -tf backup.tar` |
+| `-v` | Verbose mode. | `tar -vf backup.tar` |
+| `-f` | FILE Use archive file. | `tar -f backup.tar` |
+| `-z` | Compress archive with gzip. | `tar -xzf backup.tar.gz |
+| `-j` | Compress archive with bzip2. | `tar -xjf backup.tar.bz2` |
+| `-J` | Compress archive with xz. | `tar -xJf backup.tar.xz` |
+| `-p` | Preserve file permissions. | `tar -cxpf backup.tar |
+| `--same-owner` | Preserve original file ownership. | `tar -xzf backup.tar.gz --same-owner -C / |
+| `-C` | Change to a specific directory before extracting. | `tar -xzf backup.tar.gz --same-owner -C / |
+| `-A` | Append tar files to an existing archive. | `tar -Af backup.tar original.tar` |
+| `-r` | Append files to the end of an archive. | `tar -rf backup.tar original.tar` |
+| `-u` | Append only files that area newer than what is in the archive. | `tar -cuf backup.tar original.tar |
+| `--remove-files` | Remove files after adding them to the archive. | `tar --remove-files -cf backup.tar original1.txt original2.txt` |
+| `--exclude=PATTERN` | Exclude files matching a pattern. | `tar -czf backup.tar.gz --exclude=secret.txt original/ |
+| `--wildcards` | Enable wildcard matching for patterns. | `tar -xzf backup.tar.gz --wildcards `*.log` |
+| `--overwrite` | Overwrite existing file during extraction. | `tar -xvf backup.tar --overwrite` |
+| `--strip-components=N` | Remove the firest N directory components when extracting. | 
+| `-k` | Do not overwrite existing files when extracting. | `tar -xf backup.tar --strip-component-1` |
+| `-lzma` | LZMA compression. | `tar --lzma -xvf backup.tar.lzma` |
   
 ### **Extensions**
-- `.tar`:  Raw tar achive with no compression. 
-- **Fastest**
-- `.tar.gz` or `.tgz`: A tar archive compressed with `gzip`. 
-- **Fast**
-- `.tar.bz2`: Compressed with `bzip2`. 
-- **Medium**
-- `.tar.xz`: Compressed with `xz`. 
-- **Slow**
-- `.tar.zst`:  Compressed with `zstd`. 
-- **Very Fast**
+| Extension | Description | Speed |
+|-----------|-------------|-------|
+| `.tar` | Raw tar achive with no compression. | Fastest | 
+| `.tar.gz`or`.tgz` | A tar archive compressed with `gzip`. | Fast | 
+| `.tar.bz2` | Compressed with `bzip2`. | Medium | 
+| `.tar.xz` | Compressed with `xz`. | Slow | 
+| `.tar.zst` | Compressed with `zstd`. | Very Fast | 
 
 ### **Examples**
 
 ### **Create an archive:**
-
 ```bash
 tar -cvf backup.tar /home/sue
 ```
@@ -70,7 +67,6 @@ tar -cvf backup.tar /home/sue
 - `/home/sue`:  Source file/directory to be archived.
 
 ### **Create a gzip-compressed archive:**
-
 ```bash
 tar -czvf backup.tar.gz /home/sue
 ```
@@ -85,7 +81,6 @@ tar -czvf backup.tar.gz /home/sue
 - `/home/sue`:  Source file/directory to be archived.
 
 ### **List contents of an archive:**
-
 ```bash
 tar -tvf backup.tar.gz
 ```
@@ -98,7 +93,6 @@ tar -tvf backup.tar.gz
 - `backup.tar.gz`:  Name of archived file to list.
 
 ### **Extract an archive:**
-
 ```bash
 tar -xvf backup.tar
 ```
@@ -111,7 +105,6 @@ tar -xvf backup.tar
 - `backup.tar`:  Archived file to extract.
 
 ### **Extract to a specific directory:**
-
 ```bash
 tar -xvf backup.tar -C /tmp
 ```
