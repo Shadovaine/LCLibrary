@@ -166,41 +166,66 @@ rmdir empty_folder
 
 
 ## Command: cp 
-**Description:** Makes a copy of a file or directory to destination location
-                It does leave an original copy in source location
 
-## **Syntax**
-- `cp [options] source destination`
+### Description
+Makes a copy of a file or directory to destination location. It does leave an original copy in source location
 
-### **Options**
-- `-r`:  Copy directories recursively
-- `-u`:  Copy only if source is newer
-- `-v`:  Verbose outpost (show what is copied)
-- `-i`:  Prompt before overwriting
-- `-a`:  Archive mode
-- `-f`:  Force overwrite
-- `-n`:  No overwrite skip files thar already exist at destination.
-- `-p`:  Preserve file attributes
-- `-d`:  Preserve symlinks
-- `-L`:  Dereference symlinks
-- `-P`:  Never dereference symlinks
-- `--parents`:  Preserve full path of source when copying to destination.
-- `--remove-destination`:  Remove destination before copying.
-- `--backup`:  Create a backup of each existing destination file before copying. 
-
-### **Example**
-
+### Syntax
 ```bash
-cp -ruv /source/dir /backup/dir
+cp [options] source destination
 ```
 
-### **Breakdown**
+### Options
+| Option | Description | Example |
+|--------|-------------|---------|
+| `-r`   | Copy directories recursively. | `cp -r folder/ backup/` |
+| `-u`   | Copy only if source is newer  | `cp -u folder/ backup/` |
+| `-v`   | Verbose mode | `cp -v folder/ backup/` |
+| `-i`   | Prompt before overwriting | `cp -i folder/ backup/` |
+| `-a`   | Archive mode | `cp -a folder/ backup/` |
+| `-f`   | Force overwrite | `cp -f folder/ backup/` |
+| `-n`   | No overwrite skip files thar already exist at destination. | `cp -n folder/ backup/` |
+| `-p`   | Preserve file attributes. | `cp -p folder/ backup/` |
+| `-d`   |  Preserve symlinks. | `cp -d folder/ backup/` |
+| `-L`   |  Dereference symlinks | `cp -L folder/ backup/` |
+| `-P`   |  Never dereference symlinks. | `cp -P folder/ backup/` |
+| `--parents` | Preserve full path of source when copying to destination. | `cp --parents folder/ backup/` |
+| `--remove-destination` | Remove destination before copying. | `cp --remove-destination folder/ backup/` |
+| `--backup` | Create a backup of each existing destination file before copying. | `cp --backup folder/ backup/` | 
+
+### Example
+**Copy a file into another directory:**
+```bash
+cp file.txt backup/
+```
+
+### Breakdown
+- `cp`:  Copy command.
+- `file.txt': Source file to copy.
+- `backup/`:  Destination location for new copy.
+  
+**Copy a directory recursively with verbose output:**
+```bash
+cp -rv project /backup/
+```
+
+### Breakdown
 - `-cp`:   Copy Command
 - `-r`:    Causes recursive copying
-- `-u`:    Says to only copy if source is newer
 - `-v`:    Verbose posting
-- `/source/dir`:  Source location
-- `/backup/dir`:  Destination Location
+- `project/`:  Source location
+- `backup/`:  Destination Location
+
+**Prompt before overwriting a file:**
+```bash
+cp -i file.txt backup/
+```
+
+### Breakdown
+- `cp`:  Copy command.
+- `-i`:  Displays a prompt for user before overwriting.
+- `file.txt`:  Source file to be copied.
+- `backup/`:  Destination location for copy.
 
 
 ## Command: mv 
