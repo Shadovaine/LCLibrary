@@ -24,6 +24,7 @@
 - `exa`
 
 
+
 ## Command: ls 
 ## Descriptions: Lists files in a directory
 
@@ -85,6 +86,7 @@ ls -alhS /etc
 | `/etc` | Target directory to list. |
 
 
+
 ## Command: cd 
 ## Description: Change Directory
  
@@ -117,6 +119,7 @@ cd ~/Desktop/profile
 | `~` | Home directory. |
 | `/Desktop/profile` | Target Directory to change to `/var/log`. |
 
+
    
 ## Command: pwd 
 ## Description: Print working directory
@@ -125,10 +128,12 @@ cd ~/Desktop/profile
 - `pwd [options]`
 
 ### Options
-- `-p`:  Shows physical path ( resolves symlink)
-- `-L`:  Show the logical path.
-- `--help`:  Display help for the command.
-- `--version`:  Shows version information.
+| Options | Descriptions | Examples|
+|---------|--------------|---------|
+| `p` | Shows physical path ( resolves symlink). |
+| `-L` | Show the logical path. |
+| `--help` | Display help for the command. |
+| `--version` | Shows version information. |
   
 ### Example
 
@@ -144,6 +149,7 @@ pwd -p
 | `-p` | Will print the physical path. |
 
 
+
 ## Command: mkdir 
 ## Description: Makes a new directory
 
@@ -152,6 +158,7 @@ pwd -p
 
 ### Options
 | Options | Descriptions | Examples |
+|---------|--------------|----------|
 | `-p` | Create parent directories as needed. |
 | `-v` | Shows created directories (verbose). |
 | `-m` | Set permissions when creating the directory. |
@@ -172,6 +179,7 @@ mkdir -pv /tmp/dragonnest
 | `-p` | Will create parent directories. |
 | `-v` | Shows all created directories. |
 | `/tmp/dragonnest` | Target directory. |
+
 
 
 ## Command: rmdir
@@ -201,6 +209,7 @@ rmdir empty_folder
 |-----------|-------------|
 | `rmdir` | Command to remove directory. |
 | `empty_folder` | Name of directory to be removed. |
+
 
 
 ## Command: cp 
@@ -271,6 +280,7 @@ cp -i file.txt backup/
 | `backup/` | Destination location. |
 
 
+
 ## Command: mv 
 ## Description: Moves a file or directory to a destination location. It does not leave an original copy in source location.
 
@@ -305,6 +315,7 @@ mv -iv file.txt /tmp/
 | `/tmp/` | Destination location. |
   
 
+
 ## Command: rm 
 ## Description: Removes files or directories. 
 
@@ -332,40 +343,46 @@ rm -rf /tmp/testdir
 ```
 
 ### Breakdown
-| Breakdown | Description |
-- `rm`:  Remove command
-- `-r`:  Recursive removal
-- `-f`:  Forced Deletion
-- `/tmp/testdir`:  Target file to be deleted
+| Breakdown | Description | 
+|-----------|-------------|
+| `rm` | Remove command. |
+| `-r` | Recursive removal. |
+| `-f` | Forced Deletion. |
+| `/tmp/testdir` | Target file to be deleted. |
  
 
-## Command: touch
-**Description:** Creates a file
 
-## **Syntax**
+## Command: touch
+## Description: Creates a file
+
+## Syntax
 - `touch [options] file_name`
 
-### **Options**
-- `-c` or `--no-create`:  Don’t create file if it doesn’t exist
-- `-a`:  Change only the access time of the file.
-- `-m`:  Changes only the modification time of the file.
-- `-d <time>`:  Set a specific date/time instead of using the current time
-- `-t <stamp>`:  Set a specific timestamp
-- `-r <file>`:  Use the timestamp from another file instead of the current time.
+### Options
+| Options | Descriptions | Examples |
+|---------|--------------|----------|
+| `-c` or `--no-create` | Don’t create file if it doesn’t exist. |
+| `-a` | Change only the access time of the file. |
+| `-m` | Changes only the modification time of the file. |
+| `-d <time>` | Set a specific date/time instead of using the current time. |
+| `-t <stamp>` | Set a specific timestamp.
+| `-r <file>` | Use the timestamp from another file instead of the current time. |
 
-### **Example**
+### Example
 
+### Create a file.
 ```bash
 touch dragon.txt
 ```
 
-### **Breakdown**
-- `touch`:  Create a file Command
-- `dragon.txt`:  Name of new file
+### Breakdown
+| Breakdown | Description |
+| `-touch` | Create a file Command. |
+| `dragon.txt` | Name of new file. |
 
 
-## **Command: echo
-**Description:** Print what is in the string" "
+## Command: echo
+## Description: Print what is in the string" ".
 
 ## **Syntax**
 -`echo [options] [string]`
