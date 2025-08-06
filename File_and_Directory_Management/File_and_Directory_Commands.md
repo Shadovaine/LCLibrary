@@ -566,27 +566,27 @@ locate -i -n 10 readme
 | `-t <type>` | Searches only files of a certain type. | `rg -t "*.sh"` |
 | `-u` | Search hidden and ignored files. | `rg -u /etc` |
 | `-iglob <pattern>` | Case-insensitive glob matching. | `-ig "TOO" |
-| `--hidden` | Include hidden files or directories. | `rg
-| `-H` | Always show the filename in results. |
-| `-L` | Print only filenames without matches. |
-| `-o` | Show only the matching part of each line. |
-| `-v` | Invert match. |
-| `-c` |  Show the count of matches per file. |
-| `--stats` | Show search statistics. |
-| `-r <replacements>` | Use regex replacements. |
-| `-m <NUM>` | Limit the number of matches. |
-| `--max-columns <NUM>` | Truncate long lines to the column width in the output. |
-| `--max-depth <NUM>` | Limit search depth. |
-| `--follow` | Follow symlink. |
-| `--no-messages` | Suppress error messages. |
-| `--color <when>` | Control color. always, never, auto. |
-| `--heading` | Shows file names as headings. |
-| `--no-heading` | Disables headings. |
-| `--json` | Output results in JSON format. |
-| `--pretty` | Pretty print results with colors and context. |
-| `-A <NUM>` |Show NUM lines after each match. |
-| `-B <NUM>` | Show NUM lines before each match. |
-| `-C <NUM>` | Show NUM lines of context. |
+| `--hidden` | Include hidden files or directories. | `rg --hidden "error"` |
+| `-H` | Always show the filename in results. | `rg -H "error"` |
+| `-L` | Print only filenames without matches. | `rg -L "error"` |
+| `-o` | Show only the matching part of each line. | `rg -o "error"` |
+| `-v` | Invert match. | `rg -v "error"` |
+| `-c` |  Show the count of matches per file. | `rg -c "error"` |
+| `--stats` | Show search statistics. | `rg --stats "error"` |
+| `-r <replacements>` | Use regex replacements. | `rg -r "error"` |
+| `-m <NUM>` | Limit the number of matches. | `rg -m 3 "error"` |
+| `--max-columns <NUM>` | Truncate long lines to the column width in the output. | `rg --max-columns 3 "error"` |
+| `--max-depth <NUM>` | Limit search depth. | `rg --max-depth 3 "error"` |
+| `--follow` | Follow symlink. | `rg --follow "error"` |
+| `--no-messages` | Suppress error messages. | `rg --no-messages "error"` |
+| `--color <when>` | Control color. always, never, auto. | `rg --color "always" "error"` |
+| `--heading` | Shows file names as headings. | `rg --heading "error"` |
+| `--no-heading` | Disables headings. | `rg --no-heading "error"` |
+| `--json` | Output results in JSON format. | `rg --json "error"` |
+| `--pretty` | Pretty print results with colors and context. | `rg --pretty "error"` |
+| `-A <NUM>` |Show NUM lines after each match. | `rg -A 2 "error"` |
+| `-B <NUM>` | Show NUM lines before each match. | `rg -B 2 "error"` |
+| `-C <NUM>` | Show NUM lines of context. | `rg -C 2 "error"` |
 
 ### Example
 
@@ -607,33 +607,33 @@ rg "sudo" /etc
 ## Description: `find` command alternative
 
 ## Syntax
-- `fd [pattern] [path]`
+- `fd [options] [pattern] [path]`
 
 ### Options
 | Options | Descriptions | Examples |
 |---------|--------------|----------|
-| `-e` | File extension filter (e.g., -e txt). |
-| `-H` | Include hidden files. 
-| `-t f|d` | Search for files or directories. |
-| `-I` | Include ignored files. |
-| `-u` | Search unrestricted files including hidden and ignored files. |
-| `-e <ext>` | Search only files with the spwcific extension. |
-| `-g <glob>` | Search using glob patterns not regex patterns. |
-| `-t <type>` | Filter by type. f(file, d(directory), 1(symlink), x(excutable), e(empty). |
-| `-E <pattern>` | Exclude file, directories matching the pattern. |
-| `-l` | long form format. |
-| `-0` | Separate results with a null character instead of new line. |
-| `-x <cmd>` | Execute a command on each search result. |
-| `-X <cmd>` | Similar to `-x`, but passes all results to command at once. |
-| `-j <num>` | Limit the numberof threads used for searching. |
-| `-d <depth>` | limit the maximum search depth. 
-| `-p` | Search only given path with no aearch in subdirectories. |
-| `-a` | Print absolute paths instead of relative ones. |
-| `-c <color>` | Control color output. auto, never, always. |
-| `-s` | Show symlink instead of resolving them. |
-| `-i` | Case-insensitive search. |
-| `-s` | Case-sensitive search. |
-| `-F` | Treat the pattern as a literal string. |
+| `-e` | File extension filter (e.g., -e txt). | `fd -e md` |
+| `-H` | Include hidden files. | `fd -H` |
+| `-t f|d` | Search for files or directories. | `fd -t f backup` |
+| `-I` | Include ignored files. | `fd -I` |
+| `-u` | Search unrestricted files including hidden and ignored files. | `fd -u` |
+| `-e <ext>` | Search only files with the spwcific extension. | `fd -e "*.log"` |
+| `-g <glob>` | Search using glob patterns not regex patterns. | `fd -g "*.sh"` |
+| `-t <type>` | Filter by type. f(file, d(directory), 1(symlink), x(excutable), e(empty). | `fd -t 1` |
+| `-E <pattern>` | Exclude file, directories matching the pattern. | `fd -E "*.log"` |
+| `-l` | long form format. | `fd -l` |
+| `-0` | Separate results with a null character instead of new line. | `fd -0` |
+| `-x <cmd>` | Execute a command on each search result. | `fd -x rm` |
+| `-X <cmd>` | Similar to `-x`, but passes all results to command at once. | `fd -X mv` |
+| `-j <num>` | Limit the numberof threads used for searching. | `fd -j 3` |
+| `-d <depth>` | limit the maximum search depth. | `fd -d 3` |
+| `-p` | Search only given path with no search in subdirectories. | `fd -p` |
+| `-a` | Print absolute paths instead of relative ones. | `fd -a` |
+| `-c <color>` | Control color output. auto, never, always. | `fd -c auto` |
+| `-s` | Show symlink instead of resolving them. | `fd -s` |
+| `-i` | Case-insensitive search. | `fd -i` |
+| `-s` | Case-sensitive search. | `fd -s` |
+| `-F` | Treat the pattern as a literal string. | `fd -F` |
 
 ### Example
 
@@ -660,29 +660,22 @@ fd passwd /etc
 ## Options
 | Options | Descriptions | Examples |
 |---------|---------------|----------|
-| `-q <query>` | Starts with a preloaded query. |
-| `-e` | Exact match mode. |
-| `--nth <range>` | Restricts search to specific fields in the UI. |
-| `--width-nth <range> | Display only specific fields in the UI. |
-| `--delimiter <str> | Define a custom field delimiter. |
-| `-m` | Multi-select mode. |
-| `-no-sort` | Preserve input order. |
-| `--no-mouse` | Disable mouse support. |
-| `--height <size> | Show the UI in the smaller window. |
-| `--layout <style> | Control layout. |
-| `--preview <command>` | Shows a preview window of the command. |
-| `--preview-window <opts> | Control preview window position and size. |
-| `ansi` | Enable ANSI color codes. |
-| `--no-clear` | Don't clear the screen when fzf exits. |
-| `--print-query` | Print the sesrch query on exit. |
-| `--print0` | Output selected items seperated by a null character. |
-|`--bind <key:action> | Create custom key bindings. |
-| `-toggle-sort` | Keybinding to toggle sort. |
-| `--expect <keys>` | Returned the key pressed before selection. |
+| `-q <query>` | Starts with a preloaded query. | `fzf -q "config"` |
+| `-e` | Exact match mode. | `fzf -e` |
+| `--nth <range>` | Restricts search to specific fields in the UI. | `fzf --nth 2` |
+| `--delimiter <str> | Define a custom field delimiter. | `fzf --delimiter ":"` |
+| `-m` | Multi-select mode. | `fzf -m` |
+| `-no-sort` | Preserve input order. | `fzf -no-sort` |
+| `--no-mouse` | Disable mouse support. | `fzf --no-mouse` |
+| `--height <size> | Show the UI in the smaller window. | `fzf --height 20` |
+| `--layout <style> | Control layout. | `fzf --layout=reverse` |
+| `--preview <command>` | Shows a preview window of the command. | `fzf --preview cat {}` |
+| `--preview-window <opts> | Control preview window position and size. | `fzf --preview head -50 {}` | 
+| `--ansi` | Enable ANSI color codes. | `fzf --ansi` |
 
 ### Example
 
-### Fins all files and send them through the fuzzy file finder.
+### Finds all files and send them through the fuzzy file finder.
 ```bash
 find -type f | fzf
 ```
@@ -705,17 +698,17 @@ find -type f | fzf
 
 ### Options
 | Options | Descriptions | Examples|
-| `-d` or `--debug` | Debug mode. |
-| `-c` or `--clean` | Start ranger without loading any configuration files. |
-| `-r` or `--confdir` | Specify an alternate configuration directory. |
-| `--copy-config` | Copy default config files to config directory for customization. |
-| `-f` or `--fail-unless-cd` | Exit if the initial directory chosen is invalid. |
-| `-p` or `--profile` | Enable profiling. |
-| `-s` or `--selectfile` | Select a file in the given directory when launching. |
-| `-w` or `--choosefiles` | Output the chosen file paths to a file instead of running ranger normally. |
-| `-t` or `--choosefile` | Same as `--choosefiles`, but for a single file. |
-| `-m` or `--choosefile-multiple` | Same as `--choosefile` but allows multiple files. |
-| `-q` or `--list-unused-keys` | List all keybindings that aren't mapped in the current configuration. |
+| `-d` or `--debug` | Debug mode. | `ranger -d /etc` |
+| `-c` or `--clean` | Start ranger without loading any configuration files. | `ranger -c /etc` |
+| `-r` or `--confdir` | Specify an alternate configuration directory. | `ranger -r /etc` |
+| `--copy-config` | Copy default config files to config directory for customization. | `ranger --copy-config ~/home/backup` |
+| `-f` or `--fail-unless-cd` | Exit if the initial directory chosen is invalid. | `ranger -f /backup` |
+| `-p` or `--profile` | Enable profiling. | `ranger -p /backup` |
+| `-s` or `--selectfile` | Select a file in the given directory when launching. | `ranger -s /backup` |
+| `-w` or `--choosefiles` | Output the chosen file paths to a file instead of running ranger normally. | `ranger -w /backup` |
+| `-t` or `--choosefile` | Same as `--choosefiles`, but for a single file. | `ranger -t /backup` |
+| `-m` or `--choosefile-multiple` | Same as `--choosefile` but allows multiple files. | `ranger -m /backup` |
+| `-q` or `--list-unused-keys` | List all keybindings that aren't mapped in the current configuration. | `ranger -q /backup` |
 
 ### Keybindings
 | Keybindings | Descriptions |
