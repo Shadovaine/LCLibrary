@@ -384,34 +384,43 @@ touch dragon.txt
 ## Command: echo
 ## Description: Print what is in the string" ".
 
-## **Syntax**
+## Syntax
 -`echo [options] [string]`
 
-### **Options**
-- `-n`:  Don’t print newline at end
-- `-e`:  Enable interpretation of escapes
-- `-E`:  Disable interpretation of escape sequence.
+### Options
+| Options | Descriptions | Examples |
+|---------|--------------|----------|
+| `-n` | Don’t print newline at end. |
+| `-e` | Enable interpretation of escapes. |
+| `-E` | Disable interpretation of escape sequence. |
 
-### **Escape sequences (paired with -e)**
-- `\n`:  Newline.
-- `\t`:  Horizontal tab.
-- `\v`:  Vertical tab.
-- `\r`:  Carriage return.
-- `\b`:  Backspace.
-- `\a`:  Alert.
-- `\\`:  Backslash.
-- `\c`:  Suppress further output.
+### Escape sequences (paired with -e)
+| Escape Sequences | Descriptions |
+|------------------|--------------|
+| `\n` | Newline. |
+| `\t` | Horizontal tab. |
+| `\v` | Vertical tab. |
+| '\r` | Carriage return. |
+| `\b` | Backspace. |
+| `\a` | Alert. |
+| `\\` | Backslash. |
+| `\c` | Suppress further output. |
 
-### **Example**
+### Example
 
 ```bash
 echo -e “Watcher\nmode”
 ```
 
-### **Breakdown**
-- `echo`:  Print Command
-- `-e`:  Don't print newline at end
-- `"Watcher/nmode"`:  String to be printed
+### Breakdown
+| Breakdown | Description |
+|-----------|-------------|
+| `echo` | Print Command. |
+| `-e` | Activates the following escape sequence. |
+| `"Watcher" | Prints this part of the string on first line. |
+| `\n` | Directs everything after it to print on a new line. |
+| `"mode"` | Rest of string prints on a new line. |
+
 
 
 ## Command: find
