@@ -34,25 +34,25 @@
 ### Option
 | Options | Descriptions | Examples |
 |---------|--------------|----------|
-| `-a` | Show all files (include hidden ones). |
-| `-l` | Long listing format. |
-| `-h` | Human-readable file sizes. |
-| `-R` | Recursively list subdirectories. |
-| `-S` | Sort by file sizes. |
-| `-A` | Show all files except `.` and `..`. |
-| `-d` | List directories themselves. |
-| `-F` | Append `/` to directories, `*` to executables, `@` to symlinks. |
-| `-t` | Sort by modification time. |
-| `-r` | Reverse the sort order. | 
-| `-1` | Force one entry per line. |
-| `-i` | Show the inode number of each file. |
-| `-p` | Append `/` to directories similar to `-F`. |
-| `-g` | Long listing format without showing owner. |
-| `-G` | Suppress group information in long listing format. |
-| `-q` | Show non-printable characters as `?`. |
-| `-X` | Sort by file extension. |
-| `--color`:  Colorize the output. |
-| `--group-directories-first`:  List directories before files. |
+| `-a` | Show all files (include hidden ones). | `ls -a` |
+| `-l` | Long listing format. | `ls -l` |
+| `-h` | Human-readable file sizes. | `ls -h` |
+| `-R` | Recursively list subdirectories. | `ls -R` |
+| `-S` | Sort by file sizes. | `ls -S` |
+| `-A` | Show all files except `.` and `..`. | `ls -A` |
+| `-d` | List directories themselves. | `ls -d` |
+| `-F` | Append `/` to directories, `*` to executables, `@` to symlinks. | `ls -F` |
+| `-t` | Sort by modification time. | `ls -t` |
+| `-r` | Reverse the sort order. | `ls -r` |
+| `-1` | Force one entry per line. | `ls -1` |
+| `-i` | Show the inode number of each file. | `ls -i` |
+| `-p` | Append `/` to directories similar to `-F`. | `ls -p` |
+| `-g` | Long listing format without showing owner. | `ls -g` |
+| `-G` | Suppress group information in long listing format. | `ls -G` |
+| `-q` | Show non-printable characters as `?`. | `ls -q` |
+| `-X` | Sort by file extension. | `ls -X` |
+| `--color`:  Colorize the output. | `ls --color` |
+| `--group-directories-first`:  List directories before files. | `ls --group-directories-first` |
 
 ### Examples
 
@@ -130,10 +130,10 @@ cd ~/Desktop/profile
 ### Options
 | Options | Descriptions | Examples|
 |---------|--------------|---------|
-| `p` | Shows physical path ( resolves symlink). |
-| `-L` | Show the logical path. |
-| `--help` | Display help for the command. |
-| `--version` | Shows version information. |
+| `-p` | Shows physical path ( resolves symlink). | `pwd -p` |
+| `-L` | Show the logical path. | `pwd -L` |
+| `--help` | Display help for the command. | `pwd --help` |
+| `--version` | Shows version information. | 'pwd --version` |
   
 ### Example
 
@@ -159,11 +159,11 @@ pwd -p
 ### Options
 | Options | Descriptions | Examples |
 |---------|--------------|----------|
-| `-p` | Create parent directories as needed. |
-| `-v` | Shows created directories (verbose). |
-| `-m` | Set permissions when creating the directory. |
-| `--help` | Display help information.|
-| `--version` |Show version information. |
+| `-p` | Create parent directories as needed. | `mkdir -p backup/projects/place` |
+| `-v` | Shows created directories (verbose). | `mkdir -v backups` |
+| `-m` | Set permissions when creating the directory. | `mkdir -m 700 backups` |
+| `--help` | Display help information.| `mkdir --help` |
+| `--version` |Show version information. | `mkdir --version` |
   
 ### Examples
 
@@ -188,23 +188,23 @@ mkdir -pv /tmp/dragonnest
 ## Syntax
 - `rmdir [options] directory_name`
 
-### **Options**
+### Options
 | Options | Descriptions | Examples |
 |---------|--------------|----------|
-| `-ignore-fail-on-non-empty` | Ignore errors for non-empty dirs. |
-| `p` | Remove the directory and its parent directories if they become empty. |
-| `-v` | Verbose mode. |
-| `--help` | Display help information. |
-| `--version` | Show version informawtion. |
+| `-ignore-fail-on-non-empty` | Ignore errors for non-empty dirs. | `rmdir -ignore-fail-on-non-empty project` |
+| `-p` | Remove the directory and its parent directories if they become empty. | `rmdir -p project` |
+| `-v` | Verbose mode. | `rmdir -v project` |
+| `--help` | Display help information. | `rmdir --help` |
+| `--version` | Show version informawtion. | `rmdir --version` |
 
-### **Example**
+### Example
 
-### **Remove a directory**
+### Remove a directory
 ```bash
 rmdir empty_folder
 ```
 
-### **Breakdown**
+### Breakdown
 | Breakdown | Description |
 |-----------|-------------|
 | `rmdir` | Command to remove directory. |
@@ -290,14 +290,14 @@ cp -i file.txt backup/
 ### Options
 | Options | Descriptions | Examples |
 |---------|--------------|----------|
-| `-i` | Prompt before overwrite. |
-| `-v` | Verbose output. |
-| `-u` | Move only if source is newer. |
-| `-f` | Force move. |
-| `-n` | Never overwrite an existing file. |
-| `-t <dir>` | Specify the target directory explicitly. |
-| `--backup[CONTROL]` | Make a backup of each destination file. |
-| `--strip-trailing-slashes` | Removes trailing slashes from source arguments. |
+| `-i` | Prompt before overwrite. | `mv -i project.txt backup/` |
+| `-v` | Verbose output. | `mv -v project.txt backup/` |
+| `-u` | Move only if source is newer. | `mv -u project.txt backup/` |
+| `-f` | Force move. | `mv -f project.txt backup/` |
+| `-n` | Never overwrite an existing file. | `mv -n project.txt backup/` |
+| `-t <dir>` | Specify the target directory explicitly. | `mv -t backup/ project.txt project1.txt project2.txt
+| `--backup[=CONTROL]` | Make a backup of each destination file. | `mv --backup=simple project.txt backup/` |
+| `--strip-trailing-slashes` | Removes trailing slashes from source arguments. | 'mv --strip-trailing-slashes project/ backup/` |
 
 ### Example
 
@@ -325,15 +325,15 @@ mv -iv file.txt /tmp/
 ### Options
 | Options | Descriptions | Examples |
 |---------|--------------|----------|
-| `-r` | Remove directories and contents recursively. |
-| `-f` | Force deletion (ignore errors/prompts). |
-| `-i` | Prompts before each deletion. |
-| `-v` | Verbose mode. |
-| `-I` | Less intrusive interactive mode. |
-| `-d` | Remove empty directories. |
-| `--preserve-root` | Prevents rm from operating recursively. |
-| `--no-preserve-root` | Removes the protection from \. |
-| `--one-file-system` | When deleting recursively, skip files on other file systems. |
+| `-r` | Remove directories and contents recursively. | `rm -r project/` |
+| `-f` | Force deletion (ignore errors/prompts). | `rm -f project/` |
+| `-i` | Prompts before each deletion. | `rm -i project` |
+| `-v` | Verbose mode. | `rm -v project` |
+| `-I` | Less intrusive interactive mode. | `rm -I project` |
+| `-d` | Remove empty directories. | `rm -d /backup/` |
+| `--preserve-root` | Prevents rm from operating recursively. | `rm --preserve-root backup/` |
+| `--no-preserve-root` | Removes the protection from \. | `rm --no-preserve-root backup` |
+| `--one-file-system` | When deleting recursively, skip files on other file systems. | `rm -r --one-file-system backup/` |
 
 ### Example
 
@@ -361,12 +361,12 @@ rm -rf /tmp/testdir
 ### Options
 | Options | Descriptions | Examples |
 |---------|--------------|----------|
-| `-c` or `--no-create` | Don’t create file if it doesn’t exist. |
-| `-a` | Change only the access time of the file. |
-| `-m` | Changes only the modification time of the file. |
-| `-d <time>` | Set a specific date/time instead of using the current time. |
-| `-t <stamp>` | Set a specific timestamp.
-| `-r <file>` | Use the timestamp from another file instead of the current time. |
+| `-c` or `--no-create` | Don’t create file if it doesn’t exist. | `touch -c backup` |
+| `-a` | Change only the access time of the file. | `touch -a backup` |
+| `-m` | Changes only the modification time of the file. | `touch -m backup` |
+| `-d <time>` | Set a specific date/time instead of using the current time. | `touch -d <0000> backup` |
+| `-t <stamp>` | Set a specific timestamp. | `touch -t <1300> backup` |
+| `-r <file>` | Use the timestamp from another file instead of the current time. | `rm -r <backup> backup1` |
 
 ### Example
 
@@ -390,9 +390,9 @@ touch dragon.txt
 ### Options
 | Options | Descriptions | Examples |
 |---------|--------------|----------|
-| `-n` | Don’t print newline at end. |
-| `-e` | Enable interpretation of escapes. |
-| `-E` | Disable interpretation of escape sequence. |
+| `-n` | Don’t print newline at end. | `echo -n "back up"` |
+| `-e` | Enable interpretation of escapes. | `echo -e "back\nup"` |
+| `-E` | Disable interpretation of escape sequence. | `echo -E "back up"` |
 
 ### Escape sequences (paired with -e)
 | Escape Sequences | Descriptions |
@@ -598,9 +598,11 @@ rg "sudo" /etc
 ```
 
 ### Breakdown
-- `rg`:  `rg` command
-- `"sudo"`:  Selected pattern.
-- `/etc`:  Targeted location.
+| Breakdown | Description |
+|-----------|-------------|
+| `rg` | `rg` command. |
+| `"sudo"` | Selected pattern. |
+| `/etc` | Targeted location. |
 
 
 
