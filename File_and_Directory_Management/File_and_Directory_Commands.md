@@ -478,110 +478,120 @@ find /var/log -name "*.log" -exec rm {} \;
 | `-F` | Append `/` to directories, `*` to executables, @ to symlinks. |
 | `-p` | Print file permissions. |
 | `-u` | Print the username of the file owner. |
-- `-g`:  Print the group name of the file owner.
-- `-s`:  Print file sizes in bytes.
-- `-h`:  Print file sizes in human readalbe format.
-- `-P <pattern>`:  Display only files matching a wildcard pattern.
-- `-I <pattern>`:  Exclude files or directories matching a wildcard pattern.
-- `-C`:  Enable colorized output.
-- `-n`:  Disable colorized output.
-- `-q`:  Print non-printable characters as `?`.
-- `--du`:  Print directory sizes.
-- `--prune`:  Prune empty directories from the output.
-- `--dirsfirst`:  List directories before files.
+| `-g` | Print the group name of the file owner. |
+| `-s` | Print file sizes in bytes. |
+| `-h` | Print file sizes in human readable format. |
+| `-P <pattern>` | Display only files matching a wildcard pattern. |
+| `-I <pattern>` | Exclude files or directories matching a wildcard pattern. |
+| `-C` | Enable colorized output. |
+| `-n` | Disable colorized output. |
+| `-q` | Print non-printable characters as `?`. |
+| `--du` | Print directory sizes. |
+| `--prune` | Prune empty directories from the output. |
+| `--dirsfirst` | List directories before files. |
   
-### **Example**
+### Example
 
+### Show all files including hisden ones in a tree structure.
 ```bash
 tree -a /home
 ```
 
-### **Breakdown**
-- `tree`:  Command to create tree form
-- `-a`:  Show all hidden files
-- `/home`:  Target directory
+### Breakdown
+| Breakdown | Description |
+|-----------|-------------|
+| `tree` | Command to create tree form. |
+| `-a` | Show all hidden files. |
+| `/home` | Target directory. |
+
 
 
 ## Command: Locate
-**Description:** Searches filesystem
+## Description: Searches filesystem
 
-## **Syntax**
+## Syntax
 - `locate [OPTIONS] PATTERN`
 
-### **Options**
-- `-i`:  Case-insensitive search
-- `-c`:  Prints out the number of matches instead of listing them.
-- `-n NUM`:  Will only print out the desired amount inputed.
-- `-r REGEX`:  Searches using regular expression.
-- `-w`:  Matches whole words.
-- `-b`:  Matches only the basename.
-- `-1 NUM`:  Limits results to stated amount.
-- `-0`:  outputs results sepersted by a null character instead of a new line.
-- `-q`:  Quiet mode.
-- `-d DBPATH`:  Uses a specific database and not the default database.
-- `-e`:  only prints existing files.
-- `-S`: Shows database statistics.
-- `-V`:  Shows version information.
+### Options
+| Options | Descriptions | Examples |
+|---------|--------------|----------|
+| `-i` | Case-insensitive search. |
+| `-c` | Prints out the number of matches instead of listing them. |
+| `-n NUM` | Will only print out the desired amount inputed. |
+| `-r REGEX` | Searches using regular expression. |
+| `-w` | Matches whole words. |
+| `-b` | Matches only the basename. |
+| `-1 NUM` | Limits results to stated amount. |
+| `-0` | Output results separated by a null character instead of a new line.
+| `-q` | Quiet mode.
+| `-d DBPATH` | Uses a specific database and not the default database. |
+| `-e` | Only prints existing files. |
+| `-S` | Shows database statistics. |
+| `-V`:  Shows version information. |
 
-### **Example**
+### Example
 
+### Print out the top 10 results and make the search case-insensitive.
 ```bash
 locate -i -n 10 readme
 ```
 
-### **Breakdown**
-- `locate`:  `locate` command
-- `-i`:  Make the search case-insensitive
-- `-n 10`:  Sets the amount of lines to print out to 10 lines.
-- `readme`:  target pattern
+### Breakdown
+| Breakdown | Description |
+| `locate` | `locate` command. |
+| `-i` | Make the search case-insensitive. |
+| `-n 10` | Sets the amount of lines to print out to 10 lines. |
+| `readme` | target pattern. |
 
 
 ## Command: ripgrep(rg)
-**Descriptions:** Lightning-fast file search Command
+## Descriptions: Lightning-fast file search Command.
 
-## **Syntax**
+## Syntax
 - `rg [pattern] [path]`
 
-### **Options**
-- `-i`:  Case-insensitive
-- `-n`:  Show line numbers
-- `-l`:  List filenames only
-- `-S`:  Smart case: case-insensitive unless the oattern has upper cass letters.
-- `-F`:  Treat the pattern as a literal string.
-- `-e <pattern>`:  Explicitly specific a search pattern.
-- `-w`:  Match whole words only.
-- `-x`:  Match the entire line.
-- `-g <glob>`:  Includes only files matching the glob pattern.
-- `-T <ext>`:  Excludes a certain file type.
-- `-t <type>`:  Searches only files of a certain type.
-- `-u`:  Search hidden and ignored files.
-- `-uu`: Seach hidden and ifnored files.
-- `-iglob <pattern>`:  Case-insensitive glob matching
-- `-hidden`:  Include hidden files or directories.
-- `-n`:  Show line numbers.
-- `-H`:  Always show the filename in results.
-- `-l`:  Print only filenames with matches.
-- `-L`:  Print only filenames without matches.
-- `-o`:  Show onlythe matching part of each line.
-- `-v`:  Invert match.
-- `-c`:  Show the count of matches per file.
-- `--stats:  Show search statistics.
-- `-r <replacements>`:  Use regex replacements.
-- `-m <NUM>`:  Limit the number of matches.
-- `--max-columns <NUM>`:  Truncate long lines to the column width in the output.
-- `--max-depth <NUM>`:  Limit search depth.
-- `--follow`:  Follow symlink.
-- `--no-messages`:  Suppress error messages.
-- `--color <when>`:  Control color. always, never, auto.
-- `--heading`:  Shows file names as headings.
-- `--no-heading`:  Disables headings.
-- `--json`:  Output results in JSON format.
-- `--pretty`:  Pretty print results with colors and context.
-- `-A <NUM>`:  Show NUM lines after each match.
-- `-B <NUM>`:  Show NUM lines before each match.
-- `-C <NUM>`:  Show NUM lines of context.
+### Options
+| Options | Descriptions | Examples |
+|---------|--------------|----------|
+| `-i` | Case-insensitive. |
+| `-n` | Show line numbers. |
+| `-l` | List filenames only. |
+| `-S` | Smart case: case-insensitive unless the oattern has upper cass letters. |
+| `-F` | Treat the pattern as a literal string. |
+| `-e <pattern>` | Explicitly specific a search pattern. |
+| `-w` | Match whole words only. |
+| `-x` | Match the entire line. |
+| `-g <glob>` | Includes only files matching the glob pattern. |
+| `-T <ext>` | Excludes a certain file type. |
+| `t <type>` | Searches only files of a certain type. |
+| `u` | Search hidden and ignored files. |
+| `uu` | Seach hidden and ifnored files. |
+| `iglob <pattern>` | Case-insensitive glob matching. |
+| `-hidden` | Include hidden files or directories. |
+| `-n` | Show line numbers. |
+| `H` | Always show the filename in results. |
+| `l` | Print only filenames with matches. |
+| `-L` | Print only filenames without matches. |
+| `-o` | Show onlythe matching part of each line. |
+| `-v` | Invert match. |
+| `-c`:  Show the count of matches per file. |
+| `--stats | Show search statistics. |
+| `-r <replacements>` | Use regex replacements. |
+| `-m <NUM>` | Limit the number of matches. |
+| `--max-columns <NUM>` | Truncate long lines to the column width in the output. |
+| `--max-depth <NUM>` | Limit search depth. |
+| `follow` | Follow symlink. |
+| `-no-messages` | Suppress error messages. |
+| `--color <when>` | Control color. always, never, auto. |
+| '--heading` | Shows file names as headings. |
+| `--no-heading` | Disables headings. |
+| `--json` | Output results in JSON format. |
+| `--pretty` | Pretty print results with colors and context. |
+| `-A <NUM>` |Show NUM lines after each match. |
+| `-B <NUM>` | Show NUM lines before each match. |
+|`-C <NUM>` | Show NUM lines of context. |
 
-### **Example**
+### Example
 
 ```bash
 rg "sudo" /etc
