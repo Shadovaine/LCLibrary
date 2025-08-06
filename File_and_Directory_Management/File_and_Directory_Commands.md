@@ -1,4 +1,4 @@
-# **File and Directory Management**
+# File and Directory Management
 
 ## Commands for manipulating files and directories
 
@@ -25,12 +25,12 @@
 
 
 ## Command: ls 
-## **Descriptions:** Lists files in a directory
+## Descriptions: Lists files in a directory
 
-## **Syntax**
-- ls [option] [directory]
+## Syntax
+- `ls [option] [directory]`
 
-### **Option**
+### Option
 | Options | Descriptions | Examples |
 |---------|--------------|----------|
 | `-a` | Show all files (include hidden ones). |
@@ -53,14 +53,14 @@
 | `--color`:  Colorize the output. |
 | `--group-directories-first`:  List directories before files. |
 
-### **Example**
+### Examples
 
-### **List all files in detail in readable format**
+### List all files in detail in readable format
 ```bash
 ls -alh /etc
 ```
 
-### **Breakdown**
+### Breakdown
 | Breakdown | Description |
 |-----------|-------------|
 | `ls` | Command to list contents. |
@@ -69,12 +69,12 @@ ls -alh /etc
 | `-h` | Converts the file's raw bites into a human readable format. |
 | `/etc` | Target Directory. |
 
-### **List all files in detail in readable form sorting them by file size.**
+### List all files in detail in readable form sorting them by file size.
 ```bash
 ls -alhS /etc
 ```
 
-### **Breakdown**
+### Breakdown
 | Breakdown | Description |
 |-----------|-------------|
 | `ls` | List command. |
@@ -86,12 +86,12 @@ ls -alhS /etc
 
 
 ## Command: cd 
-## **Description:** Change Directory
+## Description: Change Directory
  
-## **Syntax**
-- cd [directory]
+## Syntax
+- `cd [directory]`
 
-### **Special Behaviors (cd does not have options due to it being built into the shell)**
+### Special Behaviors (cd does not have options due to it being built into the shell)
 | Special Behaviors | Description |
 |-------------------|-------------|
 | `cd` | Go to home directory. |
@@ -103,97 +103,110 @@ ls -alhS /etc
 | `cd ./dirname` | Enter a directory in the current location explicitly. |
 | `cd ~username` | Change to another user's home directory. |
 
-### **Example**
+### Example
 
-### **Change to a specific file**
+### Change to a specific file
 ```bash
-cd /var/log
+cd ~/Desktop/profile
 ```
 
-### **Breakdown**
-- `cd`:  Change directory command
-- `/var/log`:  Target Directory to change to `/var/log`
+### Breakdown
+| Breakdown | Description |
+|-----------|-------------|
+| `cd` | Change directory command. |
+| `~` | Home directory. |
+| `/Desktop/profile` | Target Directory to change to `/var/log`. |
 
    
 ## Command: pwd 
-**Description:** Print working directory
+## Description: Print working directory
 
-## **Syntax**
-- pwd [options]
+## Syntax
+- `pwd [options]`
 
-### **Options**
+### Options
 - `-p`:  Shows physical path ( resolves symlink)
 - `-L`:  Show the logical path.
 - `--help`:  Display help for the command.
 - `--version`:  Shows version information.
   
-### **Example**
+### Example
 
+### Show the physical path of the current working directory
 ```bash
 pwd -p
 ```
 
-### **Breakdown**
-- `pwd`:   print working directory command
-- `-p`:    Will print the physical path
+### Breakdown
+| Breakdown | Description |
+|-----------|--------------|
+| `pwd` | Print working directory command. |
+| `-p` | Will print the physical path. |
 
 
 ## Command: mkdir 
-**Description:** Makes a new directory
+## Description: Makes a new directory
 
-## **Syntax**
-- mkdir [options] directory_name`
+## Syntax
+- `mkdir [options] directory_name`
 
-### **Options**
-- `-p`:  Create parent directories as needed
-- `-v`:  Shows created directories (verbose)
-- `-m`:  Set permissions when creating the directory
-- `--help`:  Display help information.
-- `--version`:  Show version information.
+### Options
+| Options | Descriptions | Examples |
+| `-p` | Create parent directories as needed. |
+| `-v` | Shows created directories (verbose). |
+| `-m` | Set permissions when creating the directory. |
+| `--help` | Display help information.|
+| `--version` |Show version information. |
   
-### **Example**
+### Examples
 
+### Create a new directory along with parent directories and output the detailed locations.
 ```bash
-mkdir -pv /tmp/dragon/nest
+mkdir -pv /tmp/dragonnest
 ```
 
-**Breakdown**
-- `mkdir`:  Command to tell system to make a new directory
-- `-p`:  Will create parent directories
-- `-v`:  Shows all created directories 
-- `/tmp/dragon/nest`:  Target directory
+## Breakdown
+| Breakdown | Description |
+|-----------|-------------|
+| `mkdir` | Command to tell system to make a new directory. |
+| `-p` | Will create parent directories. |
+| `-v` | Shows all created directories. |
+| `/tmp/dragonnest` | Target directory. |
 
 
 ## Command: rmdir
-**Descriptions:** Removes a directory
+## Descriptions: Removes a directory
 
-## **Syntax**
+## Syntax
 - `rmdir [options] directory_name`
 
 ### **Options**
-- `-ignore-fail-on-non-empty`:  Ignore errors for non-empty dirs 
-- `-p`:  Remove the directory and its parent directories if they become empty.
-- `-v`:  Verbose mode
-- `--help`:  Display help information
-- `--version`:  Show version informawtion
+| Options | Descriptions | Examples |
+|---------|--------------|----------|
+| `-ignore-fail-on-non-empty` | Ignore errors for non-empty dirs. |
+| `p` | Remove the directory and its parent directories if they become empty. |
+| `-v` | Verbose mode. |
+| `--help` | Display help information. |
+| `--version` | Show version informawtion. |
 
 ### **Example**
 
+### **Remove a directory**
 ```bash
 rmdir empty_folder
 ```
 
- **Breakdown**
-- `rmdir`:  Command to remove directory
-- `empty_folder`:  Name of directory to be removed
+### **Breakdown**
+| Breakdown | Description |
+|-----------|-------------|
+| `rmdir` | Command to remove directory. |
+| `empty_folder` | Name of directory to be removed. |
 
 
 ## Command: cp 
+## Description: Makes a copy of a file or directory to destination location. It leaves an original copy in source location.
 
-### Description
-Makes a copy of a file or directory to destination location. It does leave an original copy in source location
-
-### Syntax
+## Syntax
 ```bash
 cp [options] source destination
 ```
@@ -216,96 +229,110 @@ cp [options] source destination
 | `--remove-destination` | Remove destination before copying. | `cp --remove-destination folder/ backup/` |
 | `--backup` | Create a backup of each existing destination file before copying. | `cp --backup folder/ backup/` | 
 
-### Example
-**Copy a file into another directory:**
+### Examples
+
+### Copy a file into another directory:
 ```bash
 cp file.txt backup/
 ```
 
 ### Breakdown
-- `cp`:  Copy command.
-- `file.txt': Source file to copy.
-- `backup/`:  Destination location for new copy.
+| Breakdown | Description |
+|-----------|-------------|
+| `cp` | Copy command. |
+| `file.txt' | Source file to copy. |
+| `backup/` | Destination location for new copy. |
   
-**Copy a directory recursively with verbose output:**
+### Copy a directory recursively with verbose output:
 ```bash
 cp -rv project /backup/
 ```
 
 ### Breakdown
-- `-cp`:   Copy Command
-- `-r`:    Causes recursive copying
-- `-v`:    Verbose posting
-- `project/`:  Source location
-- `backup/`:  Destination Location
+| Breakdown | Description |
+|-----------|-------------|
+| `cp` | Copy Command. |
+| `-r` | Causes recursive copying. |
+| `-v` | Verbose posting. |
+| `project/` | Source location. |
+| `backup/` | Destination Location. |
 
-**Prompt before overwriting a file:**
+### Prompt before overwriting a file:
 ```bash
 cp -i file.txt backup/
 ```
 
 ### Breakdown
-- `cp`:  Copy command.
-- `-i`:  Displays a prompt for user before overwriting.
-- `file.txt`:  Source file to be copied.
-- `backup/`:  Destination location for copy.
+| Breakdown | Description |
+|-----------|-------------|
+| `-cp` | Copy command. |
+| `-i` | Displays a prompt for user before overwriting. |
+| `file.txt`:  Source file. |
+| `backup/` | Destination location. |
 
 
 ## Command: mv 
-**Description:** Moves a file or directory to a destination location.
-                It does not leave an original copy in source location
+## Description: Moves a file or directory to a destination location. It does not leave an original copy in source location.
 
-## **Syntax**
+## Syntax
 - `mv [options] source destination`
 
-### **Options**
-- `-i`:  Prompt before overwrite
-- `-v`:  Verbose output
-- `-u`:  Move only if source is newer.
-- `-f`:  Force move.
-- `-n`:  Never overwrite an existing file.
-- `-t <dir>`:  Specify the target directory explicitly.
-- `--backup[CONTROL]`:  Make a backup of each destination file.
-- `--strip-trailing-slashes`:  Removes trailing slashes from source arguments.
+### Options
+| Options | Descriptions | Examples |
+|---------|--------------|----------|
+| `-i` | Prompt before overwrite. |
+| `-v` | Verbose output. |
+| `-u` | Move only if source is newer. |
+| `-f` | Force move. |
+| `-n` | Never overwrite an existing file. |
+| `-t <dir>` | Specify the target directory explicitly. |
+| `--backup[CONTROL]` | Make a backup of each destination file. |
+| `--strip-trailing-slashes` | Removes trailing slashes from source arguments. |
 
-### **Example**
+### Example
 
+### Prompt user before moving file then show detailed path of new location.
 ```bash
 mv -iv file.txt /tmp/
 ```
 
-### **Breakdown**
-- `mv`:  Move Command
-- `-i`:  Verify with user before overwrite
-- `-v`:  Verbose output
-- `file.txt`:  Source file
-- `/tmp/`:  Destination location
+### Breakdown
+| Breakdown | Description |
+| `mv` | Move Command.
+| `-i` | Verify with user if a file already exists before overwriting. |
+| `-v` | Verbose mode. |
+| `file.txt` | Source file.
+| `/tmp/` | Destination location. |
   
 
 ## Command: rm 
-**Description:** Removes files or directories 
+## Description: Removes files or directories. 
 
-## **Syntax**
+## Syntax
 - `rm [options] target`
 
-### **Options**
-- `-r`:  Remove directories and contents recursively
-- `-f`:  Force deletion (ignore errors/prompts)
-- `-i`:  Prompts before each deletion.
-- `-v`:  Verbose output
-- `-I`:  Less intrusive interactive mode.
-- `-d`:  Remove empty directories.
-- `--preserve-root`:  Prevents rm from operating recursively.
-- `--no-preserve-root`:  Removes the protection from \.
-- `--one-file-system`:  when deleting recursively, skip files on other file systems.
+### Options
+| Options | Descriptions | Examples |
+|---------|--------------|----------|
+| `-r` | Remove directories and contents recursively. |
+| `-f` | Force deletion (ignore errors/prompts). |
+| `-i` | Prompts before each deletion. |
+| `-v` | Verbose mode. |
+| `-I` | Less intrusive interactive mode. |
+| `-d` | Remove empty directories. |
+| `--preserve-root` | Prevents rm from operating recursively. |
+| `--no-preserve-root` | Removes the protection from \. |
+| `--one-file-system` | When deleting recursively, skip files on other file systems. |
 
-### **Example**
+### Example
 
+### Remove all directories and contents and force deletion on target directory.
 ```bash
 rm -rf /tmp/testdir
 ```
 
-### **Breakdown**
+### Breakdown
+| Breakdown | Description |
 - `rm`:  Remove command
 - `-r`:  Recursive removal
 - `-f`:  Forced Deletion
