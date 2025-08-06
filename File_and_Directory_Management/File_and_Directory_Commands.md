@@ -424,52 +424,60 @@ echo -e “Watcher\nmode”
 
 
 ## Command: find
-**Description** Searches files and directories
+## Description: Searches files and directories.
 
-## **Syntax**
+## Syntax
 - `find [PATH] [OPTIONS] [EXPRESSION]`
 
-### **Options**
-- `-name`:  Match filenames
-- `-type`:  Specify type (f for file, d for dir)
-- `-size`:  Search by size ( e.g +10m, -1G)
-- `-exec`:  Execute a command on found items
-- `-mtime`:  Modified in last N days
-- `-atime`:  Accessed in last N days
-- `-print`:  Print full path of each file
-- `-perm`:  World writable (others have permission to write)
+### Options
+| Options | Descriptions | Examples |
+|---------|--------------|----------|
+| `-name` | Match filenames. |
+| `-type` | Specify type (f for file, d for dir). |
+| `-size` | Search by size ( e.g +10m, -1G). |
+| `-exec` | Execute a command on found items. |
+| `-mtime` | Modified in last N days. |
+| `-atime` | Accessed in last N days. |
+| `-print` | Print full path of each file. |
+| `-perm` | World writable (others have permission to write). |
 
-### **Examples**
+### Examples
 
+### Remove all log files found in /var/log:
 ```bash
 find /var/log -name "*.log" -exec rm {} \;
 ```
 
-### **Breakdown**
-- `-find`:  Search Command
-- `/var/log`:  Path to file
-- `-name`:  Directs to match a filename
-- `"*.log"`:  portion of file name to be searched for
-- `-exec`:  Says to execute the following command
-- `rm`:  Command to be executed
-- `{}`:  A placeholder for each file as find command searches each file
-- `\;`:  The end of the -exec command
+### Breakdown
+| Breakdown | Description |
+|-----------|-------------|
+| `-find` | Search Command. |
+| `/var/log` | Path to file. |
+| `-name` | Directs to match a filename. |
+| `*.log"` | Portion of file name to be searched for. |
+| `-exec` | Says to execute the following command. |
+| `rm` | Command to be executed. |
+| `{}` | A placeholder for each file as find command searches each file. |
+| `\;` | The end of the -exec command. |
    
 
-## Command: tree
-**Description:** Displays directory structure in a tree like form
 
-## **Syntax**
+## Command: tree
+## Description: Displays directory structure in a tree like form.
+
+## Syntax
 - `tree [OPTIONS] [DIRECTORY]`
 
-### **OPTIONS**
-- `-a`:  Show all hidden files
-- `-d`:  List directories
-- `-L <num>`:  Limit display to a specific number of directory levels.
-- `-f`:  Print full path prefix for each file.
-- `-F`:  Append `/` to directories, `*` to executables, @ to symlinks.
-- `-p`:  Print file permissions.
-- `-u`:  Print the username of the file owner.
+### OPTIONS
+| Options | Descriptions | Examples |
+|---------|--------------|----------|
+| `-a` | Show all hidden files. |
+| `-d` | List directories. |
+| `-L <num>` | Limit display to a specific number of directory levels. |
+| `-f` | Print full path prefix for each file. |
+| `-F` | Append `/` to directories, `*` to executables, @ to symlinks. |
+| `-p` | Print file permissions. |
+| `-u` | Print the username of the file owner. |
 - `-g`:  Print the group name of the file owner.
 - `-s`:  Print file sizes in bytes.
 - `-h`:  Print file sizes in human readalbe format.
@@ -579,195 +587,226 @@ locate -i -n 10 readme
 rg "sudo" /etc
 ```
 
-### **Breakdown**
+### Breakdown
 - `rg`:  `rg` command
 - `"sudo"`:  Selected pattern.
 - `/etc`:  Targeted location.
 
 
-## Command: fd
-**Description** `find` command alternative
 
-## **Syntax**
+## Command: fd
+## Description: `find` command alternative
+
+## Syntax
 - `fd [pattern] [path]`
 
-### **Options**
-- `-e`:  File extension filter (e.g., -e txt)
-- `-H`:  Include hidden files
-- `-t f|d`:  Search for files or directories
-- `-I`:  Include ignored files.
-- `-u`:  Search unrestricted files including hidden and ignored files.
-- `-e <ext>`:  Search only files with the spwcific extension.
-- `-g <glob>`:  Search using glob patterns not regex patterns.
-- `-t <type>`:  Filter by type. f(file, d(directory), 1(symlink), x(excutable), e(empty)
-- `-E <pattern>`:  Exclude file, directories matching the pattern.
-- `-l`:  long form format.
-- `-0`:  Separate results with a null character instead of new line
-- `-x <cmd>`:  Execute a command on each search result.
-- `-X <cmd>`:  Similar to `-x`, but passes all results to command at once.
-- `-j <num>`:  Limit the numberof threads used for searching.
-- `-d <depth>`:  limit the maximum search depth.
-- `-p`:  Search only given path with no aearch in subdirectories.
-- `-a`:  Print absolute paths instead of relative ones.
-- `-c <color>`:  Control color output. auto, never, always.
-- `-s`:  Show symlink instead of resolving them.
-- `-i`:  Case-insensitive search.
-- `-s`:  Case-sensitive search.
-- `-F`:  Treat the pattern as a literal string.
+### Options
+| Options | Descriptions | Examples |
+|---------|--------------|----------|
+| `-e` | File extension filter (e.g., -e txt). |
+| `-H` | Include hidden files. 
+| `-t f|d` | Search for files or directories. |
+| `-I` | Include ignored files. |
+| `-u` | Search unrestricted files including hidden and ignored files. |
+| `-e <ext>` | Search only files with the spwcific extension. |
+| `-g <glob>` | Search using glob patterns not regex patterns. |
+| `-t <type>` | Filter by type. f(file, d(directory), 1(symlink), x(excutable), e(empty). |
+| `-E <pattern>` | Exclude file, directories matching the pattern. |
+| `-l` | long form format. |
+| `-0` | Separate results with a null character instead of new line. |
+| `-x <cmd>` | Execute a command on each search result. |
+| `-X <cmd>` | Similar to `-x`, but passes all results to command at once. |
+| `-j <num>` | Limit the numberof threads used for searching. |
+| `-d <depth>` | limit the maximum search depth. 
+| `-p` | Search only given path with no aearch in subdirectories. |
+| `-a` | Print absolute paths instead of relative ones. |
+| `-c <color>` | Control color output. auto, never, always. |
+| `-s` | Show symlink instead of resolving them. |
+| `-i` | Case-insensitive search. |
+| `-s` | Case-sensitive search. |
+| `-F` | Treat the pattern as a literal string. |
 
-### **Example**
+### Example
 
+### Find passwd within the directory /etc.
 ```bash
 fd passwd /etc
 ```
 
-### **Breakdown**
-- `fd`:  'fd' command
-- `passwd`:  target pattern
-- `/etc`:  target location to find pattern.
+### Breakdown
+| Breakdown | Description |
+|-----------|-------------|
+| `fd` | `fd' command. |
+| `passwd` | Target pattern. |
+| `/etc` | Target location to find pattern. |
+
 
 
 ## Command: fzf
-**Description:** Interactive fuzzy file finder
+## Description: Interactive fuzzy file finder
 
-## **Syntax**
+## Syntax
 - `fzf`
 
-## **Options**
-- `-q <query>`:  Starts with a preloaded query.
-- `-e`:  Exact match mode.
-- `--nth <range>`:  Restricts search to specific fields in the UI.
-- `--width-nth <range>:  Display only specific fields in the UI
-- `--delimiter <str>:  Define a custom field delimiter.
-- `-m`:  Multi-select mode.
-- `--no-sort`:  Preserve input order.
-- `--no-mouse`:  Disable mouse support.
-- `--height <size>: Show the UI in the smaller window.
-- `--layout <style>:  Control layout.
-- `--preview <command>`:  Shows a preview window of the command.
-- `--preview-window <opts>:  Control preview window position and size.
-- `--ansi`:  Enable ANSI color codes.
-- `--no-clear`:  Don't clear the screen when fzf exits.
-- `--print-query`:  Print the sesrch query on exit.
-- `--print0`:  Output selected items seperated by a null character.
-- `--bind <key:action>:  Create custom key bindings.
-- `--toggle-sort`:  Keybinding to toggle sort.
-- `--expect <keys>`:  Returned the key pressed before selection.
+## Options
+| Options | Descriptions | Examples |
+|---------|---------------|----------|
+| `-q <query>` | Starts with a preloaded query. |
+| `-e` | Exact match mode. |
+| `--nth <range>` | Restricts search to specific fields in the UI. |
+| `--width-nth <range> | Display only specific fields in the UI. |
+| `--delimiter <str> | Define a custom field delimiter. |
+| `-m` | Multi-select mode. |
+| `-no-sort` | Preserve input order. |
+| `--no-mouse` | Disable mouse support. |
+| `--height <size> | Show the UI in the smaller window. |
+| `--layout <style> | Control layout. |
+| `--preview <command>` | Shows a preview window of the command. |
+| `--preview-window <opts> | Control preview window position and size. |
+| `ansi` | Enable ANSI color codes. |
+| `--no-clear` | Don't clear the screen when fzf exits. |
+| `--print-query` | Print the sesrch query on exit. |
+| `--print0` | Output selected items seperated by a null character. |
+|`--bind <key:action> | Create custom key bindings. |
+| `-toggle-sort` | Keybinding to toggle sort. |
+| `--expect <keys>` | Returned the key pressed before selection. |
 
-### **Example**
+### Example
 
+### Fins all files and send them through the fuzzy file finder.
 ```bash
 find -type f | fzf
 ```
 
-### **Breakdown**
-- `find`:  `find` command
-- `-type f`:  directs `find` command to loook in files
-- `|`:  `pipe` command thats say it takes output from `find` and will send it through `fzf`
-- `fzf`: Fuzzy file finder.
+### Breakdown
+| Breakdown | Description |
+|-----------|-------------|
+| `find` | `find` command. |
+| `-type f` | Directs `find` command to loook in files. |
+| `|` | `pipe` command thats say it takes output from `find` and will send it through `fzf`.
+| `fzf` |  Outputs results in the Fuzzy file finder. |
+
 
 
 ## Command: ranger
-**Description** Terminal-based file manager that lets you navigate, preview, and manage files efficiently.
+## Description Terminal-based file manager that lets you navigate, preview, and manage files efficiently.
 
-## **Syntax**
-- ranger`[options] [path]
+## Syntax
+- `ranger [options] [path]`
 
-### **Options**
-- `-d` or `--debug`:  Debug mode.
-- `-c` or `--clean`:  Start ranger without loading any configuration files.
-- `-r` or `--confdir`:  Specify an alternate configuration directory.
-- `--copy-config`:  Copy default config files to config directory for customization.
-- `-f` or `--fail-unless-cd`:  Exit if the initial directory chosen is invalid.
-- `-p` or `--profile`:  Enable profiling.
-- `-s` or `--selectfile`:  Select a file in the given directory when launching.
-- `-w` or `--choosefiles`:  Output the chosen file paths to a file instead of running ranger normally.
-- `-t` or `--choosefile`:  Same as `--choosefiles`, but for a single file.
-- `-m` or `--choosefile-multiple`:  Same as `--choosefile` but allows multiple files.
-- `-q` or `--list-unused-keys`:  List all keybindings that aren't mapped in the current configuration.
+### Options
+| Options | Descriptions | Examples|
+| `-d` or `--debug` | Debug mode. |
+| `-c` or `--clean` | Start ranger without loading any configuration files. |
+| `-r` or `--confdir` | Specify an alternate configuration directory. |
+| `--copy-config` | Copy default config files to config directory for customization. |
+| `-f` or `--fail-unless-cd` | Exit if the initial directory chosen is invalid. |
+| `-p` or `--profile` | Enable profiling. |
+| `-s` or `--selectfile` | Select a file in the given directory when launching. |
+| `-w` or `--choosefiles` | Output the chosen file paths to a file instead of running ranger normally. |
+| `-t` or `--choosefile` | Same as `--choosefiles`, but for a single file. |
+| `-m` or `--choosefile-multiple` | Same as `--choosefile` but allows multiple files. |
+| `-q` or `--list-unused-keys` | List all keybindings that aren't mapped in the current configuration. |
 
-### **Keybindings**
-- `h`:  Go to parent directory
-- `l` or `Enter`:  Enter directory
-- `j`:  Move down
-- `k`:  Move up
-- `/`:  Search
-- `y`:  Yank file path
-- `p`:  Paste
-- `d`:  Delete
-- `r`:  Rename
-- `:`:  Command mode
-- `q`:  Quit
+### Keybindings
+| Keybindings | Descriptions |
+|-------------|--------------|
+| `h` | Go to parent directory. |
+| `l` or `Enter` | Enter directory. |
+| `j` | Move down. |
+| `k` | Move up. |
+| `/` | Search. |
+| `y` | Yank file path. |
+| `p` | Paste. |
+| `d` | Delete. |
+| `r` | Rename. |
+| `:` | Command mode. |
+| `q` | Quit. |
   
-### **Example**
+### Example
 
+### Show a specific file.
 ```bash
 ranger -t file1.txt
 ```
 
-### **Breakdown**
-- `ranger`:  File Manager Command
-- `-t`:  Directs output to a specific file
-- `file1.txt`:  Target file.
+### Breakdown
+| Breakdown | Description |
+|-----------|-------------|
+| `ranger` | File Manager Command. |
+| `-t` | Directs output to a specific file. |
+| `file1.txt` | Target file. |
 
 
 ## Command: zoxide
-**Description:** A smarter `cd` command. Aliases include `z` and `zi`.
+## Description: A smarter `cd` command. Aliases include `z` and `zi`. 
 
-## **Syntax** 
-- `z [OPTIONS] [KEYWORD]
+## Syntax
+- `z [OPTIONS] [KEYWORD]`
 
-### **Options**
-- `z [query]`:  Jumps to the highest-rainked directory that matches your search.
-- `-i` or `--interactive`: Opens fuzzy selector loop.
-- `-l` or `--list`:  Show all matching paths instead of jumping.
-- `-s` or `--score`:  Along with list, display frecency.
-- `-t` or `--type <dir|file>`:  Filter by directory or file type.
+### Options
+| Options | Descriptions | Examples |
+|---------|--------------|----------|
+| `z [query]` | Jumps to the highest-rainked directory that matches your search. |
+| `-i` or `--interactive` | Opens fuzzy selector loop. |
+| `-l` or `--list` | Show all matching paths instead of jumping. |
+| `-s` or `--score` | Along with list, display frecency. |
+| `-t` or `--type <dir|file>` | Filter by directory or file type. |
   
-### **Example**
+### Example
 
+### Show 
 ```bash
-z projects
+z -s projects
 ```
 
-### **Breakdown**
-- `z`:  `zoxide` command
-- `projects`:  Target query
+### Breakdown
+| Breakdown | Description |
+|-----------|-------------|
+| `z` | `zoxide` command. |
+| `-s` | To show the frequency of usage. |
+| `projects` | Queried keyword. |
+
 
 
 ## Command: exa 
-**Description** Modern `ls` command
+## Description: Modern `ls` command
 
-## **Syntax**
-- exa [options] [path]
+## Syntax
+- `exa [options] [path]`
 
-### **Options**
-- `-l`:  Long format
-- `-a`:  Show hidden files
-- `-la` or `-al`:  Combine long format and hidden files.
-- `-1`:  list one file per line.
-- `-s`:  Sort by the file size.
-- `-s name`:  Sort by name.
-- `-s modified`:  Sort by modification time.
-- `-r`:  Reverse the sort order.
-- `-T`:  Display a tree view of directories.
-- `-L <num>`:  Limit depth of recursion in tree view.
-- `--git`:  Show Git status for files.
-- `-@`:  Show extended attributes.
-- `--icons`:  Show file-type icons 
+### Options
+| Options | Descriptions | Examples |
+|---------|--------------|----------|
+| `-l` | Long format. 
+| `-a` | Show hidden files. |
+| `-la` or `-al` | Combine long format and hidden files. |
+| `-1` | List one file per line. |
+| `-s` | Sort by the file size. |
+| `-s name` | Sort by name. |
+| `-s modified` | Sort by modification time. |
+| `-r` | Reverse the sort order. |
+| `-T` | Display a tree view of directories. |
+| `-L <num>` | Limit depth of recursion in tree view. |
+| `--git` | Show Git status for files. |
+| `-@` | Show extended attributes. |
+| `--icons` | Show file-type icons.|
 
-### **Example**
+### Example
 
+### Show long form with hidden files in a tree structure of directory.
 ```bash
 exa -la -T /etc
 ```
 
-### **Breakdown**
-- `exa`:  exa command
-- `-l`:  Long format
-- `-a`:  Show hidden files.
-- `-T`:  Put in tree viewing form
-- `/etc`:  Target directory
+### Breakdown
+| Breakdown | Description |
+|-----------|-------------|
+| `exa` | exa command. |
+| `-l` | Long format. |
+| `-a` | Show hidden files. |
+| `-T` | Put in tree viewing form. |
+| `/etc` | Target directory. |
 
 
 
