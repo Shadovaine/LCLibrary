@@ -25,64 +25,87 @@
 
 
 ## Command: ls 
-**Descriptions:** Lists files in a directory
+## **Descriptions:** Lists files in a directory
 
 ## **Syntax**
 - ls [option] [directory]
 
 ### **Option**
-- `-a`:  Show all files (include hidden ones)
-- `-l`:  Long listing format
-- `-h`:  Human-reachable file sizes
-- `-R`:  Recursively list subdirectories
-- `-S`:  Sort by file sizes
-- `-A`:  Show all files except `.` and `..`.
-- `-d`:  List directories themselves.
-- `-F`:  Append `/` to directories, `*` to executables, `@` to symlinks.
-- `-t`:  Sort by modification time.
-- `-r`:  Reverse the sort order.
-- `-1`:  Force one entry per line.
-- `-i`:  Show the inode number of each file.
-- `-p`:  Append `/` to directories similar to `-F`.
-- `-g`:  Long listing format without showing owner.
-- `-G`:  Suppress group information in long listing format.
-- `-q`:  Show non-printable characters as `?`.
-- `-X`:  Sort by file extension.
-- `--color`:  Colorize the output.
-- `--group-directories-first`:  List directories before files.
+| Options | Descriptions | Examples |
+|---------|--------------|----------|
+| `-a` | Show all files (include hidden ones). |
+| `-l` | Long listing format. |
+| `-h` | Human-readable file sizes. |
+| `-R` | Recursively list subdirectories. |
+| `-S` | Sort by file sizes. |
+| `-A` | Show all files except `.` and `..`. |
+| `-d` | List directories themselves. |
+| `-F` | Append `/` to directories, `*` to executables, `@` to symlinks. |
+| `-t` | Sort by modification time. |
+| `-r` | Reverse the sort order. | 
+| `-1` | Force one entry per line. |
+| `-i` | Show the inode number of each file. |
+| `-p` | Append `/` to directories similar to `-F`. |
+| `-g` | Long listing format without showing owner. |
+| `-G` | Suppress group information in long listing format. |
+| `-q` | Show non-printable characters as `?`. |
+| `-X` | Sort by file extension. |
+| `--color`:  Colorize the output. |
+| `--group-directories-first`:  List directories before files. |
 
 ### **Example**
 
+### **List all files in detail in readable format**
 ```bash
 ls -alh /etc
 ```
 
 ### **Breakdown**
-- `ls`:   Command to list contents 
-- `-a`:   Tells ls to show all files including the hidden files
-- `-l`:   Makes ls to list directory files in long listing format
-- `-h`:   Converts the file's raw bites into a human readable format
-- `/etc`: Target Directory
+| Breakdown | Description |
+|-----------|-------------|
+| `ls` | Command to list contents. |
+| `-a` | Tells ls to show all files including the hidden files. |
+| `-l` | Makes ls to list directory files in long listing format. |
+| `-h` | Converts the file's raw bites into a human readable format. |
+| `/etc` | Target Directory. |
+
+### **List all files in detail in readable form sorting them by file size.**
+```bash
+ls -alhS /etc
+```
+
+### **Breakdown**
+| Breakdown | Description |
+|-----------|-------------|
+| `ls` | List command. |
+| `-a` | Directs ls to list all files including hidden ones. |
+| `-l` | Directs list to be in detailed form. |
+| `-h` | Outputs list in readable form. |
+| `-S` | Directs to sort files by size. |
+| `/etc` | Target directory to list. |
 
 
 ## Command: cd 
-**Description:** Change Directory
+## **Description:** Change Directory
  
 ## **Syntax**
 - cd [directory]
 
 ### **Special Behaviors (cd does not have options due to it being built into the shell)**
-- `cd`:    Go to home directory
-- `cd ~`:  Same as above
-- `cd -`:  Switch to previous directory.
-- `cd ..`: Move up one level
-- `cd /'path'`:  Go to a specific directory
-- `cd ../..`:  Move up two levels.
-- `cd ./dirname`:  Enter a directory in the current location explicitly
-- `cd ~username`:  Change to another user's home directory
+| Special Behaviors | Description |
+|-------------------|-------------|
+| `cd` | Go to home directory. |
+| `cd ~` | Same as above. |
+| cd -` | Switch to previous directory. |
+| `cd ..` | Move up one level. |
+| `cd /'path'` | Go to a specific directory. |
+| `cd ../..` | Move up two levels. |
+| `cd ./dirname` | Enter a directory in the current location explicitly. |
+| `cd ~username` | Change to another user's home directory. |
 
 ### **Example**
 
+### **Change to a specific file**
 ```bash
 cd /var/log
 ```
