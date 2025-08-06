@@ -51,8 +51,8 @@
 | `-G` | Suppress group information in long listing format. | `ls -G` |
 | `-q` | Show non-printable characters as `?`. | `ls -q` |
 | `-X` | Sort by file extension. | `ls -X` |
-| `--color`:  Colorize the output. | `ls --color` |
-| `--group-directories-first`:  List directories before files. | `ls --group-directories-first` |
+| `--color` |  Colorize the output. | `ls --color` |
+| `--group-directories-first` |  List directories before files. | `ls --group-directories-first` |
 
 ### Examples
 
@@ -117,7 +117,7 @@ cd ~/Desktop/profile
 |-----------|-------------|
 | `cd` | Change directory command. |
 | `~` | Home directory. |
-| `/Desktop/profile` | Target Directory to change to `/var/log`. |
+| `/Desktop/profile` | Target Directory to change to `/Desktop/profile`. |
 
 
    
@@ -133,7 +133,7 @@ cd ~/Desktop/profile
 | `-p` | Shows physical path ( resolves symlink). | `pwd -p` |
 | `-L` | Show the logical path. | `pwd -L` |
 | `--help` | Display help for the command. | `pwd --help` |
-| `--version` | Shows version information. | 'pwd --version` |
+| `--version` | Shows version information. | `pwd --version` |
   
 ### Example
 
@@ -216,9 +216,7 @@ rmdir empty_folder
 ## Description: Makes a copy of a file or directory to destination location. It leaves an original copy in source location.
 
 ## Syntax
-```bash
-cp [options] source destination
-```
+- `cp [options] source destination`
 
 ### Options
 | Option | Description | Example |
@@ -249,7 +247,7 @@ cp file.txt backup/
 | Breakdown | Description |
 |-----------|-------------|
 | `cp` | Copy command. |
-| `file.txt' | Source file to copy. |
+| `file.txt` | Source file to copy. |
 | `backup/` | Destination location for new copy. |
   
 ### Copy a directory recursively with verbose output:
@@ -295,9 +293,9 @@ cp -i file.txt backup/
 | `-u` | Move only if source is newer. | `mv -u project.txt backup/` |
 | `-f` | Force move. | `mv -f project.txt backup/` |
 | `-n` | Never overwrite an existing file. | `mv -n project.txt backup/` |
-| `-t <dir>` | Specify the target directory explicitly. | `mv -t backup/ project.txt project1.txt project2.txt
+| `-t <dir>` | Specify the target directory explicitly. | `mv -t backup/ project.txt project1.txt project2.txt` |
 | `--backup[=CONTROL]` | Make a backup of each destination file. | `mv --backup=simple project.txt backup/` |
-| `--strip-trailing-slashes` | Removes trailing slashes from source arguments. | 'mv --strip-trailing-slashes project/ backup/` |
+| `--strip-trailing-slashes` | Removes trailing slashes from source arguments. | `mv --strip-trailing-slashes project/ backup/` |
 
 ### Example
 
@@ -377,6 +375,7 @@ touch dragon.txt
 
 ### Breakdown
 | Breakdown | Description |
+|-----------|-------------|
 | `-touch` | Create a file Command. |
 | `dragon.txt` | Name of new file. |
 
@@ -417,7 +416,7 @@ echo -e “Watcher\nmode”
 |-----------|-------------|
 | `echo` | Print Command. |
 | `-e` | Activates the following escape sequence. |
-| `"Watcher" | Prints this part of the string on first line. |
+| `"Watcher"` | Prints this part of the string on first line. |
 | `\n` | Directs everything after it to print on a new line. |
 | `"mode"` | Rest of string prints on a new line. |
 
@@ -538,6 +537,7 @@ locate -i -n 10 readme
 
 ### Breakdown
 | Breakdown | Description |
+|-----------|-------------|
 | `locate` | `locate` command. |
 | `-i` | Make the search case-insensitive. |
 | `-n 10` | Sets the amount of lines to print out to 10 lines. |
@@ -590,6 +590,7 @@ locate -i -n 10 readme
 
 ### Example
 
+### Search for sudo in all of /etc directory:
 ```bash
 rg "sudo" /etc
 ```
@@ -645,7 +646,7 @@ fd passwd /etc
 ### Breakdown
 | Breakdown | Description |
 |-----------|-------------|
-| `fd` | `fd' command. |
+| `fd` | `fd` command. |
 | `passwd` | Target pattern. |
 | `/etc` | Target location to find pattern. |
 
@@ -663,14 +664,14 @@ fd passwd /etc
 | `-q <query>` | Starts with a preloaded query. | `fzf -q "config"` |
 | `-e` | Exact match mode. | `fzf -e` |
 | `--nth <range>` | Restricts search to specific fields in the UI. | `fzf --nth 2` |
-| `--delimiter <str> | Define a custom field delimiter. | `fzf --delimiter ":"` |
+| `--delimiter <str> `| Define a custom field delimiter. | `fzf --delimiter ":"` |
 | `-m` | Multi-select mode. | `fzf -m` |
 | `-no-sort` | Preserve input order. | `fzf -no-sort` |
 | `--no-mouse` | Disable mouse support. | `fzf --no-mouse` |
 | `--height <size> | Show the UI in the smaller window. | `fzf --height 20` |
 | `--layout <style> | Control layout. | `fzf --layout=reverse` |
 | `--preview <command>` | Shows a preview window of the command. | `fzf --preview cat {}` |
-| `--preview-window <opts> | Control preview window position and size. | `fzf --preview head -50 {}` | 
+| `--preview-window <opts>` | Control preview window position and size. | `fzf --preview head -50 {}` | 
 | `--ansi` | Enable ANSI color codes. | `fzf --ansi` |
 
 ### Example
@@ -685,7 +686,7 @@ find -type f | fzf
 |-----------|-------------|
 | `find` | `find` command. |
 | `-type f` | Directs `find` command to loook in files. |
-| `|` | `pipe` command thats say it takes output from `find` and will send it through `fzf`.
+| `|` | `pipe` command thats say it takes output from `find` and will send it through `fzf`. |
 | `fzf` |  Outputs results in the Fuzzy file finder. |
 
 
@@ -698,6 +699,7 @@ find -type f | fzf
 
 ### Options
 | Options | Descriptions | Examples|
+|---------|--------------|---------|
 | `-d` or `--debug` | Debug mode. | `ranger -d /etc` |
 | `-c` or `--clean` | Start ranger without loading any configuration files. | `ranger -c /etc` |
 | `-r` or `--confdir` | Specify an alternate configuration directory. | `ranger -r /etc` |
@@ -752,12 +754,12 @@ ranger -t file1.txt
 | `z [query]` | Jumps to the highest-rainked directory that matches your search. | `z projects` |
 | `-i` or `--interactive` | Opens fuzzy selector loop. | `z -i projects` |
 | `-l` or `--list` | Show all matching paths instead of jumping. | `z -l projects` |
-| `-s` or `--score` | Along with list, display frecency. | `z -s projects` |
-| `-t` or `--type <dir|file>` | Filter by directory or file type. | `z -t f projects` |
+| `-s` or `--score` | Along with list, display frequency. | `z -s projects` |
+| `-t` or `--type<dir/file>` | Filter by directory or file type. | `z -t f projects` |
   
 ### Example
 
-### Show 
+### Show frequency of projects:
 ```bash
 z -s projects
 ```
