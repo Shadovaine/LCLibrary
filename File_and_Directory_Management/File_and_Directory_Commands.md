@@ -427,19 +427,19 @@ echo -e “Watcher\nmode”
 ## Description: Searches files and directories.
 
 ## Syntax
-- `find [PATH] [OPTIONS] [EXPRESSION]`
+- `find [PATH] [OPTIONS] [EXPRESSION] [ACTION]`
 
 ### Options
 | Options | Descriptions | Examples |
 |---------|--------------|----------|
-| `-name` | Match filenames. |
-| `-type` | Specify type (f for file, d for dir). |
-| `-size` | Search by size ( e.g +10m, -1G). |
-| `-exec` | Execute a command on found items. |
-| `-mtime` | Modified in last N days. |
-| `-atime` | Accessed in last N days. |
-| `-print` | Print full path of each file. |
-| `-perm` | World writable (others have permission to write). |
+| `-name` | Match filenames. | `find /home/path -name "*.backup"` | 
+| `-type` | Specify type (f for file, d for dir). | `find /home -type f "*.backup"` |
+| `-size` | Search by size ( e.g +10m, -1G). | `find . -size +10k` |
+| `-exec` | Execute a command on found items. | `find . -name "*.log" -exec rm {} \;` |
+| `-mtime` | Modified in last N days. | `find /home -mtime 2` |
+| `-atime` | Accessed in last N days. | `find /home -atime 3` |
+| `-print` | Print full path of each file. | `find /home  -type f -print` |
+| `-perm` | World writable (others have permission to write). | `find /home -perm 644` |
 
 ### Examples
 
@@ -471,24 +471,24 @@ find /var/log -name "*.log" -exec rm {} \;
 ### OPTIONS
 | Options | Descriptions | Examples |
 |---------|--------------|----------|
-| `-a` | Show all hidden files. |
-| `-d` | List directories. |
-| `-L <num>` | Limit display to a specific number of directory levels. |
-| `-f` | Print full path prefix for each file. |
-| `-F` | Append `/` to directories, `*` to executables, @ to symlinks. |
-| `-p` | Print file permissions. |
-| `-u` | Print the username of the file owner. |
-| `-g` | Print the group name of the file owner. |
-| `-s` | Print file sizes in bytes. |
-| `-h` | Print file sizes in human readable format. |
-| `-P <pattern>` | Display only files matching a wildcard pattern. |
-| `-I <pattern>` | Exclude files or directories matching a wildcard pattern. |
-| `-C` | Enable colorized output. |
-| `-n` | Disable colorized output. |
-| `-q` | Print non-printable characters as `?`. |
-| `--du` | Print directory sizes. |
-| `--prune` | Prune empty directories from the output. |
-| `--dirsfirst` | List directories before files. |
+| `-a` | Show all hidden files. | `tree -a` |
+| `-d` | List directories. | `tree -d` |
+| `-L <num>` | Limit display to a specific number of directory levels. | `tree -L 2 /home` |
+| `-f` | Print full path prefix for each file. | `tree -f` |
+| `-F` | Append `/` to directories, `*` to executables, @ to symlinks. | `tree -F` |
+| `-p` | Print file permissions. | `tree -p` |
+| `-u` | Print the username of the file owner. | `tree -u` |
+| `-g` | Print the group name of the file owner. | `tree -g` |
+| `-s` | Print file sizes in bytes. | `tree -s` |
+| `-h` | Print file sizes in human readable format. | `tree -h` |
+| `-P <pattern>` | Display only files matching a wildcard pattern. | `tree -P "*.sh"` |
+| `-I <pattern>` | Exclude files or directories matching a wildcard pattern. | `tree -P "*.log"` |
+| `-C` | Enable colorized output. | `tree -C` |
+| `-n` | Disable colorized output. | `tree -n` |
+| `-q` | Print non-printable characters as `?`. | `tree -q` |
+| `--du` | Print directory sizes. | `tree --du` |
+| `--prune` | Prune empty directories from the output. | `tree --prune` |
+| `--dirsfirst` | List directories before files. | `tree --dirsfirst` |
   
 ### Example
 
@@ -515,19 +515,19 @@ tree -a /home
 ### Options
 | Options | Descriptions | Examples |
 |---------|--------------|----------|
-| `-i` | Case-insensitive search. |
-| `-c` | Prints out the number of matches instead of listing them. |
-| `-n NUM` | Will only print out the desired amount inputed. |
-| `-r REGEX` | Searches using regular expression. |
-| `-w` | Matches whole words. |
-| `-b` | Matches only the basename. |
-| `-1 NUM` | Limits results to stated amount. |
-| `-0` | Output results separated by a null character instead of a new line.
-| `-q` | Quiet mode.
-| `-d DBPATH` | Uses a specific database and not the default database. |
-| `-e` | Only prints existing files. |
-| `-S` | Shows database statistics. |
-| `-V`:  Shows version information. |
+| `-i` | Case-insensitive search. | `locate -i backup` |
+| `-c` | Prints out the number of matches instead of listing them. | `locate -c .log` |
+| `-n NUM` | Will only print out the desired amount inputed. | `locate -n 9 backup` |
+| `-r REGEX` | Searches using regular expression. | `locate -r "\.log$"` |
+| `-w` | Matches whole words. | `locate -w backup` |
+| `-b` | Matches only the basename. | `locate -b backup` |
+| `-1 NUM` | Limits results to stated amount. | `locate -l 4 hosts` |
+| `-0` | Output results separated by a null character instead of a new line. | `locate -0 backup` |
+| `-q` | Quiet mode. | `locate -q backup` |
+| `-d DBPATH` | Uses a specific database and not the default database. | `locate -d /home/path` |
+| `-e` | Only prints existing files. | `locate -e backup` |
+| `-S` | Shows database statistics. | `locate -S backup` |
+| `-V`:  Shows version information. | `locate -V backup` |
 
 ### Example
 
@@ -553,43 +553,40 @@ locate -i -n 10 readme
 ### Options
 | Options | Descriptions | Examples |
 |---------|--------------|----------|
-| `-i` | Case-insensitive. |
-| `-n` | Show line numbers. |
-| `-l` | List filenames only. |
-| `-S` | Smart case: case-insensitive unless the oattern has upper cass letters. |
-| `-F` | Treat the pattern as a literal string. |
-| `-e <pattern>` | Explicitly specific a search pattern. |
-| `-w` | Match whole words only. |
-| `-x` | Match the entire line. |
-| `-g <glob>` | Includes only files matching the glob pattern. |
-| `-T <ext>` | Excludes a certain file type. |
-| `t <type>` | Searches only files of a certain type. |
-| `u` | Search hidden and ignored files. |
-| `uu` | Seach hidden and ifnored files. |
-| `iglob <pattern>` | Case-insensitive glob matching. |
-| `-hidden` | Include hidden files or directories. |
-| `-n` | Show line numbers. |
-| `H` | Always show the filename in results. |
-| `l` | Print only filenames with matches. |
+| `-i` | Case-insensitive. | `rg -i "error"` |
+| `-n` | Show line numbers. | `rg -n "error"` |
+| `-l` | List filenames only. | `rg -l "error"` |
+| `-S` | Smart case: case-insensitive unless the oattern has upper cass letters. | `rg -S "error"` |
+| `-F` | Treat the pattern as a literal string. | `rg -F "error"` |
+| `-e <pattern>` | Explicitly specific a search pattern. | `rg -e "TOO" -e "HARD"` |
+| `-w` | Match whole words only. | `rg -w "error"` |
+| `-x` | Match the entire line. | `rg -x "error"` |
+| `-g <glob>` | Includes only files matching the glob pattern. | `rg -g "*.sh"` |
+| `-T <ext>` | Excludes a certain file type. | `rg -T "*.log"` |
+| `-t <type>` | Searches only files of a certain type. | `rg -t "*.sh"` |
+| `-u` | Search hidden and ignored files. | `rg -u /etc` |
+| `-iglob <pattern>` | Case-insensitive glob matching. | `-ig "TOO" |
+| `--hidden` | Include hidden files or directories. | `rg
+| `-H` | Always show the filename in results. |
 | `-L` | Print only filenames without matches. |
-| `-o` | Show onlythe matching part of each line. |
+| `-o` | Show only the matching part of each line. |
 | `-v` | Invert match. |
-| `-c`:  Show the count of matches per file. |
-| `--stats | Show search statistics. |
+| `-c` |  Show the count of matches per file. |
+| `--stats` | Show search statistics. |
 | `-r <replacements>` | Use regex replacements. |
 | `-m <NUM>` | Limit the number of matches. |
 | `--max-columns <NUM>` | Truncate long lines to the column width in the output. |
 | `--max-depth <NUM>` | Limit search depth. |
-| `follow` | Follow symlink. |
-| `-no-messages` | Suppress error messages. |
+| `--follow` | Follow symlink. |
+| `--no-messages` | Suppress error messages. |
 | `--color <when>` | Control color. always, never, auto. |
-| '--heading` | Shows file names as headings. |
+| `--heading` | Shows file names as headings. |
 | `--no-heading` | Disables headings. |
 | `--json` | Output results in JSON format. |
 | `--pretty` | Pretty print results with colors and context. |
 | `-A <NUM>` |Show NUM lines after each match. |
 | `-B <NUM>` | Show NUM lines before each match. |
-|`-C <NUM>` | Show NUM lines of context. |
+| `-C <NUM>` | Show NUM lines of context. |
 
 ### Example
 
@@ -759,11 +756,11 @@ ranger -t file1.txt
 ### Options
 | Options | Descriptions | Examples |
 |---------|--------------|----------|
-| `z [query]` | Jumps to the highest-rainked directory that matches your search. |
-| `-i` or `--interactive` | Opens fuzzy selector loop. |
-| `-l` or `--list` | Show all matching paths instead of jumping. |
-| `-s` or `--score` | Along with list, display frecency. |
-| `-t` or `--type <dir|file>` | Filter by directory or file type. |
+| `z [query]` | Jumps to the highest-rainked directory that matches your search. | `z projects` |
+| `-i` or `--interactive` | Opens fuzzy selector loop. | `z -i projects` |
+| `-l` or `--list` | Show all matching paths instead of jumping. | `z -l projects` |
+| `-s` or `--score` | Along with list, display frecency. | `z -s projects` |
+| `-t` or `--type <dir|file>` | Filter by directory or file type. | `z -t f projects` |
   
 ### Example
 
@@ -790,19 +787,19 @@ z -s projects
 ### Options
 | Options | Descriptions | Examples |
 |---------|--------------|----------|
-| `-l` | Long format. 
-| `-a` | Show hidden files. |
-| `-la` or `-al` | Combine long format and hidden files. |
-| `-1` | List one file per line. |
-| `-s` | Sort by the file size. |
-| `-s name` | Sort by name. |
-| `-s modified` | Sort by modification time. |
-| `-r` | Reverse the sort order. |
-| `-T` | Display a tree view of directories. |
-| `-L <num>` | Limit depth of recursion in tree view. |
-| `--git` | Show Git status for files. |
-| `-@` | Show extended attributes. |
-| `--icons` | Show file-type icons.|
+| `-l` | Long format. | `exa -l` |
+| `-a` | Show hidden files. | `exa -a` |
+| `-la` or `-al` | Combine long format and hidden files. | `exa -la` |
+| `-1` | List one file per line. | `exa -l` |
+| `-s` | Sort by the file size. | `exa -s` |
+| `-s name` | Sort by name. | `exa -s backup` |
+| `-s modified` | Sort by modification time. | `exa -s` |
+| `-r` | Reverse the sort order. | `exa -r` |
+| `-T` | Display a tree view of directories. | `exa -T` |
+| `-L <num>` | Limit depth of recursion in tree view. | `exa -L 4` |
+| `--git` | Show Git status for files. | `exa --git` |
+| `-@` | Show extended attributes. | `exa -@` |
+| `--icons` | Show file-type icons.| `exa --icons` |
 
 ### Example
 
