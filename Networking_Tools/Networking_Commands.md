@@ -134,25 +134,30 @@ ssh -i ~/.ssh/id_rsa jake@192.168.1.50`
 ```
 
 ### Breakdown
-- `ssh`:  Secure shell command.
-- `-i ~/.ssh/id_rsa`:  Specific file with SSH key.
-- `sue@192.168.1.50`: Hostname with IPv4 address.
+| Breakdown | Description |
+|-----------|-------------|
+| `ssh` | Secure shell command. |
+| `-i ~/.ssh/id_rsa` | Specific file with SSH key. |
+| `sue@192.168.1.50` | Hostname with IPv4 address. |
+
 
   
 ## Command: scp
-**Description** Securely copies files between systems.
+## Description: Securely copies files between systems.
 
-## **Syntax**
-- scp [OPTIONS] SOURCE [USER@]HOST:DEST
+## Syntax
+- `scp [OPTIONS] SOURCE [USER@]HOST:DEST`
 
-### **Options**
-- `-P <port>`:  Specify port.
-- `-P`:  Preserves file attributes.
-- `-r`:  Copy directories recursively.
-- `-C`:  Enables compression during transfer.
-- `-v`:  Verbose mode.
-- `-q`:  Quiet mode.
-- `-l <limit>`:  Limits bandwidth.
+### Options
+| Options | Descriptions | Examples |
+|---------|--------------|----------|
+| `-P <port>` | Specify port. |
+| `-P` | Preserves file attributes. |
+| `-r` | Copy directories recursively. |
+| `-C` | Enables compression during transfer. |
+| `-v` | Verbose mode. |
+| `-q` | Quiet mode. |
+| `-l <limit>` | Limits bandwidth. |
 - `-1 <identify>`:  Specifies an SSH private key file for authentication.
 - `-0 <option>`:  Passes SSH options directly.
 - `-S<program>`:  Use a different SSH program.
