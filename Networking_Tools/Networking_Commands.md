@@ -105,7 +105,7 @@ ping -t 64 google.com
 ## Description Secure remote login:
 
 ## Syntax
-- ssh [OPTIONS] [USER@]HOST
+- `ssh [OPTIONS] [USER@]HOST`
 
 ### Options
 | Options | Descriptions | Examples |
@@ -201,11 +201,11 @@ scp file.txt sue@192.168.1.50:/home/sue/
 | `--password=<pass>` | Set HTTP/FTP password. |
 | `--header="<header>"` | Add custom header. |
 | `--no-check-certificate` | Ignore SSL certificate errors. |
-- `-r`:  Recursive download.
-- `-l`:  <depth>`:  Set recursion depth.
-- `-np`:  No parent directories.
-- `-nd`:  No directory structure.
-- `-A <list>`:  Accept only certain file types.
+| `-r` | Recursive download. |
+| `-l <depth>` | Set recursion depth. |
+| `-np` | No parent directories. |
+| `-nd` | No directory structure. |
+| `-A <list>` | Accept only certain file types. |
 - `-R <list>`:  Reject certain file types.
 - `--limit-rate=<rate>`:  Limit download speed.
 - `-W <seconds>`:  Wait between downloads.
