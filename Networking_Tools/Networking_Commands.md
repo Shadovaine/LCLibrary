@@ -158,46 +158,49 @@ ssh -i ~/.ssh/id_rsa jake@192.168.1.50`
 | `-v` | Verbose mode. |
 | `-q` | Quiet mode. |
 | `-l <limit>` | Limits bandwidth. |
-- `-1 <identify>`:  Specifies an SSH private key file for authentication.
-- `-0 <option>`:  Passes SSH options directly.
-- `-S<program>`:  Use a different SSH program.
-- `-4`:  Forces IPv4.
-- `-6`:  Forces IPv6.
-- `-B`:  Batch mode.
-- `-T`:  Disable strict filename escaping.
+| `-1 <identify>` | Specifies an SSH private key file for authentication. |
+| `-0 <option>` | Passes SSH options directly. |
+| `-S<program>` | Use a different SSH program. |
+| `-4` | Forces IPv4. |
+| `-6` | Forces IPv6. |
+| `-B` | Batch mode. |
+| `-T` | Disable strict filename escaping. |
 
-### **Examples**
+### Examples
 
-**Copy file to remote host.**
-
+### Copy file to remote host:
 ```bash
 scp file.txt sue@192.168.1.50:/home/sue/
 ```
 
-### **Breakdown**
-- `scp`:  Secure coping command.
-- `file.txt`:  File to copy.
-- `sue@192.168.1.50:/home/sue/`:  hostname with IPv4 address and target location.
+### Breakdown
+| Breakdown | Description |
+|-----------|-------------|
+| `scp` | Secure coping command.|
+| `file.txt` | File to copy. |
+| `sue@192.168.1.50:/home/sue/` | hostname with IPv4 address and target location. |
   
 
-## **Command: wget**
-**Description** Download files from the web.
+## Command: wget
+## Description: Download files from the web.
 
-## **Syntax**
-- wget [OPTIONS] URL
+## Syntax
+- `wget [OPTIONS] URL`
 
-### **Options**
-- `-O <FILE>`:  Save as specified filename.
-- `-c`:  Resume incomplete download.
-- `-P <dir>`:  Save files to a specific directory.
-- `-q`:  Quiet mode.
-- `-nv`:  Less verbose.
-- `-v`:  Verbose mode.
-- `-N`:  Only download if newer than local copy.
-- `--user=<user>`:  Set HTTP/FTP username.
-- `--password=<pass>`:  Set HTTP/FTP password.
-- `--header="<header>"`:  Add custom header.
-- `--no-check-certificate`:  Ignore SSL certificate errors.
+### Options
+| Options | Descriptions | Examples |
+|---------|--------------|----------|
+| `-O <FILE>` | Save as specified filename. |
+| `-c` | Resume incomplete download. |
+| `-P <dir>` | Save files to a specific directory. |
+| `-q` | Quiet mode. |
+| `-nv` | Less verbose. |
+| `-v` | Verbose mode. |
+| `-N` | Only download if newer than local copy. |
+| `--user=<user>` | Set HTTP/FTP username. |
+| `--password=<pass>` | Set HTTP/FTP password. |
+| `--header="<header>"` | Add custom header. |
+| `--no-check-certificate` | Ignore SSL certificate errors. |
 - `-r`:  Recursive download.
 - `-l`:  <depth>`:  Set recursion depth.
 - `-np`:  No parent directories.
