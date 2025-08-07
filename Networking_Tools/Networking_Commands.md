@@ -1,8 +1,8 @@
-# **Networking Commands**
+# Networking Commands
 
-## **Commands used in network communications, diagnostics, system monitoring, and remote file transfer**
+## Commands used in network communications, diagnostics, system monitoring, and remote file transfer
 
-## **Table of Contents**
+## Table of Contents
 - `ping`
 - `ssh`
 - `scp`
@@ -30,103 +30,110 @@
 - `wormhole`
 
 ## Command: ping
-**Description** Check connectivity to another host
+## Description Check connectivity to another host.
 
-## **Syntax**
-ping [OPTIONS] DESTINATION
+## Syntax
+- `ping [OPTIONS] DESTINATION`
 
-### **Options**
-- `-c <NUM>`:  Stop after sending N packets.
-- `-i <interval>`:  Interval between packets (in seconds).
-- `-t <ttl>`:  Set time-to-live (TTL).
-- `-s <size>`:  Set the size of the packet payload.
-- `-W <timeout>`:  Set timeout to wait for a reply.
-- `-q`:  Quiet output.
-- `-v`:  Verbose mode.
-- `-f`:  Flood ping (root required).
-- `-D`:  Print timestamps for each reply.
-- `-I <iface>`:  Specify network interface to use.
-- `-4`:  Force IPv4 ping.
-- `-6`:  Force IPv6 ping.
+### Options
+| Options | Descriptions | Example |
+|---------|--------------|---------|
+| `-c <NUM>` | Stop after sending N packets. |
+| `-i <interval>` | Interval between packets (in seconds). |
+| `-t <ttl>` | Set time-to-live (TTL). |
+| `-s <size>` | Set the size of the packet payload. |
+| `-W <timeout>` | Set timeout to wait for a reply. |
+| `-q` | Quiet output. |
+| `-v` | Verbose mode. |
+| `-f` | Flood ping (root required). |
+| `-D` | Print timestamps for each reply. |
+| `-I <iface>` | Specify network interface to use. |
+| `-4` | Force IPv4 ping. |
+| `-6` | Force IPv6 ping. |
 
-### **Examples**
+### Examples
 
-**Ping google.com until stopped:**
-
+## Ping google.com until stopped:
 ```bash  
 ping google.com
 ```
 
-### **Breakdown**
-- `ping`:  Check connectivity command.
-- `google.com`:  Target location.
+### Breakdown
+| Breakdown | Description |
+|-----------|-------------|
+| `ping` | Check connectivity command. |
+| `google.com` | Target location. |
   
-**Send 5 packets:**
-
+### Send 5 packets:
 ```bash
 ping -c 5 google.com
 ```
 
-### **Breakdown**
-- `ping`:  Check connectivity command.
-- `-c 5`:  Stop after 5 packets.
-- `google.com`:  Target location.
+### Breakdown
+| Breakdown | Description |
+|-----------|-------------|
+| `ping` | Check connectivity command. |
+| `-c 5` | Stop after 5 packets. |
+| `google.com` | Target location. |
 
-**Set 2-second interval between packets:**
-
+### Set 2-second interval between packets:
 ```bash
 ping -i 2 google.com
 ```
 
-### **Breakdown**
-- `ping`:  Check connectivity command.
-- `-i 2`:  Interval of 2 sec in between packets.
-- `google.com`:  target location.
+### Breakdown
+| Breakdown | Description |
+|-----------|-------------|
+| `ping` | Check connectivity command. |
+| `-i 2` | Interval of 2 sec in between packets. |
+| `google.com` | Target location. |
   
-**Check TTL value:**
-
+### Check TTL value:
 ```bash
 ping -t 64 google.com
 ```
 
-### **Breakdown**
-- `ping`:  Check connectivity command.
-- `-t 2`:  Time to live value of 2.
-- `google.com`:  target location.
+### Breakdown
+| Breakdown | Description |
+|-----------|-------------|
+| `ping` | Check connectivity command. |
+| `-t 2` | Time to live value of 2. |
+| `google.com` | Target location. |
 
   
 ## Command: ssh
-**Description** Secure remote login
+## Description Secure remote login:
 
-## **Syntax**
+## Syntax
 - ssh [OPTIONS] [USER@]HOST
 
-### **Options**
-- `-p <port>`:  Specify port.
-- `-i <identity>`:  Use identity file (SSH key).
-- `-L [bind:]port:host:hostport`:  Local port forwarding.
-- `-l <user>`:  Log in as a specific user.
-- `-v`:  Verbose mode.
-- `-C`:  Enable compression.
-- `-x`:  Enable X11 forwarding.
-- `-R [bind:]port:host:hostpost`:  Remote port forwarding.
-- `-D <port>`:  Dynamic port forwarding.
-- `-N`:  No remote command execution.
-- `-T`:  Disable pseudo-terminal allocation.
-- `-o <option>`:  Pass custom SSH client option.
-- `-4`:  Force IPv4.
-- `-6`:  Force IPv6.
-- `-q`:  Quiet mode. 
+### Options
+| Options | Descriptions | Examples |
+|---------|--------------|----------|
+| `-p <port>` | Specify port. |
+| `-i <identity>` | Use identity file (SSH key). |
+| `-L [bind:]port:host:hostport` | Local port forwarding. |
+| `-l <user>` | Log in as a specific user. |
+| `-v` | Verbose mode. |
+| `-C` | Enable compression. |
+| `-x` | Enable X11 forwarding. |
+| `-R [bind:]port:host:hostpost`| Remote port forwarding. |
+| `-D <port>` |  Dynamic port forwarding. |
+| `-N` | No remote command execution. |
+| `-T` | Disable pseudo-terminal allocation. |
+| `-o <option>` | Pass custom SSH client option. |
+| `-4` | Force IPv4. |
+| `-6` | Force IPv6. |
+| `-q` | Quiet mode. |
 
-### **Examples**
+### Examples
 
-**Login with a specific key.**
-
+### Login with a specific key.
 ```bash
 ssh -i ~/.ssh/id_rsa jake@192.168.1.50`
 ```
 
-### **Breakdown**
+### Breakdown
 - `ssh`:  Secure shell command.
 - `-i ~/.ssh/id_rsa`:  Specific file with SSH key.
 - `sue@192.168.1.50`: Hostname with IPv4 address.
