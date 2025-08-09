@@ -597,58 +597,46 @@ echo -e "Line 1\nLine 2" | ts
 | `"Line 1/nLine 2"` | String that will be printed |
 | `ts` | task spool command |
 
-# Command: error 
+# Command: systemd-analyze
 
-## Description: CLI error message explainer
+## Description: Diagnose boot performance
 
 ## Syntax
 
-- `error [error-message]`
+- `systemd-analyze [OPTIONS] COMMAND [COMMAND OPTIONS]`
 
-### **Example**
+### Options
 
-- error "permission denied"
-
-Function: Searches known forums and docs to explain common Linux, Bash, or language errors.
-
-🧠 IR Use: Explain odd messages during breach recovery or system misbehavior.
-
-## **systemd-analyze – Diagnose boot performance**
-
-## **Syntax**
-
-- systemd-analyze
-
-## **Example**
-
-- systems-analyze blame
-
-### **Options**
-
+| Options | Descriptions | Examples |
+|---------|--------------|----------|
 - blame Show which services delayed boot
 - critical-chain Dependency tree and timing
 
-🧠 Use case: Optimize startup or spot malicious services delaying boot.
+### Example
 
-## **lazydocker – TUI for Docker management**
+- systems-analyze blame
 
-## **Syntax**
+# Command: lazydocker
+
+## Description: TUI for Docker management
+
+## Syntax
 
 - lazydocker
 
-## **Example**
+## Example
 
 - lazydocker
 
 View running containers, images, logs, volumes in a slick terminal interface.
 
-## **fabric – Python-based remote shell & deployment tool**
+# Command: fabric
 
- • Category: Automation / DevOps / Red Teaming
+## Description: Python-based remote shell & deployment tool
 
-## **Syntax**
+ ## Syntax
 
-- fab [task]
+- `fab [task]`
 
 Ex: (in fabfile.py)
 def deploy():
@@ -660,13 +648,15 @@ fab deploy
 
 Think of it as a programmable SSH runner across multiple servers — great for ops or mass remote changes.
 
-## **asciinema – Record and share terminal sessions**
+# Command: asciinema
 
-## **Syntax**
+## Description: Record and share terminal sessions
 
-- asciinema rec [filename]
+## Syntax
 
-### **Examples**
+- `asciinema rec [filename]`
+
+### Examples
 
 asciinema rec install_hardened_linux.cast
 
@@ -674,15 +664,15 @@ Playback: asciinema play install_hardened_linux.cast
 
 Perfect for: creating tutorials, logging incident response steps, or leaving a trail for blue teams or audits.
 
-## **netstat**
+# Command: netstat
 
-- Displays network connections, routing tables, and interface stats. (Legacy—ss replaces it in modern systems)
+## Description: Displays network connections, routing tables, and interface stats. (Legacy—ss replaces it in modern systems)
 
-## **Syntax**
+## Syntax
 
-- netstat [OPTIONS]
+- `netstat [OPTIONS]`
 
-### **Options**
+### Options
 
 -t Show TCP connections only.
 -u Show UDP connections only.
@@ -690,7 +680,7 @@ Perfect for: creating tutorials, logging incident response steps, or leaving a t
 -n Show numerical addresses (don’t resolve DNS).
 -p Show process using the socket.
 
-### **Examples**
+### Examples
 
  Show all connections:
 netstat -a
@@ -704,15 +694,15 @@ netstat -t
 Show process names:
 netstat -tulpn
 
-## **ss**
+# Command: ss
 
-- A faster, more modern replacement for netstat.
+## Description: A faster, more modern replacement for netstat
 
-## **Syntax**
+## Syntax
 
-- ss [OPTIONS]
+- `ss [OPTIONS]`
 
-### **Options**
+### Options
 
 -t Show TCP connections.
 -u Show UDP connections.
@@ -720,7 +710,7 @@ netstat -tulpn
 -n Show numerical addresses.
 -p Show processes using sockets.
 
-### **Examples**
+### Examples
 
  Show all TCP connections:
 ss -t
@@ -734,15 +724,15 @@ ss -tunap
  Show UDP connections:
 ss -u
 
-## **rsync**
+# Command: rsync
 
-- Efficiently syncs files/directories between locations.
+## Description: Efficiently syncs files/directories between locations
 
-## **Syntax**
+## Syntax
 
-- rsync [OPTIONS] SOURCE DEST
+- `rsync [OPTIONS] SOURCE DEST`
 
-### **Options**
+### Options
 
 -a Archive mode (preserve permissions, symlinks).
 -v Verbose output.
@@ -750,7 +740,7 @@ ss -u
 --delete Delete files in dest not present in source.
 -P Show progress and keep partially transferred files.
 
-### **Examples**
+### Examples
 
  Sync two directories:
 rsync -av /home/jake/ /mnt/backup/
@@ -761,15 +751,15 @@ rsync -avz /home/jake user@server:/backup/
 Mirror source to destination (delete extras):
 rsync -av --delete /source/ /dest/
 
-## **ftp**
+# Command: ftp
 
-- Connect to an FTP server and transfer files.
+## Description: Connect to an FTP server and transfer files
 
-## **Syntax**
+## Syntax
 
-- ftp [OPTIONS] HOST
+- `ftp [OPTIONS] HOST`
 
-### **Options**
+### Options
 
 get Download a file.
 put Upload a file.
@@ -778,7 +768,7 @@ cd Change directory on server.
 mget Download multiple files.
 mput Upload multiple files.
 
-### **Wxamples**
+### Examples
 
  Connect to an FTP server:
 ftp ftp.example.com
@@ -794,110 +784,154 @@ ftp> put myfile.txt
 Exit FTP:
 ftp> bye
 
-## **mtr – Combine traceroute + ping into real-time network map**
+# Command: mtr 
 
-## **Syntax**
+## Description: Combine traceroute + ping into real-time network map
 
-mtr [options] [host]
+## Syntax
 
-### **Examples**
+- `mtr [options] [host]`
+
+### Examples
 
 - mtr google.com
 
-### **Options**
+### Options
 
  • -r → Report mode (non-interactive)
  • -c [n] → Number of pings
  • -b → Show both IPs and hostnames
  • -w → Wide report mode
 
-## **mosh – Mobile Shell (better ssh for flaky networks)**
+# Command: mosh
 
- • Category: Remote Connectivity
+## Description: Mobile Shell (better ssh for flaky networks)
 
-## **Syntax**
+ ## Syntax
 
--mosh  user@host
+- `mosh  user@host`
 
-## **Example**
+## Example
 
 mosh jake@192.168.1.50
 
-Benefits:
- • Works even if your IP changes
- • Auto-reconnects after drops
- • Uses UDP instead of TCP
+# Command: dog 
 
-## **dog – Modern replacement for dig (DNS queries)**
+## Description: Modern replacement for dig (DNS queries)
 
- • Category: DNS Tool
- • Syntax: dog [domain]
+## Syntax
 
-### **Example**
+-`dog [domain]`
+
+### Example
 
 - dog chat.openai.com
 
-### **Options**
+### Options
 
  • @1.1.1.1 → Query a specific DNS server
  • -t A → Query record type (e.g., A, MX, TXT, etc.)
 
-## **termshark – Wireshark in your terminal**
+# Command: termshark
 
-## **Syntax**
+## Description: Wireshark in your terminal
 
-- termshark -i [interface]
+## Syntax
 
-### **Example**
+- `termshark -i [interface]`
+
+### Example
 
 - sudo termshark -i eth0
 
-### **Options**
+### Options
 
  • Navigate packet layers with arrow keys
  • Filters work like tcpdump (ip.addr==192.168.0.5)
 
-## **lsof - List network connections and the programs using them**
+# Command: lsof
 
-## **Syntax**
+## Description: List network connections and the programs using them
 
-- sudo lsof -i
+## Syntax
 
-### **Examples**
+- `sudo lsof -i`
+
+### Examples
 
 sudo lsof -i :22          # Who’s using SSH  
 sudo lsof -i tcp@localhost:8080
 
-## **ipcalc – IP calculator for CIDR, subnetting, broadcast, etc.**
+# Command: ipcalc 
 
-## **Syntax**
-
-- ipcalc [ip-address/cidr]
-
-### **Example**
-
-- ipcalc 192.168.1.5/24
-
-Output:
- • Network address
- • Netmask
- • Broadcast address
- • Host range
-
-# Command: wormhole
-
-## Description: Encrypted file transfer between systems
+## Description: IP calculator for CIDR, subnetting, broadcast, etc.
 
 ## Syntax
 
-- wormhole send [filename]
-- wormhole receive
+- `ipcalc [ip-address/cidr]`
+
+### Options
+
+| Options | Descriptions | Examples |
+|---------|--------------|----------|
+| `-c` | Validate if the IP is legit | `ipcalc -c 192.16.1.256` |
+| `-i` | Show readable network info | `ipcalc -i 192.168.1.10/24` |
+| `--all-info` | Verbose human-readable output | `ipcalc --all-info 193.92.15.2/24` |
+| `-S` | Cut a network into smaller chunks using specified prefixes | `ipcalc -S 26 192.168.1.23` |
+| `-d` | Split a range into covering networks | `ipcalc -d 192.168.1.3-192.168.1.23` |
+| `-r` | Create a random private IP given mask | `ipcalc -r \24` |
+| `-h` | Give me the possible hostname for that IP | `ipcalc --hostname 8.8.8.8` |
+| `-j` | Output results as JSON | `ipcalc -j --all-info 192.168.1.10/24` |
+| `--no-decorate` | Raw output with no fluff | ipcalc -S 26 192.168.1.0/24` |
+| `--addrspace` | Info about address space category | `ipcalc --addrspace 192.168.1.0/24` |
+| `-p` | Show the CIDR prefix | `ipcalc --prefix 192.168.1.10 255.255.255.0` |
+| `--class-prefix` | Use classful defaults for netmask | `ipcalc --class-prefix 10.0.0.1` |\
+| `-n` | Just show the network address | `ipcalc --network 192.168.1.10/24` |
+| `--addresses` | Show number of hosts | `ipcalc --addresses 192.168.1.0/24` |
+| `--minaddr` | Lowest usable host IP in the network | `ipcalc --minaddr 192.168.1.0/24` |
+| `--maxaddr` | Highest usable host IP | `ipcalc --maxaddr 192.168.1.0/24` |
 
 ### Example
 
-wormhole send secrets.tar.gz
+### Validate if the IP is legit
 
-Features:
-Uses PAKE (Password-Authenticated Key Exchange)
-No server required — transfers peer-to-peer
- Must be installed on both systems
+```bash
+ipcalc -c 192.168.1.5/24
+```
+
+### Breakdown
+
+| Breakdown | Description |
+|-----------|-------------|
+| `ipcalc` | Network Command |
+| `-c` | Directs to validate IP |
+| `192.168.1.5/24` | IP address
+
+# Command: wormhole
+
+## Description: Encrypted file transfer between systems. Must be installed on both systems. No server required.
+
+## Syntax
+
+- `wormhole [OPTIONS] COMMAND [ARGUEMENT]`
+
+### Options
+
+| Options | Description | Examples |
+|---------|-------------|----------|
+| `send[f or d]` | Kicks off a transfer, spits out a code | `wormhole send backup` |
+| `receive` | Waits for someone to punch in that code | `wormhole receive` |
+
+### Example
+
+```bash
+wormhole send secrets.tar.gz
+```
+
+### Breakdown
+
+| Breakdown | Description |
+|-----------|-------------|
+| `wormhole` | File transfer command |
+| `send` | Directs to kick off the transfer | 
+| `secret.tar.gz` | file to be transferred |
