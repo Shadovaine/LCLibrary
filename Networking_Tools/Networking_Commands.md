@@ -618,35 +618,77 @@ echo -e "Line 1\nLine 2" | ts
 
 # Command: lazydocker
 
-## Description: TUI for Docker management
+## Description:  TUI for Docker management
 
 ## Syntax
 
-- lazydocker
+- `lazydocker`
 
-## Example
+### Options
 
-- lazydocker
+| Options | Descriptions | Examples |
+|---------|--------------|----------|
+| `--debug` | Log internal debug into for troubleshooting | `lazydocker --debug` |
+| `--config` | Loads a custom config file instead of default one | `lazydocker --config ~/.config/lazydocker/custom-config.yml` |
+| `f` | Points to a different docker compose file | `lazydocker -f ./docker-compose.dev.yml` |
+| `-p` | Override the Project Name | `lazydocker -p myproject` |
+| `--help` | Prints the built in help text | `lazydocker --help` |
+| `--version` | Displays the current version | `lazydocker --version` |
 
-View running containers, images, logs, volumes in a slick terminal interface.
+### Example
+
+### View running containers, images, logs, and volumes
+
+```bash
+lazydocker
+```
+
+### Breakdown
+
+| Breakdown | Description |
+|-----------|-------------|
+| `lazydocker` | Opens the TUI for managin Docker |
 
 # Command: fabric
 
 ## Description: Python-based remote shell & deployment tool
 
- ## Syntax
+## Syntax
 
 - `fab [task]`
 
-Ex: (in fabfile.py)
-def deploy():
-    run("git pull")
-    run("systemctl restart webapp")
+### Options
 
-Then:
-fab deploy
+| Options | Descriptions | Examples |
+|---------|--------------|----------|
+| `deploy` | Deploys task | `fab deploy` |
+| `cleanup` | Cleanups tasks | `fab cleanup` |
+| `-H` | Specifies a host | `fab -H server1, server2 restart_service` |
+| `-i` | Overrides the SSH key, and uses a targeted authentication | `fab -H prod.server.com -i ~/.ssh/prod_key deploy` |
+| `--prompt-for-passphrase` | fab -H host1 --prompt-for-login-password deploy` |
+| `--list` | lists all the defined tasks | `fab --list` |
+| `-R` | Dry run, just echos with no execution | `fab -H host1 -R test_deploy` |
+| `-P` | Run tasks in parallel | `fab -H host1, host2 -P backup_db` |
+| `-f` | Instructs to fun custom fab.py files instead of default ones | `fab -f custom_fabfile.py deploy` |
+| `--connect-timeout, --command-timeout` | Sets timeouts | `fab -H host1 --connect-timeout=10 --command-timeout=30 deploy` |
 
-Think of it as a programmable SSH runner across multiple servers — great for ops or mass remote changes.
+### Examples
+
+### Specify a host
+
+```bash
+fab -H server1, server2 restart_service
+```
+
+### Breakdown
+
+| Breakdown | Description |
+|-----------|-------------|
+| `fab` | Fabric command |
+| `-H` | Directs to specify a host |
+| `server1` | the original server1 |
+| `server2` | the specified location for server1 |
+| `restart_service` | restarting server service |
 
 # Command: asciinema
 
