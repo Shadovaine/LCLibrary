@@ -67,7 +67,7 @@ ping google.com
 
 | Breakdown | Description |
 |-----------|-------------|
-| `ping` | Check connectivity command. |
+| `ping` | Network command. |
 | `google.com` | Target location. |
   
 ### Send 5 packets
@@ -80,7 +80,7 @@ ping -c 5 google.com
 
 | Breakdown | Description |
 |-----------|-------------|
-| `ping` | Check connectivity command. |
+| `ping` | Network command. |
 | `-c 5` | Stop after 5 packets. |
 | `google.com` | Target location. |
 
@@ -94,7 +94,7 @@ ping -i 2 google.com
 
 | Breakdown | Description |
 |-----------|-------------|
-| `ping` | Check connectivity command. |
+| `ping` | Network command. |
 | `-i 2` | Interval of 2 sec in between packets. |
 | `google.com` | Target location. |
   
@@ -108,7 +108,7 @@ ping -t 64 google.com
 
 | Breakdown | Description |
 |-----------|-------------|
-| `ping` | Check connectivity command. |
+| `ping` | Network command. |
 | `-t 2` | Time to live value of 2. |
 | `google.com` | Target location. |
 
@@ -151,7 +151,7 @@ ssh -i ~/.ssh/id_rsa jake@192.168.1.50
 
 |Breakdown | Description |
 |----------|-------------|
-| `ssh` | Secure shell command. |
+| `ssh` | Remote Network command. |
 | `-i ~/.ssh/id_rsa` | Specific file with SSH key. |
 | `sue@192.168.1.50` | Hostname with IPv4 address. |
 
@@ -167,27 +167,24 @@ ssh -i ~/.ssh/id_rsa jake@192.168.1.50
 
 | Options | Descriptions | Examples |
 |---------|--------------|----------|
-| `-P <port>` | Specify port. |
-| `-P` |  Preserves file attributes. |
-| `-r` | Copy directories recursively. |
-| `-C` | Enables compression during transfer. |
-| `-v` | Verbose mode. |
-| `-q` | Quiet mode. |
-| `-l <limit>` |  Limits bandwidth. |
-| `-1 <identify>` |  Specifies an SSH private key file for authentication. |
-| `-0 <option>` |  Passes SSH options directly. |
-| `-S <program>` |  Use a different SSH program. |
-| `-4` | Forces IPv4. |
-| `-6` | Forces IPv6. |
-| `-B` | Batch mode. |
-| `-T` |  Disable strict filename escaping. |
+| `-P <port>` | Specify port. | `scp -P 2222 file.txt name@server:/home/name/` |
+| `-p` |  Preserves file attributes. | `scp -p file.txt name@server:/backup/` |
+| `-r` | Copy directories recursively. | `scp -r /home/name/docs name@server:/backup/docs` |
+| `-C` | Enables compression during transfer. | `scp -C bigfile.iso name@server:/backup/` |
+| `-v` | Verbose mode. | `scp -v file.txt name@server:/backup/` |
+| `-q` | Quiet mode. | `scp -q file.txt name@server:/backup/` |
+| `-l <limit>` |  Limits bandwidth. | `scp -l 800 file.txt name@server:/backup/` |
+| `-i <identify>` |  Specifies an SSH private key file for authentication. | `scp -i ~/.ssh/id_ed25519 file.txt name@server:/backup/` |
+| `-0 <option>` |  Passes SSH options directly. | `scp -o StrictHostKeyChecking=no file.txt jake@server:/backup/` |
+| `-4` | Forces IPv4. | `scp -4 file.txt name@server:/backup/` |
+| `-6` | Forces IPv6. | `scp -6 file.txt name@server:/backup/` |
 
 ### Examples
 
 ### Copy file to remote host
 
 ```bash
-scp file.txt sue@192.168.1.50:/home/sue/
+scp file.txt name@192.168.1.50:/home/name/
 ```
 
 ### Breakdown
@@ -196,7 +193,7 @@ scp file.txt sue@192.168.1.50:/home/sue/
 |-----------|-------------|
 | `scp` |  Secure coping command. |
 | `file.txt` |  File to copy. |
-| `sue@192.168.1.50:/home/sue/` |  hostname with IPv4 address and target location. |
+| `name@192.168.1.50:/home/name/` |  hostname with IPv4 address and target location. |
   
 # Command: wget
 
@@ -210,33 +207,25 @@ scp file.txt sue@192.168.1.50:/home/sue/
 
 | Options | Descriptions | Examples |
 |---------|--------------|----------|
-| `-O <FILE>` | Save as specified filename. | 
-| `-c` | Resume incomplete download. |
-| `-P <dir>` |  Save files to a specific directory. |
-| `-nv` |  Less verbose. |
-| `-v` |  Verbose mode. |
-| `-N`| Only download if newer than local copy. |
-| `--user=<user>` | Set HTTP/FTP username. |
-| `--password=<pass>` |  Set HTTP/FTP password. |
-| `--header="<header11>"` |  Add custom header. |
-| `--no-check-certificate` |  Ignore SSL certificate errors. |
-| `-r` | Recursive download. |
-| `-l <depth>` |  Set recursion depth. |
-| `-np` |  No parent directories. |
-| `-nd` |  No directory structure. |
-| `-A <list>` |  Accept only certain file types. |
-| `-R <list>` |  Reject certain file types. |
-| `--limit-rate=<rate>` |  Limit download speed. |
-| `-W <seconds>` |  Wait between downloads. |
-| `--random-wait` |  Random delay between downloads. |
-| `--tries=<n>` |  Retry download N times. |
-| `--timeout=<seconds>` |  Set timeout. |
-| `--retry-connrefused` |  Retry if connection is refused. |
-| `-b`| Run in background. |
-| `-S` |  Show server response headers. |
-| `-d` | Debug output. |
-| `-e robots=off` |  Ignore robots.txt, |
-| `--mirror` | Mirro an entire website. |
+| `-O <FILE>` | Write output to a specific file  | `wget -O myfile.html https://example.com` |
+| `-o <FILE>` | Write log message to a file | `wget -o download.log https://example.com/file.zip` |
+| `-c` | Resume incomplete download. | `wget -c https://example.com/bigfile.iso` |
+| `-P <dir>` |  Save files to a specific directory. | `wget -P /tmp/downloads https://example.com/file.zip` |
+| `-nv` |  Less verbose. | `wget -nv https://example.com/file.zip` |
+| `-v` |  Verbose mode. | `wget -v https://example.com/file.zip` |
+| `-N`| Only download if newer than local copy. | `wget -N https://example.com/file.zip` |
+| `--user=<user> --password=PASS` | Autheniticate with HTTP/FTP server | `wget --user=jake --password=secret ftp://ftp.example.com/file.zip` |
+| `--header="<header:value>"` |  Add custom header. | `wget --header=Authorization: Bearer MYTOKEN" https://api.example.com/data` |
+| `--no-check-certificate` |  Ignore SSL certificate errors. | `wget --no-check-certificate https://selfsigned.example.com/file.zip` |
+| `-r` | Recursive download. | `wget -r https://example.com/files/` |
+| `-l <depth>` |  Set recursion depth. | `wget -l 2 https://example.com/` |
+| `-np` |  No parent directories. | `wget -np https://example.com/files/` |
+| `--accept=PATTERN` |  Accept only certain file types. | `wget --accept=*.pdf https://example.com/` |
+| `--reject=PATTERN` |  Reject certain file types. | `wget --reject=*.jpg https://example.com/` |
+| `--limit-rate=<rate>` |  Limit download speed. | `wget --limit-rate=200k https://example.com/file.zip` |
+| `-W <seconds>` |  Wait between downloads. | `wget --wait=5 https://example.com/files/` |
+| `--random-wait` |  Random delay between downloads. | `wget --randowm-wait https://example.com/files/` |
+| `-b`| Run in background. | `wget -b https://example.com/bigfile.iso` |
 
 ### Example
 
@@ -266,23 +255,22 @@ wget -O ubuntu.iso http://example.com/ubuntu.iso
 
 | Options | Descriptions | Examples |
 |---------|--------------|----------|
-| `-O` | Save file with original name. |
-| `-L` | Follow redirects. |
-| `-u` | Use username:password authentication. |
-| `-C -` | Resume a download. |
-| `-s` |  Silent (no progress or errors.) |
-| `-S` | Show errors even when `-s` is used. |
-| `-v` | Verbose mode. |
-| `-k` |  Ignore SSL certificate validation. |
-| `-u  user:pass` |  HTTP Basic authentication. |
-| `-H "<header>"` |  Add a custom header. |
-| `-b <cookie>` | Send cookie. |
-| `-c <cookie-file>` |  Save cookie to file. |
-| `--compressed` |  Request compressed response. |
-| `-X <method>` |  Specify HTTP request method. |
-| `-d @file.json` |  Send JSON from file. |
-| `--data-urlencode "<data>"` |  URL-encode data before sending. |
-| `-1 `-F "field=@file"` | File upload. |
+| `-O` | Save file with original name. | `curl -o page.html https://example.com` |
+| `-L` | Follow redirects. | `curl -L https://short.url/abcd` |
+| `-u` | Use username:password authentication. | `curl -u jake:secret https://example.com/private/data.txt` |
+| `-C -` | Resume a download. | `curl -C https://example.com/bigfile.iso` |
+| `-s` |  Silent (no progress or errors.) | `curl -s https://example.com` |
+| `-S` | Show errors even when `-s` is used. | `curl -sS https://example.com` |
+| `-v` | Verbose mode. | `curl -v https://example.com/` |
+| `-k` |  Ignore SSL certificate validation. | `curl -k https://selfsigned.example.com` |
+| `-u  user:pass` |  HTTP Basic authentication. | `curl -u name:secret https://example.com/private/data.txt` |
+| `-H "HEADER:VALUE"` |  Add a custom header. | `curl -H "Authorization: Bearer TOKEN" https://api.example.com/data` |
+| `--cookie "NAME:VALUE"` | Send cookies. | `curl --cookie "sessionid=abc123" https://example.com/profile` | 
+| `--cookie-jar FILE` |  Save cookie to file. | `curl --cookie-jar cookies.txt https://example.com` |
+| `--compressed` |  Request compressed response. | `curl --compressed https://example.com` |
+| `-X <method>` |  Specify HTTP request method. | `curl -X DELETE https://api.example.com/item/123` |
+| `--data-urlencode "<data>"` |  URL-encode data before sending. | `curl --data-urlencode "search=linux commands" https://example.com/search` |
+| `-1`-F "field=@file"` | File upload. |
 | `--limit-rate <speed>` |  Limit download speed. |
 | `-r <range>` | Download byte range. |
 | `--max-time <seconds>` |  Set a timeout. |
@@ -357,7 +345,6 @@ curl -u user:pass https://api.example.com/data
 | `debug` |  Enable debugging on the interface. |
 | `-debug` | Disable debugging on the interface. |
 
-
 ### Examples
 
 ## View all network interfaces
@@ -393,6 +380,7 @@ ifconfig eth0 down
 ```
 
 ### Breakdown
+
 | Breakdown | Description |
 |-----------|-------------|
 | `ifconfig` | Show network interface command |
@@ -411,7 +399,7 @@ ifconfig eth0 192.168.1.100
 |-----------|-------------|
 | `ifconfig` | Show network interface command |
 | `eth0` | Specific network interface |
-| ` 192.168.1.100` | Specific IP address to set to eth0 |
+| `192.168.1.100` | Specific IP address to set to eth0 |
 
 # Command: ip
 
@@ -431,7 +419,7 @@ ifconfig eth0 192.168.1.100
 | `neigh` | Show or modify ARP cache |
 | `rule` | Routing policy rules |
 | `maddr` | Multicast addresses |
-| `monitor ` | Watch changes to netlink |
+| `monitor` | Watch changes to netlink |
 | `help` | Show help |
 
 ### Examples
@@ -471,6 +459,7 @@ ip route add default via 192.168.1.1
 ```
 
 ### Breakdown
+
 | Breakdown | Description |
 |-----------|-------------|
 | `ip` | Network command |
@@ -494,7 +483,7 @@ ip route show
 
 ## Description: Terminal task/project manager. Great for tracking recon, post-exploit steps, or learning goals in CLI-only setups
 
-## Syntax:
+## Syntax
 
 - `task [options] [filter] [commands] [modifications]`
 
@@ -502,7 +491,7 @@ ip route show
 
 | Options | Descriptions | Examples |
 |---------|--------------|----------|
-| `--debug ` | Show debug output |
+| `--debug` | Show debug output |
 | `--verbose` | More detailed output |
 | `--quiet` | Suppress output |
 | `--force` | Ignore warnings |
@@ -563,7 +552,7 @@ task list
 | `task` | task manager command |
 | `list` | Directs to list all tasks |
 
-# Command: ts 
+# Command: ts
 
 ## Description Task spooler (run background jobs and queue them)
 
@@ -580,7 +569,6 @@ task list
 | `-s` | Use strftime format string instead of default |
 
 ### Examples
-
 
 ### Prefix with timestamps
 
@@ -609,6 +597,7 @@ echo -e "Line 1\nLine 2" | ts
 
 | Options | Descriptions | Examples |
 |---------|--------------|----------|
+
 - blame Show which services delayed boot
 - critical-chain Dependency tree and timing
 
@@ -878,7 +867,9 @@ ss -l
 ```bash
 ss -tunap
 ```
+
 ### Breakdown
+
 | Breakdown | Description |
 |-----------|-------------|
 | `ss` | Network Command |
@@ -888,7 +879,7 @@ ss -tunap
 | `-a` | Show all sockets |
 | `-p` | Show PID and program names |
 
-# Command: rsync 
+# Command: rsync
 
 ## Description: Efficiently syncs files/directories between locations
 
@@ -919,7 +910,7 @@ ss -tunap
 | `--chown=USER:GROUP` | Change ownership on transferred files | `rsync -a --chown=root:root /src/ /dest/` |
 | `--chmod=CHMOD` | Change permissions on transferred files | `rsync -a --chmod=755 /src/script.sh /dest/` |
 | `--size-only` | Skip files matching in size, ignore timestamp | `rsync -a --size-only /src/ /dest/` |
-| `--ignore-existing` | skip updating existing files | ` rsync -a --ignore-existing /src/ /dest` |
+| `--ignore-existing` | skip updating existing files | `rsync -a --ignore-existing /src/ /dest` |
 | `--remove-source-files` | Delete source files after successful transfer | `rsync -a --remove-source-files /src/ /dest/` |
 | `--delete` | Delete extraneous files from the destination | `rsync -a --delete /src/ /dest/` |
 | `--exclude=PATTERN` | Exclude certain files | `rsync -a --exclude="*.tmp" /src/ /dest/` |
@@ -1009,6 +1000,7 @@ rsync -av --delete /source/ /dest/
 ```bash
 ftp ftp.example.com
 ```
+
 ### Breakdown
 
 | Breakdown | Description |
@@ -1016,8 +1008,7 @@ ftp ftp.example.com
 | `ftp` | file transfer protocol command |
 | `ftp.example.com` | target server |
 
-
-# Command: mtr 
+# Command: mtr
 
 ## Description: Combines traceroute + ping into real-time network map
 
@@ -1053,6 +1044,7 @@ ftp ftp.example.com
 ```bash
 mtr -b google.com
 ```
+
 ### Breakdown
 
 | Breakdown | Description |
@@ -1065,7 +1057,7 @@ mtr -b google.com
 
 ## Description: Mobile Shell (better ssh for flaky networks)
 
- ## Syntax
+## Syntax
 
 - `mosh [Options] [--] [user@host] [Command]`
 
@@ -1096,10 +1088,10 @@ mosh -p 60000:60010 \
 | Breakdown | Description |
 |-----------|-------------|
 | `mosh` | special shell command |
-| `-p` | Specifies a specific port to use | 
+| `-p` | Specifies a specific port to use |
 | `60000:60010` | Specified ports |
 
-# Command: dog 
+# Command: dog
 
 ## Description: Modern replacement for dig (DNS queries)
 
@@ -1122,7 +1114,7 @@ mosh -p 60000:60010 \
 - dog -q example.com
 ```
 
-### Breakdown 
+### Breakdown
 
 ### Options
 
@@ -1199,7 +1191,7 @@ mosh -p 60000:60010 \
 sudo lsof -i :22            
 ```
 
-### Breakdown 
+### Breakdown
 
 | Breakdown | Description |
 |-----------|-------------|
@@ -1220,9 +1212,9 @@ lsof -i @192.168.1.10
 | `lsof` | List open files command |
 | `-i @192.168.1.10` | Filter by host/IP |
 
-# Command: ipcalc 
+# Command: ipcalc
 
-## Description: IP calculator for CIDR, subnetting, broadcast, etc.
+## Description: IP calculator for CIDR, subnetting, broadcast, etc
 
 ## Syntax
 
@@ -1267,7 +1259,7 @@ ipcalc -c 192.168.1.5/24
 
 # Command: wormhole
 
-## Description: Encrypted file transfer between systems. Must be installed on both systems. No server required.
+## Description: Encrypted file transfer between systems. Must be installed on both systems. No server required
 
 ## Syntax
 
@@ -1291,5 +1283,5 @@ wormhole send secrets.tar.gz
 | Breakdown | Description |
 |-----------|-------------|
 | `wormhole` | File transfer command |
-| `send` | Directs to kick off the transfer | 
+| `send` | Directs to kick off the transfer |
 | `secret.tar.gz` | file to be transferred |
