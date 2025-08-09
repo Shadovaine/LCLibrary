@@ -692,19 +692,46 @@ fab -H server1, server2 restart_service
 
 # Command: asciinema
 
-## Description: Record and share terminal sessions
+## Description: Record and share terminal sessions. Perfect for: creating tutorials, logging incident response steps, or leaving a trail for blue teams or audits
 
 ## Syntax
 
 - `asciinema rec [filename]`
 
+### Options
+
+| Options | Descriptions | Examples |
+|---------|--------------|----------|
+|  `-c` | Records a specific command | `asciinema -c "htop" htop-demo.cast` |
+| `-i` | Compresses long idle time so viewers do not snooze | `asciinema -i 5 quick-demo.cast` |
+| `rec <filename>` | Record a session | `asciinema rec demo.cast` |
+| `--stdin` | Records your keystrokes along with terminal output | `asciinema rec --stdin with-keystrokes.cast` |
+| `--append` | Adds to existing file | `asciinema rec --append session.cast` |
+| `--overwrite` | Overwrites the existing file | `asciinema rec --overwrite session.cast` |
+| `-t` | Adds a descriptive title when uploading | `asciinema rec -t "Linux Firewall Setup" Firewall.cast` |
+| `-q` | Suppresses non-essential messages | `asciinema rec -q silent.cast` |
+| `-y` | Automatically answers yes to prompts | `asciinema rec -y auto.cast` |
+| `play` | Plays a recording | `asciinema play demo.cast` |
+| `-s` | Allows you to change the playback speed | `asciinema play -s 1.5 demo.cast` |
+| `cat` | Dumps the recorded session output to your terminal without timing | `asciinema cat demo.cast` |
+| `upload` | pushes file to asciinema.org | `asciinema upload demo.cast` |
+| `auth` | Links local client to online account for uploads and management | `asciinema auth` |
+
 ### Examples
 
+### Start a recording
+
+```bash
 asciinema rec install_hardened_linux.cast
+```
 
-Playback: asciinema play install_hardened_linux.cast
+### Breakdown
 
-Perfect for: creating tutorials, logging incident response steps, or leaving a trail for blue teams or audits.
+| Breakdown | Description |
+|-----------|-------------|
+| `asciinema` | Recording manager command |
+| `rec` | Directs to start recording |
+| `install_hardened_linux.cast` | name of file |
 
 # Command: netstat
 
@@ -716,25 +743,79 @@ Perfect for: creating tutorials, logging incident response steps, or leaving a t
 
 ### Options
 
--t Show TCP connections only.
--u Show UDP connections only.
--l Show listening ports.
--n Show numerical addresses (don’t resolve DNS).
--p Show process using the socket.
+| Options | Descriptions | Examples |
+|---------|--------------|----------|
+| `-a` | Show all sockets | `netstat -a` |
+| `-t` | Show TCP connections only | `netstat -t` |
+| `-u` | Show UDP connections only | `netstat -u` |
+| `-l` | Show listening sockets only | `netstat -l` |
+| `-p` | Show the PID and program name of each connection | `sudo netstat -p` |
+| `-n` | Show address numerically | `netstat -n` |
+| `-r` | Show the routing table | `netstat -r` |
+| `-i` | Show network interfaces | `netstat -i` |
+| `-s` | Show per-protocol statistics | `netstat -s` |
+| `-c` | Continuous output | `netstat -c` |
+| `-e` | Show extended information | `netstat -e` |
+| `-g` | Show multicast group membership | `netstat -g` |
+| `-o` | Show timers for connections | `netstat -o` |
 
 ### Examples
 
- Show all connections:
+### Show all connections
+
+```bash
 netstat -a
+```
 
-Show only listening ports:
+### Breakdown
+
+| Breakdown | Description |
+|-----------|-------------|
+| `netstat` | Network command|
+| `-a` | Show all networks |
+
+### Show only listening ports
+
+```bash
 netstat -l
+```
 
-Show TCP connections
+### Breakdown
+
+| Breakdown | Description |
+|-----------|-------------|
+| `netstat` | Network command |
+| `-l` | Show listening ports only |
+
+### Show TCP connections
+
+```bash
 netstat -t
+```
 
-Show process names:
+### Breakdown
+
+| Breakdown | Description |
+|-----------|-------------|
+| `netstat` | Network Command |
+| `-t` | Show TCP connections only |
+
+### Show process names
+
+```bash
 netstat -tulpn
+```
+
+### Breakdown
+
+| Breakdown | Description |
+|-----------|-------------|
+| `netstate` | Network Command |
+| `-t` | Show TCP connections |
+| `-u` | Show UDP connections |
+| `-l` | Show listening ports |
+| `-p` | Show the PID and Program name |
+| `-n` | Show addresses numberically |
 
 # Command: ss
 
@@ -742,31 +823,72 @@ netstat -tulpn
 
 ## Syntax
 
-- `ss [OPTIONS]`
+- `ss [OPTIONS] [FILTER]`
 
 ### Options
 
--t Show TCP connections.
--u Show UDP connections.
--l Show listening sockets.
--n Show numerical addresses.
--p Show processes using sockets.
+| Options | Descriptions | Examples |
+|---------|--------------|----------|
+| `-t` | Show TCP sockets only | `ss -t` |
+| `-u` | Show UDP sockets only | `ss -u` |
+| `-l` | Show listening sockets only | `ss -l` |
+| `-a` | Show all sockets | `ss -a` |
+| `-n` | Do not resolve service names or hostnames | `ss -n` |
+| `-p` | Show PID and process using the socket | `ss -p` |
+| `-4/-6` | Show only IPv4 or IPv6 sockets | `ss -4 or ss -6` |
+| `-r` | Resolve service names | `ss -r` |
+| `-o` | Show timer information | `ss -o` |
+| `-s` | Show summary statistics | `ss-s` |
+| `-i` | Show internal TCP info | `ss -ti` |
+| `-m` | Show memory usage for sockets | `ss -m` |
+| `-K` | Kill a socket | `ss -K dst 192.168.1.100 dport = 22` |
+| `-f` | Specify socket family | `ss -f inet` |
+| `-H` | No header line in output | `ss -H -t` |
 
 ### Examples
 
- Show all TCP connections:
+### Show all TCP connections
+
+```bash
 ss -t
+```
 
- Show listening sockets:
+### Breakdown
+
+| Breakdown | Description |
+|-----------|-------------|
+| `ss` | Network Command |
+| `-t` | Show TCP connections |
+
+### Show listening sockets
+
+```bash
 ss -l
+```
 
- Show processes using sockets:
+### Breakdown
+
+| Breakdown | Description |
+|-----------|-------------|
+| `ss` | Network command |
+| `-l` | Show listening sockets |
+
+### Show processes using sockets
+
+```bash
 ss -tunap
+```
+### Breakdown
+| Breakdown | Description |
+|-----------|-------------|
+| `ss` | Network Command |
+| `-t` | Show TCP connections |
+| `-u` | Show UDP connections |
+| `-n` | Do not resolve service names or hostnames |
+| `-a` | Show all sockets |
+| `-p` | Show PID and program names |
 
- Show UDP connections:
-ss -u
-
-# Command: rsync
+# Command: rsync 
 
 ## Description: Efficiently syncs files/directories between locations
 
@@ -776,22 +898,89 @@ ss -u
 
 ### Options
 
--a Archive mode (preserve permissions, symlinks).
--v Verbose output.
--z Compress data during transfer.
---delete Delete files in dest not present in source.
--P Show progress and keep partially transferred files.
+| Options | Descriptions | Examples |
+|---------|--------------|----------|
+| `-v` | Verbose mode | `rsync -v file.txt /backup/` |
+| `-a` | Archive mode | `rsync -a /home/name/ /backup/name/` |
+| `-r` | Copy directories recursively | `rsync -r doc/ /backup/docs/` |
+| `-l` | Copy symlinks as symlinks | `rsync -l source/ target/` |
+| `-p` | Preserve permissions | `rsync -p file.txt /backup/ |
+| `-t` | Preserve modification times | `rsync -t file.txt /backup/` |
+| `-g` | Preserve group ownership | `rsync -g file.txt /backup/` |
+| `-o` | Preserve owner | `rsync -o file.txt /backup/` |
+| `-D` | Preserve device files and special files | `rsync -aD /dev/ /backup/dev/` |
+| `-u` | Skip files new on the destination | `rsync -u /src/ /dest/` |
+| `-n` | Show what would be done, without doing it | `rsync -an /src/ /dest/` |
+| `-z` | Compress file data during transfer | `rsync -az /src/ remote:/dest/` |
+| `-P` | Show progress and keep partially transferred files | `rsync -aP big-iso /backup/` |
+| `--progress` | Show progress during transfer | `rsync --progress file.txt /backup/` |
+| `--partial` | Keep partially transferre*d files | `rsync --partial bigfile /backup/` |
+| `--rsync-path=PATH` | Specify remote rsync path | `rsync -a --rsync-path="/usr/local/bin/rsync" /src/ remote:/dest/` |
+| `--chown=USER:GROUP` | Change ownership on transferred files | `rsync -a --chown=root:root /src/ /dest/` |
+| `--chmod=CHMOD` | Change permissions on transferred files | `rsync -a --chmod=755 /src/script.sh /dest/` |
+| `--size-only` | Skip files matching in size, ignore timestamp | `rsync -a --size-only /src/ /dest/` |
+| `--ignore-existing` | skip updating existing files | ` rsync -a --ignore-existing /src/ /dest` |
+| `--remove-source-files` | Delete source files after successful transfer | `rsync -a --remove-source-files /src/ /dest/` |
+| `--delete` | Delete extraneous files from the destination | `rsync -a --delete /src/ /dest/` |
+| `--exclude=PATTERN` | Exclude certain files | `rsync -a --exclude="*.tmp" /src/ /dest/` |
+| `--exclude-from=FILE` | Read exclude patterns from file | `rsync -a --exclude-from=exclude.txt /src/ /dest/` |
+| `--include=PATTERN` | Force inclusion of specific files | `rsynce -a --include="*.jpg" --exclude="*" /src/ /dest/` |
+| `--bwlimit=KBPS` | limit bandwidth usage | `rsync -a --bwlimit=500 /src/ /dest/` |
+| `--checksum` | Skip files with same checksum | `rsync -a --checksum /src/ /dest/` |
+| `--append` | Append data to partially transferred files | `rsync --append bigfile /backup/` |
+| `--apend-verify` | Append and verify checksum | `rsync --append-verify bigfile /backup/` |
 
 ### Examples
 
- Sync two directories:
-rsync -av /home/jake/ /mnt/backup/
+### Sync two directories
 
-Sync over SSH:
-rsync -avz /home/jake user@server:/backup/
+```bash
+rsync -av /home/name/ /mnt/backup/
+```
 
-Mirror source to destination (delete extras):
+### Breakdown
+
+| Breakdown | Description |
+|-----------|-------------|
+| `rsync` | Network Commdand |
+| `-a` | Archive mode |
+| `-v` | Verbose mode |
+| `/home/name/` | Source location |
+| `/mnt/backup/` | Target location |
+
+### Sync over SSH
+
+```bash
+rsync -avz /home/name user@server:/backup/
+```
+
+### Breakdown
+
+| Breakdown | Description |
+|-----------|-------------|
+| `rsync` | Network Command |
+| `-a` | Archive mode |
+| `-v` | Verbose mode |
+| `-z` | Compress files during transfer |
+| `/home/name/` | Source lcoation |
+| `user@server:/backup/` | Destination location |
+
+### Mirror source to destination (delete extras)
+
+```bash
 rsync -av --delete /source/ /dest/
+```
+
+### Breakdown
+
+| Breakdown | Destination |
+|-----------|-------------|
+| `rsync` | Network Command |
+| `-a` | Archive mode |
+| `-v` | Verbose mode |
+| `--delete` | Directs to delete extra files at destination |
+| `/source/` | source location |
+| `/dest/` | Destination Location |
 
 # Command: ftp
 
@@ -799,51 +988,78 @@ rsync -av --delete /source/ /dest/
 
 ## Syntax
 
-- `ftp [OPTIONS] HOST`
+- `ftp [OPTIONS] HOSTNAME`
 
 ### Options
 
-get Download a file.
-put Upload a file.
-ls List files on server.
-cd Change directory on server.
-mget Download multiple files.
-mput Upload multiple files.
+| Options | Descriptions | Examples |
+|---------|--------------|----------|
+| `-p` | Eable passive mode | `ftp -p ftp.example.com` |
+| `-i` | Turns off interactive prompting when using multiple file transfers | `ftp -i ftp.example.com` |
+| `-n` | Do not auto-login when connecting | `ftp -n ftp.example.com` |
+| `-g` | Disables filename globbing | `ftp -g ftp.example.com` |
+| `-v` | Enable verbose mode | `ftp -v ftp.example.com` |
+| `-d` | Enable debugging messages | `ftp -d ftp.example.com` |
+| `-u user[,pass]` | Specify username and optional password on the command line | `ftp -u name, password ftp.example.com` |
 
 ### Examples
 
- Connect to an FTP server:
+### Connect to an FTP server
+
+```bash
 ftp ftp.example.com
+```
+### Breakdown
 
-Login and download a file:
-Name: user
-Password: ****
-ftp> get file.zip
+| Breakdown | Description |
+|-----------|-------------|
+| `ftp` | file transfer protocol command |
+| `ftp.example.com` | target server |
 
-Upload a file:
-ftp> put myfile.txt
-
-Exit FTP:
-ftp> bye
 
 # Command: mtr 
 
-## Description: Combine traceroute + ping into real-time network map
+## Description: Combines traceroute + ping into real-time network map
 
 ## Syntax
 
 - `mtr [options] [host]`
 
-### Examples
-
-- mtr google.com
-
 ### Options
 
- • -r → Report mode (non-interactive)
- • -c [n] → Number of pings
- • -b → Show both IPs and hostnames
- • -w → Wide report mode
+| Options | Descriptions | Examples |
+|---------|--------------|----------|
+| `-4` | Forces IPv4 | `mtr -4 google.com` |
+| `-6` | Forces IPv6 | `mtr -6 google.com` |
+| `-r` | Report mode | `mtr -r google.com` |
+| `-c` | counts number of cycles to run | `mtr -r -c 10 google.com` |
+| `-n` | Say to not resolve hostnames | `mtr -n google.com` |
+| `-b` | Show both hostname and IP addresses | `mtr -b google.com` |
+| `-a` | Binds to a specific source address | `mtr -a 192.168.1.100 google.com` |
+| `-f` | Set the first TTL hop to probe | `mtr -f 5 google.com` |
+| `-m` | Set the maximum TTL | `mtr -m 15 google.com` |
+| `-p` | Displays the actual packet path | `mtr -p google.com` |
+| `-z` | Shows ASN info | `mtr -z google.com` |
+| `-i` | Time between pings | `mtr -i 2 google.com` |
+| `-w` | Wide report format | `mtr -w google.com` |
+| `-t` | Enable TCP mode | `mtr -t google.com` |
+| `-u` | Use UDP mode | `mtr -u google.com` |
+| `--json` | Output results in JSON format | `mtr --JSON google.com` |
+
+### Examples
+
+### Show both hostname and IP addresses
+
+```bash
+mtr -b google.com
+```
+### Breakdown
+
+| Breakdown | Description |
+|-----------|-------------|
+| `mtr` | Network Command |
+| `-b` | Directs to show both hostname and IP address |
+| `google.com` | Target site |
 
 # Command: mosh
 
@@ -851,11 +1067,37 @@ ftp> bye
 
  ## Syntax
 
-- `mosh  user@host`
+- `mosh [Options] [--] [user@host] [Command]`
 
-## Example
+### Options
 
-mosh jake@192.168.1.50
+| Options | Descriptions | Examples |
+|---------|--------------|----------|
+| `-p` or `--port=PORT:PORT2` | Specifies UDP port | `mosh -p 60000 user@server.example.com` |
+| `--ssh=SSH-COMMAND` | Connects via SSH on port 2222 | `mosh --ssh"ssh -p 2222 -i ~/ssh/id_rsa" user@server.example.com` |
+| `-4` or `--family=inet` | Forces IPv4 | `mosh -4 user@server.example.com` |
+| `-6` or `--family=inet6` | Forces IPv6 | `mosh -6 user@server.example.com` |
+| `--predict=adaptive/always/never` | Controls predictive echo | `mosh --predict=always user@server.example.com` |
+| `--no-init` | Disables terminal initialization on startup | `mosh --no-init user@server.example.com` |
+| `--local` | Forces Mosh to run in local-only mode | `mosh --local` |
+| `--help` | Shows help menu | `mosh --help` |
+| `--version | Shows working version | `mosh --version` |
+
+### Example
+
+### connecting using a specific port
+
+```bash
+mosh -p 60000:60010 \
+```
+
+### Breakdown
+
+| Breakdown | Description |
+|-----------|-------------|
+| `mosh` | special shell command |
+| `-p` | Specifies a specific port to use | 
+| `60000:60010` | Specified ports |
 
 # Command: dog 
 
@@ -863,11 +1105,24 @@ mosh jake@192.168.1.50
 
 ## Syntax
 
--`dog [domain]`
+-`dog [ query Options] [Domain]`
+
+### Options
+
+| Options | Descriptions | Examples |
+|---------|--------------|----------|
+| `-q` or `--query=HOST` | Domain to query | `dog -q example.com` |
+| `-t` or `--type=TYPE` | specify the DNS record type | `dog -q example.com -t MX` |
+| `-n` or `--nameserver=ADDR` | Query a specific nameserver | `dog -q example.com -t A -n 8.8.8.8` |
+| `--class=CLASS` | Sets DNS class | `dog -q example.com --class=IN` |
 
 ### Example
 
-- dog chat.openai.com
+```bash
+- dog -q example.com
+```
+
+### Breakdown 
 
 ### Options
 
@@ -880,29 +1135,90 @@ mosh jake@192.168.1.50
 
 ## Syntax
 
-- `termshark -i [interface]`
-
-### Example
-
-- sudo termshark -i eth0
+- `termshark [Options] [<capture filter>]`
 
 ### Options
 
- • Navigate packet layers with arrow keys
- • Filters work like tcpdump (ip.addr==192.168.0.5)
+| Options | Descriptions | Examples |
+|---------|--------------|----------|
+| `r <file>` | Read and analyze a file offline | `termshark -r sample.pcap` |
+| `-i` | Capture live traffic from the specified interface | `sudo termshark -i wlan0` |
+| `D` | Dump a list of available network interfaces and exit | `termshark -D` |
+| `-f` | Apply a BPF-style filter during capture | `termshark -i eth0 -f "port 53"` |
+| `-Y` | Apply a Wireshark-style display filter | `termshark -r sample.pcap -Y "tcp.port == 8080"` |
+| `-P` | Only packets addressed to your host are captured | `termshark -p` |
+| `-s <snaplen>` | Set the snapshot length | `termshark -s 128` |
+| `-l` | Launch directly into live capture mode | `termshark -l` |
+
+### Example
+
+```bash
+- sudo termshark -i eth0
+```
+
+### Breakdown
+
+| Breakdown | Description |
+|-----------|-------------|
+| `sudo` | Temporary superuser command |
+| `termshark` | Activates termshark |
+| `-i` | Captures live  traffic from specified interface |
+| `eth0` | Specified interface |
 
 # Command: lsof
 
-## Description: List network connections and the programs using them
+## Description: List network connections and the programs using them. Stands for "list open files"
 
 ## Syntax
 
-- `sudo lsof -i`
+- `lsof [Options] [names]`
+
+### Options
+
+| Options | Descriptions | Examples |
+|---------|--------------|----------|
+| `-u <users>` | Shows files opened by a specific user | `lsof -u  username` |
+| `-p <PID>` | Shows files opened by a specific user | `lsof -p 1234` |
+| `-i` | Show network connections | `lsof -i` |
+| `-i <port> | show processes using a specific port | `lsof -i :80` |
+| `-i tcp/-i udp` | filter bhy protocol | `lsof -i tcp` |
+| `-i @<ip>` | Filter by host/IP | `lsof -i username@192.168.1.20` |
+| `-c <string>` | Show processes whose command starts with string | `lsof -c ssh` |
+| `-a` | Combine multiple filters | `lsof -i tcp -a -u username` |
+| `-P` | Dont resolve port numbers to service names | `lsof -P -i` |
+| `-n` | Do not resolve hostnames | `lsof -t -i :22` |
+| `-t` | Output only process IDs | `lsof -t -i :443` |
+| `+d <dir>` | List files opened in a specific directory | `sudo lsof +d /etc` |
+| `+D <dir>` | Recursively list files opened under a directory | `sudo lsof +D /var/log` |
 
 ### Examples
 
-sudo lsof -i :22          # Who’s using SSH  
-sudo lsof -i tcp@localhost:8080
+### Who’s using SSH
+
+```bash
+sudo lsof -i :22            
+```
+
+### Breakdown 
+
+| Breakdown | Description |
+|-----------|-------------|
+| `sudo` | Temporary superuser command |
+| `lsof` | List open files command |
+| `-i :22` | Directs to list processes using port 22 |
+
+### Filter by host and IP address
+
+```bash
+lsof -i @192.168.1.10
+```
+
+### Breakdown
+
+| Breakdown | Description |
+|-----------|-------------|
+| `lsof` | List open files command |
+| `-i @192.168.1.10` | Filter by host/IP |
 
 # Command: ipcalc 
 
