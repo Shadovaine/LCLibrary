@@ -552,7 +552,7 @@ task list
 | `-g` | Compress output with gzip (use with -n) | `ts -ng echo "Large output here "` |
 | `-f` | Run in foreground, wait until done | `ts -f sleep 5` |
 | `-m` | Email results when done | `TS_MAIL_TO="name@example.com" ts -m echo "Job completed"` |
-| `-L <label>` | ts -L backup tar -czf backup.tar.gz /home/name` |
+| `-L <label>` | Archive and compress a file | ts -L backup tar -czf backup.tar.gz /home/name` |
 | `-K` | Kill Task Spooler | `ts -K` |
 | `-C` | Clear finished jobs from list | `ts -C` |
 | `-U <id-id>` | Swap positions of two jobs | `ts -U 2-4` |
