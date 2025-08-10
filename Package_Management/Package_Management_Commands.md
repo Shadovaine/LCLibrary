@@ -40,15 +40,9 @@
 | `-q` | Quiet mode. | `apt -q` |
 | `-qq`| Super quiet mode. | `apt -qq` |
 | `-s` or `--simulate` | Simulates the action with out making changes. | `apt -s` |
-- `-d` or `--download-only`:  Download packages but does not install.
-- `-o` <key>=<value>`:  Override configuration.
-- `--purge`:  Removes packages including configuration files.
-- `--reinstall`:  Reinstalls the specified packages.
-- `--fix-broken`:  Fixes broken dependencies.
-- `--no-install-recommends`:  Installs packages without recommended dependencies.
-- `--fix-missing`:  Attempts to fix missing packages during installations. 
-- `apt policy <pkg>`:  Show the candidate version and repo for a package.
-- `apt-cache stats`:  Displays cache statistics.
+| `-d` or `--download-only` |  Download packages but does not install. | `apt -d package-name` |
+| `--reinstall` | Reinstalls the specified packages. | `apt --reinstall package-name` |
+| `--fix-broken` | Fixes broken dependencies. | `apt --fix-broken package-name`|
   
 ### Examples
 
@@ -125,36 +119,38 @@ sudo apt purge apache2
 
 ### Options
 
-- `snap install <pkg>`:  Installs a snap package.
-- `snap remove <pkg>`:  Removes a snap package.
-- `snap refresh <pkg>`:  Updates a snap package.
-- `snap revert <pkg>`:  Rolls back to the previous version.
-- `snap list`:  Lists installed snap packages.
-- `snap find <term>`:  Searches the Snap Store for packages.
-- `snap info <pkg>`:  Shows details about a snap package.
-- `snap run <pkg>`:  Runs a snap package.
-- `--channel=<track>/<risk>`:  Install from a specific channel.
-- `--revision=<numbers>`:  Install a specific revision.
-- `--classic`:  Install with a classic confinement.
-- `snap enable <pkg>`:  Enables a previously disabled snap.
-- `snap disable <pkg>`:  Disables a snap without uninstalling it.
-- `snap connections`:  shows all snap interface connections.
-- `snap connect`:  Manually connect a snap interface.
-- `snap disconnect`:  Disconnect a snap interface.
-- `snap interface <int>`:  Show details of a specific interface.
-- `snap aliases`:  Shows current snap command aliases.
-- `snap alias`:  Creates a command alias for a snap.
-- `snap unalias`:  Removes a command alias.
-- `snap warnings`:  show warnings for snaps.
-- `snap changes`:  Lists recent snap changes and transactions.
-- `snap change <id>`:  Show details for a specific change ID.
-- `snap abort <id>`:  Aborts a pending snap change.
-- `snap services`:  Lists snap services and their status.
-- `snap start <svc>`:  Starts a snap service.
-- `snap stop <svc>`:  Stops a snap services.
-- `snap restart <svc>`:  Restarts a snap service.
-- `snap set <pkg> key=value`:  Set configuration for a snap.
-- `snap get <pkg>`:  Get configurations for a snap.
+| Options | Descriptions | Examples |
+|---------|--------------|----------|
+| `snap install <pkg>` | Installs a snap package. | `snap install package-name` |
+| `snap remove <pkg>` | Removes a snap package. | snap remove package-name` |
+| `snap refresh <pkg>` | Updates a snap package. | `snap refresh` |
+| `snap revert <pkg>`| Rolls back to the previous version. | `snap revert package-name` |
+| `snap list` | Lists installed snap packages. | `snap list` |
+| `snap find <term>` | Searches the Snap Store for packages. `snap find name` |
+| `snap info <pkg>` | Shows details about a snap package. | `snap info name` |
+| `snap run <pkg>` | Runs a snap package. | `snap run name` |
+| `--channel=<track>/<risk>` | Install from a specific channel. | `snap --channel=10` |
+| `--revision=<numbers>` | Install a specific revision. | `snap --revision=3` |
+| `--classic` | Install with a classic confinement. | `snap --classic` |
+| `snap enable <pkg>` | Enables a previously disabled snap. | `snap enable package-name` |
+| `snap disable <pkg>` | Disables a snap without uninstalling it. | `snap diable package-name` |
+| `snap connections` | Shows all snap interface connections. | snap connections` |
+| `snap connect` | Manually connect a snap interface. | snap connect name` |
+| `snap disconnect` | Disconnect a snap interface. | snap disconnect name` |
+| `snap interface <int>` | Show details of a specific interface. | `snap interface name` |
+| `snap aliases` | Shows current snap command aliases. | `snap aliases` |
+| `snap alias` | Creates a command alias for a snap. | `snap alias` |
+| `snap unalias` | Removes a command alias. | snap unalias` |
+| `snap warnings` | Show warnings for snaps. | `snap warnings` |
+| `snap changes` | Lists recent snap changes and transactions. | `snap changes` |
+| `snap change <id>` | Show details for a specific change ID. | `snap change 3333` |
+| `snap abort <id>` | Aborts a pending snap change. | `snap abort 2222` |
+| `snap services` | Lists snap services and their status. | `snap services` |
+| `snap start <svc>` | Starts a snap service. | `snap start name.service` |
+| `snap stop <svc>` | Stops a snap services. | `snap stop name.service` |
+| `snap restart <svc>` | Restarts a snap service. | `snap restart name.service` |
+| `snap set <pkg> key=value` | Set configuration for a snap. | `snap set package-name` |
+| `snap get <pkg>` | Get configurations for a snap. | `snap get package-name` |
 
 ### Examples
 
