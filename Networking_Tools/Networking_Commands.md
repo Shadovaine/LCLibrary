@@ -471,43 +471,38 @@ ip route show
 
 ## Syntax
 
-- `task [options] [filter] [commands] [modifications]`
+- `task <Filter> <command> [<modification> | <args>]`
 
 ### Options
 
 | Options | Descriptions | Examples |
 |---------|--------------|----------|
-| `--debug` | Show debug output |
-| `--verbose` | More detailed output |
-| `--quiet` | Suppress output |
-| `--force` | Ignore warnings |
-| `--` | Stop option parsing |
-| `rc:<name>=<value>` | Temporarily overside config settings |
-| `+<tag>` | Filter: has this tag |
-| `-<tag>` | Filter: does NOT have this tag |
-| `<attribute>:<value> | Filter: Matches specific attribute |
-| `add` | Add a new task |
-| `list` | Show pending tasks |
-| `done` | Mark task as done |
-| `delete` | Delete task |
-| `start` | Mark task as started |
-| `stop` | Stop task tracking |
-| `mod` | Modify task |
-| `edit` | Edit task in $editor |
-| `annotate` | Add note to task |
-| `denotate` | Remove note |
-| `project` | Set or view project structure |
-| `tags` | Add/remove tags |
-| `undo` | Revert last change |
-| `status` | View summary of tasks |
-| `summary` | Project summary report |
-| `log` | Show completed tasks |
-| `info` | Show full details of a task |
-| `export` | Export task list in JSON |
-| `import` | Import tasks from JSON |
-| `diagnostic` | View diagnostic info |
-| `gc` | Garbage collect orphaned data |
-| `sync` | Sync with taskserver |
+| `--debug` | Show debug output | `task diagnostic` |
+| `--verbose` | More detailed output | `task --verbose list` |
+| `--quiet` | Suppress output | `task --quiet list` |
+| `--force` | Ignore warnings | `task --force list` |
+| `rc:<name>=<value>` | Temporarily overside config settings | `task rc.data.location=/tmp/mytasks list` |
+| `+<tag>` | Filter: has this tag | `task +home list` |
+| `-<tag>` | Filter: does NOT have this tag | `task -home list` |
+| `add` | Add a new task | `task add "Finish Library"` |
+| `list` | Show pending tasks | `task list` |
+| `done` | Mark task as done | `task 23 done` |
+| `delete` | Delete task | `task 22 delete` |
+| `start` | Mark task as started | `task 10 start` |
+| `stop` | Stop task tracking | ` task 11 stop` |
+| `mod` | Modify task | `task 15 modify priority: H due:Fri +review` |
+| `edit` | Edit task in $editor | `task 33 edit` |
+| `annotate` | Add note to task | `task router list` |
+| `denotate` | Remove note | `task 42 denotate "name-222"` |
+| `project` | Set or view project structure | `task project:work list` |
+| `undo` | Revert last change | `task undo` |
+| `status` | View summary of tasks | `task status:pending list` |
+| `summary` | Project summary report | `task summary` |
+| `log` | Show completed tasks | `task log "Rotated VPN keys" end: 2025-01-01 project:Security` |
+| `info` | Show full details of a task | `task 11 info` |
+| `export` | Export task list in JSON | `task +pending export > pending.json` |
+| `import` | Import tasks from JSON | `task import pending.json` |
+| `sync` | Sync with taskserver | `task sync` |
 
 ### Examples
 
@@ -550,9 +545,29 @@ task list
 
 | Options | Descriptions | Examples |
 |---------|--------------|----------|
-| `-i` | Show interval instead of timestamp |
-| `-r` | Show relative timestamp |
-| `-s` | Use strftime format string instead of default |
+| `-S <NUM>` | Sets the maximum number of jobs that run simultaneously | `ts -S 4` |
+| `-r <ID>` | To remove a job | `ts -r 2` |
+| `-s <ID>` | Show status of a job | `ts -s 2` |
+| `-n` | No output file, send output to stdout/stderr | `ts -n echo "Hello World"` |
+| `-g` | Compress output with gzip (use with -n) | `ts -ng echo "Large output here "` |
+| `-f` | Run in foreground, wait until done | `ts -f sleep 5` |
+| `-m` | Email results when done | `TS_MAIL_TO="name@example.com" ts -m echo "Job completed"` |
+| `-L <label>` | ts -L backup tar -czf backup.tar.gz /home/name` |
+| `-K` | Kill Task Spooler | `ts -K` |
+| `-C` | Clear finished jobs from list | `ts -C` |
+| `-U <id-id>` | Swap positions of two jobs | `ts -U 2-4` |
+| `-u` | Move job up in queue | `ts -u 2` |
+| `-w <ID> | Wait for job to finish | `ts -w 2` |
+| `-o <ID> | Show output file path | `ts -o 2` |
+| `-p <ID> | Show PID of job | `ts -p 2` |
+| `-c <ID> | Show full job output | `ts -c 2` |
+| `-t <ID> | Tail last 10 lines of job output | `ts -t 2` |
+| `-l` | List jobs | `ts -l` |
+| `-N <NUM>` | Requires <NUM> free slots to run | `ts -N 2 echo "Free Slots"` |
+| `-E` | Separate stdout and stderr files | `ts -E bash -c "echo 'out' ; echo 'err' ?&2"` |
+| `-B` | Do not block when queue is full | `ts -B echo "Non-blocking job"` |
+| `-D <ID>` | Run only if specific job ID succeeded | `ts echo "Step 1" / ts -D 1 echo "Step 2"` |
+| `-d` | Run only if last job succeeded | `ts -d echo "Step 2"` |
 
 ### Examples
 
@@ -583,13 +598,28 @@ echo -e "Line 1\nLine 2" | ts
 
 | Options | Descriptions | Examples |
 |---------|--------------|----------|
+| `time` | Overall boot Breakdown | `systemd-analyze time` |
+| `blame` | Slowest units first | `systemd-analyze blame` |
+| `critical-chain` | Why startup was slow | `systemd-analyze critical-chain` |
+| `plot` | Boot timeline SVG | `systemd-analyze plot > boot.svg` |
+| `dot` | Dependency Graph | `systemd-analyze dot | dot -Tsvg > deps.svg` |
+| `verify` | verify unit files | `systemd-analyze verify /etc/systemd/system/myapp.service` |
+| `dump` | Dump Manager State | `systemd-analyze dump | less` |
+| `security` | Security posture for all services | `systemd-analyze security | less` |
 
-- blame Show which services delayed boot
-- critical-chain Dependency tree and timing
 
 ### Example
 
-- systems-analyze blame
+```bash
+systemd-analyze blame
+```
+
+### Breakdown
+
+| Breakdown | Description |
+|-----------|-------------|
+| `systemd-analyze` | Network Command |
+| `blame` | Shows slowest unit first |
 
 # Command: lazydocker
 
