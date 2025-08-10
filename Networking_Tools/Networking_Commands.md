@@ -270,18 +270,7 @@ wget -O ubuntu.iso http://example.com/ubuntu.iso
 | `--compressed` |  Request compressed response. | `curl --compressed https://example.com` |
 | `-X <method>` |  Specify HTTP request method. | `curl -X DELETE https://api.example.com/item/123` |
 | `--data-urlencode "<data>"` |  URL-encode data before sending. | `curl --data-urlencode "search=linux commands" https://example.com/search` |
-| `-1`-F "field=@file"` | File upload. |
-| `--limit-rate <speed>` |  Limit download speed. |
-| `-r <range>` | Download byte range. |
-| `--max-time <seconds>` |  Set a timeout. |
-| `-D <file>` |  Save response headers to a file. |
-| `-W "<format>"` |  Custom output formatting. |
-| `-I` | Fetch only headers. |
-| `--resolve` |  Manually resolve domain to an IP. |
-| `--interface <iface>` |  Use specific network interface. |
-| `--socks5 <host:port>`|  Route through SOCKS5 proxy. |
-| `--retry <n>` |  Retry failed requests. |
-| `--retry-all-errors` |  Retry on all errors. |
+| `--limit-rate <speed>` |  Limit download speed. | `curl --limit-rate 200k -O https://example.com/file.zip` | 
   
 ### ##Examples
 
@@ -326,24 +315,19 @@ curl -u user:pass https://api.example.com/data
 
 | Options | Descriptions | Examples |
 |---------|--------------|----------|
-| `(No arguement)` |  Show all active interfaces. |
-| `ifconfig -a` |  Show all interfaces. |
-| `ifconfig <iface>` |  Show details of a specific interface. |
-| `ifconfig <iface> up` |  Enable an interface. |
-| `ifconfig <iface> down` |  Disable an interface. |
-| `ifconfig <iface> <IP>` |  Assign IP address. |
-| `netmask <mask>` |  Set subnet mask. |
-| `broadcast <addr>` |  Set broadcast address. |
-| `add <IP>` |  Add a secondary IP. |
-| `del <IP>` |  Remove an IP address. |
-| `hw ether <MAC>` |  Change MAC address. |
-| `mtu <size>` |  Set MTU size. |
-| `promisc` |  Enable promiscuous mode. |
-| `-promisc` |  Disable promiscuous mode. |
-| `allmulti` |  Enable all-multicast mode. |
-| `-allmulti` |  Disable all-multicast mode. |
-| `debug` |  Enable debugging on the interface. |
-| `-debug` | Disable debugging on the interface. |
+| `(No arguement)` |  Show all active interfaces. | `ifconfig` |
+| `ifconfig -a` |  Show all interfaces. | `ifconfig -a` |
+| `ifconfig <iface>` |  Show details of a specific interface. | `ifconfig eth0` |
+| `ifconfig <iface> up` |  Enable an interface. | `ifconfig eth0 up` |
+| `ifconfig <iface> down` |  Disable an interface. | `ifconfig eth0 down` |
+| `ifconfig <iface> <IP>` |  Assign IP address. | `ifcongig eth0 192.168.1.10` |
+| `netmask <mask>` |  Set subnet mask. | `ifconfig eth0 192.168.1.50 netmask 255.255.255.0` |
+| `broadcast <addr>` |  Set broadcast address. | `ifconfig eth0 broadcast 192.168.1.255` |
+| `add <IP>` |  Add a secondary IP. | `ifconfig eth0:0 192.168.1.60` |`
+| `hw ether <MAC>` |  Change MAC address. | `ifconfig eth0 hw ether 00:11:22:33:44:55` |
+| `mtu <size>` |  Set MTU size. | `ifconfig eth0 mtu 1400` |
+| `promisc` |  Enable promiscuous mode. | `ifconfig eth0 promisc` |
+| `-promisc` |  Disable promiscuous mode. | `ifconfig eth0 -promisc` |
 
 ### Examples
 
@@ -357,7 +341,7 @@ ifconfig
 
 | Breakdown | Description |
 |-----------|-------------|
-| `ifconfig` | Shows all network interfaces. |
+| `ifconfig` | Network Command |
 
 ## Bring up an interface
 
@@ -369,7 +353,7 @@ ifconfig eth0 up
 
 | Breakdown | Description |
 |-----------|-------------|
-| `ifconfig` |  Show network interface. |
+| `ifconfig` |  Network Command |
 | `eth0` |  Selected interface. |
 | `up` |  Enable selected interface. |
 
@@ -383,7 +367,7 @@ ifconfig eth0 down
 
 | Breakdown | Description |
 |-----------|-------------|
-| `ifconfig` | Show network interface command |
+| `ifconfig` | Network command |
 | `eth0` |  Specific network interface to show |
 | `down` | Directs to disable the eth0 network |
 
@@ -397,7 +381,7 @@ ifconfig eth0 192.168.1.100
 
 | Breakdown | Description |
 |-----------|-------------|
-| `ifconfig` | Show network interface command |
+| `ifconfig` | Network command |
 | `eth0` | Specific network interface |
 | `192.168.1.100` | Specific IP address to set to eth0 |
 
@@ -413,14 +397,16 @@ ifconfig eth0 192.168.1.100
 
 | Options | Descriptions | Examples |
 |---------|--------------|----------|
-| `addr` | Show/modify IP addresses |
-| `link` | Show/modify interfaces |
-| `route` | Show/modify routing table |
-| `neigh` | Show or modify ARP cache |
-| `rule` | Routing policy rules |
-| `maddr` | Multicast addresses |
-| `monitor` | Watch changes to netlink |
-| `help` | Show help |
+| `addr` | Show/modify IP addresses | `ip addr` |
+| `link` | Show/modify interfaces | `ip link set eth0 up or down` |
+| `show` | Show specific interface | `ip addr show dev eth0` |
+| `add` | Add an IP address | `ip addr add 192.168.1.50/24 dev eth0` |
+| `del` | Remove an IP address | `ip addr del 192.168.1.50/24 dev eth0` |
+| `route` | Show/modify routing table | `ip route show` |
+| `neigh` | Show or modify ARP cache | `ip neigh show` |
+| `rule` | Routing policy rules | `ip route show` |
+| `monitor` | Watch changes to netlink | `ip monitor all` |
+| `help` | Show help | `ip help` |
 
 ### Examples
 
