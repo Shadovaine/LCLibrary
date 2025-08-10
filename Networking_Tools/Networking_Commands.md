@@ -13,7 +13,6 @@
 - `ip`
 - `taskwarrior`
 - `ts`
-- `error`
 - `systemd-analyze`
 - `lazydocker`
 - `fabric`
@@ -670,7 +669,7 @@ lazydocker
 | `cleanup` | Cleanups tasks | `fab cleanup` |
 | `-H` | Specifies a host | `fab -H server1, server2 restart_service` |
 | `-i` | Overrides the SSH key, and uses a targeted authentication | `fab -H prod.server.com -i ~/.ssh/prod_key deploy` |
-| `--prompt-for-passphrase` | fab -H host1 --prompt-for-login-password deploy` |
+| `--prompt-for-passphrase` | Prompts user to enter password | fab -H host1 --prompt-for-login-password deploy` |
 | `--list` | lists all the defined tasks | `fab --list` |
 | `-R` | Dry run, just echos with no execution | `fab -H host1 -R test_deploy` |
 | `-P` | Run tasks in parallel | `fab -H host1, host2 -P backup_db` |
@@ -1127,15 +1126,16 @@ mosh -p 60000:60010 \
 ### Example
 
 ```bash
-- dog -q example.com
+dog -q example.com
 ```
 
 ### Breakdown
 
-### Options
-
- • @1.1.1.1 → Query a specific DNS server
- • -t A → Query record type (e.g., A, MX, TXT, etc.)
+| Breakdown | Description |
+|-----------|-------------|
+| `dog` | Network command |
+| `-q` | Directs to query a domain |
+| `example.com` | domain to query |
 
 # Command: termshark
 
