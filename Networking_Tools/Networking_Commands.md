@@ -161,7 +161,7 @@ ssh -i ~/.ssh/id_rsa jake@192.168.1.50
 
 ## Syntax
 
-- scp [OPTIONS] SOURCE USER@HOST:DEST
+- `scp [OPTIONS] SOURCE USER@HOST:DEST`
 
 ### Options
 
