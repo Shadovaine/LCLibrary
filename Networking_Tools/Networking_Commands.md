@@ -13,7 +13,6 @@
 - `ip`
 - `taskwarrior`
 - `ts`
-- `error`
 - `systemd-analyze`
 - `lazydocker`
 - `fabric`
@@ -67,7 +66,7 @@ ping google.com
 
 | Breakdown | Description |
 |-----------|-------------|
-| `ping` | Check connectivity command. |
+| `ping` | Network command. |
 | `google.com` | Target location. |
   
 ### Send 5 packets
@@ -80,7 +79,7 @@ ping -c 5 google.com
 
 | Breakdown | Description |
 |-----------|-------------|
-| `ping` | Check connectivity command. |
+| `ping` | Network command. |
 | `-c 5` | Stop after 5 packets. |
 | `google.com` | Target location. |
 
@@ -94,7 +93,7 @@ ping -i 2 google.com
 
 | Breakdown | Description |
 |-----------|-------------|
-| `ping` | Check connectivity command. |
+| `ping` | Network command. |
 | `-i 2` | Interval of 2 sec in between packets. |
 | `google.com` | Target location. |
   
@@ -108,7 +107,7 @@ ping -t 64 google.com
 
 | Breakdown | Description |
 |-----------|-------------|
-| `ping` | Check connectivity command. |
+| `ping` | Network command. |
 | `-t 2` | Time to live value of 2. |
 | `google.com` | Target location. |
 
@@ -151,7 +150,7 @@ ssh -i ~/.ssh/id_rsa jake@192.168.1.50
 
 |Breakdown | Description |
 |----------|-------------|
-| `ssh` | Secure shell command. |
+| `ssh` | Remote Network command. |
 | `-i ~/.ssh/id_rsa` | Specific file with SSH key. |
 | `sue@192.168.1.50` | Hostname with IPv4 address. |
 
@@ -167,27 +166,24 @@ ssh -i ~/.ssh/id_rsa jake@192.168.1.50
 
 | Options | Descriptions | Examples |
 |---------|--------------|----------|
-| `-P <port>` | Specify port. |
-| `-P` |  Preserves file attributes. |
-| `-r` | Copy directories recursively. |
-| `-C` | Enables compression during transfer. |
-| `-v` | Verbose mode. |
-| `-q` | Quiet mode. |
-| `-l <limit>` |  Limits bandwidth. |
-| `-1 <identify>` |  Specifies an SSH private key file for authentication. |
-| `-0 <option>` |  Passes SSH options directly. |
-| `-S <program>` |  Use a different SSH program. |
-| `-4` | Forces IPv4. |
-| `-6` | Forces IPv6. |
-| `-B` | Batch mode. |
-| `-T` |  Disable strict filename escaping. |
+| `-P <port>` | Specify port. | `scp -P 2222 file.txt name@server:/home/name/` |
+| `-p` |  Preserves file attributes. | `scp -p file.txt name@server:/backup/` |
+| `-r` | Copy directories recursively. | `scp -r /home/name/docs name@server:/backup/docs` |
+| `-C` | Enables compression during transfer. | `scp -C bigfile.iso name@server:/backup/` |
+| `-v` | Verbose mode. | `scp -v file.txt name@server:/backup/` |
+| `-q` | Quiet mode. | `scp -q file.txt name@server:/backup/` |
+| `-l <limit>` |  Limits bandwidth. | `scp -l 800 file.txt name@server:/backup/` |
+| `-i <identify>` |  Specifies an SSH private key file for authentication. | `scp -i ~/.ssh/id_ed25519 file.txt name@server:/backup/` |
+| `-0 <option>` |  Passes SSH options directly. | `scp -o StrictHostKeyChecking=no file.txt jake@server:/backup/` |
+| `-4` | Forces IPv4. | `scp -4 file.txt name@server:/backup/` |
+| `-6` | Forces IPv6. | `scp -6 file.txt name@server:/backup/` |
 
 ### Examples
 
 ### Copy file to remote host
 
 ```bash
-scp file.txt sue@192.168.1.50:/home/sue/
+scp file.txt name@192.168.1.50:/home/name/
 ```
 
 ### Breakdown
@@ -196,7 +192,7 @@ scp file.txt sue@192.168.1.50:/home/sue/
 |-----------|-------------|
 | `scp` |  Secure coping command. |
 | `file.txt` |  File to copy. |
-| `sue@192.168.1.50:/home/sue/` |  hostname with IPv4 address and target location. |
+| `name@192.168.1.50:/home/name/` |  hostname with IPv4 address and target location. |
   
 # Command: wget
 
@@ -210,33 +206,25 @@ scp file.txt sue@192.168.1.50:/home/sue/
 
 | Options | Descriptions | Examples |
 |---------|--------------|----------|
-| `-O <FILE>` | Save as specified filename. | 
-| `-c` | Resume incomplete download. |
-| `-P <dir>` |  Save files to a specific directory. |
-| `-nv` |  Less verbose. |
-| `-v` |  Verbose mode. |
-| `-N`| Only download if newer than local copy. |
-| `--user=<user>` | Set HTTP/FTP username. |
-| `--password=<pass>` |  Set HTTP/FTP password. |
-| `--header="<header11>"` |  Add custom header. |
-| `--no-check-certificate` |  Ignore SSL certificate errors. |
-| `-r` | Recursive download. |
-| `-l <depth>` |  Set recursion depth. |
-| `-np` |  No parent directories. |
-| `-nd` |  No directory structure. |
-| `-A <list>` |  Accept only certain file types. |
-| `-R <list>` |  Reject certain file types. |
-| `--limit-rate=<rate>` |  Limit download speed. |
-| `-W <seconds>` |  Wait between downloads. |
-| `--random-wait` |  Random delay between downloads. |
-| `--tries=<n>` |  Retry download N times. |
-| `--timeout=<seconds>` |  Set timeout. |
-| `--retry-connrefused` |  Retry if connection is refused. |
-| `-b`| Run in background. |
-| `-S` |  Show server response headers. |
-| `-d` | Debug output. |
-| `-e robots=off` |  Ignore robots.txt, |
-| `--mirror` | Mirro an entire website. |
+| `-O <FILE>` | Write output to a specific file  | `wget -O myfile.html https://example.com` |
+| `-o <FILE>` | Write log message to a file | `wget -o download.log https://example.com/file.zip` |
+| `-c` | Resume incomplete download. | `wget -c https://example.com/bigfile.iso` |
+| `-P <dir>` |  Save files to a specific directory. | `wget -P /tmp/downloads https://example.com/file.zip` |
+| `-nv` |  Less verbose. | `wget -nv https://example.com/file.zip` |
+| `-v` |  Verbose mode. | `wget -v https://example.com/file.zip` |
+| `-N`| Only download if newer than local copy. | `wget -N https://example.com/file.zip` |
+| `--user=<user> --password=PASS` | Autheniticate with HTTP/FTP server | `wget --user=jake --password=secret ftp://ftp.example.com/file.zip` |
+| `--header="<header:value>"` |  Add custom header. | `wget --header=Authorization: Bearer MYTOKEN" https://api.example.com/data` |
+| `--no-check-certificate` |  Ignore SSL certificate errors. | `wget --no-check-certificate https://selfsigned.example.com/file.zip` |
+| `-r` | Recursive download. | `wget -r https://example.com/files/` |
+| `-l <depth>` |  Set recursion depth. | `wget -l 2 https://example.com/` |
+| `-np` |  No parent directories. | `wget -np https://example.com/files/` |
+| `--accept=PATTERN` |  Accept only certain file types. | `wget --accept=*.pdf https://example.com/` |
+| `--reject=PATTERN` |  Reject certain file types. | `wget --reject=*.jpg https://example.com/` |
+| `--limit-rate=<rate>` |  Limit download speed. | `wget --limit-rate=200k https://example.com/file.zip` |
+| `-W <seconds>` |  Wait between downloads. | `wget --wait=5 https://example.com/files/` |
+| `--random-wait` |  Random delay between downloads. | `wget --randowm-wait https://example.com/files/` |
+| `-b`| Run in background. | `wget -b https://example.com/bigfile.iso` |
 
 ### Example
 
@@ -266,34 +254,22 @@ wget -O ubuntu.iso http://example.com/ubuntu.iso
 
 | Options | Descriptions | Examples |
 |---------|--------------|----------|
-| `-O` | Save file with original name. |
-| `-L` | Follow redirects. |
-| `-u` | Use username:password authentication. |
-| `-C -` | Resume a download. |
-| `-s` |  Silent (no progress or errors.) |
-| `-S` | Show errors even when `-s` is used. |
-| `-v` | Verbose mode. |
-| `-k` |  Ignore SSL certificate validation. |
-| `-u  user:pass` |  HTTP Basic authentication. |
-| `-H "<header>"` |  Add a custom header. |
-| `-b <cookie>` | Send cookie. |
-| `-c <cookie-file>` |  Save cookie to file. |
-| `--compressed` |  Request compressed response. |
-| `-X <method>` |  Specify HTTP request method. |
-| `-d @file.json` |  Send JSON from file. |
-| `--data-urlencode "<data>"` |  URL-encode data before sending. |
-| `-1 `-F "field=@file"` | File upload. |
-| `--limit-rate <speed>` |  Limit download speed. |
-| `-r <range>` | Download byte range. |
-| `--max-time <seconds>` |  Set a timeout. |
-| `-D <file>` |  Save response headers to a file. |
-| `-W "<format>"` |  Custom output formatting. |
-| `-I` | Fetch only headers. |
-| `--resolve` |  Manually resolve domain to an IP. |
-| `--interface <iface>` |  Use specific network interface. |
-| `--socks5 <host:port>`|  Route through SOCKS5 proxy. |
-| `--retry <n>` |  Retry failed requests. |
-| `--retry-all-errors` |  Retry on all errors. |
+| `-O` | Save file with original name. | `curl -o page.html https://example.com` |
+| `-L` | Follow redirects. | `curl -L https://short.url/abcd` |
+| `-u` | Use username:password authentication. | `curl -u jake:secret https://example.com/private/data.txt` |
+| `-C -` | Resume a download. | `curl -C https://example.com/bigfile.iso` |
+| `-s` |  Silent (no progress or errors.) | `curl -s https://example.com` |
+| `-S` | Show errors even when `-s` is used. | `curl -sS https://example.com` |
+| `-v` | Verbose mode. | `curl -v https://example.com/` |
+| `-k` |  Ignore SSL certificate validation. | `curl -k https://selfsigned.example.com` |
+| `-u  user:pass` |  HTTP Basic authentication. | `curl -u name:secret https://example.com/private/data.txt` |
+| `-H "HEADER:VALUE"` |  Add a custom header. | `curl -H "Authorization: Bearer TOKEN" https://api.example.com/data` |
+| `--cookie "NAME:VALUE"` | Send cookies. | `curl --cookie "sessionid=abc123" https://example.com/profile` | 
+| `--cookie-jar FILE` |  Save cookie to file. | `curl --cookie-jar cookies.txt https://example.com` |
+| `--compressed` |  Request compressed response. | `curl --compressed https://example.com` |
+| `-X <method>` |  Specify HTTP request method. | `curl -X DELETE https://api.example.com/item/123` |
+| `--data-urlencode "<data>"` |  URL-encode data before sending. | `curl --data-urlencode "search=linux commands" https://example.com/search` |
+| `--limit-rate <speed>` |  Limit download speed. | `curl --limit-rate 200k -O https://example.com/file.zip` | 
   
 ### ##Examples
 
@@ -338,25 +314,19 @@ curl -u user:pass https://api.example.com/data
 
 | Options | Descriptions | Examples |
 |---------|--------------|----------|
-| `(No arguement)` |  Show all active interfaces. |
-| `ifconfig -a` |  Show all interfaces. |
-| `ifconfig <iface>` |  Show details of a specific interface. |
-| `ifconfig <iface> up` |  Enable an interface. |
-| `ifconfig <iface> down` |  Disable an interface. |
-| `ifconfig <iface> <IP>` |  Assign IP address. |
-| `netmask <mask>` |  Set subnet mask. |
-| `broadcast <addr>` |  Set broadcast address. |
-| `add <IP>` |  Add a secondary IP. |
-| `del <IP>` |  Remove an IP address. |
-| `hw ether <MAC>` |  Change MAC address. |
-| `mtu <size>` |  Set MTU size. |
-| `promisc` |  Enable promiscuous mode. |
-| `-promisc` |  Disable promiscuous mode. |
-| `allmulti` |  Enable all-multicast mode. |
-| `-allmulti` |  Disable all-multicast mode. |
-| `debug` |  Enable debugging on the interface. |
-| `-debug` | Disable debugging on the interface. |
-
+| `(No arguement)` |  Show all active interfaces. | `ifconfig` |
+| `ifconfig -a` |  Show all interfaces. | `ifconfig -a` |
+| `ifconfig <iface>` |  Show details of a specific interface. | `ifconfig eth0` |
+| `ifconfig <iface> up` |  Enable an interface. | `ifconfig eth0 up` |
+| `ifconfig <iface> down` |  Disable an interface. | `ifconfig eth0 down` |
+| `ifconfig <iface> <IP>` |  Assign IP address. | `ifcongig eth0 192.168.1.10` |
+| `netmask <mask>` |  Set subnet mask. | `ifconfig eth0 192.168.1.50 netmask 255.255.255.0` |
+| `broadcast <addr>` |  Set broadcast address. | `ifconfig eth0 broadcast 192.168.1.255` |
+| `add <IP>` |  Add a secondary IP. | `ifconfig eth0:0 192.168.1.60` |`
+| `hw ether <MAC>` |  Change MAC address. | `ifconfig eth0 hw ether 00:11:22:33:44:55` |
+| `mtu <size>` |  Set MTU size. | `ifconfig eth0 mtu 1400` |
+| `promisc` |  Enable promiscuous mode. | `ifconfig eth0 promisc` |
+| `-promisc` |  Disable promiscuous mode. | `ifconfig eth0 -promisc` |
 
 ### Examples
 
@@ -370,7 +340,7 @@ ifconfig
 
 | Breakdown | Description |
 |-----------|-------------|
-| `ifconfig` | Shows all network interfaces. |
+| `ifconfig` | Network Command |
 
 ## Bring up an interface
 
@@ -382,7 +352,7 @@ ifconfig eth0 up
 
 | Breakdown | Description |
 |-----------|-------------|
-| `ifconfig` |  Show network interface. |
+| `ifconfig` |  Network Command |
 | `eth0` |  Selected interface. |
 | `up` |  Enable selected interface. |
 
@@ -393,9 +363,10 @@ ifconfig eth0 down
 ```
 
 ### Breakdown
+
 | Breakdown | Description |
 |-----------|-------------|
-| `ifconfig` | Show network interface command |
+| `ifconfig` | Network command |
 | `eth0` |  Specific network interface to show |
 | `down` | Directs to disable the eth0 network |
 
@@ -409,9 +380,9 @@ ifconfig eth0 192.168.1.100
 
 | Breakdown | Description |
 |-----------|-------------|
-| `ifconfig` | Show network interface command |
+| `ifconfig` | Network command |
 | `eth0` | Specific network interface |
-| ` 192.168.1.100` | Specific IP address to set to eth0 |
+| `192.168.1.100` | Specific IP address to set to eth0 |
 
 # Command: ip
 
@@ -425,14 +396,16 @@ ifconfig eth0 192.168.1.100
 
 | Options | Descriptions | Examples |
 |---------|--------------|----------|
-| `addr` | Show/modify IP addresses |
-| `link` | Show/modify interfaces |
-| `route` | Show/modify routing table |
-| `neigh` | Show or modify ARP cache |
-| `rule` | Routing policy rules |
-| `maddr` | Multicast addresses |
-| `monitor ` | Watch changes to netlink |
-| `help` | Show help |
+| `addr` | Show/modify IP addresses | `ip addr` |
+| `link` | Show/modify interfaces | `ip link set eth0 up or down` |
+| `show` | Show specific interface | `ip addr show dev eth0` |
+| `add` | Add an IP address | `ip addr add 192.168.1.50/24 dev eth0` |
+| `del` | Remove an IP address | `ip addr del 192.168.1.50/24 dev eth0` |
+| `route` | Show/modify routing table | `ip route show` |
+| `neigh` | Show or modify ARP cache | `ip neigh show` |
+| `rule` | Routing policy rules | `ip route show` |
+| `monitor` | Watch changes to netlink | `ip monitor all` |
+| `help` | Show help | `ip help` |
 
 ### Examples
 
@@ -471,6 +444,7 @@ ip route add default via 192.168.1.1
 ```
 
 ### Breakdown
+
 | Breakdown | Description |
 |-----------|-------------|
 | `ip` | Network command |
@@ -494,45 +468,40 @@ ip route show
 
 ## Description: Terminal task/project manager. Great for tracking recon, post-exploit steps, or learning goals in CLI-only setups
 
-## Syntax:
+## Syntax
 
-- `task [options] [filter] [commands] [modifications]`
+- `task <Filter> <command> [<modification> | <args>]`
 
 ### Options
 
 | Options | Descriptions | Examples |
 |---------|--------------|----------|
-| `--debug ` | Show debug output |
-| `--verbose` | More detailed output |
-| `--quiet` | Suppress output |
-| `--force` | Ignore warnings |
-| `--` | Stop option parsing |
-| `rc:<name>=<value>` | Temporarily overside config settings |
-| `+<tag>` | Filter: has this tag |
-| `-<tag>` | Filter: does NOT have this tag |
-| `<attribute>:<value> | Filter: Matches specific attribute |
-| `add` | Add a new task |
-| `list` | Show pending tasks |
-| `done` | Mark task as done |
-| `delete` | Delete task |
-| `start` | Mark task as started |
-| `stop` | Stop task tracking |
-| `mod` | Modify task |
-| `edit` | Edit task in $editor |
-| `annotate` | Add note to task |
-| `denotate` | Remove note |
-| `project` | Set or view project structure |
-| `tags` | Add/remove tags |
-| `undo` | Revert last change |
-| `status` | View summary of tasks |
-| `summary` | Project summary report |
-| `log` | Show completed tasks |
-| `info` | Show full details of a task |
-| `export` | Export task list in JSON |
-| `import` | Import tasks from JSON |
-| `diagnostic` | View diagnostic info |
-| `gc` | Garbage collect orphaned data |
-| `sync` | Sync with taskserver |
+| `--debug` | Show debug output | `task diagnostic` |
+| `--verbose` | More detailed output | `task --verbose list` |
+| `--quiet` | Suppress output | `task --quiet list` |
+| `--force` | Ignore warnings | `task --force list` |
+| `rc:<name>=<value>` | Temporarily overside config settings | `task rc.data.location=/tmp/mytasks list` |
+| `+<tag>` | Filter: has this tag | `task +home list` |
+| `-<tag>` | Filter: does NOT have this tag | `task -home list` |
+| `add` | Add a new task | `task add "Finish Library"` |
+| `list` | Show pending tasks | `task list` |
+| `done` | Mark task as done | `task 23 done` |
+| `delete` | Delete task | `task 22 delete` |
+| `start` | Mark task as started | `task 10 start` |
+| `stop` | Stop task tracking | ` task 11 stop` |
+| `mod` | Modify task | `task 15 modify priority: H due:Fri +review` |
+| `edit` | Edit task in $editor | `task 33 edit` |
+| `annotate` | Add note to task | `task router list` |
+| `denotate` | Remove note | `task 42 denotate "name-222"` |
+| `project` | Set or view project structure | `task project:work list` |
+| `undo` | Revert last change | `task undo` |
+| `status` | View summary of tasks | `task status:pending list` |
+| `summary` | Project summary report | `task summary` |
+| `log` | Show completed tasks | `task log "Rotated VPN keys" end: 2025-01-01 project:Security` |
+| `info` | Show full details of a task | `task 11 info` |
+| `export` | Export task list in JSON | `task +pending export > pending.json` |
+| `import` | Import tasks from JSON | `task import pending.json` |
+| `sync` | Sync with taskserver | `task sync` |
 
 ### Examples
 
@@ -563,7 +532,7 @@ task list
 | `task` | task manager command |
 | `list` | Directs to list all tasks |
 
-# Command: ts 
+# Command: ts
 
 ## Description Task spooler (run background jobs and queue them)
 
@@ -575,12 +544,31 @@ task list
 
 | Options | Descriptions | Examples |
 |---------|--------------|----------|
-| `-i` | Show interval instead of timestamp |
-| `-r` | Show relative timestamp |
-| `-s` | Use strftime format string instead of default |
+| `-S <NUM>` | Sets the maximum number of jobs that run simultaneously | `ts -S 4` |
+| `-r <ID>` | To remove a job | `ts -r 2` |
+| `-s <ID>` | Show status of a job | `ts -s 2` |
+| `-n` | No output file, send output to stdout/stderr | `ts -n echo "Hello World"` |
+| `-g` | Compress output with gzip (use with -n) | `ts -ng echo "Large output here "` |
+| `-f` | Run in foreground, wait until done | `ts -f sleep 5` |
+| `-m` | Email results when done | `TS_MAIL_TO="name@example.com" ts -m echo "Job completed"` |
+| `-L <label>` | Archive and compress a file | ts -L backup tar -czf backup.tar.gz /home/name` |
+| `-K` | Kill Task Spooler | `ts -K` |
+| `-C` | Clear finished jobs from list | `ts -C` |
+| `-U <id-id>` | Swap positions of two jobs | `ts -U 2-4` |
+| `-u` | Move job up in queue | `ts -u 2` |
+| `-w <ID> | Wait for job to finish | `ts -w 2` |
+| `-o <ID> | Show output file path | `ts -o 2` |
+| `-p <ID> | Show PID of job | `ts -p 2` |
+| `-c <ID> | Show full job output | `ts -c 2` |
+| `-t <ID> | Tail last 10 lines of job output | `ts -t 2` |
+| `-l` | List jobs | `ts -l` |
+| `-N <NUM>` | Requires <NUM> free slots to run | `ts -N 2 echo "Free Slots"` |
+| `-E` | Separate stdout and stderr files | `ts -E bash -c "echo 'out' ; echo 'err' ?&2"` |
+| `-B` | Do not block when queue is full | `ts -B echo "Non-blocking job"` |
+| `-D <ID>` | Run only if specific job ID succeeded | `ts echo "Step 1" / ts -D 1 echo "Step 2"` |
+| `-d` | Run only if last job succeeded | `ts -d echo "Step 2"` |
 
 ### Examples
-
 
 ### Prefix with timestamps
 
@@ -609,12 +597,28 @@ echo -e "Line 1\nLine 2" | ts
 
 | Options | Descriptions | Examples |
 |---------|--------------|----------|
-- blame Show which services delayed boot
-- critical-chain Dependency tree and timing
+| `time` | Overall boot Breakdown | `systemd-analyze time` |
+| `blame` | Slowest units first | `systemd-analyze blame` |
+| `critical-chain` | Why startup was slow | `systemd-analyze critical-chain` |
+| `plot` | Boot timeline SVG | `systemd-analyze plot > boot.svg` |
+| `dot` | Dependency Graph | `systemd-analyze dot | dot -Tsvg > deps.svg` |
+| `verify` | verify unit files | `systemd-analyze verify /etc/systemd/system/myapp.service` |
+| `dump` | Dump Manager State | `systemd-analyze dump | less` |
+| `security` | Security posture for all services | `systemd-analyze security | less` |
+
 
 ### Example
 
-- systems-analyze blame
+```bash
+systemd-analyze blame
+```
+
+### Breakdown
+
+| Breakdown | Description |
+|-----------|-------------|
+| `systemd-analyze` | Network Command |
+| `blame` | Shows slowest unit first |
 
 # Command: lazydocker
 
@@ -665,7 +669,7 @@ lazydocker
 | `cleanup` | Cleanups tasks | `fab cleanup` |
 | `-H` | Specifies a host | `fab -H server1, server2 restart_service` |
 | `-i` | Overrides the SSH key, and uses a targeted authentication | `fab -H prod.server.com -i ~/.ssh/prod_key deploy` |
-| `--prompt-for-passphrase` | fab -H host1 --prompt-for-login-password deploy` |
+| `--prompt-for-passphrase` | Prompts user to enter password | fab -H host1 --prompt-for-login-password deploy` |
 | `--list` | lists all the defined tasks | `fab --list` |
 | `-R` | Dry run, just echos with no execution | `fab -H host1 -R test_deploy` |
 | `-P` | Run tasks in parallel | `fab -H host1, host2 -P backup_db` |
@@ -692,19 +696,46 @@ fab -H server1, server2 restart_service
 
 # Command: asciinema
 
-## Description: Record and share terminal sessions
+## Description: Record and share terminal sessions. Perfect for: creating tutorials, logging incident response steps, or leaving a trail for blue teams or audits
 
 ## Syntax
 
 - `asciinema rec [filename]`
 
+### Options
+
+| Options | Descriptions | Examples |
+|---------|--------------|----------|
+|  `-c` | Records a specific command | `asciinema -c "htop" htop-demo.cast` |
+| `-i` | Compresses long idle time so viewers do not snooze | `asciinema -i 5 quick-demo.cast` |
+| `rec <filename>` | Record a session | `asciinema rec demo.cast` |
+| `--stdin` | Records your keystrokes along with terminal output | `asciinema rec --stdin with-keystrokes.cast` |
+| `--append` | Adds to existing file | `asciinema rec --append session.cast` |
+| `--overwrite` | Overwrites the existing file | `asciinema rec --overwrite session.cast` |
+| `-t` | Adds a descriptive title when uploading | `asciinema rec -t "Linux Firewall Setup" Firewall.cast` |
+| `-q` | Suppresses non-essential messages | `asciinema rec -q silent.cast` |
+| `-y` | Automatically answers yes to prompts | `asciinema rec -y auto.cast` |
+| `play` | Plays a recording | `asciinema play demo.cast` |
+| `-s` | Allows you to change the playback speed | `asciinema play -s 1.5 demo.cast` |
+| `cat` | Dumps the recorded session output to your terminal without timing | `asciinema cat demo.cast` |
+| `upload` | pushes file to asciinema.org | `asciinema upload demo.cast` |
+| `auth` | Links local client to online account for uploads and management | `asciinema auth` |
+
 ### Examples
 
+### Start a recording
+
+```bash
 asciinema rec install_hardened_linux.cast
+```
 
-Playback: asciinema play install_hardened_linux.cast
+### Breakdown
 
-Perfect for: creating tutorials, logging incident response steps, or leaving a trail for blue teams or audits.
+| Breakdown | Description |
+|-----------|-------------|
+| `asciinema` | Recording manager command |
+| `rec` | Directs to start recording |
+| `install_hardened_linux.cast` | name of file |
 
 # Command: netstat
 
@@ -716,25 +747,79 @@ Perfect for: creating tutorials, logging incident response steps, or leaving a t
 
 ### Options
 
--t Show TCP connections only.
--u Show UDP connections only.
--l Show listening ports.
--n Show numerical addresses (don’t resolve DNS).
--p Show process using the socket.
+| Options | Descriptions | Examples |
+|---------|--------------|----------|
+| `-a` | Show all sockets | `netstat -a` |
+| `-t` | Show TCP connections only | `netstat -t` |
+| `-u` | Show UDP connections only | `netstat -u` |
+| `-l` | Show listening sockets only | `netstat -l` |
+| `-p` | Show the PID and program name of each connection | `sudo netstat -p` |
+| `-n` | Show address numerically | `netstat -n` |
+| `-r` | Show the routing table | `netstat -r` |
+| `-i` | Show network interfaces | `netstat -i` |
+| `-s` | Show per-protocol statistics | `netstat -s` |
+| `-c` | Continuous output | `netstat -c` |
+| `-e` | Show extended information | `netstat -e` |
+| `-g` | Show multicast group membership | `netstat -g` |
+| `-o` | Show timers for connections | `netstat -o` |
 
 ### Examples
 
- Show all connections:
+### Show all connections
+
+```bash
 netstat -a
+```
 
-Show only listening ports:
+### Breakdown
+
+| Breakdown | Description |
+|-----------|-------------|
+| `netstat` | Network command|
+| `-a` | Show all networks |
+
+### Show only listening ports
+
+```bash
 netstat -l
+```
 
-Show TCP connections
+### Breakdown
+
+| Breakdown | Description |
+|-----------|-------------|
+| `netstat` | Network command |
+| `-l` | Show listening ports only |
+
+### Show TCP connections
+
+```bash
 netstat -t
+```
 
-Show process names:
+### Breakdown
+
+| Breakdown | Description |
+|-----------|-------------|
+| `netstat` | Network Command |
+| `-t` | Show TCP connections only |
+
+### Show process names
+
+```bash
 netstat -tulpn
+```
+
+### Breakdown
+
+| Breakdown | Description |
+|-----------|-------------|
+| `netstate` | Network Command |
+| `-t` | Show TCP connections |
+| `-u` | Show UDP connections |
+| `-l` | Show listening ports |
+| `-p` | Show the PID and Program name |
+| `-n` | Show addresses numberically |
 
 # Command: ss
 
@@ -742,29 +827,72 @@ netstat -tulpn
 
 ## Syntax
 
-- `ss [OPTIONS]`
+- `ss [OPTIONS] [FILTER]`
 
 ### Options
 
--t Show TCP connections.
--u Show UDP connections.
--l Show listening sockets.
--n Show numerical addresses.
--p Show processes using sockets.
+| Options | Descriptions | Examples |
+|---------|--------------|----------|
+| `-t` | Show TCP sockets only | `ss -t` |
+| `-u` | Show UDP sockets only | `ss -u` |
+| `-l` | Show listening sockets only | `ss -l` |
+| `-a` | Show all sockets | `ss -a` |
+| `-n` | Do not resolve service names or hostnames | `ss -n` |
+| `-p` | Show PID and process using the socket | `ss -p` |
+| `-4/-6` | Show only IPv4 or IPv6 sockets | `ss -4 or ss -6` |
+| `-r` | Resolve service names | `ss -r` |
+| `-o` | Show timer information | `ss -o` |
+| `-s` | Show summary statistics | `ss-s` |
+| `-i` | Show internal TCP info | `ss -ti` |
+| `-m` | Show memory usage for sockets | `ss -m` |
+| `-K` | Kill a socket | `ss -K dst 192.168.1.100 dport = 22` |
+| `-f` | Specify socket family | `ss -f inet` |
+| `-H` | No header line in output | `ss -H -t` |
 
 ### Examples
 
- Show all TCP connections:
+### Show all TCP connections
+
+```bash
 ss -t
+```
 
- Show listening sockets:
+### Breakdown
+
+| Breakdown | Description |
+|-----------|-------------|
+| `ss` | Network Command |
+| `-t` | Show TCP connections |
+
+### Show listening sockets
+
+```bash
 ss -l
+```
 
- Show processes using sockets:
+### Breakdown
+
+| Breakdown | Description |
+|-----------|-------------|
+| `ss` | Network command |
+| `-l` | Show listening sockets |
+
+### Show processes using sockets
+
+```bash
 ss -tunap
+```
 
- Show UDP connections:
-ss -u
+### Breakdown
+
+| Breakdown | Description |
+|-----------|-------------|
+| `ss` | Network Command |
+| `-t` | Show TCP connections |
+| `-u` | Show UDP connections |
+| `-n` | Do not resolve service names or hostnames |
+| `-a` | Show all sockets |
+| `-p` | Show PID and program names |
 
 # Command: rsync
 
@@ -776,22 +904,89 @@ ss -u
 
 ### Options
 
--a Archive mode (preserve permissions, symlinks).
--v Verbose output.
--z Compress data during transfer.
---delete Delete files in dest not present in source.
--P Show progress and keep partially transferred files.
+| Options | Descriptions | Examples |
+|---------|--------------|----------|
+| `-v` | Verbose mode | `rsync -v file.txt /backup/` |
+| `-a` | Archive mode | `rsync -a /home/name/ /backup/name/` |
+| `-r` | Copy directories recursively | `rsync -r doc/ /backup/docs/` |
+| `-l` | Copy symlinks as symlinks | `rsync -l source/ target/` |
+| `-p` | Preserve permissions | `rsync -p file.txt /backup/ |
+| `-t` | Preserve modification times | `rsync -t file.txt /backup/` |
+| `-g` | Preserve group ownership | `rsync -g file.txt /backup/` |
+| `-o` | Preserve owner | `rsync -o file.txt /backup/` |
+| `-D` | Preserve device files and special files | `rsync -aD /dev/ /backup/dev/` |
+| `-u` | Skip files new on the destination | `rsync -u /src/ /dest/` |
+| `-n` | Show what would be done, without doing it | `rsync -an /src/ /dest/` |
+| `-z` | Compress file data during transfer | `rsync -az /src/ remote:/dest/` |
+| `-P` | Show progress and keep partially transferred files | `rsync -aP big-iso /backup/` |
+| `--progress` | Show progress during transfer | `rsync --progress file.txt /backup/` |
+| `--partial` | Keep partially transferre*d files | `rsync --partial bigfile /backup/` |
+| `--rsync-path=PATH` | Specify remote rsync path | `rsync -a --rsync-path="/usr/local/bin/rsync" /src/ remote:/dest/` |
+| `--chown=USER:GROUP` | Change ownership on transferred files | `rsync -a --chown=root:root /src/ /dest/` |
+| `--chmod=CHMOD` | Change permissions on transferred files | `rsync -a --chmod=755 /src/script.sh /dest/` |
+| `--size-only` | Skip files matching in size, ignore timestamp | `rsync -a --size-only /src/ /dest/` |
+| `--ignore-existing` | skip updating existing files | `rsync -a --ignore-existing /src/ /dest` |
+| `--remove-source-files` | Delete source files after successful transfer | `rsync -a --remove-source-files /src/ /dest/` |
+| `--delete` | Delete extraneous files from the destination | `rsync -a --delete /src/ /dest/` |
+| `--exclude=PATTERN` | Exclude certain files | `rsync -a --exclude="*.tmp" /src/ /dest/` |
+| `--exclude-from=FILE` | Read exclude patterns from file | `rsync -a --exclude-from=exclude.txt /src/ /dest/` |
+| `--include=PATTERN` | Force inclusion of specific files | `rsynce -a --include="*.jpg" --exclude="*" /src/ /dest/` |
+| `--bwlimit=KBPS` | limit bandwidth usage | `rsync -a --bwlimit=500 /src/ /dest/` |
+| `--checksum` | Skip files with same checksum | `rsync -a --checksum /src/ /dest/` |
+| `--append` | Append data to partially transferred files | `rsync --append bigfile /backup/` |
+| `--apend-verify` | Append and verify checksum | `rsync --append-verify bigfile /backup/` |
 
 ### Examples
 
- Sync two directories:
-rsync -av /home/jake/ /mnt/backup/
+### Sync two directories
 
-Sync over SSH:
-rsync -avz /home/jake user@server:/backup/
+```bash
+rsync -av /home/name/ /mnt/backup/
+```
 
-Mirror source to destination (delete extras):
+### Breakdown
+
+| Breakdown | Description |
+|-----------|-------------|
+| `rsync` | Network Commdand |
+| `-a` | Archive mode |
+| `-v` | Verbose mode |
+| `/home/name/` | Source location |
+| `/mnt/backup/` | Target location |
+
+### Sync over SSH
+
+```bash
+rsync -avz /home/name user@server:/backup/
+```
+
+### Breakdown
+
+| Breakdown | Description |
+|-----------|-------------|
+| `rsync` | Network Command |
+| `-a` | Archive mode |
+| `-v` | Verbose mode |
+| `-z` | Compress files during transfer |
+| `/home/name/` | Source lcoation |
+| `user@server:/backup/` | Destination location |
+
+### Mirror source to destination (delete extras)
+
+```bash
 rsync -av --delete /source/ /dest/
+```
+
+### Breakdown
+
+| Breakdown | Destination |
+|-----------|-------------|
+| `rsync` | Network Command |
+| `-a` | Archive mode |
+| `-v` | Verbose mode |
+| `--delete` | Directs to delete extra files at destination |
+| `/source/` | source location |
+| `/dest/` | Destination Location |
 
 # Command: ftp
 
@@ -799,80 +994,148 @@ rsync -av --delete /source/ /dest/
 
 ## Syntax
 
-- `ftp [OPTIONS] HOST`
+- `ftp [OPTIONS] HOSTNAME`
 
 ### Options
 
-get Download a file.
-put Upload a file.
-ls List files on server.
-cd Change directory on server.
-mget Download multiple files.
-mput Upload multiple files.
+| Options | Descriptions | Examples |
+|---------|--------------|----------|
+| `-p` | Eable passive mode | `ftp -p ftp.example.com` |
+| `-i` | Turns off interactive prompting when using multiple file transfers | `ftp -i ftp.example.com` |
+| `-n` | Do not auto-login when connecting | `ftp -n ftp.example.com` |
+| `-g` | Disables filename globbing | `ftp -g ftp.example.com` |
+| `-v` | Enable verbose mode | `ftp -v ftp.example.com` |
+| `-d` | Enable debugging messages | `ftp -d ftp.example.com` |
+| `-u user[,pass]` | Specify username and optional password on the command line | `ftp -u name, password ftp.example.com` |
 
 ### Examples
 
- Connect to an FTP server:
+### Connect to an FTP server
+
+```bash
 ftp ftp.example.com
+```
 
-Login and download a file:
-Name: user
-Password: ****
-ftp> get file.zip
+### Breakdown
 
-Upload a file:
-ftp> put myfile.txt
+| Breakdown | Description |
+|-----------|-------------|
+| `ftp` | file transfer protocol command |
+| `ftp.example.com` | target server |
 
-Exit FTP:
-ftp> bye
+# Command: mtr
 
-# Command: mtr 
-
-## Description: Combine traceroute + ping into real-time network map
+## Description: Combines traceroute + ping into real-time network map
 
 ## Syntax
 
 - `mtr [options] [host]`
 
-### Examples
-
-- mtr google.com
-
 ### Options
 
- • -r → Report mode (non-interactive)
- • -c [n] → Number of pings
- • -b → Show both IPs and hostnames
- • -w → Wide report mode
+| Options | Descriptions | Examples |
+|---------|--------------|----------|
+| `-4` | Forces IPv4 | `mtr -4 google.com` |
+| `-6` | Forces IPv6 | `mtr -6 google.com` |
+| `-r` | Report mode | `mtr -r google.com` |
+| `-c` | counts number of cycles to run | `mtr -r -c 10 google.com` |
+| `-n` | Say to not resolve hostnames | `mtr -n google.com` |
+| `-b` | Show both hostname and IP addresses | `mtr -b google.com` |
+| `-a` | Binds to a specific source address | `mtr -a 192.168.1.100 google.com` |
+| `-f` | Set the first TTL hop to probe | `mtr -f 5 google.com` |
+| `-m` | Set the maximum TTL | `mtr -m 15 google.com` |
+| `-p` | Displays the actual packet path | `mtr -p google.com` |
+| `-z` | Shows ASN info | `mtr -z google.com` |
+| `-i` | Time between pings | `mtr -i 2 google.com` |
+| `-w` | Wide report format | `mtr -w google.com` |
+| `-t` | Enable TCP mode | `mtr -t google.com` |
+| `-u` | Use UDP mode | `mtr -u google.com` |
+| `--json` | Output results in JSON format | `mtr --JSON google.com` |
+
+### Examples
+
+### Show both hostname and IP addresses
+
+```bash
+mtr -b google.com
+```
+
+### Breakdown
+
+| Breakdown | Description |
+|-----------|-------------|
+| `mtr` | Network Command |
+| `-b` | Directs to show both hostname and IP address |
+| `google.com` | Target site |
 
 # Command: mosh
 
 ## Description: Mobile Shell (better ssh for flaky networks)
 
- ## Syntax
+## Syntax
 
-- `mosh  user@host`
+- `mosh [Options] [--] [user@host] [Command]`
 
-## Example
+### Options
 
-mosh jake@192.168.1.50
+| Options | Descriptions | Examples |
+|---------|--------------|----------|
+| `-p` or `--port=PORT:PORT2` | Specifies UDP port | `mosh -p 60000 user@server.example.com` |
+| `--ssh=SSH-COMMAND` | Connects via SSH on port 2222 | `mosh --ssh"ssh -p 2222 -i ~/ssh/id_rsa" user@server.example.com` |
+| `-4` or `--family=inet` | Forces IPv4 | `mosh -4 user@server.example.com` |
+| `-6` or `--family=inet6` | Forces IPv6 | `mosh -6 user@server.example.com` |
+| `--predict=adaptive/always/never` | Controls predictive echo | `mosh --predict=always user@server.example.com` |
+| `--no-init` | Disables terminal initialization on startup | `mosh --no-init user@server.example.com` |
+| `--local` | Forces Mosh to run in local-only mode | `mosh --local` |
+| `--help` | Shows help menu | `mosh --help` |
+| `--version | Shows working version | `mosh --version` |
 
-# Command: dog 
+### Example
+
+### connecting using a specific port
+
+```bash
+mosh -p 60000:60010 \
+```
+
+### Breakdown
+
+| Breakdown | Description |
+|-----------|-------------|
+| `mosh` | special shell command |
+| `-p` | Specifies a specific port to use |
+| `60000:60010` | Specified ports |
+
+# Command: dog
 
 ## Description: Modern replacement for dig (DNS queries)
 
 ## Syntax
 
--`dog [domain]`
-
-### Example
-
-- dog chat.openai.com
+-`dog [ query Options] [Domain]`
 
 ### Options
 
- • @1.1.1.1 → Query a specific DNS server
- • -t A → Query record type (e.g., A, MX, TXT, etc.)
+| Options | Descriptions | Examples |
+|---------|--------------|----------|
+| `-q` or `--query=HOST` | Domain to query | `dog -q example.com` |
+| `-t` or `--type=TYPE` | specify the DNS record type | `dog -q example.com -t MX` |
+| `-n` or `--nameserver=ADDR` | Query a specific nameserver | `dog -q example.com -t A -n 8.8.8.8` |
+| `--class=CLASS` | Sets DNS class | `dog -q example.com --class=IN` |
+
+### Example
+
+```bash
+dog -q example.com
+```
+
+### Breakdown
+
+| Breakdown | Description |
+|-----------|-------------|
+| `dog` | Network command |
+| `-q` | Directs to query a domain |
+| `example.com` | domain to query |
 
 # Command: termshark
 
@@ -880,33 +1143,94 @@ mosh jake@192.168.1.50
 
 ## Syntax
 
-- `termshark -i [interface]`
-
-### Example
-
-- sudo termshark -i eth0
+- `termshark [Options] [<capture filter>]`
 
 ### Options
 
- • Navigate packet layers with arrow keys
- • Filters work like tcpdump (ip.addr==192.168.0.5)
+| Options | Descriptions | Examples |
+|---------|--------------|----------|
+| `r <file>` | Read and analyze a file offline | `termshark -r sample.pcap` |
+| `-i` | Capture live traffic from the specified interface | `sudo termshark -i wlan0` |
+| `D` | Dump a list of available network interfaces and exit | `termshark -D` |
+| `-f` | Apply a BPF-style filter during capture | `termshark -i eth0 -f "port 53"` |
+| `-Y` | Apply a Wireshark-style display filter | `termshark -r sample.pcap -Y "tcp.port == 8080"` |
+| `-P` | Only packets addressed to your host are captured | `termshark -p` |
+| `-s <snaplen>` | Set the snapshot length | `termshark -s 128` |
+| `-l` | Launch directly into live capture mode | `termshark -l` |
+
+### Example
+
+```bash
+- sudo termshark -i eth0
+```
+
+### Breakdown
+
+| Breakdown | Description |
+|-----------|-------------|
+| `sudo` | Temporary superuser command |
+| `termshark` | Activates termshark |
+| `-i` | Captures live  traffic from specified interface |
+| `eth0` | Specified interface |
 
 # Command: lsof
 
-## Description: List network connections and the programs using them
+## Description: List network connections and the programs using them. Stands for "list open files"
 
 ## Syntax
 
-- `sudo lsof -i`
+- `lsof [Options] [names]`
+
+### Options
+
+| Options | Descriptions | Examples |
+|---------|--------------|----------|
+| `-u <users>` | Shows files opened by a specific user | `lsof -u  username` |
+| `-p <PID>` | Shows files opened by a specific user | `lsof -p 1234` |
+| `-i` | Show network connections | `lsof -i` |
+| `-i <port> | show processes using a specific port | `lsof -i :80` |
+| `-i tcp/-i udp` | filter bhy protocol | `lsof -i tcp` |
+| `-i @<ip>` | Filter by host/IP | `lsof -i username@192.168.1.20` |
+| `-c <string>` | Show processes whose command starts with string | `lsof -c ssh` |
+| `-a` | Combine multiple filters | `lsof -i tcp -a -u username` |
+| `-P` | Dont resolve port numbers to service names | `lsof -P -i` |
+| `-n` | Do not resolve hostnames | `lsof -t -i :22` |
+| `-t` | Output only process IDs | `lsof -t -i :443` |
+| `+d <dir>` | List files opened in a specific directory | `sudo lsof +d /etc` |
+| `+D <dir>` | Recursively list files opened under a directory | `sudo lsof +D /var/log` |
 
 ### Examples
 
-sudo lsof -i :22          # Who’s using SSH  
-sudo lsof -i tcp@localhost:8080
+### Who’s using SSH
 
-# Command: ipcalc 
+```bash
+sudo lsof -i :22            
+```
 
-## Description: IP calculator for CIDR, subnetting, broadcast, etc.
+### Breakdown
+
+| Breakdown | Description |
+|-----------|-------------|
+| `sudo` | Temporary superuser command |
+| `lsof` | List open files command |
+| `-i :22` | Directs to list processes using port 22 |
+
+### Filter by host and IP address
+
+```bash
+lsof -i @192.168.1.10
+```
+
+### Breakdown
+
+| Breakdown | Description |
+|-----------|-------------|
+| `lsof` | List open files command |
+| `-i @192.168.1.10` | Filter by host/IP |
+
+# Command: ipcalc
+
+## Description: IP calculator for CIDR, subnetting, broadcast, etc
 
 ## Syntax
 
@@ -951,7 +1275,7 @@ ipcalc -c 192.168.1.5/24
 
 # Command: wormhole
 
-## Description: Encrypted file transfer between systems. Must be installed on both systems. No server required.
+## Description: Encrypted file transfer between systems. Must be installed on both systems. No server required
 
 ## Syntax
 
@@ -975,5 +1299,5 @@ wormhole send secrets.tar.gz
 | Breakdown | Description |
 |-----------|-------------|
 | `wormhole` | File transfer command |
-| `send` | Directs to kick off the transfer | 
+| `send` | Directs to kick off the transfer |
 | `secret.tar.gz` | file to be transferred |
