@@ -183,11 +183,28 @@ snap find code
 sudo snap install code --classic
 ```
 
+### Breakdown
+
+| Breakdown | Description |
+|-----------|-------------|
+| `sudo` | Temporary superuser command |
+| `snap` | Package Manager Command |
+| `install | Directs to install specific package |
+| `code --classic` | Specific package |
+
 ### Update snaps
 
 ```bash
 sudo snap refresh
 ```
+
+### Breakdown
+
+| Breakdown | Description |
+|-----------|-------------|
+| `sudo` | Temporary superuser command |
+| `snap` | Package manager command |
+| `refresh` | Directs to update all installed snap packages |
 
 # Command: dpkg (Debian Package Manager)
 
@@ -204,7 +221,7 @@ sudo snap refresh
 | `-i` | Install a .deb file | `sudo dpkg -i package.deb` |
 | `-r` | Remove a package. | `sudo dpkg -r vim` |
 | `-P` | Purge and remove configs too | `sudo dpkg -P vim` |
-| `-l` | List installed packages | `dpkg-l | grep vim` |
+| `-l` | List installed packages | `dpkg-l | `grep vim` |
 | `-L` | List files installed by a package | `dpkg -L vim` |
 | `-S` | Find which package owns a file | `dpkg -S /bin/ls` |
 | `-s` | Show package status info | `dpkg -s vim` |
@@ -213,8 +230,8 @@ sudo snap refresh
 | `--configure <package>` | Reconfigure an unpacked package | `sudo dpkg --configure vim` |
 | `--unpack <file.deb>` | Unpack without configuring | `sudo dpkg --unpack package.deb` |
 | `--audit` | Show packages that are only partially installed | `dpkg --audit` |
-| `--get-selections` | List selection states of packages | `dpkg --get-selections | grep vim` |
-| `--set-selections` | Mark packages for install/remove | `echo "vim install" | sudo dpkg --set-selections` |
+| `--get-selections` | List selection states of packages | `dpkg --get-selections | `grep vim` |
+| `--set-selections` | Mark packages for install/remove | `echo "vim install" | `sudo dpkg --set-selections` |
 | `--update-avail` | Update available package info from /var/lib/dpkg/available | `sudo dpkg --update-avail` |
 | `--clear-avail` | Clear available package info | `sudo dpkg --clear-avail` |
 
@@ -226,12 +243,30 @@ sudo snap refresh
 sudo dpkg -i google-chrome.deb
 ```
 
+### Breakdown
+
+| Breakdown | Description |
+|-----------|-------------|
+| `sudo` | Temporary Superuser Commmand |
+| `dpkg` | Package Manager Command |
+| `-i` | Install a .deb package |
+| `google-chrome.deb` | Specific pacakge to install |
+
 ### Remove a package
 
 ```bash
 sudo dpkg -r google-chrome-stable
 ```
- 
+
+### Breakdown
+
+| Breakdown | Description |
+|-----------|-------------|
+| `sudo` | Temporary Superuser Command |
+| `dpkg` | Package Manager Command |
+| `-r` | Directs to remove a pacakge |
+| `google.chrome-stable` | Specified pacakge to remove |
+
 ### List installed packages
 
 ```bash
