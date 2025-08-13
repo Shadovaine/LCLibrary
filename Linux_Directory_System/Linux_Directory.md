@@ -61,24 +61,23 @@
 | Binary | What It Does |
 |--------|--------------|
 | `fsck` | Checks and repairs filesystems |
-mount	Mounts filesystems
-umount	Unmounts filesystems
-ifconfig	Configures network interfaces (deprecated for ip)
-reboot	Reboots the system
-shutdown	Powers down the system
-init	Initializes the system (parent of all processes)
-iptables	Configures firewall rules
-mkfs	Builds a filesystem on a device
+| `mount` |	Mounts filesystems |
+| `umount` | Unmounts filesystems |
+| `ifconfig` | Configures network interfaces (deprecated for ip) |
+| `reboot` | Reboots the system |
+| `shutdown` |Powers down the system |
+| `init` | Initializes the system (parent of all processes) |
+| `iptables` | Configures firewall rules |
+| `mkfs` | Builds a filesystem on a device |
 
-/etc directory
+# /etc 
 
-•	/etc stands for “editable text configuration” (that’s the unofficial but easy way to remember).
-	•	It’s the central hub for system-wide configuration files.
-	•	This is where Linux and installed software keep their settings, preferences, and startup scripts.
+## Description:  Stands for “editable text configuration” (that’s the unofficial but easy way to remember). It’s the central hub for system-wide configuration files. This is where Linux and installed software keep their settings, preferences, and startup scripts.
 
-📍 Located in the root directory (/), because the system needs it even in single-user mode.
+  **Located in the root directory (/), because the system needs it even in single-user mode.**
 
-What lives in /etc
+## What lives in /etc
+
 File/Folder	What It Does
 passwd	Stores user account information (but not passwords!)
 shadow	Stores encrypted user passwords
