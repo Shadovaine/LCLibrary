@@ -132,38 +132,28 @@
 | `UID` | User ID |
 | `GID` | Group ID |
 | `Home Directory' | directory where the user resides |
-| `shell` | 
+| `shell` | default shell assigned to every user |
 
+ **Passwords are not in `/etc/passwd`they are in `/etc/shadow` which is more restricted.**
 
-              Username, User ID (UID), Group ID ( GID), Home Directory, Shell
+## Example: 
 
-Passwords are not in /etc/passwd they are in.  /etc/shadow… which is more restricted.
+- `name: x : 1001 : 1001 : first name: /home/name:/bin/bash`
+   
+## Breakdown
 
-Example: 
-Jake: x : 1001 : 1001 : Jake welly: /home/jake:/bin/bash
+| Breakdown | Description | Meaning |
+|-----------|-------------|---------|
+| `name` | Username | Login name, used when you type ssh name@hostname or su name |
+| `X` | password placeholder | Password hashes are stored securely in `/etc/shadow` |
+| `1001` | userID (UID) | Unique ID for this user. UID 0 = root, 1-999 = system users |
+| `1001` | groupID (GID) | Primary group for this user ( from /etc/group) |
+| `/home/name` | home directory | Path to user's home folder |
+| '/bin/bash` | default shell | Default shell whwn user logs in |
 
-   Jake = username
-   X = password placeholder ( actual password is in /etc/shadow)
-   1001 = userID
-   1001 = groupID
-    /home/jake = home directory
-    /bin/bash = default shell
+# /var 
 
-Field	Value	What it means
-1. Username	jake	Login name. Used when you type ssh jake@hostname or su jake.
-2. Password	x	Placeholder. Password hashes are stored securely in /etc/shadow.
-3. User ID (UID)	1001	Unique ID for this user. UID 0 = root, 1-999 = system users.
-4. Group ID (GID)	1001	Primary group for this user (from /etc/group).
-5. User Info	Jake Welly	Comment field (aka GECOS). Often used for the full name.
-6. Home Directory	/home/jake	Path to user’s home folder.
-7. Shell	/bin/bash	Default shell when user logs in.
-
-/var directory
-
-What is it?
-	•	/var stands for “variable data.”
-	•	It contains files and data that change frequently while the system is running.
-	•	Unlike /etc (static configs), /var is dynamic—it grows and shrinks as your system operates.
+## Description: Stands for “variable data." It contains files and data that change frequently while the system is running. Unlike /etc (static configs), /var is dynamic—it grows and shrinks as your system operates.
 
 📍 Located in the root directory (/).
 
