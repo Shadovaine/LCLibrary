@@ -102,26 +102,27 @@
 
 ## Where does /etc fit
 
-| Directory |	Purpose | Example | Task |
-|-----------|---------|---------|------|
-| `/bin | Core user commands | `ls` | 
-/sbin	Core admin tools	Run fsck, mount
-/usr/bin	Installed software for users	Run python3, git
-/usr/sbin	Installed admin tools	Run sshd, iptables
-/etc	System-wide configuration	Edit ssh, fstab, passwd
+| Directory |	Purpose | Example |
+|-----------|---------|---------|
+| `/bin` | Core user commands | `ls`,`mv` |
+| `/sbin` |	Core admin tools | fsck, mount |
+| `/usr/bin` | Installed software for users | python3, git |
+| `/usr/sbin` | Installed admin tools | sshd, iptables |
+| `/etc` | System-wide configuration | ssh, fstab, passwd |
 
 
-Real-World Examples
-	•	Edit /etc/hostname → Change your computer’s name.
-	•	Edit /etc/hosts → Block websites (like a local ad-blocker).
-	•	Edit /etc/fstab → Automatically mount a USB drive at boot.
-	•	Edit /etc/ssh/sshd_config → Harden SSH for cybersecurity.
+## Real-World Examples
 
+| Examples | Descriptions |
+|----------|--------------|
+| `Edit /etc/hostname` | Change your computer’s name |
+| `Edit /etc/hosts` | Block websites (like a local ad-blocker) |
+| `Edit /etc/fstab` | Automatically mount a USB drive at boot |
+| `Edit /etc/ssh/sshd_config` |Harden SSH for cybersecurity |
 
-
-/etc/passwd file
+# /etc/passwd 
    
-Stores basic information about every user
+## Description: Stores basic information about every user
        Each file contains:
               Username, User ID (UID), Group ID ( GID), Home Directory, Shell
 
