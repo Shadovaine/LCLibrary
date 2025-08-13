@@ -273,11 +273,26 @@ sudo dpkg -r google-chrome-stable
 dpkg -l
 ```
 
+### Breakdown
+
+| Breakdown | Description |
+|-----------|-------------|
+| `dpkg` | Package Manager Command |
+| `-l` | Directs to list installed packages |
+
 ### List package contents
 
 ```bash
 dpkg -L vim
 ```
+
+### Breakdown
+
+| Breakdown | Description |
+|-----------|-------------|
+| `dpkg` | Package Manager Command |
+| `-L` | Directs to list package contents |
+| `vim` | Specified package |
 
 # Command: yum (Yellowdog Updater Modified)
 
@@ -318,17 +333,42 @@ dpkg -L vim
 sudo yum install httpd
 ```
 
+### Breakdown
+
+| Breakdown | Description |
+|-----------|-------------|
+| `sudo` | Temporary Superuser Command |
+| `yum` | Package Manager Command |
+| `install` | Directs to install specified package |
+| `httpd` | Specified package |
+
 ### Update all packages
 
 ```bash
 sudo yum update
 ```
 
+### Breakdown 
+
+| Breakdown | Description |
+|-----------|-------------|
+| `sudo` | Temporary Superuser command |
+| `yum` | Package Manager Command |
+| `update` | Specified command to update all packages |
+
 ### Search for nginx
 
 ```bash
 yum search nginx
 ```
+
+### Breakdown
+
+| Breakdown | Description |
+|-----------|-------------|
+| `yum` | Package Manager Command |
+| `search` | Directs to search for specified package |
+| `nginx` | Specified package |
 
 # Command: dnf (Dandified YUM)
 
@@ -371,17 +411,42 @@ yum search nginx
 sudo dnf install git
 ```
 
+### Breakdown
+
+| Breakdown | Description |
+|-----------|-------------|
+| `sudo` | Temporary Superuser command |
+| `dnf` | Package Manager command |
+| `install` | Directs to install specified package |
+| `git` | Specified package |
+
 ### Upgrade all packages
 
 ```bash
 sudo dnf upgrade
 ```
 
+### Breakdown
+
+| Breakdown | Description |
+|-----------|-------------|
+| `sudo ` | Temporary Superuser Command |
+| `dnf` | Package Manager Command |
+| `upgrade` | Directs to upgrade all packages that can be ugraded |
+
 ### Search for docker
 
 ```bash
 dnf search docker
 ```
+
+### Breakdown
+
+| Breakdown | Description |
+|-----------|-------------|
+| `dnf` | package Manager Command |
+| `search` | Directs to search for a specified package |
+| `docker` | Specified package |
 
 # Command: rpm (Red Hat Package Manager)
 
