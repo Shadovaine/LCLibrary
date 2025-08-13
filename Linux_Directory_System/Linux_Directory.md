@@ -25,12 +25,14 @@
 
 ## /bin directory
 
-## Description: stands for binary ( compuled programs). System directory contains essential executable programs needed to boot system and run basic commands
+## Description: stands for binary ( compiled programs). System directory contains essential executable programs needed to boot system and run basic commands
 
 ## /bin and /usr/bin comparison
 
-| /bin | /usr/bin |
-|------|----------|
+| Chracteristic | /bin | /usr/bin |
+|---------------|------|----------|
+| Essential commands for startup and running the system | :heavy_check_mark: | :X: |
+| 
 Why is /bin separate from /usr/bin?
 	•	/bin: Must-have commands for the system to start and run.
 	•	/usr/bin: Non-essential programs used once the system is fully up. (e.g., text editors, compilers, user utilities).
