@@ -23,7 +23,7 @@
        ├── tmp          ← Temporary scratchpad
 ```
 
-## /bin directory
+## /bin 
 
 ## Description: stands for binary ( compiled programs). System directory contains essential executable programs needed to boot system and run basic commands
 
@@ -32,26 +32,25 @@
 | Chracteristic | /bin | /usr/bin |
 |---------------|------|----------|
 | Essential commands for startup and running the system | :heavy_check_mark: | :x: |
+| Non- essential programs used once the system is fully up | :x: | :heavy_check_mark: |
 
-| 
-Why is /bin separate from /usr/bin?
-	•	/bin: Must-have commands for the system to start and run.
-	•	/usr/bin: Non-essential programs used once the system is fully up. (e.g., text editors, compilers, user utilities).
+**In modern systems, some distros symlink /bin to /usr/bin to simplify things**
 
-In modern systems, some distros symlink /bin to /usr/bin to simplify things.
+## What lives in /bin
 
-What lives in /bin
-Binary	What It Does
-bash	The Bourne Again SHell (your command interpreter)
-ls	Lists directory contents
-cp	Copies files and directories
-mv	Moves/renames files and directories
-rm	Removes files or directories
-cat	Concatenates and displays file content
-echo	Prints text to the terminal
-pwd	Prints the current working directory
-chmod	Changes file permissions
-ln	Creates links (hard or symbolic)
+
+| Binary |What It Does |
+|--------|--------------|
+| `bash` |The Bourne Again SHell (your command interpreter) |
+| `ls` | Lists directory contents |
+| `cp` | Copies files and directories |
+| `mv` | Moves/renames files and directories |
+| `rm` | Removes files or directories |
+| `cat` |	Concatenates and displays file content |
+| `echo` |Prints text to the terminal |
+| `pwd` |	Prints the current working directory |
+| `chmod` |	Changes file permissions |
+| `ln` | Creates links (hard or symbolic) |
 
 /sbin directory
   
