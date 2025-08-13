@@ -155,17 +155,19 @@
 
 ## Description: Stands for “variable data." It contains files and data that change frequently while the system is running. Unlike /etc (static configs), /var is dynamic—it grows and shrinks as your system operates.
 
-📍 Located in the root directory (/).
+ **Located in the root directory (/).**
 
-What lives in /var
-Directory	What It Does
-/var/log	System logs (kernel, authentication, errors, etc.)
-/var/spool	Holds queued tasks (like print jobs and mail)
-/var/cache	Application cache files
-/var/tmp	Temporary files kept between reboots
-/var/lib	State information for programs (databases, package info)
-/var/mail	Stores user mailboxes
-/var/run → /run	Holds process ID files (like services tracking info)
+## What lives in /var
+
+| Directory	| What It Does |
+|-----------|--------------|
+| `/var/log` | System logs (kernel, authentication, errors, etc.) |
+| `/var/spool` | Holds queued tasks (like print jobs and mail) |
+| `/var/cache` | Application cache files |
+| `/var/tmp` | Temporary files kept between reboots |
+| `/var/lib` | State information for programs (databases, package info) |
+| `/var/mail` | Stores user mailboxes |
+| `/var/run → /run` | Holds process ID files (like services tracking info) |
 
 Why is /var important 
 
