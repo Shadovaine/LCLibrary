@@ -52,17 +52,15 @@
 | `chmod` |	Changes file permissions |
 | `ln` | Creates links (hard or symbolic) |
 
-/sbin directory
+# /sbin 
   
-Stands for “system binaries”
-  It contains essential system administration programs that are primarily used by the root (superuser) for managing and repairing the system.
-	•	These commands are needed for tasks like mounting drives, repairing filesystems, networking setup, or rebooting the system.
+## Description: Stands for “system binaries”. It contains essential system administration programs that are primarily used by the root (superuser) for managing and repairing the system. These commands are needed for tasks like mounting drives, repairing filesystems, networking setup, or rebooting the system. Think of it as the “admin’s toolbox” for running and fixing the system.
 
-Think of it as the “admin’s toolbox” for running and fixing the system.
+## What lives in /sbin
 
-What lives in /sbin
-Binary	What It Does
-fsck	Checks and repairs filesystems
+| Binary | What It Does |
+|--------|--------------|
+| `fsck` | Checks and repairs filesystems |
 mount	Mounts filesystems
 umount	Unmounts filesystems
 ifconfig	Configures network interfaces (deprecated for ip)
