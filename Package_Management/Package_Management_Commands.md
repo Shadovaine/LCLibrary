@@ -136,7 +136,7 @@ sudo apt purge apache2
 | `snap refresh <pkg>` | Updates a snap package. | `snap refresh` |
 | `snap revert <pkg>`| Rolls back to the previous version. | `snap revert package-name` |
 | `snap list` | Lists installed snap packages. | `snap list` |
-| `snap find <term>` | Searches the Snap Store for packages. `snap find name` |
+| `snap find <term>` | Searches the Snap Store for packages. | `snap find name` |
 | `snap info <pkg>` | Shows details about a snap package. | `snap info name` |
 | `snap run <pkg>` | Runs a snap package. | `snap run name` |
 | `--channel=<track>/<risk>` | Install from a specific channel. | `snap --channel=10` |
