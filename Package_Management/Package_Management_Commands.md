@@ -132,7 +132,7 @@ sudo apt purge apache2
 | Options | Descriptions | Examples |
 |---------|--------------|----------|
 | `snap install <pkg>` | Installs a snap package. | `snap install package-name` |
-| `snap remove <pkg>` | Removes a snap package. | snap remove package-name` |
+| `snap remove <pkg>` | Removes a snap package. | `snap remove package-name` |
 | `snap refresh <pkg>` | Updates a snap package. | `snap refresh` |
 | `snap revert <pkg>`| Rolls back to the previous version. | `snap revert package-name` |
 | `snap list` | Lists installed snap packages. | `snap list` |
@@ -144,9 +144,9 @@ sudo apt purge apache2
 | `--classic` | Install with a classic confinement. | `snap --classic` |
 | `snap enable <pkg>` | Enables a previously disabled snap. | `snap enable package-name` |
 | `snap disable <pkg>` | Disables a snap without uninstalling it. | `snap diable package-name` |
-| `snap connections` | Shows all snap interface connections. | snap connections` |
-| `snap connect` | Manually connect a snap interface. | snap connect name` |
-| `snap disconnect` | Disconnect a snap interface. | snap disconnect name` |
+| `snap connections` | Shows all snap interface connections. | `snap connections` |
+| `snap connect` | Manually connect a snap interface. | `snap connect name` |
+| `snap disconnect` | Disconnect a snap interface. | `snap disconnect name` |
 | `snap interface <int>` | Show details of a specific interface. | `snap interface name` |
 | `snap aliases` | Shows current snap command aliases. | `snap aliases` |
 | `snap alias` | Creates a command alias for a snap. | `snap alias` |
@@ -173,6 +173,7 @@ snap find code
 ### Breakdown
 
 | Breakdown | Description |
+|-----------|-------------|
 | `snap` | Package manager command |
 | `find` | Directs package manager to find target package |
 | `code` | Target package to search for |
@@ -189,7 +190,7 @@ sudo snap install code --classic
 |-----------|-------------|
 | `sudo` | Temporary superuser command |
 | `snap` | Package Manager Command |
-| `install | Directs to install specific package |
+| `install` | Directs to install specific package |
 | `code --classic` | Specific package |
 
 ### Update snaps
@@ -536,8 +537,8 @@ rpm -ql httpd
 | Options | Descriptions | Examples |
 |---------|--------------|----------|
 | `search` | Search for apps | `flatpak search vscode` |
-| `install REMOTE APP` | Install an app | `sudo flatpak install flathub org.example.com |
-| `uninstall [APP_ID]` | Remove an installed app | `sudo flatpak uninstall org.example.com |
+| `install REMOTE APP` | Install an app | `sudo flatpak install flathub org.example.com` |
+| `uninstall [APP_ID]` | Remove an installed app | `sudo flatpak uninstall org.example.com` |
 | `run APP` | Run an installed app |`flatpak run org.example.com` |
 | `update` | Update installed apps | `sudo flatpak update` |
 | `history` | Show history of installs/updates/removals |`flatpak history` |
