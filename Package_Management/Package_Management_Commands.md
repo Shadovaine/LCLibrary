@@ -222,7 +222,7 @@ sudo snap refresh
 | `-i` | Install a .deb file | `sudo dpkg -i package.deb` |
 | `-r` | Remove a package. | `sudo dpkg -r vim` |
 | `-P` | Purge and remove configs too | `sudo dpkg -P vim` |
-| `-l` | List installed packages | `dpkg-l | `grep vim` |
+| `-l` | List installed packages | `dpkg-l | grep vim` |
 | `-L` | List files installed by a package | `dpkg -L vim` |
 | `-S` | Find which package owns a file | `dpkg -S /bin/ls` |
 | `-s` | Show package status info | `dpkg -s vim` |
@@ -231,8 +231,8 @@ sudo snap refresh
 | `--configure <package>` | Reconfigure an unpacked package | `sudo dpkg --configure vim` |
 | `--unpack <file.deb>` | Unpack without configuring | `sudo dpkg --unpack package.deb` |
 | `--audit` | Show packages that are only partially installed | `dpkg --audit` |
-| `--get-selections` | List selection states of packages | `dpkg --get-selections | `grep vim` |
-| `--set-selections` | Mark packages for install/remove | `echo "vim install" | `sudo dpkg --set-selections` |
+| `--get-selections` | List selection states of packages | `dpkg --get-selections | grep vim` |
+| `--set-selections` | Mark packages for install/remove | `echo "vim install" | sudo dpkg --set-selections` |
 | `--update-avail` | Update available package info from /var/lib/dpkg/available | `sudo dpkg --update-avail` |
 | `--clear-avail` | Clear available package info | `sudo dpkg --clear-avail` |
 
@@ -323,7 +323,7 @@ dpkg -L vim
 | `downgrade` | Revert to an older package version | `sudo yum downgrade vim` |
 | `group list` | list package groups | `yum group list` |
 | `group install` | Install all package in a group | `sudo yum group install "Example list"` |
-| `group remove` | Remove all packages in a group | `sudo yum group remove "Example List" |
+| `group remove` | Remove all packages in a group | `sudo yum group remove "Example List"` |
 | `update-to` | Update a pacakge to a specific version | `sudo yum update-to vim 1.1.1` |
 
 ### Examples
@@ -399,8 +399,8 @@ yum search nginx
 | `downgrade` | Revert to an older package version | `sudo dnf downgrade vim` |
 | `group list` | list package groups | `dnf group list` |
 | `group install` | Install all package in a group | `sudo dnf group install "Example list"` |
-| `group remove` | Remove all packages in a group | `sudo dnf group remove "Example List" |
-| `update-to` | Update a pacakge to a specific version | `sudo dnf update-to vim 1.1.1  |
+| `group remove` | Remove all packages in a group | `sudo dnf group remove "Example List"` |
+| `update-to` | Update a pacakge to a specific version | `sudo dnf update-to vim 1.1.1 ` |
 | `repoquery` | Query information from enabled repos |  `dnf repoquery --available` |
 | `autoremove` | Remove packages installed as dependencies but no longer needed | `sudo dnf autoremove` |
 
