@@ -123,7 +123,18 @@
 # /etc/passwd 
    
 ## Description: Stores basic information about every user
-       Each file contains:
+
+## /etc/passwd Contents
+
+| File Contents | Descriptions |
+|---------------|--------------|
+| `Username` | name of user |
+| `UID` | User ID |
+| `GID` | Group ID |
+| `Home Directory' | directory where the user resides |
+| `shell` | 
+
+
               Username, User ID (UID), Group ID ( GID), Home Directory, Shell
 
 Passwords are not in /etc/passwd they are in.  /etc/shadow… which is more restricted.
