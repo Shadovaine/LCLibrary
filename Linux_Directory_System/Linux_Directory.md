@@ -32,6 +32,7 @@
 | Chracteristic | /bin | /usr/bin |
 |---------------|------|----------|
 | Essential commands for startup and running the system | :heavy_check_mark: | :x: |
+
 | 
 Why is /bin separate from /usr/bin?
 	•	/bin: Must-have commands for the system to start and run.
