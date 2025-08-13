@@ -2,6 +2,7 @@
 
 ## Linux directory tree form
 
+```
   /
        ├── bin          ← Core user commands (a branch)
        ├── sbin         ← Core admin commands
@@ -20,7 +21,7 @@
        ├── dev          ← Devices as files
        ├── boot         ← Kernel & bootloader (the system’s ignition)
        ├── tmp          ← Temporary scratchpad
-
+```
 
 ## /bin directory
 
