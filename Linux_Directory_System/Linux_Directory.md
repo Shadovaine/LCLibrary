@@ -105,10 +105,10 @@
 | Directory |	Purpose | Example |
 |-----------|---------|---------|
 | `/bin` | Core user commands | `ls`,`mv` |
-| `/sbin` |	Core admin tools | fsck, mount |
-| `/usr/bin` | Installed software for users | python3, git |
-| `/usr/sbin` | Installed admin tools | sshd, iptables |
-| `/etc` | System-wide configuration | ssh, fstab, passwd |
+| `/sbin` |	Core admin tools | `fsck`, `mount` |
+| `/usr/bin` | Installed software for users | `python3`,`git` |
+| `/usr/sbin` | Installed admin tools | `sshd`,`iptables` |
+| `/etc` | System-wide configuration | `ssh`,`fstab`,`passwd` |
 
 
 ## Real-World Examples
