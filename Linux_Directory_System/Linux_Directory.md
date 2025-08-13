@@ -78,39 +78,37 @@
 
 ## What lives in /etc
 
-File/Folder	What It Does
-passwd	Stores user account information (but not passwords!)
-shadow	Stores encrypted user passwords
-hosts	Maps hostnames to IP addresses locally
-fstab	Lists filesystems to mount at boot
-hostname	Sets the system’s hostname
-resolv.conf	Configures DNS servers
-network/	Network configuration files
-init.d/	Startup scripts for services (older systems)
-systemd/	Service unit files for systemd (newer systems)
-ssh/	SSH configuration (client & server keys/settings)
+| File/Folder |	What It Does |
+|-------------|--------------|
+| `passwd` | Stores user account information (but not passwords!) |
+| `shadow` | Stores encrypted user passwords |
+| `hosts` | Maps hostnames to IP addresses locally |
+| `fstab` | Lists filesystems to mount at boot |
+| `hostname` | Sets the system’s hostname |
+| `resolv.conf` | Configures DNS servers |
+| `network/` | Network configuration files |
+| `init.d/` | Startup scripts for services (older systems) |
+| `systemd/` | Service unit files for systemd (newer systems) |
+| `ssh/` | SSH configuration (client & server keys/settings) |
 
-Why is /etc so important?
+## what happens in /etc
 
-✅ This is where you and the system admins tweak how Linux behaves:
-	•	Add new users
-	•	Configure networking
-	•	Set which services start at boot
-	•	Secure your system (like configuring SSH in /etc/ssh/sshd_config)
+- `Add new users`
+- `Configure networking`
+- `Set which services start at boot`
+- `Secure your system (like configuring SSH in /etc/ssh/sshd_config)`
 
-🛡️ If you screw up something in /etc, your system might not boot or network correctly. That’s why experienced sysadmins back up /etc before making big changes.
+ **If you screw up something in /etc, your system might not boot or network correctly. That’s why experienced sysadmins back up /etc before making big changes.**
 
-File/Folder	What It Does
-passwd	Stores user account information (but not passwords!)
-shadow	Stores encrypted user passwords
-hosts	Maps hostnames to IP addresses locally
-fstab	Lists filesystems to mount at boot
-hostname	Sets the system’s hostname
-resolv.conf	Configures DNS servers
-network/	Network configuration files
-init.d/	Startup scripts for services (older systems)
-systemd/	Service unit files for systemd (newer systems)
-ssh/	SSH configuration (client & server keys/settings)
+## Where does /etc fit
+
+| Directory |	Purpose | Example | Task |
+|-----------|---------|---------|------|
+| `/bin | Core user commands | `ls` | 
+/sbin	Core admin tools	Run fsck, mount
+/usr/bin	Installed software for users	Run python3, git
+/usr/sbin	Installed admin tools	Run sshd, iptables
+/etc	System-wide configuration	Edit ssh, fstab, passwd
 
 
 Real-World Examples
@@ -119,14 +117,7 @@ Real-World Examples
 	•	Edit /etc/fstab → Automatically mount a USB drive at boot.
 	•	Edit /etc/ssh/sshd_config → Harden SSH for cybersecurity.
 
-Where does /etc fit
 
-Directory	Purpose	Example Task
-/bin	Core user commands	Run ls, cp, mv
-/sbin	Core admin tools	Run fsck, mount
-/usr/bin	Installed software for users	Run python3, git
-/usr/sbin	Installed admin tools	Run sshd, iptables
-/etc	System-wide configuration	Edit ssh, fstab, passwd
 
 /etc/passwd file
    
