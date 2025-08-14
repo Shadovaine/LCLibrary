@@ -18,8 +18,6 @@
 - `lsattr`
 - `chattr`
 
-# Permission Notation Reference
-
 ## MODE Description: persmission you want to set (symbolic or numeric)
 
 ## Symbolic Notation
@@ -51,7 +49,7 @@
 | `0` | No permission | `000` |
 | `7` | Read + Write + Execute | `111` |
 | `6` | Read + Write | `110` |
-| `5` | Read + Execute | `101` | 
+| `5` | Read + Execute | `101` |
 | `3` | Write + Execute | `011` |
 
 # Command: chmod
@@ -117,11 +115,20 @@ chmod u+s myprog
 | `—reference=RFILE` | Sets ownership to match another file's owner/group | `chown --reference=template.txt file.txt` |
 
 ### Examples
-chown jake file.txt	Change owner to jake.
-chown :admins file.txt	Change group to admins.
-chown jake:admins file.txt	Change owner to jake, group to admins.
-chown jake: file.txt	Change owner to jake, group unchanged.
 
+### Change owner to name
+
+```bash
+chown name file.txt
+```
+
+### Breakdown
+
+| Breakdown | Description |
+|-----------|-------------|
+| `chown` | Perm and Owner Command |
+| `name` | New name for file |
+| `file.txt` | Target file being changed |
 
 # Command: chgrp
 
@@ -145,11 +152,21 @@ chown jake: file.txt	Change owner to jake, group unchanged.
 | `-P` | Never follow symbolic links when using -R | `chgrp -RP name /project` |
 | `-reference=RFILE` | Set group ownership to match another file's group | `chgrp --reference=template.txt file.txt` |
 
-
 ### Examples
 
-chgrp staff file.txt	Change group to staff.
-chgrp -R staff /project	Recursively change group to staff.
+### Change group to staff
+
+```bash
+chgrp staff file.txt 
+```
+
+### Breakdown
+
+| Breakdown | Description |
+|-----------|-------------|
+| `chgrp` | Perm and Owner Command | 
+| `staff` | New name for file |
+| `file.txt` | Target file |
 
 # Command: umask
 
@@ -197,7 +214,7 @@ chgrp -R staff /project	Recursively change group to staff.
 | `-L` | Follow symlinks and show info about the target file | `stat -L symlink.txt` |
 | `-f` | Display filesystem infomation | `stat -f /home` |
 | `-c` | custom output format | `stat -c "%n %s" file.txt` |
-| `--print=FORMAT` | like `--format` but without automatically adding a newline | `stat --print="Size: %s bytes" file.txt` | 
+| `--print=FORMAT` | like `--format` but without automatically adding a newline | `stat --print="Size: %s bytes" file.txt` |
 
 ### Common Format Sequences
 
@@ -212,81 +229,237 @@ chgrp -R staff /project	Recursively change group to staff.
 | `%U` | User name of owner |
 | `%g` | Group ID of owner |
 | `%G` | Group name of owner |
-| `%x` | Last access time | 
+| `%x` | Last access time |
 | `%y` | last modification time |
 | `%z` | Last change time |
 | `%d` | Birth time |
-| `%i` | Inode Number | 
+| `%i` | Inode Number |
 | `%h` | Number of hard links |
 
 ### Examples
 
 # Command: namei
 
-## Description:
+## Description: Resolves and displays each component of a file path, it shows how the system interprets directories, symlinks, and files along the path
 
 ## Syntax
 
+- `namei [Options] [File path]`
+
 ### Options
 
+| Options | Descriptions | Examples |
+|---------|--------------|----------|
+| `-l` | Show long listing | `namei -l /etc/passwd` |
+| `-m` | Show mode bits for each component | `namei -m /etc/passwd` |
+| `-o` | Show owner and group for each component | `namei -o /etc/passwd` |
+| `-v` | Vebose Output | `namei -v /etc/passwd` |
+| `-x` | Show mount points | `namei -x /etc/passwd` |
+| `-n` | Do not follow symlinks | `namei -n /etc/passwd` |
+| `-a` | Show all components including `.` and `..` | `namei -a /etc/passwd` |
+
 ### Examples
+
+### Show owner and group for each component
+
+```bash
+namei -o /tmp/test
+```
+
+### Breakdown
+
+| Breakdown | Description |
+|-----------|-------------|
+| `namei` | Perm and Owner Command |
+| `-o` | Show owner and group for each component |
+| `/tmp/test` | Specified location |
 
 # Command: id
 
-## Description:
+## Description: Displays user and group identity information for the current or specified user, including user ID (UID), group ID (GID), and group memberships
 
 ## Syntax
 
+- `id [options] [username]`
+
 ### Options
 
+| Option      | Description                                      | Example                      |
+|-------------|--------------------------------------------------|------------------------------|
+| (none)      | Show user and group info for current user        | `id`                         |
+| `username`  | Show info for specified user                     | `id jake`                    |
+| `-u`        | Show only the user ID                            | `id -u`                      |
+| `-g`        | Show only the group ID                           | `id -g`                      |
+| `-G`        | Show all group IDs                               | `id -G`                      |
+| `-n`        | Print name instead of number (use with -u, -g, -G)| `id -un`                     |
+| `-r`        | Print real ID instead of effective ID (use with -u, -g, -G) | `id -ur`            |
+| `-Z`        | Show SELinux security context                    | `id -Z`                      |
+| `-a`        | (Obsolete, ignored)                              | `id -a`                      |
+
 ### Examples
+
+```bash
+id jake
+```
 
 # Command: groups
 
-## Description:
+## Description: Displays the group memberships for the current user or a specified user
 
 ## Syntax
 
+- `groups [username]`
+
 ### Options
 
+| Option      | Description                                 | Example           |
+|-------------|---------------------------------------------|-------------------|
+| (none)      | Show groups for current user                | `groups`          |
+| `username`  | Show groups for specified user              | `groups jake`     |
+
 ### Examples
+
+```bash
+groups
+groups jake
+```
 
 # Command: setfacl
 
-## Description:
+## Description: Sets Access Control Lists (ACLs) for files and directories, allowing fine-grained permission management beyond standard Unix permissions
 
 ## Syntax
 
+- `setfacl [options] [acl] file`
+
 ### Options
 
+| Option | Description | Examples |
+|--------|-------------|----------|
+| `-m`| Modify ACL by adding or changing permissions | `setfacl -m u:jake:rwx file.txt` |
+| `-x` | Remove an entry from the ACL | `setfacl -x u:jake file.txt` |
+| `-b` | Remove all ACL entries (reset to default) | `setfacl -b file.txt` |
+| `-k` | Remove default ACLs | `setfacl -k dir/` |
+| `-R` | Apply changes recursively to directories | `setfacl -R -m u:jake:rwx dir/`|
+| `-d` | Set default ACLs for directories | `setfacl -m d:u:jake:rwx dir/`|
+| `--set` | Set ACLs from a string, replacing existing entries  | `setfacl --set u::rw-,g::r--,o::r-- file.txt` |
+| `--set-file`| Set ACLs from a file | `setfacl --set-file=acls.txt file.txt`  |
+
 ### Examples
+
+```bash
+setfacl -m u:jake:rwx file.txt
+setfacl -x u:jake file.txt
+setfacl -b file.txt
+setfacl -R -m g:staff:rwX dir/
+setfacl -m d:u:jake:rwx dir/
+setfacl --set u::rw-,g::r--,o::r-- file.txt
+setfacl --set-file=acls.txt file.txt
+```
 
 # Command: getfacl
 
-## Description:
+## Description: Displays the Access Control Lists (ACLs) for files and directories, showing detailed permissions for each user and group
 
 ## Syntax
 
+- `getfacl [options] file`
+
 ### Options
 
+| Option      | Description                                         | Example                       |
+|-------------|-----------------------------------------------------|-------------------------------|
+| (none)      | Show ACLs for a file or directory                   | `getfacl file.txt`            |
+| `-R`        | Recursively list ACLs for directories and contents   | `getfacl -R dir/`             |
+| `--absolute-names` | Print absolute pathnames                      | `getfacl --absolute-names file.txt` |
+| `--tabular` | Output in tabular format (if supported)             | `getfacl --tabular file.txt`   |
+
 ### Examples
+
+### Show ACLs for target directory
+
+```bash
+getfacl file.txt
+```
+
+### List ACLs for specified directory
+
+```bash
+getfacl -R /var/log
+```
 
 # Command: lsattr
 
-## Description:
+## Description: Lists file attributes on a Linux filesystem, showing special flags such as immutable, append-only, and others
 
 ## Syntax
 
+- `lsattr [options] [files]`
+
 ### Options
 
+| Option      | Description                                         | Example                       |
+|-------------|-----------------------------------------------------|-------------------------------|
+| (none)      | List attributes for files in current directory      | `lsattr`                      |
+| `-a`        | List all files, including hidden files              | `lsattr -a`                   |
+| `-R`        | Recursively list attributes in directories          | `lsattr -R /home/user`        |
+| `-d`        | List attributes of directories themselves           | `lsattr -d /home/user`        |
+| `-v`        | List file version/generation number                 | `lsattr -v file.txt`          |
+| `-V`        | Show program version                                | `lsattr -V`                   |
+
 ### Examples
+
+```bash
+lsattr -a
+```
 
 # Command: chattr
 
-## Description:
+## Description: Change file attributes on a Linux filesystem, such as making files immutable, append-only, or setting other special flags
 
 ## Syntax
 
+- `chattr [options] [attributes] file`
+
 ### Options
 
+| Option      | Description                                         | Example                       |
+|-------------|-----------------------------------------------------|-------------------------------|
+| (none)      | Change attributes for a file                        | `chattr +i file.txt`          |
+| `-R`        | Recursively change attributes in directories         | `chattr -R +a /var/log`       |
+| `-V`        | Show program version                                | `chattr -V`                   |
+| `-f`        | Suppress most error messages                        | `chattr -f +i file.txt`       |
+| `-v version`| Set the file's version/generation number            | `chattr -v 2 file.txt`        |
+
 ### Examples
+
+### make file immutable
+
+```bash
+chattr +i file.txt
+```
+
+### Breakdown
+
+| Breakdown | Description |
+|-----------|-------------|
+| `chattr` | Perm and Owner Command |
+| `+i` | Directs to make file immutable |
+| `file.txt` | Target file |
+
+### Make all files in /var/log append-only
+
+```bash
+chattr -R +a /var/log
+```
+
+### Breakdown
+
+| Breakdown | Description |
+|-----------|-------------|
+| `chattr` | Perm and Owner Command |
+| `-R` | Directs to make changes recursively |
+| `+a` | Directs to make file append-only |
+| `/var/log` | Target location |
+
+
