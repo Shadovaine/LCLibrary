@@ -38,7 +38,6 @@
 
 ## What lives in /bin
 
-
 | Binary |What It Does |
 |--------|--------------|
 | `bash` |The Bourne Again SHell (your command interpreter) |
@@ -110,7 +109,6 @@
 | `/usr/sbin` | Installed admin tools | `sshd`,`iptables` |
 | `/etc` | System-wide configuration | `ssh`,`fstab`,`passwd` |
 
-
 ## Real-World Examples
 
 | Examples | Descriptions |
@@ -118,7 +116,7 @@
 | `Edit /etc/hostname` | Change your computer’s name |
 | `Edit /etc/hosts` | Block websites (like a local ad-blocker) |
 | `Edit /etc/fstab` | Automatically mount a USB drive at boot |
-| `Edit /etc/ssh/sshd_config` |Harden SSH for cybersecurity |
+| `Edit /etc/ssh/sshd_config` | Harden SSH for cybersecurity |
 
 # /etc/passwd 
    
@@ -169,11 +167,11 @@
 | `/var/mail` | Stores user mailboxes |
 | `/var/run → /run` | Holds process ID files (like services tracking info) |
 
-Why is /var important 
+## Why is /var important 
 
-It’s where Linux keeps all its “changing state” data:
-	•	Logs for auditing and troubleshooting.
-	•	Cached downloads to speed things up.
+## It’s where Linux keeps all its “changing state” data:
+	- `Logs for auditing and troubleshooting`
+	- `Cached downloads to speed things up`
 	•	Queued tasks for printers or cron jobs.
 
 🛡️ If /var fills up, your system can crash. For example, if log files in /var/log grow too big, you might not be able to log in.
