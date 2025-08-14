@@ -177,10 +177,21 @@
 
 ## Real world examples
 
-- `Check /var/log/auth.log → See failed login attempts (great for cybersecurity).`
-- `Clear /var/cache/apt → Free up space from downloaded packages.`
-- `Look in /var/spool/cron → Inspect user cron jobs.`
-- `Monitor /var/lib/mysql → Database data lives here.`
+## See failed login attempts (great for cybersecurity)
+
+- `Check /var/log/auth.log`
+
+## Free up space from downloaded packages
+
+- `Clear /var/cache/apt`
+
+## Inspect user cron jobs
+
+- `Look in /var/spool/cron`
+
+## Database data lives here
+
+- `Monitor /var/lib/mysql`
 
 # /home
 
@@ -218,7 +229,7 @@
 - `Store your TryHackMe reports and code projects in /home/username/Documents/cybersecurity.`
 - `Place your SSH keys in /home/username/.ssh/ for secure server access.`
 
-# /root 
+# /root
 
 ## What is it
 
@@ -226,53 +237,67 @@
 - `It’s like the private lair of the dragon king—reserved only for the most powerful entity in the system.`
 - `Not to be confused with / (the root of the filesystem).`
 
-File/Folder What It Does
-.bashrc Root’s custom bash shell configuration
-.ssh/ SSH keys for root-only remote access
-scripts/ Admin’s personal scripts for maintenance
-backups/ Critical system backup files
-log_check.sh A script for scanning logs for security breaches
+| File/Folder | What It Does |
+|-------------|--------------|
+| `.bashrc` | Root’s custom bash shell configuration |
+| `.ssh/` | SSH keys for root-only remote access |
+| `scripts/` | Admin’s personal scripts for maintenance |
+| `backups/` | Critical system backup files |
+| `log_check.sh` | A script for scanning logs for security breaches |
 
-Regular users cannot access this directory without root privileges (sudo or su).
+**Regular users cannot access this directory without root privileges (sudo or su).**
 
-Why is /root Important?
+## Why is /root Important?
 
-✅ It exists to give the root user:
- • A safe, separate workspace from normal users.
- • A place to manage emergency system repairs.
- • Configurations isolated from regular user profiles.
+- `A safe, separate workspace from normal users`
+- `A place to manage emergency system repairs`
+- `Configurations isolated from regular user profiles`
+- `In single and recovery mode /root is where you’ll land as the superuser`
 
-📝 If the system is in single-user mode or you’ve booted into rescue, /root is where you’ll land as the superuser.
+## Root va regular users
 
-Root va regular users
-Feature Regular User Root User
-Home Directory /home/jake /root
-Privileges Limited Full control (all-powerful)
-Can Edit System Files? ❌ No ✅ Yes
-Can Wreck the System? ❌ No ✅ Oh yes—be careful
+| Feature | Regular User | Root User |
+|---------|--------------|-----------|
+| `Home Directory` | :heavy_check_mark: | :x: | 
+| `/home/jake` | :heavy_check_mark: | :x: |
+| `/root` | :x: | :heavy_check_mark: |
+| `Privileges Limited` | :heavy_check_mark: | :x: |
+| `Full control` | :x: | :heavy_check_mark: |
+| `Can Edit System Files?` | :x: | :heavy_check_mark: |
+| `Can Wreck the System?` | :x: | :heavy_check_mark: |
 
-Real-World Examples
- • Use sudo su → Enter root’s domain.
- • Edit /root/.bashrc to set up root-specific aliases (like alias ll='ls -lah').
- • Store sensitive system-wide scripts in /root/scripts/.
+## Real-World Examples
 
-What is an alias in Linux?
+- `Use sudo su → Enter root’s domain`
+- `Edit /root/.bashrc to set up root-specific aliases (like alias ll='ls -lah')`
+- `Store sensitive system-wide scripts in /root/scripts/`
 
-An alias is like a shortcut or nickname for a longer command. Instead of typing something like:
+# Aliases
 
-sudo apt update && sudo apt upgrade -y
+## Description: An alias is like a shortcut or nickname for a longer command.
 
-every time you want to update your system, you can create an alias:
+## Alias Example
 
-alias update='sudo apt update && sudo apt upgrade -y'
+## Update and upgrade apt packages
 
-Why are aliases important?
+- `sudo apt update && sudo apt upgrade -y`
 
-1. Speed
- • Saves keystrokes and time, especially for commands you type often.
+## You can create an aliaa
 
-✅ 2. Safety
- • Prevents costly typos. Example:
+- alias update= `sudo apt update && sudo apt upgrade -y`
+
+## Why are aliases important?
+
+# Speed
+
+- **Saves keystrokes and time, especially for commands you type often.**
+
+# Safety
+
+- **Prevents costly typos.** 
+
+## Safe Alias Example
+
 Instead of typing rm -rf /path/to/something, you can create a safer alias:
          alias rm='rm -i'
 
