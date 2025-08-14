@@ -1,7 +1,8 @@
-Linux Directory System
+# Linux Directory System
 
-Linux directory system
+## Linux directory tree form
 
+```
   /
        ├── bin          ← Core user commands (a branch)
        ├── sbin         ← Core admin commands
@@ -20,156 +21,153 @@ Linux directory system
        ├── dev          ← Devices as files
        ├── boot         ← Kernel & bootloader (the system’s ignition)
        ├── tmp          ← Temporary scratchpad
+```
+
+## /bin 
+
+## Description: stands for binary ( compiled programs). System directory contains essential executable programs needed to boot system and run basic commands
+
+## /bin and /usr/bin comparison
+
+| Chracteristic | /bin | /usr/bin |
+|---------------|------|----------|
+| Essential commands for startup and running the system | :heavy_check_mark: | :x: |
+| Non- essential programs used once the system is fully up | :x: | :heavy_check_mark: |
+
+**In modern systems, some distros symlink /bin to /usr/bin to simplify things**
+
+## What lives in /bin
 
 
-/bin directory
+| Binary |What It Does |
+|--------|--------------|
+| `bash` |The Bourne Again SHell (your command interpreter) |
+| `ls` | Lists directory contents |
+| `cp` | Copies files and directories |
+| `mv` | Moves/renames files and directories |
+| `rm` | Removes files or directories |
+| `cat` |	Concatenates and displays file content |
+| `echo` |Prints text to the terminal |
+| `pwd` |	Prints the current working directory |
+| `chmod` |	Changes file permissions |
+| `ln` | Creates links (hard or symbolic) |
+
+# /sbin 
   
-Stands for binary ( compiled programs)
-   System directory contains essential executable programs needed to boot system and run basic commands
+## Description: Stands for “system binaries”. It contains essential system administration programs that are primarily used by the root (superuser) for managing and repairing the system. These commands are needed for tasks like mounting drives, repairing filesystems, networking setup, or rebooting the system. Think of it as the “admin’s toolbox” for running and fixing the system.
 
-Why is /bin separate from /usr/bin?
-	•	/bin: Must-have commands for the system to start and run.
-	•	/usr/bin: Non-essential programs used once the system is fully up. (e.g., text editors, compilers, user utilities).
+## What lives in /sbin
 
-In modern systems, some distros symlink /bin to /usr/bin to simplify things.
+| Binary | What It Does |
+|--------|--------------|
+| `fsck` | Checks and repairs filesystems |
+| `mount` |	Mounts filesystems |
+| `umount` | Unmounts filesystems |
+| `ifconfig` | Configures network interfaces (deprecated for ip) |
+| `reboot` | Reboots the system |
+| `shutdown` |Powers down the system |
+| `init` | Initializes the system (parent of all processes) |
+| `iptables` | Configures firewall rules |
+| `mkfs` | Builds a filesystem on a device |
 
-What lives in /bin
-Binary	What It Does
-bash	The Bourne Again SHell (your command interpreter)
-ls	Lists directory contents
-cp	Copies files and directories
-mv	Moves/renames files and directories
-rm	Removes files or directories
-cat	Concatenates and displays file content
-echo	Prints text to the terminal
-pwd	Prints the current working directory
-chmod	Changes file permissions
-ln	Creates links (hard or symbolic)
+# /etc 
 
-/sbin directory
-  
-Stands for “system binaries”
-  It contains essential system administration programs that are primarily used by the root (superuser) for managing and repairing the system.
-	•	These commands are needed for tasks like mounting drives, repairing filesystems, networking setup, or rebooting the system.
+## Description:  Stands for “editable text configuration” (that’s the unofficial but easy way to remember). It’s the central hub for system-wide configuration files. This is where Linux and installed software keep their settings, preferences, and startup scripts.
 
-Think of it as the “admin’s toolbox” for running and fixing the system.
+  **Located in the root directory (/), because the system needs it even in single-user mode.**
 
-What lives in /sbin
-Binary	What It Does
-fsck	Checks and repairs filesystems
-mount	Mounts filesystems
-umount	Unmounts filesystems
-ifconfig	Configures network interfaces (deprecated for ip)
-reboot	Reboots the system
-shutdown	Powers down the system
-init	Initializes the system (parent of all processes)
-iptables	Configures firewall rules
-mkfs	Builds a filesystem on a device
+## What lives in /etc
 
-/etc directory
+| File/Folder |	What It Does |
+|-------------|--------------|
+| `passwd` | Stores user account information (but not passwords!) |
+| `shadow` | Stores encrypted user passwords |
+| `hosts` | Maps hostnames to IP addresses locally |
+| `fstab` | Lists filesystems to mount at boot |
+| `hostname` | Sets the system’s hostname |
+| `resolv.conf` | Configures DNS servers |
+| `network/` | Network configuration files |
+| `init.d/` | Startup scripts for services (older systems) |
+| `systemd/` | Service unit files for systemd (newer systems) |
+| `ssh/` | SSH configuration (client & server keys/settings) |
 
-•	/etc stands for “editable text configuration” (that’s the unofficial but easy way to remember).
-	•	It’s the central hub for system-wide configuration files.
-	•	This is where Linux and installed software keep their settings, preferences, and startup scripts.
+## what happens in /etc
 
-📍 Located in the root directory (/), because the system needs it even in single-user mode.
+- `Add new users`
+- `Configure networking`
+- `Set which services start at boot`
+- `Secure your system (like configuring SSH in /etc/ssh/sshd_config)`
 
-What lives in /etc
-File/Folder	What It Does
-passwd	Stores user account information (but not passwords!)
-shadow	Stores encrypted user passwords
-hosts	Maps hostnames to IP addresses locally
-fstab	Lists filesystems to mount at boot
-hostname	Sets the system’s hostname
-resolv.conf	Configures DNS servers
-network/	Network configuration files
-init.d/	Startup scripts for services (older systems)
-systemd/	Service unit files for systemd (newer systems)
-ssh/	SSH configuration (client & server keys/settings)
+ **If you screw up something in /etc, your system might not boot or network correctly. That’s why experienced sysadmins back up /etc before making big changes.**
 
-Why is /etc so important?
+## Where does /etc fit
 
-✅ This is where you and the system admins tweak how Linux behaves:
-	•	Add new users
-	•	Configure networking
-	•	Set which services start at boot
-	•	Secure your system (like configuring SSH in /etc/ssh/sshd_config)
-
-🛡️ If you screw up something in /etc, your system might not boot or network correctly. That’s why experienced sysadmins back up /etc before making big changes.
-
-File/Folder	What It Does
-passwd	Stores user account information (but not passwords!)
-shadow	Stores encrypted user passwords
-hosts	Maps hostnames to IP addresses locally
-fstab	Lists filesystems to mount at boot
-hostname	Sets the system’s hostname
-resolv.conf	Configures DNS servers
-network/	Network configuration files
-init.d/	Startup scripts for services (older systems)
-systemd/	Service unit files for systemd (newer systems)
-ssh/	SSH configuration (client & server keys/settings)
+| Directory |	Purpose | Example |
+|-----------|---------|---------|
+| `/bin` | Core user commands | `ls`,`mv` |
+| `/sbin` |	Core admin tools | `fsck`, `mount` |
+| `/usr/bin` | Installed software for users | `python3`,`git` |
+| `/usr/sbin` | Installed admin tools | `sshd`,`iptables` |
+| `/etc` | System-wide configuration | `ssh`,`fstab`,`passwd` |
 
 
-Real-World Examples
-	•	Edit /etc/hostname → Change your computer’s name.
-	•	Edit /etc/hosts → Block websites (like a local ad-blocker).
-	•	Edit /etc/fstab → Automatically mount a USB drive at boot.
-	•	Edit /etc/ssh/sshd_config → Harden SSH for cybersecurity.
+## Real-World Examples
 
-Where does /etc fit
+| Examples | Descriptions |
+|----------|--------------|
+| `Edit /etc/hostname` | Change your computer’s name |
+| `Edit /etc/hosts` | Block websites (like a local ad-blocker) |
+| `Edit /etc/fstab` | Automatically mount a USB drive at boot |
+| `Edit /etc/ssh/sshd_config` |Harden SSH for cybersecurity |
 
-Directory	Purpose	Example Task
-/bin	Core user commands	Run ls, cp, mv
-/sbin	Core admin tools	Run fsck, mount
-/usr/bin	Installed software for users	Run python3, git
-/usr/sbin	Installed admin tools	Run sshd, iptables
-/etc	System-wide configuration	Edit ssh, fstab, passwd
-
-/etc/passwd file
+# /etc/passwd 
    
-Stores basic information about every user
-       Each file contains:
-              Username, User ID (UID), Group ID ( GID), Home Directory, Shell
+## Description: Stores basic information about every user
 
-Passwords are not in /etc/passwd they are in.  /etc/shadow… which is more restricted.
+## /etc/passwd Contents
 
-Example: 
-Jake: x : 1001 : 1001 : Jake welly: /home/jake:/bin/bash
+| File Contents | Descriptions |
+|---------------|--------------|
+| `Username` | name of user |
+| `UID` | User ID |
+| `GID` | Group ID |
+| `Home Directory' | directory where the user resides |
+| `shell` | default shell assigned to every user |
 
-   Jake = username
-   X = password placeholder ( actual password is in /etc/shadow)
-   1001 = userID
-   1001 = groupID
-    /home/jake = home directory
-    /bin/bash = default shell
+ **Passwords are not in `/etc/passwd`they are in `/etc/shadow` which is more restricted.**
 
-Field	Value	What it means
-1. Username	jake	Login name. Used when you type ssh jake@hostname or su jake.
-2. Password	x	Placeholder. Password hashes are stored securely in /etc/shadow.
-3. User ID (UID)	1001	Unique ID for this user. UID 0 = root, 1-999 = system users.
-4. Group ID (GID)	1001	Primary group for this user (from /etc/group).
-5. User Info	Jake Welly	Comment field (aka GECOS). Often used for the full name.
-6. Home Directory	/home/jake	Path to user’s home folder.
-7. Shell	/bin/bash	Default shell when user logs in.
+## Example: 
 
-/var directory
+- `name: x : 1001 : 1001 : first name: /home/name:/bin/bash`
+   
+## Breakdown
 
-What is it?
-	•	/var stands for “variable data.”
-	•	It contains files and data that change frequently while the system is running.
-	•	Unlike /etc (static configs), /var is dynamic—it grows and shrinks as your system operates.
+| Breakdown | Description | Meaning |
+|-----------|-------------|---------|
+| `name` | Username | Login name, used when you type ssh name@hostname or su name |
+| `X` | password placeholder | Password hashes are stored securely in `/etc/shadow` |
+| `1001` | userID (UID) | Unique ID for this user. UID 0 = root, 1-999 = system users |
+| `1001` | groupID (GID) | Primary group for this user ( from /etc/group) |
+| `/home/name` | home directory | Path to user's home folder |
+| '/bin/bash` | default shell | Default shell whwn user logs in |
 
-📍 Located in the root directory (/).
+# /var 
 
-What lives in /var
-Directory	What It Does
-/var/log	System logs (kernel, authentication, errors, etc.)
-/var/spool	Holds queued tasks (like print jobs and mail)
-/var/cache	Application cache files
-/var/tmp	Temporary files kept between reboots
-/var/lib	State information for programs (databases, package info)
-/var/mail	Stores user mailboxes
-/var/run → /run	Holds process ID files (like services tracking info)
+## Description: Stands for “variable data." It contains files and data that change frequently while the system is running. Unlike /etc (static configs), /var is dynamic—it grows and shrinks as your system operates.
+
+ **Located in the root directory (/).**
+
+## What lives in /var
+
+| Directory	| What It Does |
+|-----------|--------------|
+| `/var/log` | System logs (kernel, authentication, errors, etc.) |
+| `/var/spool` | Holds queued tasks (like print jobs and mail) |
+| `/var/cache` | Application cache files |
+| `/var/tmp` | Temporary files kept between reboots |
+| `/var/lib` | State information for programs (databases, package info) |
+| `/var/mail` | Stores user mailboxes |
+| `/var/run → /run` | Holds process ID files (like services tracking info) |
 
 Why is /var important 
 
