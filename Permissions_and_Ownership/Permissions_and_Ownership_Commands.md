@@ -299,8 +299,15 @@ namei -o /tmp/test
 ### Examples
 
 ```bash
-id jake
+id name
 ```
+
+### Breakdown 
+
+| Breakdown | Description |
+|-----------|-------------|
+| `id` | Perm and Owner command |
+| `name` | Target user |
 
 # Command: groups
 
@@ -320,9 +327,15 @@ id jake
 ### Examples
 
 ```bash
-groups
-groups jake
+groups name
 ```
+
+### Breakdown 
+
+| Breakdown | Description |
+|-----------|-------------|
+| `groups` | Perm and Owner Command |
+| `name` | Target user |
 
 # Command: setfacl
 
@@ -347,15 +360,20 @@ groups jake
 
 ### Examples
 
+### Remove a user from the ACL
+
 ```bash
-setfacl -m u:jake:rwx file.txt
-setfacl -x u:jake file.txt
-setfacl -b file.txt
-setfacl -R -m g:staff:rwX dir/
-setfacl -m d:u:jake:rwx dir/
-setfacl --set u::rw-,g::r--,o::r-- file.txt
-setfacl --set-file=acls.txt file.txt
+setfacl -x u:name file.txt
 ```
+
+### Breakdown
+
+| Breakdown | Description |
+|-----------|-------------|
+| `setfacl` | Perm and Owner Command |
+| `-x` | Removes a user from the ACL |
+| `u:name` | Target user to remove |
+| `file.txt` | Target file |
 
 # Command: getfacl
 
@@ -409,6 +427,8 @@ getfacl -R /var/log
 
 ### Examples
 
+### List all files including hidden files
+
 ```bash
 lsattr -a
 ```
@@ -419,6 +439,8 @@ lsattr -a
 |-----------|-------------|
 | `lsattr` | Perm and Owner Command |
 | `-a` | List all files, including hidden files |
+
+# Command: chattr
 
 ## Description: Change file attributes on a Linux filesystem, such as making files immutable, append-only, or setting other special flags
 
