@@ -413,7 +413,12 @@ getfacl -R /var/log
 lsattr -a
 ```
 
-# Command: chattr
+### Breakdown
+
+| Breakdown | Description |
+|-----------|-------------|
+| `lsattr` | Perm and Owner Command |
+| `-a` | List all files, including hidden files |
 
 ## Description: Change file attributes on a Linux filesystem, such as making files immutable, append-only, or setting other special flags
 
