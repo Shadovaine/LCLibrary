@@ -107,7 +107,7 @@ chmod u+s myprog
 |---------|--------------|----------|
 | `-c` | Report when a change is made | `chown -c name file.txt` |
 | `-f` | Suppress most error messages | `chown -f name file.txt` |
-| `-v` | Report for every file processed | `chown -v name file.txt |
+| `-v` | Report for every file processed | `chown -v name file.txt` |
 | `--dereference` | Act on the referenced file | `chown --dereference name symlink.txt` |
 | `-h` | Affect the symlink itself, not the target file | `chown -h name symlink.txt` |
 | `-R` | Recursively: apply to all files and directories | `chown -R owner:group /project` |
