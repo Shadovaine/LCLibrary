@@ -1,5 +1,22 @@
 # Process Management
 
+## Description: Commands involved in monitoring all processes
+
+## Table of Contents
+
+- `ps`
+- `top`
+- `htop`
+- `glances`
+- `iotop`
+- `kill`
+- `killall`
+- `job`
+- `bg`
+- `fg`
+- `nice`
+- `renice`
+
 ## Command: ps
 
 ## Description: Short for 'process status'. Shows a snapshot of current processes.
@@ -96,34 +113,101 @@ ps -eo pid,cmd
 | `-o` | Customize output fields |
 | `pid``cmd` | Target output fields |
 
-## **top**
-Real-time view of processes and resource usage.
+# Command: top
 
-## **Syntax**
--top [OPTIONS]
+## Deacription: Real-time view of processes and resource usage. It displays CPU usage,memory usage,uptime,load averages,and other things.
 
-## **Options**
--u USER	Show processes for a specific user.
--p PID	Monitor only the given PID.
--n N	Update screen N times then exit.
+## Syntax
 
-#### **Examples**
-Run top:
+- `top [OPTIONS]`
+
+### Options
+
+| Options | Descriptions | Examples |
+|---------|--------------|----------|
+| `-d<seconds>` | Set refresh delay between screen updates | `top -d 2` |
+| `-n<count>` | Run for a set of iterations | `top -n 5` |
+| `-b` | Batch mode, when used with `-n prints output instead of interactive GUI | `top -b -n 
+| `-u<username>` | Show only processes by a soecific user | `top -u username` |
+| `-p<PID>` | Monitors a specific process by PID | `top -p 1234` | 
+
+### Interactive Commands
+
+### Description: Commands used within top
+
+| Interactive Command | Description |
+|---------------------|-------------|
+| `h` | Help Screen |
+| `p` | Sort by CPU usage |
+| `M` | Sorr by memory usage |
+| `T` | Sorr by time ( total CPU time used) |
+| `k` | Kill a process |
+| `r` | Renice a process |
+| `u` | Filter by user | 
+| `c` | Toggle full command-line path |
+| `1` | Toggle CPU core stats |
+| `z``b` | Toggle color/visual bold display |
+| `q` | Quit |
+| `f` | Add or remove columns |
+| `W` | Save configuration |
+
+
+### Examples
+
+### Run top
+
+```bash
 top
+```
 
- Show processes for user “jake”:
-top -u jake
+### Breakdown
 
-Monitor only PID 1234:
+| Breakdown | Description |
+|-----------|-------------|
+| `top` | Process Manager command |
+
+### Show processes for user “username"
+
+```bash
+top -u username
+```
+
+### Breakdown
+
+| Breakdown | Description |
+|-----------|-------------|
+| `top` | Process Manager command |
+| `-u` | Show processes only for username |
+| `username` | Target username |
+
+### Monitor only PID 1234
+
+```bash
 top -p 1234
+```
 
-## **htop**
-- An improved, interactive version of top. (If not installed, use sudo apt install htop)
+### Breakdown
 
-## **Syntax**
-htop
+| Breakdown | Description |
+|-----------|-------------|
+| `top` | Process manager command |
+| `-p` | Monitor only a specific PID |
+| `1234` | Target PID |
 
-### **Examples**
+# Command: htop
+
+## Description: An improved, interactive version of top.
+
+## Syntax
+
+- `htop [Options]
+
+### Options
+
+| Options | Descriptions | Examples |
+|---------|--------------|----------|
+
+### Examples
 Run htop:
 htop
 
