@@ -131,12 +131,12 @@ ps -eo pid,cmd
 | `-u<username>` | Show only processes by a soecific user | `top -u username` |
 | `-p<PID>` | Monitors a specific process by PID | `top -p 1234` | 
 
-### Interactive Commands
+### Interactive Keystrokes
 
-### Description: Commands used within top
+### Description: Keystrokes used within top
 
-| Interactive Command | Description |
-|---------------------|-------------|
+| Interactive Keystrokes | Description |
+|------------------------|-------------|
 | `h` | Help Screen |
 | `p` | Sort by CPU usage |
 | `M` | Sorr by memory usage |
@@ -207,7 +207,22 @@ top -p 1234
 | Options | Descriptions | Examples |
 |---------|--------------|----------|
 | `-d<delay>` | Set delay between updates | `htop -d 20` |
-| `-u` | Show only processes of a specidic user | `htop -u username` |
+| `-u` | Show only processes of a specific user | `htop -u username` |
+| `-p<PID>[<PID2>]` | Show only specific PIDs | `htop -p 1234,5678` |
+| `-s<column>` | Sort by a specific column name | `htop -s PERCENT_MEM` |
+| `-C``--no-color` | Disable colors | `htop -C` |
+| `-t` | Tree view enabled by default | `htop -t` |
+| `--sort-key<column>` | Like -s, far clarify | `htop --sort-key PERCENT_CPU` |
+
+### Interactive Keystroks
+
+### Description: Keystrokes used within htop
+
+| Interactive Keystrokes | Descriptions |
+|------------------------|--------------|
+| `F1` | Help Screen |
+| `F2` | Setup Menu |
+
 ### Examples
 Run htop:
 htop
