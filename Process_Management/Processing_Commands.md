@@ -1,33 +1,100 @@
-# **Process Management**
+# Process Management
 
-## **ps**
-- Shows a snapshot of current processes.
+## Command: ps
 
-## **Syntax**
-- ps [OPTIONS]
+## Description: Short for 'process status'. Shows a snapshot of current processes.
 
-## **Options**
-	Show all processes (alias for -A).
--f	Full-format listing.
--u USER	Show processes for a specific user.
--o	Customize output format.
-aux	BSD style: show all processes with details.
+## Syntax
 
-#### **Examples**
-Show all running processes:
+- `ps [OPTIONS]`
+
+### Options
+
+| Options | Descriptions | Examples |
+|---------|---------------|----------|
+| `-e` or `-A` | Show all running processes | `ps -e`or`ps -A` |
+| `-f` | Show Full-format listing | `ps -f` |
+| `-u` | Show processes for a specific user | `ps -u username` |
+| `-x` | Includes process not attached to the terminal | `ps -x` |
+| `-o` | Customize output fields | `ps -eo pid,ppid,user,cmd,%mem,%cpu --sort=%cpu` |
+| `--forest` | Show output in tree form | `ps -ef --forest` |
+| `--sort` | Sort by field | `ps -eo pid,cmd,%mem --sort=-%mem` |
+| `-p<PID>` | Display a specific process by PID | `ps -p 1234` |
+| `--ppid<PID>` | Show children of a specific process | `ps ppid 1` |
+
+
+### Examples
+
+### Show all running processes
+
+```bash
 ps -e
+```
 
-Show full details (UID, PID, etc.):
+### Breakdown
+
+| Breakdown | Description |
+|-----------|-------------|
+| `ps` | Process manager command |
+| `-e` | Show all running processes |
+
+### Show full details (UID, PID, etc.)
+
+```bash
 ps -ef
+```
 
- Show processes for user “jake”:
-ps -u jake
+### Breakdown
 
- BSD style:
+| Breakdown | Description |
+|-----------|-------------|
+| `ps` | Process manager command |
+| `-e` | Show all running processes |
+| `-f` | Show full-format |
+
+### Show processes for user “username"
+
+```bash
+ps -u username
+```
+
+### Breakdown
+
+| Breakdown | Description |
+|-----------|-------------|
+| `ps` | Process Manager command |
+| `-u` | Show processes for a specific user |
+| `username` | Target user |
+
+### BSD style
+
+```bash
 ps aux
+```
 
-Show only PID and COMMAND columns:
-ps -eo pid,comm
+### Breakdown
+
+| Breakdown | Description |
+|-----------|-------------|
+| `ps` | Process manager command |
+| `a` | All users |
+| `u` | Display user/owner |
+| `x` | Include deamons and background tasks |
+
+### Show only PID and COMMAND columns
+
+```bash
+ps -eo pid,cmd
+```
+
+### Breakdown
+
+| Breakdown | Description |
+|-----------|-------------|
+| `ps` | Process manager command |
+| `-e` | Show all running processes |
+| `-o` | Customize output fields |
+| `pid``cmd` | Target output fields |
 
 ## **top**
 Real-time view of processes and resource usage.
