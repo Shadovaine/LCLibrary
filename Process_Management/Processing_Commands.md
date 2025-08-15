@@ -196,7 +196,7 @@ top -p 1234
 
 # Command: htop
 
-## Description: An improved, interactive version of top.
+## Description: An improved, powerful, interactive process viewer.
 
 ## Syntax
 
@@ -206,7 +206,8 @@ top -p 1234
 
 | Options | Descriptions | Examples |
 |---------|--------------|----------|
-
+| `-d<delay>` | Set delay between updates | `htop -d 20` |
+| `-u` | Show only processes of a specidic user | `htop -u username` |
 ### Examples
 Run htop:
 htop
