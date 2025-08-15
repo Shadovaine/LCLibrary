@@ -290,24 +290,25 @@
 
 # Speed
 
-- **Saves keystrokes and time, especially for commands you type often.**
+- `Saves keystrokes and time, especially for commands you type often.`
 
 # Safety
 
-- **Prevents costly typos.** 
+- `Prevents costly typos.`
 
 ## Safe Alias Example
 
-Instead of typing rm -rf /path/to/something, you can create a safer alias:
-         alias rm='rm -i'
+- Instead of typing `rm -rf /path/to/something`
+- you can create a safer alias `alias rm='rm -i`
+- The -i flag asks before deleting files. (This has saved countless beginners from nuking their systems.)
 
-The -i flag asks before deleting files. (This has saved countless beginners from nuking their systems.)
+# Customization
 
-3. Customization
- • Tailor your terminal to match your workflow. Hackers and sysadmins often create aliases for pentesting tools, log monitoring, or jumping into certain directories.
+- Tailor your terminal to match your workflow. Hackers and sysadmins often create aliases for pentesting tools, log monitoring, or jumping into certain directories.
 
-✅ 4. Readability
- • Makes complex commands easier to remember and share.
+# Readability
+
+- Makes complex commands easier to remember and share.
 
 When should you set one up?
 
@@ -364,75 +365,81 @@ Dragon Wisdom About /root
  • 🗝️ It’s powerful: Essential for sysadmin work and cybersecurity tasks.
  • 👑 It’s yours when wearing the root crown: But only put it on when you know what you’re doing.
 
-/usr Directory
+# /usr
 
-What is it?
- • /usr/bin contains user binaries—programs and commands that are not required to boot the system but are used once it’s fully operational.
- • These are the day-to-day tools you use to work, write code, edit files, or run applications.
+## Description: Stands for “user system resources.”  contains user binaries—programs and commands that are not required to boot the system but are used once it’s fully operational. These are the day-to-day tools you use to work, write code, edit files, or run applications.
 
-📍 Located in /usr, which stands for “user system resources.”
+ 
+## /usr/bin
 
-/usr/bin and /usr/sbin
+## What lives in /usr/bin
 
-What lives in /usr/bin
-Binary What It Does
-python3 Runs Python 3 programs
-gcc GNU Compiler Collection (compiles C/C++ code)
-nano Simple text editor
-git Version control system
-tar Archives/compresses files
-wget Downloads files from the internet
-curl Transfers data from or to a server
+| Binary | What It Does |
+|--------|--------------|
+| `python3` |  Runs Python 3 programs |
+| `gcc` | GNU Compiler Collection (compiles C++ code) |
+| `nano` | Simple text editor |
+| `git` | Version control system |
+| `tar` | Archives/compresses files |
+| `wget` | Downloads files from the internet |
+| `curl` | Transfers data from or to a server |
 
-What is /usr/sbin
+## /usr/sbin
 
-What is it?
- • /usr/sbin contains system admin binaries for managing advanced system services and configurations.
- • These are non-essential at boot, but critical for configuring servers, networking, and security.
- • Usually only the root user or sudoers can run these.
+## What is /usr/sbin
 
-What lives in /usr/sbin
+- /usr/sbin contains system admin binaries for managing advanced system services and configurations.
+- These are non-essential at boot, but critical for configuring servers, networking, and security.
+- Usually only the root user or sudoers can run these.
 
-Binary What It Does
-sshd Secure Shell daemon (allows SSH connections)
-apache2 Apache web server binary
-useradd Adds new user accounts
-groupadd Adds new groups
-iptables Configures firewall rules
-tcpdump Captures network packets for analysis
+## What lives in /usr/sbin
 
-📌 If you’re setting up servers or doing cybersecurity hardening, you’ll spend a lot of time here.
+| Binary | What It Does |
+|--------|--------------|
+| `sshd` | Secure Shell daemon (allows SSH connections) |
+| `apache2` | Apache web server binary |
+| `useradd` | Adds new user accounts |
+| `groupadd` | Adds new groups |
+| `iptables` | Configures firewall rules |
+| `tcpdump` | Captures network packets for analysis |
 
-How they fit together
-Directory Who Uses It? What’s Inside?
-/usr/bin All users Programs like python3, git, nano
-/usr/sbin System admins (root) Daemons & admin tools like sshd, iptables
+## If you’re setting up servers or doing cybersecurity hardening, you’ll spend a lot of time here
 
-Directory Essential for Boot? User or Root? Example Commands
-/bin ✅ Yes All users ls, cp, mv
-/sbin ✅ Yes Root/admin only fsck, mount
-/usr/bin ❌ No All users python3, git
-/usr/sbin ❌ No Root/admin only sshd, iptables
+## How does /usr/bin and /usr/sbin fit together
 
-/usr/local/bin
+| Directory | Who Uses It? | What’s Inside? |
+|-----------|--------------|----------------|
+| `/usr/bin` | All users | Python3, git, nano |
+| `/usr/sbin` | System admins | (root) Daemons, admin tools, sshd, iptables |
 
-What is it?
- • /usr/local/bin is for user-installed binaries (programs and scripts).
- • This directory is not touched by the package manager (apt, yum, etc.), so it’s safe for custom installations.
- • Commands in here are typically user-level tools that don’t require root to run.
+| Directory Essential for Boot? | User or Root? | Example Commands |
+|-------------------------------|---------------|------------------|
+| `/bin` :heavy_check_mark: | All users | `ls` `cp` `mv` |
+| `/sbin` | Root/admin only | `fsck` `mount` |
+| `/usr/bin` | All users | `python3` `git` |
+| `/usr/sbin` | Root/admin only | `sshd` `iptables` |
 
-📍 Located in /usr/local, which is reserved for “local” custom software on your system.
+# /usr/local/bin
 
-What lives here
-Example Binary What It Does
-my_script.sh A custom shell script you created
-node Node.js binary installed manually
+## What is /usr/local/bin
+
+- /usr/local/bin is for user-installed binaries (programs and scripts)
+- This directory is not touched by the package manager (apt, yum, etc.), so it’s safe for custom installations
+- Commands in here are typically user-level tools that don’t require root to run
+- Located in /usr/local, which is reserved for “local” custom software on your system
+
+## What lives here
+
+| Example | Binary | What It Does |
+|---------|--------|--------------|
+| `my_script.sh` | :x: | A custom shell script you created |
+| `node_Node.js` | Binary | Installed manually |
 go Golang binary (if installed from source)
 custom-tool Any utility installed outside package manager
 
 If you install software manually with make && make install, it usually ends up here.
 
-/usr/local/sbin
+## /usr/local/sbin
 
 What is it?
  • /usr/local/sbin is the admin-only version of /usr/local/bin.
@@ -595,33 +602,35 @@ Dragon Wisdom About /proc
  • 🛡️ Some files in /proc/sys can literally change system behavior—so handle with care.
  • 🧑‍💻 As a cybersecurity pro, you’ll visit /proc often to monitor or control processes.
 
-/Dev directory
+# /dev
 
-What is /dev?
- • /dev is the directory that contains device files (also called special files).
- • In Linux, everything is a file – even hardware like disks, terminals, and printers.
- • The files in /dev are interfaces to kernel drivers that let you interact with hardware or virtual devices.
+## Description: /dev is the directory that contains device files (also called special files)
 
-You don’t directly “open” these files to edit them, but commands and programs can use them to send or receive data to/from hardware.
+## What is /dev?
 
-⸻
+- In Linux, everything is a file – even hardware like disks, terminals, and printers
+- The files in /dev are interfaces to kernel drivers that let you interact with hardware or virtual devices.
+- You don’t directly “open” these files to edit them, but commands and programs can use them to send or receive data to/from hardware.
 
-📂 Types of Device Files in /dev
+## Types of Device Files in /dev
 
-There are 2 main types:
- 1. Character Devices (c)
- • Data is handled one character at a time.
- • Example: keyboards, mice, serial ports, terminals.
- • ✅ Found with ls -l showing a c at the start:
+## 2 main types
 
-crw-rw-rw- 1 root root 1, 3 Jul 16 10:12 /dev/null
+### Character Devices (c)
 
-Block Devices (b)
- • Data is handled in blocks (like disks).
- • Example: hard drives, SSDs, USB drives.
- • ✅ Found with ls -l showing a b at the start:
+- Data is handled one character at a time.
+- Example: keyboards, mice, serial ports, terminals.
+- Found with ls -l showing a c at the start:
 
-brw-rw---- 1 root disk 8, 0 Jul 16 10:12 /dev/sda
+- `crw-rw-rw- 1 root root 1, 3 Jul 16 10:12 /dev/null`
+
+### Block Devices (b)/
+
+- Data is handled in blocks (like disks).
+- Example: hard drives, SSDs, USB drives.
+- Found with ls -l showing a b at the start
+
+- `brw-rw---- 1 root disk 8, 0 Jul 16 10:12 /dev/sda`
 
 Key Special Files in /dev
 
@@ -667,86 +676,115 @@ Checking USB Device
 dmesg | grep sdb
 ls -l /dev/sd*
 
-/boot directory
+# /boot
 
-What is it?
- • /boot contains all the files required for the system to boot up.
- • Think of it as the launch chamber: without it, the dragon (Linux) never wakes.
- • It’s small but absolutely critical—messing it up = unbootable system.
+## Description: Contains the statis files needed to boot the operating system
 
-Full path:
-/boot
+## What lives in /boot
 
-What lives in /boot
-File/Directory What It Does
-vmlinuz-* Compressed Linux kernel (the core OS)
-initrd.img-* Initial RAM disk (used during early boot stages)
-grub/ GRUB bootloader configs and modules
-System.map-* Kernel symbol table (for debugging and crash analysis)
-config-* Kernel build configuration
+| File/Directory | What It Does |
+|----------------|--------------|
+| `vmlinuz-*` | Compressed Linux kernel (the core OS) |
+| `initrd.img-*` | Initial RAM disk (used during early boot stages) |
+| `grub` | GRUB bootloader configs and modules |
+| `System.map-*` | Kernel symbol table (for debugging and crash analysis) |
+| `config` | Kernel build configuration |
 
-The asterisks (*) represent the kernel version (e.g., vmlinuz-5.15.0-1051).
+- The asterisks (*) represent the kernel version (e.g., vmlinuz-5.15.0-1051).
 
-Why is /boot Important?
+## Why is /boot Important?
 
-✅ Without /boot, the system:
-❌ can’t load the kernel
-❌ can’t initialize hardware drivers
-❌ can’t hand control to user space
+## Without /boot, the system
 
-It’s the first stage of resurrection for your Linux system.
+- can’t load the kernel
+- can’t initialize hardware drivers
+- can’t hand control to user space
 
-That’s why sysadmins often separate /boot into its own partition for protection.
-
-Real-World Examples
+## Real-World Examples
  
-View the kernel version loaded:
+## View the kernel version loaded
 
+```bash
 uname -r
+```
 
-Inspect GRUB configuration (bootloader):
+## Inspect GRUB configuration (bootloader)
 
-Check available kernels:
+```bash
+cat /boot/grub/grub.cfg
+```
 
-Update GRUB after kernel upgrade:
+## Check available kernels
 
-/tmp directory
+```bash
+grep menuentry /boot/grub/grub.cfg
+```
 
-What is /tmp?
- • /tmp is a temporary directory where programs and users can store files that are only needed for a short time.
- • Think of it as Linux’s scratchpad or a sandbox for temp files.
+## Update GRUB after kernel upgrade
 
-✅ Any user or program can write here (with some restrictions).
+```bash
+sudo update-grub
+```
 
-✅ It’s cleared out automatically, either:
- • On reboot (in most distros)
- • Or by tmpwatch / systemd-tmpfiles if a file is unused for too long.
+# /tmp
 
-⸻
+## Description: Is a temporary directory where programs and users can store files that are only needed for a short time. Think of it as Linux’s scratchpad or a sandbox for temp files
 
-🧑‍💻 Key Properties of /tmp
- • 🗑️ Ephemeral: Anything here is not meant to last. Don’t save important files here!
- • 👥 World-Writable: Any user can write here, but files are protected from other users by the sticky bit.
- • That’s why you see permissions like this:
+## Key Properties of /tmp
+
+- Ephemeral: Anything here is not meant to last. Don’t save important files here!
+- World-Writable: Any user can write here, but files are protected from other users by the sticky bit.
+- Any user or program can write here (with some restrictions).
+- It’s cleared out automatically, either: On reboot or by tmpwatch / systemd-tmpfiles if a file is unused for too long
+
+## Example
+
+## Long Listing format
+
+```bash
+ls -ld /tmp
 
 drwxrwxrwt 10 root root 4096 Jul 16 09:42 /tmp
+```
 
-• t at the end = sticky bit (users can’t delete files they don’t own).
+## Breakdown
 
-What Goes in /tmp?
- • Programs use /tmp for:
- • Temporary data while running
- • Socket files for inter-process communication (IPC)
- • Lock files
- • Cache files during installations
+| Breakdown | Description |
+|-----------|-------------|
+| `drwxrwxrw` | Permission settings for users, groups, and others |
+| `---------t` | t stands for sticky bit which means users can not delete files they do not own |
+| `10` | Number of hard links to this directory |
+| `root` | Owner is the user who owns this directory |
+| `root` | Group that owns this directory |
+| `4096` | Size of directory in bytes |
+| `Jul 15 09:42` | Last modfication time for the directory |
+| `/tmp` | The directory's path name |
 
-Examples:
+## What Goes in /tmp
 
-File Purpose
-/tmp/tmp1234.txt User-created temp file
-/tmp/.X11-unix Sockets for X Window system
-/tmp/pulse-PKdhtXMmr18n Audio server (PulseAudio) socket folder
-/tmp/ssh-XXXXXX/ Temporary directory for SSH keys
+- Programs use /tmp for:
+- Temporary data while running
+- Socket files for inter-process communication (IPC)
+- Lock files
+- Cache files during installations
+
+## File Purpose Examples
+
+## User-created temp file
+
+- `/tmp/tmp1234.txt`
+
+## Sockets for X Window system
+
+- `/tmp/.X11-unix`
+
+## Audio server (PulseAudio) socket folder
+
+- `/tmp/pulse-PKdhtXMmr18n`
+
+## Temporary directory for SSH keys
+
+- `/tmp/ssh-XXXXXX/`
 
 Sticky Bit in Action
 
@@ -771,22 +809,25 @@ Security Notes
 
 ⸻
 
-🖐️ Real-World Uses
+## Real-World Examples
 
-Quick Scratch File
+## Quick Scratch File
 
+```bash
 cd /tmp
 echo "test" > testfile.txt
+```
 
-Temporary Download
+## Temporary Download
 
 wget -O /tmp/testfile.zip <http://example.com/file.zip>
 
 Debugging
 Programs often leave traces in /tmp when they fail.
 
-tmp vs /var/tmp
+## /tmp vs /var/tmp
 
-Directory Cleared When? Use Case
-/tmp On reboot Short-lived temp files
-/var/tmp Sticks around between reboots Longer-lived temp fi
+| Directory | Cleared When? | Use Case |
+|-----------|---------------|----------|
+| `/tmp` | On reboot | Short-lived temp files |
+| `/var/tmp` | Sticks around between reboots | Longer-lived temp files |
