@@ -222,53 +222,143 @@ top -p 1234
 |------------------------|--------------|
 | `F1` | Help Screen |
 | `F2` | Setup Menu |
+| `F3` | Search |
+| `F4` | Filter |
+| `F5` | Tree view |
+| `F6` | change sort column |
+| `F7` | Lower process priority |
+| `F8` | Raise provess priority |
+| `F9` | Kill selected process |
+| `F10` | Quit |
+| `t` | Tree view |
+| `h` | Toggle help screen |
+| `H` | Toggle threads view |
+| `c` | Toggle command name view |
+| `m` | Toggle memory meters |
+| `s` | Trace system calls |
+| `l` | Display open files |
 
 ### Examples
-Run htop:
+
+### Run htop
+
+```bash
 htop
+```
 
-Use arrow keys to navigate and F9 to kill a process.
-✅ Press F6 to sort by a column (e.g., CPU usage).
+### Breakdown
+
+| Breakdown | Description |
+|-----------|-------------|
+| `htop` | Starts the program |
 
 
-## **glances – System Monitor (like top/htop but on steroids)**
+# Command: glances
 
-## **Syntax**
-glances 
+## Description: System Process Monitoring package
 
-### **Examples**
+## Syntax
+
+- `glances`
+
+### Options
+
+| Options | Descriptions | Examples |
+|---------|--------------|----------|
+| `-h` | Show help | `glances -h` |
+| `-V` | shows the current version | `glances -V` |
+| `-t<seconds>` | Sets refresh rate | `glances -t 5` |
+| `-w` | Start in Web UI mode | `glances -w` |
+| `-s` | Start in server mode | `glances -s` | 
+| `-c` | connect as client to remote server | `glances -c 192.168.1.50` |
+| `-C` | Use custom config file | `glances -C /etc/glances/glances.conf` |
+| `-o<type>` | Set your output mode | `glances -o html` |
+| `-export<backend>` | Exports stats to DB/Monitoring tool | `glances --export influxdb2` |
+| `--diable-logs` | Disable logs | `glances --disable-logs` |
+| `--disable-check-update` | Disable auto update check | `glances --disable-check-update` |
+| `--disable-rest` | Disable RESTful API | `glance --disable-rest` |
+| `--enable-plugin<name>``--disable-plugin<name>` | Control plugins | `glances --disable-plugin gpu` |
+| `-p<port>` | Set server/webserver port | `glances -w -p 8080` |
+| `--username<user>--password<pwd>` | Set basic auth for web UI | `glance -w --username admin --password secret` |
+| `-f<MB>` | Minimum free space alert threshold | `glances -f 500` |
+| `--process filter<regex>` | Only show processes matching regex | `glances --process-filter python` |
+| `-B` | No bold text | `glances -B` |
+| `-q` | Only critical messages | `glances -q` |
+
+### Interactive Keystrokes
+
+| Interactive Keystrokes | Description |
+|------------------------|-------------|
+| `h` | Help |
+| `q` | Quit |
+| `1` | Per CPU stats toggle |
+| `m` | Sort Processes by CPU |
+| `c` | Sort porcesses by CPU |
+| `i` | Sort by I/O |
+| `t` | Sort by time |
+| `p` | Sort by process name |
+| `u` | Show processes by user |
+| `f` | Toggle filesystem stats | 
+| `n` | Toggle network stats |
+| `d` | Toggle disk I/O stats |
+| `s` | Toggle sensors |
+| `l` | toggle logs |
+
+### Examples
+
+```bash
 glances -w
+```
 
-#### **Options**
-	-w → Run web server mode
-	•	-t → Set refresh time
+### Breakdown 
 
-## **iotop – Monitor disk I/O per process**
+| Breakdown | Description |
+|-----------|-------------|
+| `glances` | Process manager command |
+| `-w` | Show in Web UI mode |
 
-## **Syntax**
--Sudo iotop 
+# Command: iotop
 
-### **Examples**
+## Description: Monitor disk I/O per process
+
+## Syntax
+
+- `sudo iotop`
+
+### Options
+
+| Options | Descriptions | Examples |
+|---------|--------------|----------|
+| `-o` | Show only provesses or threads actually doing I/O | `sudo iotop -o` |
+| `-a` | Show total I/O since iotop started | `sudo iotop -a` |
+| `-b` | Run in non-interactive mode, suitable for logging | `sudo iotop -b -n 10 > io_log.txt` |
+| `-n<NUM>` | Number of iterations to run(use with -b) | `sudo iotop -b -n 2` |
+| `-d<SECONDS>` | Delay between updates | `sudo iotop -d 2` |
+| -p<PID>` | Monitor only specific process by PID | `sudo iotop -p 1234` | 
+| `-u<USER>` | Show only processes for a given user | `sudo iotop -u user` |
+| `-k` | Show I/O in KB instead of bytes | `sudo iotop -k` |
+| `-q` | Suppress header lines | `sudo iotop -b -qqq > io_only.txt` |
+
+### Examples
+
 -sudo iotop -o
 
-#### **Options**
-	-o → Show only processes doing I/O
-	•	-a → Accumulate I/O over time
+# Command: kill
 
+## Description: Send a signal (default: TERM) to a process
 
+## Syntax
 
-## **kill**
-- Send a signal (default: TERM) to a process.
+- `kill [OPTIONS] PID`
 
-## **Syntax**
-- kill [OPTIONS] PID
+### Options
 
-### **Options**
 -l	List all available signals.
 -9	Send SIGKILL (force kill).
 -15	Send SIGTERM (default).
 
-#### **Example**
+### Example
+
 Gracefully terminate PID 1234:
 kill 1234
 
@@ -278,47 +368,57 @@ kill -9 1234
 List signals:
 kill -l
 
+# Command: killall
 
-## **killall**
-- Kills processes by name instead of PID.
+## Description:  Kills processes by name instead of PID
 
-## **Syntax**
-- killall [OPTIONS] PROCESS_NAME
+## Syntax
 
-### **Options**
+- `killall [OPTIONS] PROCESS_NAME`
+
+### Options
+
 -i	Prompt before killing.
 -v	Verbose (show what was killed).
 
-#### **Examples**
+### Examples
+
 Kill all processes named “firefox”:
 killall firefox
 
 Prompt before killing:
 killall -i python3
 
-## **jobs**
-- Lists background jobs in the current shell session.
+# Command: jobs
 
-## **Syntax**
-- jobs [OPTIONS]
+## Description: Lists background jobs in the current shell session
 
-### **Options**
+## Syntax
+
+- `jobs [OPTIONS]`
+
+### Options
+
 -l	Show PIDs of background jobs.
 
-#### **Examples**
+### Examples
+
 List background jobs:
 jobs
 
 List jobs with PID:
 jobs -l
 
-## **bg**
-- Resumes a stopped job in the background.
+# Command: bg
 
-## **Syntax**
-- bg [JOB_SPEC]
+## Description: Resumes a stopped job in the background
 
-*** **Examples**
+## Syntax
+
+- `bg [JOB_SPEC]`
+
+### Examples
+
 Resume job #1 in background:
 bg %1
 
@@ -326,13 +426,16 @@ Resume most recent stopped job:
 bg
 
 
-## **fg**
-- Brings a background job to the foreground.
+# Command: fg
 
-## ** Syntax**
-- fg [JOB_SPEC]
+## Description: Brings a background job to the foreground
 
-## **Examples**
+## Syntax
+
+- `fg [JOB_SPEC]`
+
+### Examples
+
 Bring job #1 to foreground:
 fg %1
 
@@ -340,45 +443,29 @@ Bring most recent background job:
 fg
 
 
-## **nice**
-- Starts a process with a specific priority (lower is higher priority).
+# Command: nice
 
-## **Syntax**
-- nice [OPTIONS] COMMAND
+## Description: Starts a process with a specific priority (lower is higher priority)
 
-## **Options**
+## Syntax
+
+- `nice [OPTIONS] COMMAND`
+
+## Options
+
 -n VALUE	Set priority adjustment (-20 to 19).
 
-### **Examples**
+### Examples
+
  Run a script with lower priority:
 nice -n 10 ./backup.sh
 
  Run with highest priority (requires sudo):
 sudo nice -n -20 ./critical_task.sh
 
+# Command: renice
 
-## **nice**
--Set the priority of a process at startup
--When launching a new process
-
-## **Syntax**
-- nice -n 10 command
-
-## **Options**
-	-n: Nice value (range: -20 to 19)
-	•	Lower = higher priority (e.g., -5 = more CPU time)
-	•	Higher = lower priority (e.g., 10 = gets CPU when available)
-
-Ex:
-nice -n 15 tar -czf backup.tar.gz /home/jake
-Starts the tar process with low priority (15 = nice to others).
-
-
-
-
-## **renice**
-- Changes the priority of an already running process.
-- After the process has started
+## Description: Changes the priority of an already running process.
 
 renice PRIORITY -p PID
 
