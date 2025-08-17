@@ -131,67 +131,111 @@ cut -d ":" -f 1 /etc/passwd | sort
 ## **sed** 
 - Stream editor for text manipulation
 
-## **Syntax**
--sed [OPTIONS] 'SCRIPT' [FILE...]
+## Syntax
 
-### **Options**
+- `sed [OPTIONS] 'SCRIPT' [FILE...]`
+
+### Options
+
 i	Edit files in place (overwrite).
 -n	Suppress automatic printing.
 -e	Add script commands.
 
-#### **Examples**
-sed 's/foo/bar/g' file.txt	Replace “foo” with “bar” globally.
-sed -n '5,10p' file.txt	Print lines 5–10.
-sed '/^#/d' file.txt	Delete comment lines starting with #.
+### Examples
+
+### Replace “foo” with “bar” globally
+
+```bash
+sed 's/foo/bar/g' file.txt
+```
+
+### Print lines 5–10
+
+```bash
+sed -n '5,10p' file.txt
+```
+
+### Delete comment lines starting with #
+
+```bash
+sed '/^#/d' file.txt
+```
 
 
+# Command: awk
 
-## **awk**
-- Text processing and reporting
+## Description: Text processing and reporting
 
-## **Syntax*
-- awk [OPTIONS] 'PATTERN { ACTION }' [FILE...]
+## Syntax
 
-### **Options**
+- `awk [OPTIONS] 'PATTERN { ACTION }' [FILE...]`
+
+### Options
+
 -F	Set field separator (default: space).
 
-#### **Examples**
-awk '{print $1}' file.txt	Print first column.
-awk -F: '{print $1}' /etc/passwd	Print usernames from passwd.
-awk '$3 > 1000' /etc/passwd	Print lines where field 3 > 1000.
+### Examples
+
+### Print first column
+
+```bash
+awk '{print $1}' file.txt
+```
+
+### Print usernames from passwd
+
+```bash
+awk -F: '{print $1}' /etc/passwd
+```
+
+### Print lines where field 3 > 1000
+
+```bash
+awk '$3 > 1000' /etc/passwd
+```
 
 
+# Command: sort
 
-## **sort**
--Sort text lines
+## Description: Sort text lines
 
-## **Syntax**
-- sort [OPTIONS] [FILE]
+## Syntax
 
-### **Options**
+- `sort [OPTIONS] [FILE]`
+
+### Options
+
 -r	Reverse sort order.
 -n	Numeric sort.
 -u	Unique lines only (like uniq).
 -k	Sort by specific field/column.
 
-### **Examples**
+### Examples
+
+### Sort numerically on the second column
+
+```bash
 sort -n -k2 file.txt
-Sort numerically on the second column.
+```
 
+# Command: uniq
 
+## Description: Filter out repeated lines
 
-## **uniq**
-- Filter out repeated lines
+## Syntax
 
-## **Syntax**
-- uniq [OPTIONS] [INPUT [OUTPUT]]
+- `uniq [OPTIONS] [INPUT [OUTPUT]]`
 
-## **Options**
+### Options
+
 -c	Prefix lines with counts.
 -d	Show only duplicate lines.
 -u	Show only unique lines.
 
-### **Examples**
-sort file.txt | uniq -c
-Counts unique sorted lines.
+### Examples
 
+### Counts unique sorted lines
+
+```bash
+sort file.txt | uniq -c
+```
