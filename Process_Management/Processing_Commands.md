@@ -345,7 +345,7 @@ glances -w
 
 # Command: kill
 
-## Description: Send a signal (default: TERM) to a process
+## Description: Send a signal to kill a process
 
 ## Syntax
 
@@ -353,20 +353,32 @@ glances -w
 
 ### Options
 
--l	List all available signals.
--9	Send SIGKILL (force kill).
--15	Send SIGTERM (default).
+| Options | Descriptions | Examples |
+|---------|--------------|----------|
+| `-s<SIGKILL>` or `-9` | Directs to send SIGKILL to terminate a process | `kill -s SIGKILL 1234` `kill -9 1111` |
+| `-s<SIGHUP>` or `-1` | Directs to send SIGHUP to reload a process | `kill -s SIGHUP 1111` `kill -1 1111` |
+| `-l` | Lists all available signals by name | `kill -l` |
+| `-L` | List all available signals in a table format | `kill -L` |
 
-### Example
+### Examples
 
-Gracefully terminate PID 1234:
+### Gracefully terminate PID 1234
+
+```bash
 kill 1234
+```
 
-Force kill PID 1234:
+### Force kill PID 1234
+
+```bash
 kill -9 1234
+```
 
-List signals:
+### List signals
+
+```bash
 kill -l
+```
 
 # Command: killall
 
@@ -378,16 +390,50 @@ kill -l
 
 ### Options
 
--i	Prompt before killing.
--v	Verbose (show what was killed).
+| Options | Descriptions | Examples |
+|---------|--------------|----------|
+| `-s` | Sends a specific signal | `killall -s SIGKILL process` |
+| `-e` | Exact name match | `killall -e ssh` |
+| `-I` | Case-insensitive matching | `killall -i -I process` |
+| `-g` | Kills the process group of each matched process | `killall -g process` |
+| `-i` | Asks for confirmation before killing process | `killall -i process` |
+| `-n` or `--ns<PID>` | Restricts matching to the namespace of PID | `killall -n 1234 bash` |
+| `-w` | Waits until all killed processes are dead before exiting | `killall -w process` |
+| `-V` | Shows current working version | `killall -V` |
+| `-v` | Verbose mode | `killall -v process` |
+| `-u` | kills only processess owned by user | `killall -u name process` |
+| `-r` | Matches processes using a regular expression | `killall -r 'process.*'` |
+| `-y` | Kills only processes younger than 5 minutes | `killall -y 5m process` |
+| `-o` or `--older-than<time>` | Kills only processes older than one hour | `killall -o 1h process` |
 
 ### Examples
 
-Kill all processes named “firefox”:
-killall firefox
+### Kill all processes named “firefox”
 
-Prompt before killing:
+```bash
+killall firefox
+```
+
+### Breakdown
+
+| Breakdown | Description |
+|-----------|-------------|
+| `killall` | Process Command |
+| `firefox` | process to be killed |
+
+### Prompt before killing
+
+```bash
 killall -i python3
+```
+
+### Breakdown
+
+| Breakdown | Description | 
+|-----------|-------------|
+| `killall` | Process command |
+| `-i` | Directs to prompt user before killing process |
+| `python3` | Process to be killed |
 
 # Command: jobs
 
@@ -403,11 +449,17 @@ killall -i python3
 
 ### Examples
 
-List background jobs:
-jobs
+### List background jobs
 
-List jobs with PID:
+```bash
+jobs
+```
+
+### List jobs with PID
+
+```bash
 jobs -l
+```
 
 # Command: bg
 
@@ -419,12 +471,17 @@ jobs -l
 
 ### Examples
 
-Resume job #1 in background:
+### Resume job #1 in background
+
+```bash
 bg %1
+```
 
-Resume most recent stopped job:
+### Resume most recent stopped job
+
+```bash
 bg
-
+```
 
 # Command: fg
 
@@ -436,12 +493,17 @@ bg
 
 ### Examples
 
-Bring job #1 to foreground:
+### Bring job #1 to foreground
+
+```bash
 fg %1
+```
 
-Bring most recent background job:
+### Bring most recent background job
+
+```bash
 fg
-
+```
 
 # Command: nice
 
@@ -449,29 +511,100 @@ fg
 
 ## Syntax
 
-- `nice [OPTIONS] COMMAND`
+- `nice [OPTIONS] [COMMAND [ARG]...]`
 
 ## Options
 
--n VALUE	Set priority adjustment (-20 to 19).
+| Options | Descriptions | Examples |
+|---------|--------------|----------|
+| `-n` | Set the nice value adjustment (Range is -20 = Highest to 19 = lowest) | `nice -n 5 sleep 60` |
+| `--help` | Prints usage help | `nice --help` |
+| `--version` | Prints version of nice | `nice --version` |
 
 ### Examples
 
- Run a script with lower priority:
-nice -n 10 ./backup.sh
+### Run a script with lower priority
 
- Run with highest priority (requires sudo):
+```bash
+nice -n 10 ./backup.sh
+```
+
+### Breakdown 
+
+| Breakdown | Description |
+|-----------|-------------|
+| `nice` | Process Command |
+| `-n` | Directs to set value adjustment |
+| `10` | Priority Value to assign to target file |
+| `./backup.sh` | Target file |
+
+### Run with highest priority (requires sudo)
+
+```bash
 sudo nice -n -20 ./critical_task.sh
+```
+
+### Breakdown
+
+| Breakdown | Description |
+|-----------|-------------|
+| `sudo` | Temporary Superuser command |
+| `nice` | Process command | 
+| `-n` | Directs to set priority value |
+| `-20` | Exact priority value to assign |
+| `./critical_task.sh` | Target file |
 
 # Command: renice
 
-## Description: Changes the priority of an already running process.
+## Description: Changes the priority of an already running process
 
-renice PRIORITY -p PID
+## Syntax
 
- Change priority of PID 1234:
+- `renice [Options] priority [PID]`
+
+| Syntax Component | Description |
+|------------------|-------------|
+| `Priority` | The new nice value (between -20 = highest priority and 19 = lowest) |
+| `PID` | One or more process IDs |
+
+## Options
+
+| Options | Descriptions | Examples |
+|---------|--------------|----------|
+| `-n` | Changes the nice value relative to the current one | `renice -n +5 -p 1234` |
+| `-p` | Explicitly says you're renicing a process by PID | `renice 10 -p 1234` |
+| `-u` | Changes priority of all processes owned by a user | `renice -n +5 -u name` | 
+| `-g` | Changes priority for a whole process group | `renice -n -5 -g 1234` | 
+
+### Examples
+
+### Change priority of PID 1234
+
+```bash
 renice 5 -p 1234
+```
 
-Make PID 5678 highest priority:
+### Breakdown
+
+| Breakdown | Description|
+|-----------|------------|
+| `renice` | Process Manager command |
+| `5` | Amount the nice value is changing |
+| `-p` | Directs to only change target PID |
+| `1234` | Target PID |
+
+### Make PID 5678 highest priority
+
+```bash
 sudo renice -20 -p 5678
+```
 
+### Breakdown
+
+| Breakdown | Description |
+|-----------|-------------|
+| `sudo` | Temporary Superuser command |
+| `renice` | Process Manager command |
+| `-20` | Specific nice value to change to |
+| `-p` | Directs to only make changes to specific PID |
+| `5678` | Specific PID |
