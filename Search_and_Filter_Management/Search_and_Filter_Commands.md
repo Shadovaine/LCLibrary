@@ -1,11 +1,29 @@
-# **Searching and Filtering**
+# Search and Filter Management
 
-## **Grep**
+## Description: Commands designed to find stuff within Linux
 
-## **Syntax**
-- grep [options] pattern [file…] 
+## Table of Contents
 
-### **Options**
+- `grep`
+- `egrep`
+- `fgrep`
+- `cut`
+- `sed`
+- `awk`
+- `sort`
+- `uniq`
+
+
+# Command: Grep
+
+## Description: Classic text and content search command
+
+## Syntax
+
+- `grep [options] pattern [file…]`
+
+### Options
+
 -i.           Case-insensitive search
 -r or -R. Recursive search through directories
 -v.           Invert match ( show lines not matching)
@@ -14,55 +32,79 @@
 -c.          Count matching lines
 —color.  Highlight matches
 
-#### **Examples**
+### Examples
+
+```bash
 - grep -i "password" /etc/passwd
+```
 
 
-## **egrep**
-- extended grep (supports extended regex( regular expression))
+# Command: egrep
 
-## **Syntax**
-- egrep [OPTIONS] PATTERN [FILE...]
+## Description: Same as running `grep -E`, it enables Extended Regular Expression(ERE) by default
 
-### **Options**
+## Syntax
+
+- `egrep [OPTIONS] PATTERN [FILE...]`
+
+### Options
+
 -i	Ignore case.
 -v	Invert match (show non-matching).
 -r	Recursive search.
 -c	Count matches.
 
-#### **Wxamples**
-Find lines with “error” or “fail”:
+### Examples
+
+### Find lines with “error” or “fail”
+
+```bash
 egrep "error|fail" logfile.txt
+```
 
-Case-insensitive search:
+### Case-insensitive search
 
+```bash
 egrep -i "warning" logfile.txt
+```
 
-Recursive search for .conf files:
+### Recursive search for .conf files
 
+```bash
 egrep -r "Listen" /etc/apache2/
+```
 
+# Command: fgrep
 
-## **fgrep**
-- Literal grep (searches fixed strings, no regex)
+## Description: Searches for **literal text** not regex patterns, stands for Fixed-string Global Regular Expression Print
 
-## **Suntax**
-- fgrep [OPTIONS] PATTERN [FILE...]
+## Syntax
 
-### **Options**
+- `fgrep [OPTIONS] PATTERN [FILE...]`
+
+### Options
+
 -i	Ignore case.
 -v	Invert match.
 -r	Recursive search.
 -c	Count matches.
 
-#### **Examples**
-Find exact string:
+### Examples
+
+### Find exact string
+
+```bash
 fgrep "if [ $USER == root ]" script.sh
+```
 
-Recursive literal search:
+### Recursive literal search
+
+```bash
 fgrep -r "127.0.0.1" /etc/
+```
 
-## **cut**
+# Command: cut
+
 - extract sections from lines of text
 
 ## **Syntax**
