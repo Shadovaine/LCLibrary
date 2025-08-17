@@ -368,17 +368,39 @@ glances -w
 kill 1234
 ```
 
+### Breakdown
+
+| Breakdown | Description |
+|-----------|-------------|
+| `kill` | Process command |
+| `1234` | Target process |
+
 ### Force kill PID 1234
 
 ```bash
 kill -9 1234
 ```
 
+### Breakdown 
+
+| Breakdown | Description |
+|-----------|-------------|
+| `kill` | Process command |
+| `-9` | Directs to send SIGKILL to target process |
+| `1234` | Target Process |
+
 ### List signals
 
 ```bash
 kill -l
 ```
+
+### Breakdown 
+
+| Breakdown | Description |
+|-----------|-------------|
+| `kill` | Process command |
+| `-l` | Lists all processes by name |
 
 # Command: killall
 
@@ -437,23 +459,37 @@ killall -i python3
 
 # Command: jobs
 
-## Description: Lists background jobs in the current shell session
+## Description: Lists background jobs in the current shell session. 
 
 ## Syntax
 
-- `jobs [OPTIONS]`
+- `jobs [OPTIONS][job_spec ..]`
 
 ### Options
 
--l	Show PIDs of background jobs.
+| Options | Descriptions | Examples |
+|---------|--------------|----------|
+| `-l` | Shows PIDs along with numbers | `jobs -l` |
+| `-n` | Shows only jobs whose status has changed since the last `jobs` call | `jobs -n` |
+| `-p` | Prints just the PIDs | `jobs -p` |
+| `-r` | Lists only jobs that are currently running | `jobs -r` |
+| `-r` | Lists only jobs that are stopped/suspended | `jobs -s` |
+| `-s` | Show only stopped jobs | `jobs -s` |
 
 ### Examples
 
-### List background jobs
+### List currently working jobs
 
 ```bash
-jobs
+jobs -r
 ```
+
+### Breakdown
+
+| Breakdown | Description |
+|-----------|-------------|
+| `jobs` | Process command |
+| `-r` | Directs to only list currently running jobs |
 
 ### List jobs with PID
 
@@ -461,13 +497,31 @@ jobs
 jobs -l
 ```
 
+### Breakdown 
+
+| Breakdown | Description |
+| `jobs` | Process command |
+| `-l` | Directs to list jobs by PID |
+
 # Command: bg
 
-## Description: Resumes a stopped job in the background
+## Description: Resumes a supspended job in the background in the current shell session
 
 ## Syntax
 
 - `bg [JOB_SPEC]`
+
+## Options
+
+| Options | Description | Examples |
+|---------|-------------|----------|
+| `default` | Resume the most recent job | `bg` |
+| `%%` | Brings the latest stopped job back into the background | `bg %%` |
+| `%1` | Resume a specific job by number | `bg %1` |
+| `%+` or `%%` | Resume the current job | `bg %+` |
+| `%-` | Resume the previous job | `bg %-` |
+| `%na` | Resume by partial job name | `bg %na` |
+| `%?sleep` | Job whose command contains a string | `bg %?sleep` |
 
 ### Examples
 
@@ -477,19 +531,44 @@ jobs -l
 bg %1
 ```
 
+### Breakdown
+
+| Breakdown | Description |
+|-----------|-------------|
+| `bg` | process command |
+| `%1` | Directs to resume a specific job by number |
+
 ### Resume most recent stopped job
 
 ```bash
 bg
 ```
 
+### Breakdown
+
+| Breakdown | Description |
+|-----------|-------------|
+| `bg` | Process command when along automatically resumes the most recent stopped job |
+
 # Command: fg
 
-## Description: Brings a background job to the foreground
+## Description: Brings a background job to the foreground running in current shell session
 
 ## Syntax
 
 - `fg [JOB_SPEC]`
+
+### Options
+
+| Options | Descriptions | Examples |
+|---------|--------------|----------|
+| `(none)` | Bring the most recent job to the foreground | `fg` |
+| `%1` | Bring a specific job by number | `fg %1` |
+| `%%` | Bring the current job | `fg %%` |
+| `%-` | Bring the previous job | `fg %-` |
+| `%string` | Bring a job by partial command name | `fg %string` |
+| `%?string` | Bring a job by substring match | `fg %?1000` |
+
 
 ### Examples
 
@@ -499,11 +578,24 @@ bg
 fg %1
 ```
 
+### Breakdown
+
+| Breakdown | Desription |
+|-----------|------------|
+| `fg` | Process command |
+| `%1` | Bring a specific job by number | 
+
 ### Bring most recent background job
 
 ```bash
 fg
 ```
+
+### Breakdown
+
+| Breakdown | Description |
+|-----------|-------------|
+| `fg` | Process command and by itself will bring most recent background job to foreground |
 
 # Command: nice
 
