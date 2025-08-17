@@ -19,7 +19,7 @@
 
 ## Command: ps
 
-## Description: Short for 'process status'. Shows a snapshot of current processes.
+## Description: Short for process status. Shows a snapshot of current processes
 
 ## Syntax
 
@@ -111,7 +111,7 @@ ps -eo pid,cmd
 | `ps` | Process manager command |
 | `-e` | Show all running processes |
 | `-o` | Customize output fields |
-| `pid``cmd` | Target output fields |
+| `pid`or `cmd` | Target output fields |
 
 # Command: top
 
@@ -127,7 +127,7 @@ ps -eo pid,cmd
 |---------|--------------|----------|
 | `-d<seconds>` | Set refresh delay between screen updates | `top -d 2` |
 | `-n<count>` | Run for a set of iterations | `top -n 5` |
-| `-b` | Batch mode, when used with `-n prints output instead of interactive GUI | `top -b -n 
+| `-b` | Batch mode, when used with `-n prints output instead of interactive GUI | `top -b -n` |
 | `-u<username>` | Show only processes by a soecific user | `top -u username` |
 | `-p<PID>` | Monitors a specific process by PID | `top -p 1234` | 
 
@@ -146,7 +146,7 @@ ps -eo pid,cmd
 | `u` | Filter by user | 
 | `c` | Toggle full command-line path |
 | `1` | Toggle CPU core stats |
-| `z``b` | Toggle color/visual bold display |
+| `z`or`b` | Toggle color/visual bold display |
 | `q` | Quit |
 | `f` | Add or remove columns |
 | `W` | Save configuration |
@@ -500,6 +500,7 @@ jobs -l
 ### Breakdown 
 
 | Breakdown | Description |
+|-----------|-------------|
 | `jobs` | Process command |
 | `-l` | Directs to list jobs by PID |
 
