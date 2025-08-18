@@ -235,9 +235,24 @@ cut -d ":" -f 1 /etc/passwd | sort
 
 ### Options
 
-i Edit files in place (overwrite).
--n Suppress automatic printing.
--e Add script commands.
+| Options | Descriptions | Examples | 
+|---------|--------------|----------|
+| `-n` | Only prints what you explicitly tell it to | `sed -n '2p' file.txt` |
+| `-e` | Allows using more than one `sed` command | `sed -e 's/foo/bar/' -e 's/baz/qux/' file.txt` |
+| `-f` | Use a script file with multiple `sed` instructions | sed -f script.sed file.txt` |
+| `-i` | Overwrites the original file | `sed -i 's/cat/dog/g' pets.txt` |
+
+### Commonly Used `sed` commands
+
+| Common Commands | Description |
+|-----------------|-------------|
+| `s` | Replaces first occurrence of 'command' with second occurrence |
+| `g` | Global Replacement - Replaces all occurrences with new occurrence |
+| `d` | Delete specified amount of lines |
+| `p` | Print specified amount of lines |
+| `i` | Insert line before match |
+| `a` | Append line after match | 
+| `c` | Change lines |
 
 ### Examples
 
