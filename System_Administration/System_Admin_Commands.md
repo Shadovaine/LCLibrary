@@ -97,14 +97,28 @@ sudo -u name ls /home/name
 
 ### Switch to root
 
+```bash
 su
+```
 
-### Switch to user “jake”
+### Breakdown
 
-su jake
+| Breakdown | Description |
+|-----------|-------------|
+| `su` | switches user to root |
 
-### Full login shell for root
-su -
+### Switch to user **name**
+
+```bash
+su name
+```
+
+### Breakdown
+
+| Breakdown | Description |
+|-----------|-------------|
+| `su` | superuser command |
+| `name` | target user |
 
 # Command: visudo
 
@@ -112,7 +126,7 @@ su -
 
 ## Syntax
 
-sudo visudo
+- `sudo visudo`
 
 ### Options
 
@@ -126,14 +140,29 @@ sudo visudo
 
 ### Examples
 
-### Add user “jake” to sudoers
+### Add user “nane" to sudoers
 
+```bash
 sudo visudo
-jake ALL=(ALL) ALL
+name ALL=(ALL) ALL
+```
 
-### Allow “jake” to run only shutdown:
+### Breakdown
 
-jake ALL=(ALL) /sbin/shutdown
+| Breakdown | Description |
+|-----------|-------------|
+| `sudo` | superdoer command |
+| `visudo` | system admin command |
+| `name` | target user |
+| `ALL' | who it applies to |
+| `=(ALL)` | who u can impersonate |
+| `ALL` | what commands u can run |
+
+### Allow “name” to run only shutdown
+
+```bash
+name ALL=(ALL) /sbin/shutdown
+```
 
 # Command: systemctl (Systemd Control)
 
