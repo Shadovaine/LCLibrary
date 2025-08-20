@@ -1,111 +1,149 @@
-# **File Viewing and Editing**
+# File Viewing and Editing
 
-## **Cat**
+## Description: Commands used to see and/or modify files
 
-## **Syntax**
-- cat [option] [ file….]
+## Table of Contents
 
-### **Options**
+- `cat`
+- `less`
+- `more`
+- `head`
+- `tail`
+- `fold`
+- `stat`
+
+# Command: Cat
+
+## Syntax
+
+- `cat [option] [ file….]`
+
+### Options
+
 -n     Numbers all output lines
 -b.    Number only non-blank lines
 -s.    Suppress repeated blank lines ( squeeze  them)
 -E.    Show $ at end of each line
 -T.    Show tabs as ^I ( useful for debugging whitespace)
 
+### Examples
 
-## **Less**
-- allows u to view large files one page at a time
+# Command: Less
 
-## **Syntax**
-- less [OPTIONS] [FILE]
+## Description: Allows u to view large files one page at a time
 
-### **Options**
+## Syntax
+
+- `less [OPTIONS] [FILE]`
+
+### Options
+
 -N	Show line numbers.
 -S	Disable line wrapping (long lines cut off).
 +F	Open in “follow mode” (like tail -f).
 
-#### **Examples**
+### Examples
+
 - less /var/log/syslog
 
 
-## **More**
-- like less but can only scroll forward
+# Command: More
 
-## **Syntax**
-- more [OPTIONS] [FILE]
+## Description: Similar to less but can only scroll forward
 
-### **Options**
+## Syntax
+
+- `more [OPTIONS] [FILE]`
+
+### Options
+
 - +n	Start at line n.
 - /pattern	Search forward for “pattern”.
 
-#### **Examples**
+### Examples
+
 - more /etc/services
  - view a file
 -more +20 bigfile.txt
 - start viewing from line 20
 
 
-## **Head**
-- outputs the first few lines of a file, by default it spits out the first 10 lines
+# Command: Head
 
-## **Syntax**
-- head [OPTIONS] [FILE]
+## Description: outputs the first few lines of a file, by default it spits out the first 10 lines
 
-### **Options**
+## Syntax
+
+- `head [OPTIONS] [FILE]`
+
+### Options
+
 -n NUM	Show first NUM lines.
 -c NUM	Show first NUM bytes (not lines).
 
-## **Examples**
+### Examples
+
 - head /etc/passwd
 - show the first 10 lines
 - head -n 5 myfile.txt
 - show the first 5 lines
 
 
-## **tail**
-- outputs the last few lines of a file. Spits out the last 10 lines by default.
+# Command: tail
 
-## **Syntax**
--tail [OPTIONS] [FILE]
+## Description: outputs the last few lines of a file. Spits out the last 10 lines by default.
 
-### **Options**
+### Syntax
+
+- `tail [OPTIONS] [FILE]`
+
+### Options
+
 -n NUM	Show last NUM lines.
 -f	“Follow” the file as it grows.
 -c NUM	Show last NUM bytes.
 
-#### **Examples**
+### Examples
+
 -tail /etc/passwd
 - shows the last 10 lines
 -tail -n 20 mylog.log
 - shows the last 20 lines
 
 
-## **fold**
-- Wraps long lines so they fit in ur terminal
+# Command: fold
 
-## **Syntax**
--fold [OPTIONS] [FILE]
+## Description: Wraps long lines so they fit in ur terminal
 
-### **Options**
+## Syntax
+
+- `fold [OPTIONS] [FILE]`
+
+### Options
+
 -w NUM	Set line width to NUM characters.
 -s	Break lines at spaces instead of cutting words.
 
-#### **Wxamples**
+### Examples
+
 - Wrap lines at 40 characters:
 - fold -w 40 longfile.txt
 - Wrap lines but don’t split words:
 - fold -s -w 40 longfile.txt
 
-## **stat – Detailed file information**
+# Command: stat
 
-## **Syntax**
--stat [file]
+## Description: Detailed file information**
 
-### **Examples**
+## Syntax
+
+-`stat [file]`
+
+### Examples
+
 - stat /etc/passwd
 
-
-## **Pro Tip**
+# Pro Tip
 
 - You can chain these together with pipes (|):
 
