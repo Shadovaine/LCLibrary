@@ -70,8 +70,8 @@ sudo -u name ls /home/name
 |-----------|-------------|
 | `sudo` | Superuser command |
 | `-u name` | Directs to use a different user |
-| ` ls` | list command |
-| `/home/name` | file to list |
+| ` ls` | List command |
+| `/home/name` | File to list |
 
 
 # Command: su (Substitute User)
@@ -170,7 +170,7 @@ name ALL=(ALL) /sbin/shutdown
 
 ## Syntax
 
-systemctl [OPTIONS] COMMAND [SERVICE]
+- `systemctl [OPTIONS] COMMAND [SERVICE]`
 
 ### Options
 
@@ -195,19 +195,33 @@ systemctl [OPTIONS] COMMAND [SERVICE]
 
 ### Start Apache service
 
+```bash
 sudo systemctl start apache2
+```
 
-### Enable Apache to run at boot
+### Breakdown
 
-sudo systemctl enable apache2
-
-### Check status
-
-sudo systemctl status apache2
+| Breakdown | Description |
+|-----------|-------------|
+| `sudo` | superdoer command |
+| `systemctl` | system admin command |
+| `start` | starts a service |
+| `apache2` | 
 
 ### List all services
 
+```bash
 sudo systemctl list-units --type=service
+```
+
+### Breakdown
+
+| Breakdown | Description |
+|-----------|-------------|
+| `sudo` | Superdoer command |
+| `systemctl` | system admin command |
+| `list-units` | Directs to show all currently loaded systemd units |
+| `--type=service` | Directs to only show services |
 
 # Command: service (SysVinit Service Control)
 
@@ -215,25 +229,47 @@ sudo systemctl list-units --type=service
 
 ## Syntax
 
-service [SERVICE] COMMAND
+- `service [SERVICE_NAME] COMMAND`
 
 ### Options
 
-start	Start a service.
-stop	Stop a service.
-restart	Restart a service.
-status	Show service status.
+| Options | Descriptions | Examples |
+|---------|--------------|----------|
+| `start` | Start a service | `sudo service ssh start` |
+| `stop` | Stop a service | `sudo service ssh stop` |
+| `restart` | Restart a service | `sudo service ssh restart` |
+| `reload` | Reload a service | `sudo service ssh reload` |
+| `ststus` | Check the status | `service ssh status` |
+| `--status-all` | List all services | `service --status-all` |
 
 ### Examples
 
 ### Start Apache service
 
+```bash
 sudo service apache2 start
+```
 
-### Restart service
+### Breakdown
 
-sudo service ssh restart
+| Breakdown | Description |
+|-----------|-------------|
+| `sudo` | Superdoer command |
+| `service` | system admin command |
+| `apache2` | target service |
+| `start` | Directs to start service |
 
 ### Check service status
 
+```bash
 sudo service cron status
+```
+
+### Breakdown
+
+| Breakdown | Description |
+|-----------|-------------|
+| `sudo` | Superdoer command |
+| `service` | System admin command |
+| `cron` | Target service |
+| `status` | Directs to check the status of target service |
