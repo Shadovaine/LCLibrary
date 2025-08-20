@@ -69,8 +69,6 @@ ls file[1-3].txt
 ls file[abc].txt
 ```
 
-
-
 # Wildcard: {}
 
 ## Description: Generates a sequence or comma-separated list of items
@@ -89,9 +87,11 @@ echo file{1,2,3}.txt
 mkdir project/{docs,src,bin}
 ```
 
-cp file{A..Z}.txt /tmp/	Copy all files from fileA.txt to fileZ.txt.
-This is not technically a wildcard but a bash feature
+### Copy all files from fileA.txt to fileZ.txt
 
+```bash
+cp file{A..Z}.txt /tmp/	
+```
 
 # Wildcard: ~
 
@@ -111,16 +111,13 @@ cd ~
 cp ~/Documents/* 
 ```
 
-
-
-
 # Wildcard: .
 
 ## Description: One period stands for current directory
 
 ### Examples
 
-List current directory contents
+### List current directory contents
 
 ```bash
 ls .
@@ -129,7 +126,6 @@ ls .
 # Wildcard: ..
 
 ## Description: Two periods stand for parent directory
-
 
 ### Examples
 
@@ -163,29 +159,28 @@ ls file[!a-c].txt
 ls \*
 ```
 
+# Wildcard: $
+
+## Description: Used to reference or expand a variable or expression. It tells the shell: "Hey, don’t treat this as a literal word — go get me the value of it.”
+
+### Common Uses of $
+
+### Accessing Variables
+
+- `USER="shadowman76"`
+- `echo $USER`
+
+	**$USER retrieves the value stored in the USER variable.**
+	**No $ means you’re referencing the variable name literally, not the value.**
+
 # Bonus
 
-Wildcards don’t have options directly but are affected by shell behavior and command options:
-	•	shopt -s dotglob
-👉 Make * match hidden files (dotfiles).
-	•	find . -name "*.txt"
-👉 Use find with wildcards for recursive matching.
-	•	ls -d */
-👉 Match only directories.
-
-
-## **$**
-- Used to reference or expand a variable or expression. It tells the shell:
-“Hey, don’t treat this as a literal word — go get me the value of it.”
-
-Common Uses of $
-
-🔹 1. Accessing Variables
-
-USER="shadowman76"
-echo $USER
-
-	$USER retrieves the value stored in the USER variable.
-	•	No $ means you’re referencing the variable name literally, not the value.
+## Wildcards don’t have options directly but are affected by shell behavior and command options:
+- `shopt -s dotglob`
+## Make * match hidden files (dotfiles).
+- `find . -name "*.txt"`
+## Use find with wildcards for recursive matching.
+- `ls -d */`
+## Match only directories
 
 
