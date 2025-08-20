@@ -77,8 +77,18 @@ ls file[abc].txt
 
 ### Examples
 
-echo file{1,2,3}.txt	Expands to file1.txt file2.txt file3.txt.
-mkdir project/{docs,src,bin}	Creates dirs project/docs, src, bin.
+### Expands to file1.txt file2.txt file3.txt
+
+```bash
+echo file{1,2,3}.txt
+```
+
+### Creates dirs project/docs, src, bin
+
+```bash
+mkdir project/{docs,src,bin}
+```
+
 cp file{A..Z}.txt /tmp/	Copy all files from fileA.txt to fileZ.txt.
 This is not technically a wildcard but a bash feature
 
