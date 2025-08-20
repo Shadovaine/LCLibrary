@@ -123,8 +123,11 @@ ls .
 
 ### Examples
 
-cd ..	Move up one level in directory tree.
+### Move up one level in directory tree
 
+```bash
+cd ..	
+```
 
 # Wildcard: !
 
@@ -132,8 +135,11 @@ cd ..	Move up one level in directory tree.
 
 ### Examples
 
-ls file[!a-c].txt	Matches files not ending with a, b, c.
+### Matches files not ending with a, b, c
 
+```bash
+ls file[!a-c].txt	
+```
 
 # Wildcard: \
 
@@ -141,9 +147,11 @@ ls file[!a-c].txt	Matches files not ending with a, b, c.
 
 ### Examples
 
-ls \*	Lists file named *, not all files.
-echo file\?.txt	Treats ? literally, not as a wildcard.
+### Lists file named *, not all files
 
+```bash
+ls \*
+```
 
 # Bonus
 
