@@ -39,10 +39,17 @@ rm *.txt
 
 ### Examples
 
-ls file?.txt	Match file1.txt, fileA.txt, but not file10.txt.
-mv ?.jpg images/	Move all .jpg files with one character filenames into images/.
-Each ? Represents one single character
+### Match file1.txt, fileA.txt
 
+```bash
+ls file?.txt
+```
+
+### Move all .jpg files with one character filenames into images
+
+```bash
+mv ?.jpg images/	
+```
 
 # Wildcard: []
 
@@ -50,9 +57,18 @@ Each ? Represents one single character
 
 ### Examples
 
-ls file[1-3].txt	Matches file1.txt, file2.txt, file3.txt.
-ls file[abc].txt	Matches filea.txt, fileb.txt, filec.txt
-Matches any fileX.txt except where X is a digit
+### Matches file1.txt, file2.txt, file3.txt
+
+```bash
+ls file[1-3].txt
+```
+
+### Matches filea.txt, fileb.txt, filec.txt
+
+```bash
+ls file[abc].txt
+```
+
 
 
 # Wildcard: {}
@@ -73,13 +89,13 @@ This is not technically a wildcard but a bash feature
 
 ### Examples
 
-### Go to your home directory.
+### Go to your home directory
 
 ```bash
 cd ~	
 ```
 
-Copy all files from Documents to current directory
+### Copy all files from Documents to current directory
 
 ```bash
 cp ~/Documents/* 
