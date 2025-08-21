@@ -162,4 +162,14 @@ atrm 2
 ## **Examples**
 - zi load zsh-users/zsh-autosuggestions
 
+# unalias
 
+# which
+
+# type
+
+# set
+
+# bash
+
+# exit
