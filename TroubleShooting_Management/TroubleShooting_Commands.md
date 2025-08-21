@@ -1,6 +1,16 @@
-# **Troubleshooting Tools - Debugging/Network Security**
+# Troubleshooting Tools
 
-## **strace (System Trace)**
+## Description: Debugging/Network Security
+
+## Table of Contents
+
+- `strace`
+- `lsof`
+- `tcpdump`
+- `nmap`
+- `iptables`
+- `ufw`
+## strace (System Trace)**
 -Traces system calls and signals made by a process.
 
 ## **Syntax**
