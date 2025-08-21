@@ -5,11 +5,17 @@
 ## Table of Contents
 
 - `strace`
+- `traceroute`
+- `tracepath`
 - `lsof`
 - `tcpdump`
 - `nmap`
 - `iptables`
 - `ufw`
+- `dig`
+- `nslookup`
+- `nc` or `netcat`
+
 ## strace (System Trace)**
 -Traces system calls and signals made by a process.
 
