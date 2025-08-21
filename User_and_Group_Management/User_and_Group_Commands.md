@@ -1,4 +1,34 @@
-# **User and Group Management**
+# User and Group Management
+
+## Description: Commands involved adding, removing, and modifying groups and users
+
+## Table of Contents
+
+- `useradd`
+- `adduser`
+- `usermod`
+- `passwd`
+- `chage`
+- `userdel`
+- `groupadd`
+- `groupmod`
+- `groupdel`
+- `gpasswd`
+- `groups`
+- `id`
+- `whoami`
+- `getent`
+- `finger`
+- `w`
+- `who`
+- `user`
+- `chmod`
+- `chown`
+- `chgrp`
+- `newgrp`
+- `deluser`
+- `delgroup`
+
 
 ## **useradd**
 - creates a new user
