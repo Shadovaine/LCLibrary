@@ -9,6 +9,11 @@
 - `visudo`
 - `systemctl`
 - `service`
+- `journalctl`
+- `reboot`
+- `shutdown`
+- `grub`
+- `dracut`
 
 # Command: sudo (Superuser Do)
 
