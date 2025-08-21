@@ -1,4 +1,22 @@
-# **System Information and Monitoring**
+# System Information and Monitoring Management
+
+## Description:
+
+## Table of Contents
+
+- `uname`
+- `uptime`
+- `free`
+- `df`
+- `dmesg`
+- `lsblk`
+- `lscpu`
+- `iostat`
+- `vmstat`
+- `dstat`
+- `w`
+- `who`
+- `watch`
 
 ## **uname**
 - Shows system information (kernel, architecture, etc.)
