@@ -6,11 +6,18 @@
 
 - `uname`
 - `uptime`
+- `blkid`
+- `file`
 - `free`
 - `df`
+- `du`
 - `dmesg`
+- `findmnt`
+- `fsck`
 - `lsblk`
 - `lscpu`
+- `mount`
+- `umount`
 - `iostat`
 - `vmstat`
 - `dstat`
