@@ -24,6 +24,8 @@
 - `w`
 - `who`
 - `watch`
+- `progress`
+
 
 ## **uname**
 - Shows system information (kernel, architecture, etc.)
@@ -249,3 +251,16 @@ who -H
 	•	-n → Interval in seconds
 	•	-d → Highlight changes
 
+## **progress – Show progress of common commands (cp, mv, etc.)**
+
+## **Syntax**
+- progress
+
+## **Examples**
+- progress -w
+
+## **Options**
+	•	-w → Watch mode (auto-refreshing)
+	•	-c → Compact output
+
+🧠 Shows live byte transfer progress for background file copy/move jobs — a nice visibility hack.

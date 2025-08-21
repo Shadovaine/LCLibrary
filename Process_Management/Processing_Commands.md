@@ -16,6 +16,10 @@
 - `fg`
 - `nice`
 - `renice`
+- `procs`
+- `btop`
+- `agg`
+
 
 ## Command: ps
 
@@ -701,3 +705,43 @@ sudo renice -20 -p 5678
 | `-20` | Specific nice value to change to |
 | `-p` | Directs to only make changes to specific PID |
 | `5678` | Specific PID |
+
+## **procs – Supercharged ps alternative with colors and extras**
+	•	Category: Process Management
+
+Syntax:
+procs
+
+Ex:
+procs --watch
+
+Features:
+	•	Color-coded CPU/mem usage
+	•	Shows user, start time, I/O
+	•	--tree view like pstree
+
+## **btop – Blinged-out, interactive system monitor**
+	•	Category: System Health / Dashboard
+	•	Syntax: btop
+	•	Example: Just run btop
+	•	Shows:
+	•	CPU, memory, disks, temps, processes — all in a colorful interface
+
+🧠 Great for demoing system status during training or incident reviews.	
+
+## **agg – Aggregate and visualize logs or command output**
+	•	Category: Data Visualization
+	•	Syntax: agg [options]
+
+Ex:
+journalctl -b | agg -f user.name
+
+Features:
+	•	Parses structured logs
+	•	Outputs charts or breakdowns
+
+🧠 Perfect for turning large CLI data (logs, JSON, etc.) into summaries or bar charts.
+
+error – (revisited) Helps explain error messages in CLI tools
+
+Worth another look in combo with other output-heavy tools like agg, journalctl, dstat.

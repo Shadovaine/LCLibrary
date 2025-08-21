@@ -30,7 +30,7 @@ ls *.txt
 ### Delete all files ending with .txt
 
 ```bash
-rm *.txt	
+rm *.txt
 ```
 
 # Wildcard: ?
@@ -48,7 +48,7 @@ ls file?.txt
 ### Move all .jpg files with one character filenames into images
 
 ```bash
-mv ?.jpg images/	
+mv ?.jpg images/
 ```
 
 # Wildcard: []
@@ -90,7 +90,7 @@ mkdir project/{docs,src,bin}
 ### Copy all files from fileA.txt to fileZ.txt
 
 ```bash
-cp file{A..Z}.txt /tmp/	
+cp file{A..Z}.txt /tmp/
 ```
 
 # Wildcard: ~
@@ -102,7 +102,7 @@ cp file{A..Z}.txt /tmp/
 ### Go to your home directory
 
 ```bash
-cd ~	
+cd ~
 ```
 
 ### Copy all files from Documents to current directory
@@ -132,7 +132,7 @@ ls .
 ### Move up one level in directory tree
 
 ```bash
-cd ..	
+cd ..
 ```
 
 # Wildcard: !
@@ -144,7 +144,7 @@ cd ..
 ### Matches files not ending with a, b, c
 
 ```bash
-ls file[!a-c].txt	
+ls file[!a-c].txt
 ```
 
 # Wildcard: \
@@ -175,12 +175,19 @@ ls \*
 
 # Bonus
 
-## Wildcards don’t have options directly but are affected by shell behavior and command options:
-- `shopt -s dotglob`
-## Make * match hidden files (dotfiles).
-- `find . -name "*.txt"`
-## Use find with wildcards for recursive matching.
-- `ls -d */`
+## Wildcards don’t have options directly but are affected by shell behavior and command options
+
+## Use find with wildcards for recursive matching
+
+```bash
+find . -name "*.txt"
+```
 ## Match only directories
+
+```bash
+ls -d */
+```
+
+
 
 

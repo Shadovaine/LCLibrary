@@ -28,13 +28,13 @@
 - `delgroup`
 
 
-## **useradd**
+# Command: useradd
 - creates a new user
 
-## **Syntax**
+## Syntax
 -useradd [OPTIONS] USERNAME
 
-### **Options**
+### Options
 -m	Create the user’s home directory.
 -d DIR	Specify custom home directory.
 -s SHELL	Specify login shell (e.g., /bin/bash).
@@ -43,7 +43,7 @@
 -G GROUPS	Add to supplementary groups (comma-separated).
 -c COMMENT	Set user description/comment (GECOS field).
 
-#### **Examples**
+### Examples
 Create a user with default settings:
 sudo useradd jake
 
@@ -56,14 +56,26 @@ sudo useradd -m -u 1500 -c "Dragon Rider" jake
 Create user and assign to group “admins”:
 sudo useradd -m -G admins jake
 
+# Command: adduser
 
-## **usermod**
-- Modify an existing user account.
+## Description:
 
-## **Syntax**
-- usermod [OPTIONS] USERNAME
+## Syntax
 
-## **Options**
+### Options
+
+### Examples
+
+# Command: usermod
+
+## Description: Modify an existing user account
+
+## Syntax
+
+- `usermod [OPTIONS] USERNAME`
+
+### Options
+
 -l NEWNAME	Change the username.
 -d DIR	Change home directory.
 -m	Move existing files to new home directory.
@@ -72,7 +84,8 @@ sudo useradd -m -G admins jake
 -G GROUPS	Set supplementary groups.
 -a -G GROUPS	Add user to supplementary groups (append).
 
-### **Examples**
+### Examples
+
 Change username from “jake” to “shadow”:
 sudo usermod -l shadow jake
 
@@ -86,20 +99,23 @@ sudo usermod -d /home/dragon -m jake
 sudo usermod -a -G sudo jake
 
 
-## **passwd**
-- Set or change a user’s password.
+# Command: passwd
 
-## **Syntax**
-- passwd [OPTIONS] [USERNAME]
+## Description: Set or change a user’s password
 
-## **Options**
+## Syntax
+
+- `passwd [OPTIONS] [USERNAME]`
+
+### Options
+
 - (no args)	Change the current user’s password.
 - USERNAME	Change password for another user.
 -l USERNAME	Lock user account.
 -u USERNAME	Unlock user account.
 -e USERNAME	Expire user’s password (force change on next login).
 
-## **Examples**
+### Examples
 Change your password:
 passwd
 
@@ -112,54 +128,108 @@ sudo passwd -l jake
 Unlock user account:
 sudo passwd -u jake
 
+# Command: chage
 
+## Description:
 
-## **groupadd**
+## Syntax
+
+### Options
+
+### Examples
+
+# Command: userdel
+
+## Description:
+
+## Syntax
+
+### Options
+
+### Examples
+
+# Command: groupadd
 - Create a new group.
 
-## **Syntax**
+## Syntax
 groupadd [OPTIONS] GROUPNAME
 
-## **Options**
+### Options
+
 - -g GID	Specify a group ID.
 
-### **Examples**
+### Examples
  Create a group called “admins”:
 sudo groupadd admins
 
 Create group with specific GID:
 sudo groupadd -g 1001 developers
 
+# Command: groupmod
 
+## Description:
 
-## **groups**
+## Syntax
+
+### Options
+
+### Examples
+
+# Command: groupdel
+
+## Description:
+
+## Syntax
+
+### Options
+
+### Examples
+
+# Command: gpasswd
+
+## Description:
+
+## Syntax
+
+### Options
+
+### Examples
+
+# Command: groups
+
 - Show which groups a user belongs to.
 
-## **Syntax**
+## Syntax
+
 - groups [USERNAME]
 
-### **Options**
+### Options
+
+### Examples
+
  Show your groups:
 groups
 
  Show groups for user “jake”:
 groups jake
 
+# Command: id
 
+## Description: Show a user’s UID, GID, and group memberships.
 
-## **id**
-- Show a user’s UID, GID, and group memberships.
+## Syntax
 
-## **Syntax**
 - id [OPTIONS] [USERNAME]
 
-## **Options**
+### Options
+
 -u	Show only the UID.
 -g	Show only the GID.
 -G	Show all group IDs.
 -n	Show names instead of numeric IDs.
 
-## **Examples**
+### Examples
+
 Show your user and group IDs:
 id
 
@@ -171,3 +241,103 @@ id -u jake
 
 Show only GID for user “jake”:
 id -g jake
+
+# Command: whoami
+
+## Description:
+
+## Syntax
+
+### Options
+
+### Examples
+
+# Command: getent
+
+## Description:
+
+## Syntax
+
+### Options
+
+### Examples
+
+# Command: finger
+
+## Description:
+
+## Syntax
+
+### Options
+
+### Examples
+
+# Command: user
+
+## Description:
+
+## Syntax
+
+### Options
+
+### Examples
+
+# Command: chmod
+
+## Description:
+
+## Syntax
+
+### Options
+
+### Examples
+
+# Command: chown
+
+## Description:
+
+## Syntax
+
+### Options
+
+### Examples
+
+# Command: chgrp
+
+## Description:
+
+## Syntax
+
+### Options
+
+### Examples
+
+# Command: newgrp
+
+## Description:
+
+## Syntax
+
+### Options
+
+### Examples
+
+# Command: deluser
+
+## Description:
+
+## Syntax
+
+### Options
+
+### Examples
+
+# Command: delgroup
+
+## Description:
+
+## Syntax
+
+### Options
+
+### Examples

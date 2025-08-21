@@ -11,6 +11,14 @@
 - `tail`
 - `fold`
 - `stat`
+- `tac`
+- `strings`
+- `od`
+- `xxd`
+- `vipe`
+
+
+
 
 # Command: Cat
 
@@ -155,4 +163,52 @@
 
 - tail -f /var/log/syslog | grep "error"
 
+# Command: tac
 
+## Description:
+
+## Syntax
+
+### Options
+
+### Examples
+
+# Command: strings
+
+## Description:
+
+## Syntax
+
+### Options
+
+### Examples
+
+# Command: od
+
+## Description:
+
+## Syntax
+
+### Options
+
+### Examples
+
+# Command: xxd
+
+## Description:
+
+## Syntax
+
+### Options
+
+### Examples
+
+## **vipe – Edit stdin input in your $EDITOR (usually nano or vim)**
+
+## **Syntax**
+- some_command | vipe | another_command
+
+### **Examples**
+- echo "classified content" | vipe | gpg -c > encrypted.gpg
+
+Use case: Intercept CLI data to review/modify securely before sending it along a pipeline.

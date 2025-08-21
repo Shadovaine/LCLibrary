@@ -22,6 +22,8 @@
 - `ranger`
 - `zoxide`
 - `exa`
+- `shred`
+- `vidir`
 
 
 
@@ -812,7 +814,29 @@ exa -la -T /etc
 | `-T` | Put in tree viewing form. |
 | `/etc` | Target directory. |
 
+## **shred – Secure file deletion (overwrite before delete)**
 
+## **Syntax**
+- shred [options] [file]
 
+### **Examples**
+- shred -u -n 5 secrets.txt
+
+#### **Options**
+	•	-u → Truncate and remove file after overwriting
+	•	-n → Number of overwrite passes (default: 3)
+	•	-z → Final overwrite with zeroes (stealthy)
+
+🧠 Use case: Securely delete sensitive data so it can’t be recovered with forensic tools.
+
+## **vidir – Edit directory filenames in bulk using your editor**
+
+## **Syntax**
+- vidir [directory]
+
+### **Examples**
+- vidir ~/Downloads
+
+You’ll see a list of files and can edit names in bulk (great for obfuscating data dumps or renaming malicious payloads).
 
 

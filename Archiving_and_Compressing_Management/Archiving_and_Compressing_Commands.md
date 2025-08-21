@@ -10,6 +10,8 @@
 - `unzip`
 - `bzip2`
 - `xz`
+- `unp`
+
 
 ## Command: tar 
 ## **Description:** Archives multiple files into on file.
@@ -475,3 +477,15 @@ xz -k file.txt
 | `file.txt` | Target File. |
 | `-k` | Directs to keep original file. |
 | `file.txt` | Target file. |
+
+
+## **unp – Smart extractor for multiple compressed file formats**
+	•	Category: File Handling / Forensics
+
+## **Syntax**
+- unp [archive]
+
+### **Examples**
+- unp secrets.tar.gz
+
+Supported formats: .zip, .tar, .gz, .bz2, .7z, .rar, etc.
