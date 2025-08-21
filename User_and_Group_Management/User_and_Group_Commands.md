@@ -19,8 +19,6 @@
 - `whoami`
 - `getent`
 - `finger`
-- `w`
-- `who`
 - `user`
 - `chmod`
 - `chown`
