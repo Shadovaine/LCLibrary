@@ -58,4 +58,5 @@ modinfo i915
 
 # Command: modprobe
 
-## Description: 
+## Description: Used to add or remove kernel modules intelligently
+
