@@ -23,7 +23,7 @@
 
 ## Command: ps
 
-## Description: Short for process status. Shows a snapshot of current processes
+## Description: Short for `process` status. Shows a snapshot of current processes
 
 ## Syntax
 
@@ -155,7 +155,6 @@ ps -eo pid,cmd
 | `f` | Add or remove columns |
 | `W` | Save configuration |
 
-
 ### Examples
 
 ### Run top
@@ -200,11 +199,11 @@ top -p 1234
 
 # Command: htop
 
-## Description: An improved, powerful, interactive process viewer.
+## Description: An improved, powerful, interactive process viewer
 
 ## Syntax
 
-- `htop [Options]
+- `htop [Options]`
 
 ### Options
 
@@ -333,19 +332,29 @@ glances -w
 
 | Options | Descriptions | Examples |
 |---------|--------------|----------|
-| `-o` | Show only provesses or threads actually doing I/O | `sudo iotop -o` |
+| `-o` | Show only processes or threads actually doing I/O | `sudo iotop -o` |
 | `-a` | Show total I/O since iotop started | `sudo iotop -a` |
 | `-b` | Run in non-interactive mode, suitable for logging | `sudo iotop -b -n 10 > io_log.txt` |
 | `-n<NUM>` | Number of iterations to run(use with -b) | `sudo iotop -b -n 2` |
 | `-d<SECONDS>` | Delay between updates | `sudo iotop -d 2` |
-| -p<PID>` | Monitor only specific process by PID | `sudo iotop -p 1234` | 
+| `-p<PID>` | Monitor only specific process by PID | `sudo iotop -p 1234` |
 | `-u<USER>` | Show only processes for a given user | `sudo iotop -u user` |
 | `-k` | Show I/O in KB instead of bytes | `sudo iotop -k` |
 | `-q` | Suppress header lines | `sudo iotop -b -qqq > io_only.txt` |
 
 ### Examples
 
--sudo iotop -o
+```bash
+sudo iotop -o
+```
+
+### Breakdown
+
+| Breakdown | Description |
+|-----------|-------------|
+| `sudo` | Superuser command |
+| `iotop` | Process manager command |
+| `-o` | Show only processes or threads actually doing I/O |
 
 # Command: kill
 
@@ -706,13 +715,18 @@ sudo renice -20 -p 5678
 | `-p` | Directs to only make changes to specific PID |
 | `5678` | Specific PID |
 
-## **procs – Supercharged ps alternative with colors and extras**
-	•	Category: Process Management
+# Command: procs
 
-Syntax:
-procs
+## Description: Supercharged ps alternative with colors and extras
 
-Ex:
+## Syntax
+
+- `procs`
+
+### Options
+
+### Examples
+
 procs --watch
 
 Features:
@@ -720,20 +734,32 @@ Features:
 	•	Shows user, start time, I/O
 	•	--tree view like pstree
 
-## **btop – Blinged-out, interactive system monitor**
-	•	Category: System Health / Dashboard
-	•	Syntax: btop
-	•	Example: Just run btop
+# Command: btop
+
+## Description: Blinged-out, interactive system monitor
+
+## Syntax
+
+- `btop`
+
+### Example
+
+ Just run btop
 	•	Shows:
 	•	CPU, memory, disks, temps, processes — all in a colorful interface
 
 🧠 Great for demoing system status during training or incident reviews.	
 
-## **agg – Aggregate and visualize logs or command output**
-	•	Category: Data Visualization
-	•	Syntax: agg [options]
+# Command: agg
 
-Ex:
+## Description: Aggregate and visualize logs or command output
+
+## Syntax agg 
+
+### Options
+
+### Examples
+
 journalctl -b | agg -f user.name
 
 Features:
