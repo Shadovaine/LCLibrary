@@ -38,4 +38,24 @@
 | `-p` | Show parameters the module accepts | `modinfo -p snd_hda_intel` |
 | `-n` | Show the filename of the module | `modinfo -n i915` |
 | `-F<field> | Displays only a specific field | `modinfo -F license i915` |
-| `-k<kernel>
+| `-k<kernel>` | Query module info for a specific kernel version | `modinfo -k 6.8.0-31-generic i915` |
+| `-O` | Seperate output fields with NUL instead of newline | `modinfo -O i915` |
+
+### Examples
+
+### Retrieve information about a module by name
+
+```bash
+modinfo i915
+```
+
+### Breakdown
+
+| Breakdown | Description |
+|-----------|-------------|
+| `modinfo` | Kernel command |
+| `i915` | Target module |
+
+# Command: modprobe
+
+## Description: 
