@@ -1,6 +1,6 @@
 # Linux Directory System
 
-## Linux directory tree form
+## Linux directory Tree Form
 
 ```
   /
@@ -25,7 +25,7 @@
 
 ## /bin
 
-## Description: stands for binary ( compiled programs). System directory contains essential executable programs needed to boot system and run basic commands
+## Description: Stands for binary ( compiled programs). System directory contains essential executable programs needed to boot system and run basic commands
 
 ## /bin and /usr/bin comparison
 
@@ -129,8 +129,8 @@
 | `Username` | name of user |
 | `UID` | User ID |
 | `GID` | Group ID |
-| `Home Directory' | directory where the user resides |
-| `shell` | default shell assigned to every user |
+| `Home Directory` | Directory where the user resides |
+| `shell` | Default shell assigned to every user |
 
 **Passwords are not in `/etc/passwd`they are in `/etc/shadow` which is more restricted.**
 
@@ -147,13 +147,11 @@
 | `1001` | userID (UID) | Unique ID for this user. UID 0 = root, 1-999 = system users |
 | `1001` | groupID (GID) | Primary group for this user ( from /etc/group) |
 | `/home/name` | home directory | Path to user's home folder |
-| '/bin/bash` | default shell | Default shell whwn user logs in |
+| `/bin/bash` | default shell | Default shell whwn user logs in |
 
 # /var
 
-## Description: Stands for “variable data." It contains files and data that change frequently while the system is running. Unlike /etc (static configs), /var is dynamic—it grows and shrinks as your system operates
-
-**Located in the root directory (/).**
+## Description: Stands for “variable data." It contains files and data that change frequently while the system is running. Unlike /etc (static configs), /var is dynamic—it grows and shrinks as your system operates. Located in the root directory (/)
 
 ## What lives in /var
 
@@ -206,7 +204,7 @@
 | File/Folder | What It Does |
 |-------------|--------------|
 | `Documents/` | User’s text docs, PDFs, etc |
-| Downloads/` | Files downloaded from the internet |
+| `Downloads/` | Files downloaded from the internet |
 | `Desktop/` | Files and shortcuts shown on the desktop environment |
 | `Pictures/` | User’s images |
 | `Videos/` | User’s videos |
@@ -258,7 +256,7 @@
 
 | Feature | Regular User | Root User |
 |---------|--------------|-----------|
-| `Home Directory` | :heavy_check_mark: | :x: | 
+| `Home Directory` | :heavy_check_mark: | :x: |
 | `/home/jake` | :heavy_check_mark: | :x: |
 | `/root` | :x: | :heavy_check_mark: |
 | `Privileges Limited` | :heavy_check_mark: | :x: |
@@ -274,7 +272,7 @@
 
 # Aliases
 
-## Description: An alias is like a shortcut or nickname for a longer command.
+## Description: An alias is like a shortcut or nickname for a longer command
 
 ## Alias Example
 
@@ -367,9 +365,8 @@ Dragon Wisdom About /root
 
 # /usr
 
-## Description: Stands for “user system resources.”  contains user binaries—programs and commands that are not required to boot the system but are used once it’s fully operational. These are the day-to-day tools you use to work, write code, edit files, or run applications.
+## Description: Stands for “user system resources.”  contains user binaries—programs and commands that are not required to boot the system but are used once it’s fully operational. These are the day-to-day tools you use to work, write code, edit files, or run applications
 
- 
 ## /usr/bin
 
 ## What lives in /usr/bin
@@ -458,7 +455,7 @@ Directory Managed By? Who Uses It? What’s Inside?
 /usr/bin Package Manager All users Installed software (python3, nano)
 /usr/sbin Package Manager Root/admin only Installed admin tools (sshd, apache2)
 /usr/local/bin You (manual install) All users Custom binaries/scripts
-/usr/local/sbin You (manual install) Root/admin only 
+/usr/local/sbin You (manual install) Root/admin only
 
 opt directory
 
@@ -507,7 +504,7 @@ What is it?
 
 What lives in /lib
 Directory/File What It Does
-libc.so.* The GNU C library (the core library for Linux)
+libc.so.*The GNU C library (the core library for Linux)
 ld-linux.so.* Dynamic linker/loader
 modules/ Kernel modules (*.ko files)
 systemd/ Libraries needed for system initialization
@@ -701,7 +698,7 @@ ls -l /dev/sd*
 - can’t hand control to user space
 
 ## Real-World Examples
- 
+
 ## View the kernel version loaded
 
 ```bash
