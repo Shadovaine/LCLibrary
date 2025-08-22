@@ -18,11 +18,11 @@
 - `lsattr`
 - `chattr`
 
-## MODE Description: persmission you want to set (symbolic or numeric)
+## MODE Description: Persmission you want to set (symbolic or numeric)
 
 ## Symbolic Notation
 
-## Format: [ugoa][+0=][rwx]
+## Format: [ugoa] [+0=] [rwx]
 
 | Symbol | Meaning |
 |--------|---------|
@@ -39,7 +39,7 @@
 
 ## Octal (Numeric) Notation
 
-## Format: [owner][group][others]
+## Format: [owner] [group] [others]
 
 | Number | Permission | Binary Equivalent |
 |--------|------------|-------------------|
@@ -66,8 +66,8 @@
 |---------|--------------|----------|
 | `-R` | Recursively change permissions for directories and their contents | `chmod -R 755 /var/www` |
 | `-v` | Verbose output- shows changes made | `chmod -v 644 file.txt` |
-| `-c` | Like `-v`, but only reports changes actually made | `chmod -c 600 secret.txt` |
-| `—reference=RFILE | Set permissions to match another file | `chmod --reference-template.txt newfile.txt` |
+| `-c` | Like `-v` But only reports changes actually made | `chmod -c 600 secret.txt` |
+| `—reference=RFILE` | Set permissions to match another file | `chmod --reference-template.txt newfile.txt` |
 | `--preserve-root` | Do not operate recursively on / | `chmod --preserve-root -R 755 /` |
 
 ### Examples
@@ -322,7 +322,7 @@ id name
 | Option      | Description                                 | Example           |
 |-------------|---------------------------------------------|-------------------|
 | (none)      | Show groups for current user                | `groups`          |
-| `username`  | Show groups for specified user              | `groups jake`     |
+| `username`  | Show groups for specified user              | `groups name`     |
 
 ### Examples
 
@@ -488,5 +488,3 @@ chattr -R +a /var/log
 | `-R` | Directs to make changes recursively |
 | `+a` | Directs to make file append-only |
 | `/var/log` | Target location |
-
-
