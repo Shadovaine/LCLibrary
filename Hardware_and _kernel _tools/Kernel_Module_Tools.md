@@ -38,4 +38,4 @@
 | `-p` | Show parameters the module accepts | `modinfo -p snd_hda_intel` |
 | `-n` | Show the filename of the module | `modinfo -n i915` |
 | `-F<field> | Displays only a specific field | `modinfo -F license i915` |
-| 
+| `-k<kernel>
