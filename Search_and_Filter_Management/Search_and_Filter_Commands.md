@@ -403,13 +403,18 @@ sort file.txt | uniq -c
 | `uniq` | output piped through uniq command |
 | `-c` | counts occurences from piped output |
 
-## **jg – JSON grepping / parsing tool**
-	•	Category: Privacy Auditing / Data Extraction
+# Command: jg
 
-## **Syntax**
-- jg [query] < file.json
+## Description: JSON grepping / parsing tool
 
-## **Examples**
+## Syntax
+
+- `jg [query] < file.json`
+
+### Options
+
+### Examples
+
 - cat authlog.json | jg "user.name == 'jake'"
 
 Useful for analyzing logs or leaked dumps in structured formats.

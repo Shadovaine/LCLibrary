@@ -27,14 +27,16 @@
 - `deluser`
 - `delgroup`
 
-
 # Command: useradd
-- creates a new user
+
+## Description: Creates a new user
 
 ## Syntax
--useradd [OPTIONS] USERNAME
+
+- `useradd [OPTIONS] USERNAME`
 
 ### Options
+
 -m	Create the user’s home directory.
 -d DIR	Specify custom home directory.
 -s SHELL	Specify login shell (e.g., /bin/bash).
@@ -44,21 +46,26 @@
 -c COMMENT	Set user description/comment (GECOS field).
 
 ### Examples
-Create a user with default settings:
-sudo useradd jake
 
-Create user with home dir and bash shell:
-sudo useradd -m -s /bin/bash jake
+### Create a user with default settings
 
-Create user with specific UID and comment:
-sudo useradd -m -u 1500 -c "Dragon Rider" jake
+sudo useradd name
 
-Create user and assign to group “admins”:
-sudo useradd -m -G admins jake
+### Create user with home dir and bash shell
+
+sudo useradd -m -s /bin/bash name
+
+### Create user with specific UID and comment
+
+sudo useradd -m -u 1500 -c "name"
+
+### Create user and assign to group “admins”
+
+sudo useradd -m -G admins name
 
 # Command: adduser
 
-## Description:
+## Description: Command to add a user to an existing folder
 
 ## Syntax
 
@@ -68,7 +75,7 @@ sudo useradd -m -G admins jake
 
 # Command: usermod
 
-## Description: Modify an existing user account
+## Description: Modify an existing users account
 
 ## Syntax
 
@@ -86,22 +93,25 @@ sudo useradd -m -G admins jake
 
 ### Examples
 
-Change username from “jake” to “shadow”:
-sudo usermod -l shadow jake
+### Change username from “username” to “name”
 
-Change user’s shell to zsh:
-sudo usermod -s /bin/zsh jake
+sudo usermod -l name username
 
- Move user’s home directory:
-sudo usermod -d /home/dragon -m jake
+### Change user’s shell to zsh
 
- Add user to “sudo” group (append):
+sudo usermod -s /bin/zsh name
+
+### Move user’s home directory
+
+sudo usermod -d /home/dragon -m name
+
+### Add user to “sudo” group (append)
+
 sudo usermod -a -G sudo jake
-
 
 # Command: passwd
 
-## Description: Set or change a user’s password
+## Description: Creates a new or change an existing user’s password
 
 ## Syntax
 
@@ -116,16 +126,21 @@ sudo usermod -a -G sudo jake
 -e USERNAME	Expire user’s password (force change on next login).
 
 ### Examples
-Change your password:
+
+### Change your password
+
 passwd
 
-Set password for user “jake”:
-sudo passwd jake
+### Set password for user "name"
 
-Lock user account:
-sudo passwd -l jake
+sudo passwd name
 
-Unlock user account:
+### Lock user account
+
+sudo passwd -l name
+
+### Unlock user account
+
 sudo passwd -u jake
 
 # Command: chage
@@ -149,20 +164,25 @@ sudo passwd -u jake
 ### Examples
 
 # Command: groupadd
-- Create a new group.
+
+## Description: Create a new group
 
 ## Syntax
-groupadd [OPTIONS] GROUPNAME
+
+- `groupadd [OPTIONS] GROUPNAME`
 
 ### Options
 
 - -g GID	Specify a group ID.
 
 ### Examples
- Create a group called “admins”:
+
+### Create a group called “admins”
+
 sudo groupadd admins
 
-Create group with specific GID:
+### Create group with specific GID
+
 sudo groupadd -g 1001 developers
 
 # Command: groupmod
@@ -197,21 +217,23 @@ sudo groupadd -g 1001 developers
 
 # Command: groups
 
-- Show which groups a user belongs to.
+## Description: Show which groups a user belongs to
 
 ## Syntax
 
-- groups [USERNAME]
+- `groups [USERNAME]`
 
 ### Options
 
 ### Examples
 
- Show your groups:
+### Show your groups
+
 groups
 
- Show groups for user “jake”:
-groups jake
+### Show groups for user "name"
+
+groups name
 
 # Command: id
 
@@ -219,7 +241,7 @@ groups jake
 
 ## Syntax
 
-- id [OPTIONS] [USERNAME]
+- `id [OPTIONS] [USERNAME]`
 
 ### Options
 
@@ -230,17 +252,21 @@ groups jake
 
 ### Examples
 
-Show your user and group IDs:
+### Show your user and group IDs
+
 id
 
-Show IDs for user “jake”:
-id jake
+### Show IDs for user "name"
 
- Show only UID for user “jake”:
-id -u jake
+id name
 
-Show only GID for user “jake”:
-id -g jake
+### Show only UID for user "name"
+
+id -u name
+
+### Show only GID for user "name"
+
+id -g name
 
 # Command: whoami
 

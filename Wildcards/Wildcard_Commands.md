@@ -182,12 +182,9 @@ ls \*
 ```bash
 find . -name "*.txt"
 ```
+
 ## Match only directories
 
 ```bash
 ls -d */
 ```
-
-
-
-

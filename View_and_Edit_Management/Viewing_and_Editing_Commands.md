@@ -54,7 +54,6 @@
 
 - less /var/log/syslog
 
-
 # Command: More
 
 ## Description: Similar to less but can only scroll forward
@@ -70,11 +69,13 @@
 
 ### Examples
 
-- more /etc/services
- - view a file
--more +20 bigfile.txt
-- start viewing from line 20
+### view a file
 
+more /etc/services
+
+### start viewing from line 20
+
+more +20 bigfile.txt
 
 # Command: Head
 
@@ -91,17 +92,19 @@
 
 ### Examples
 
-- head /etc/passwd
-- show the first 10 lines
-- head -n 5 myfile.txt
-- show the first 5 lines
+### Show the first 10 lines
 
+head /etc/passwd
+
+### Show the first 5 lines
+
+head -n 5 myfile.txt
 
 # Command: tail
 
-## Description: outputs the last few lines of a file. Spits out the last 10 lines by default.
+## Description: outputs the last few lines of a file. Spits out the last 10 lines by default
 
-### Syntax
+## Syntax
 
 - `tail [OPTIONS] [FILE]`
 
@@ -113,11 +116,12 @@
 
 ### Examples
 
--tail /etc/passwd
-- shows the last 10 lines
--tail -n 20 mylog.log
-- shows the last 20 lines
+### Shows the last 10 lines
 
+tail /etc/passwd
+### Shows the last 20 lines
+
+tail -n 20 mylog.log
 
 # Command: fold
 
@@ -134,10 +138,13 @@
 
 ### Examples
 
-- Wrap lines at 40 characters:
-- fold -w 40 longfile.txt
-- Wrap lines but don’t split words:
-- fold -s -w 40 longfile.txt
+### Wrap lines at 40 characters
+
+fold -w 40 longfile.txt
+
+### Wrap lines but don’t split words
+
+fold -s -w 40 longfile.txt
 
 # Command: stat
 
@@ -147,21 +154,23 @@
 
 -`stat [file]`
 
+### Options
+
 ### Examples
 
 - stat /etc/passwd
 
-# Pro Tip
+# Pro Tip and Examples
 
-- You can chain these together with pipes (|):
+## You can chain these together with pipes (|)
 
-- View only the first 20 lines of a huge file:
+## View only the first 20 lines of a huge file
 
-- cat bigfile.txt | head -n 20
+cat bigfile.txt | head -n 20
 
-- View a growing log file in real-time:
+## View a growing log file in real-time
 
-- tail -f /var/log/syslog | grep "error"
+tail -f /var/log/syslog | grep "error"
 
 # Command: tac
 
@@ -203,12 +212,18 @@
 
 ### Examples
 
-## **vipe – Edit stdin input in your $EDITOR (usually nano or vim)**
+# vipe
 
-## **Syntax**
-- some_command | vipe | another_command
+## Description: Edit stdin input in your $EDITOR (usually nano or vim)
 
-### **Examples**
-- echo "classified content" | vipe | gpg -c > encrypted.gpg
+## Syntax
+
+- `some_command | vipe | another_command`
+
+### Options
+
+### Examples
+
+echo "classified content" | vipe | gpg -c > encrypted.gpg
 
 Use case: Intercept CLI data to review/modify securely before sending it along a pipeline.
