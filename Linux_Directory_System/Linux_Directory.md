@@ -23,16 +23,16 @@
        ├── tmp          ← Temporary scratchpad
 ```
 
-## /bin
+# /bin
 
 ## Description: Stands for binary ( compiled programs). System directory contains essential executable programs needed to boot system and run basic commands
 
-## /bin and /usr/bin comparison
+# /bin and /usr/bin comparison
 
 | Chracteristic | /bin | /usr/bin |
 |---------------|------|----------|
-| Essential commands for startup and running the system | :heavy_check_mark: | :x: |
-| Non- essential programs used once the system is fully up | :x: | :heavy_check_mark: |
+| Essential commands for startup and running the system | ✅ | ❌ |
+| Non- essential programs used once the system is fully up | ❌ | ✅ |
 
 **In modern systems, some distros symlink /bin to /usr/bin to simplify things**
 
@@ -270,99 +270,6 @@
 - `Edit /root/.bashrc to set up root-specific aliases (like alias ll='ls -lah')`
 - `Store sensitive system-wide scripts in /root/scripts/`
 
-# Aliases
-
-## Description: An alias is like a shortcut or nickname for a longer command
-
-## Alias Example
-
-## Update and upgrade apt packages
-
-- `sudo apt update && sudo apt upgrade -y`
-
-## You can create an aliaa
-
-- alias update= `sudo apt update && sudo apt upgrade -y`
-
-## Why are aliases important?
-
-# Speed
-
-- `Saves keystrokes and time, especially for commands you type often.`
-
-# Safety
-
-- `Prevents costly typos.`
-
-## Safe Alias Example
-
-- Instead of typing `rm -rf /path/to/something`
-- you can create a safer alias `alias rm='rm -i`
-- The -i flag asks before deleting files. (This has saved countless beginners from nuking their systems.)
-
-# Customization
-
-- Tailor your terminal to match your workflow. Hackers and sysadmins often create aliases for pentesting tools, log monitoring, or jumping into certain directories.
-
-# Readability
-
-- Makes complex commands easier to remember and share.
-
-When should you set one up?
-
-You set up an alias when:
-🕒 A. You use a command frequently
- • Example: ls -alh is long to type, so make alias ll='ls -alh'.
-
-🚨 B. You want safer defaults
- • Example: alias cp='cp -i' to make cp interactive, asking before overwriting files.
-
-🎨 C. You’re customizing your shell environment
-
-Example: A developer might do:
-
-alias serve='python3 -m http.server'
-
-so they can start a web server with one word.
-
-How to set up an alias
-
-1️⃣ Temporary (lasts only in current session):
-
-alias gs='git status'
-
-Permanent (loads every time you open terminal):
-Edit your shell config file (~/.bashrc for bash, ~/.zshrc for zsh):
-
-nano ~/.bashrc
-
-Add this line at the bottom:
-
-alias gs='git status'
-
-Save and reload:
-
-source ~/.bashrc
-
-Examples of Useful Aliases
-
-alias ll='ls -alF'
-alias la='ls -A'
-alias ..='cd ..'
-alias ...='cd ../..'
-alias cls='clear'
-alias update='sudo apt update && sudo apt upgrade -y'
-alias grep='grep --color=auto'
-alias h='history'
-
-Hacker Mindset Tip:
-Red-teamers use aliases to create quick commands for common tasks like scanning (alias scan='nmap -sV -Pn') or to hide their tracks. But as a defender, you can use them to automate monitoring tools and harden systems.
-
-Dragon Wisdom About /root
- • 🛡️ It’s dangerous: Mistakes made as root can brick your system.
- • 🗝️ It’s powerful: Essential for sysadmin work and cybersecurity tasks.
- • 👑 It’s yours when wearing the root crown: But only put it on when you know what you’re doing.
-
 # /usr
 
 ## Description: Stands for “user system resources.”  contains user binaries—programs and commands that are not required to boot the system but are used once it’s fully operational. These are the day-to-day tools you use to work, write code, edit files, or run applications
@@ -385,9 +292,9 @@ Dragon Wisdom About /root
 
 ## What is /usr/sbin
 
-- /usr/sbin contains system admin binaries for managing advanced system services and configurations.
-- These are non-essential at boot, but critical for configuring servers, networking, and security.
-- Usually only the root user or sudoers can run these.
+- `/usr/sbin contains system admin binaries for managing advanced system services and configurations`
+- `These are non-essential at boot, but critical for configuring servers, networking, and security`
+- `Usually only the root user or sudoers can run these`
 
 ## What lives in /usr/sbin
 
@@ -420,104 +327,115 @@ Dragon Wisdom About /root
 
 ## What is /usr/local/bin
 
-- /usr/local/bin is for user-installed binaries (programs and scripts)
-- This directory is not touched by the package manager (apt, yum, etc.), so it’s safe for custom installations
-- Commands in here are typically user-level tools that don’t require root to run
-- Located in /usr/local, which is reserved for “local” custom software on your system
+- `/usr/local/bin is for user-installed binaries (programs and scripts)`
+- `This directory is not touched by the package manager (apt, yum, etc.), so it’s safe for custom installations`
+- `Commands in here are typically user-level tools that don’t require root to run`
+- `Located in /usr/local, which is reserved for “local” custom software on your system`
 
-## What lives here
+## What lives in /usr/local/bin
 
 | Example | Binary | What It Does |
 |---------|--------|--------------|
 | `my_script.sh` | :x: | A custom shell script you created |
 | `node_Node.js` | Binary | Installed manually |
-go Golang binary (if installed from source)
-custom-tool Any utility installed outside package manager
+| `go Golang` | Binary (if installed from source)
+custom-tool | Any utility installed outside package manager |
 
-If you install software manually with make && make install, it usually ends up here.
+**If you install software manually with make && make install, it usually ends up here**
 
-## /usr/local/sbin
+# /usr/local/sbin
 
-What is it?
- • /usr/local/sbin is the admin-only version of /usr/local/bin.
- • Used for system administrator programs that you’ve compiled or installed yourself.
- • Commands in here usually require root or sudo to run.
+## What is /usr/local/sbin
 
-Example Binary What It Does
-custom-daemon A custom service you compiled and installed
-vpn-setup-tool A manually installed VPN admin utility
-my_backup_tool Your own backup script running as root
+- `/usr/local/sbin is the admin-only version of /usr/local/bin`
+- `Used for system administrator programs that you’ve compiled  or installed yourself`
+- `Commands in here usually require root or sudo to run`
 
-The big picture
-Directory Managed By? Who Uses It? What’s Inside?
-/bin OS All users Core commands (ls, cp, etc.)
-/sbin OS Root/admin only Core admin tools (fsck, mount)
-/usr/bin Package Manager All users Installed software (python3, nano)
-/usr/sbin Package Manager Root/admin only Installed admin tools (sshd, apache2)
-/usr/local/bin You (manual install) All users Custom binaries/scripts
-/usr/local/sbin You (manual install) Root/admin only
+## What is in /usr/local/sbin
 
-opt directory
+| Example | Binary | What It Does |
+|---------|--------|--------------|
+| `custom-daemon` | :x: | A custom service you compiled and installed |
+| `vpn-setup-tool` | :x: | A manually installed VPN admin utility |
+| `my_backup_tool` | :x: | Your own backup script running as root |
 
-What is it?
- • /opt stands for “optional.”
- • It’s a directory designed to hold add-on application software packages that aren’t part of the base OS.
- • Think of it like the “VIP room” for third-party apps.
+# The big picture
 
-📍 Located at the root level (/), separate from system binaries and configs.
+| Directory | Managed By? | Who Uses It? | What’s Inside? |
+|-----------|-------------|--------------|----------------|
+| `/bin` | OS |All users |Core commands (ls, cp, etc.) |
+| `/sbin` | OS | Root/admin only | Core admin tools (fsck, mount) |
+| `/usr/bin` | Package Manager |All users | Installed software (python3, nano) |
+| `/usr/sbin` | Package Manager | Root/admin only | Installed admin tools (sshd, apache2) |
+| `/usr/local/bin` | You (manual install) | All users |Custom binaries/scripts |
+| `/usr/local/sbin` | You (manual install) |Root/admin only |
 
-What lives in /opt
-Example What It Does
-/opt/google/ Google Chrome installed manually
-/opt/vmware/ VMware Workstation binaries and libraries
-/opt/zoom/ Zoom client installed outside package manager
-/opt/myapp/ Your custom app installed manually
+# /opt
 
-Packages installed here often come with their own binaries, libraries, and configs, keeping them isolated from system files.
+## What is it?
 
-Why Use /opt?
+- `/opt stands for “optional"`
+- `It’s a directory designed to hold add-on application software packages that aren’t part of the base OS`
+- `Think of it like the “VIP room” for third-party apps`
 
-✅ For third-party or custom software:
- • Keeps your system’s core directories (/bin, /usr/bin) clean.
- • Prevents conflicts with OS updates or package manager upgrades.
- • Useful for enterprise apps and manual installations.
+**Located at the root level (/), separate from system binaries and configs**
 
-📌 Sysadmins love this directory for managing large, self-contained software suites.
+## What lives in /opt
 
-Real-World Examples
- • You download a .tar.gz of a custom security tool, extract it, and install it in /opt/mytool/.
- • A company installs Oracle software in /opt/oracle/.
- • Games like Steam (if manually installed) often go here.
+| Example | What It Does |
+|---------|--------------|
+| `/opt/google/` | Google Chrome installed manually |
+| `/opt/vmware/` | VMware Workstation binaries and libraries |
+| `/opt/zoom/` | Zoom client installed outside package manager |
+| `/opt/myapp/` | Your custom app installed manually |
 
-Dragon Wisdom About /opt
- • Good for cybersecurity tools: Pen-testing apps like Burp Suite, Nessus, or custom scripts often live here when installed manually.
- • Avoids “dependency hell”: Since apps in /opt bring their own dependencies, they don’t break when you update the system.
+**Packages installed here often come with their own binaries, libraries, and configs, keeping them isolated from system files**
 
-/lib directory
+## Why Use /opt?
 
-What is it?
- • /lib stands for “library”.
- • It holds shared libraries and kernel modules needed by programs in /bin and /sbin to run.
- • These libraries are like the magical incantations that make your commands actually work.
+- `For third-party or custom software`
+- `Keeps your system’s core directories (/bin, /usr/bin) clean`
+- `Prevents conflicts with OS updates or package manager upgrades`
+- `Useful for enterprise apps and manual installations`
 
-📍 Located in the root filesystem (/), because it’s essential for system booting.
+**Sysadmins love this directory for managing large, self-contained software suites**
 
-What lives in /lib
-Directory/File What It Does
-libc.so.*The GNU C library (the core library for Linux)
-ld-linux.so.* Dynamic linker/loader
-modules/ Kernel modules (*.ko files)
-systemd/ Libraries needed for system initialization
-libm.so.* Math library
+## Real-World Examples
 
-Shared libraries here usually have names like:
-LibXYZ.so.1
+- `You download a .tar.gz of a custom security tool, extract it, and install it in /opt/mytool/`
+- `A company installs Oracle software in /opt/oracle/`
+- `Games like Steam (if manually installed) often go here`
 
-lib → It’s a library.
-   • so → Stands for “shared object.”
- • The version number at the end (like .1) matters for compatibility.
+## Dragon Wisdom About /opt
 
-Why is /lib important
+- `Good for cybersecurity tools: Pen-testing apps like Burp Suite, Nessus, or custom scripts often live here when installed manually`
+- `Avoids “dependency hell”: Since apps in /opt bring their own dependencies, they don’t break when you update the system`
+
+# /lib
+
+## What is /lib?
+
+- `/lib stands for “library”`
+- `It holds shared libraries and kernel modules needed by programs in /bin and /sbin to run`
+- `These libraries are like the magical incantations that make your commands actually work`
+- `Located in the root filesystem (/), because it’s essential for system booting`
+- `Shared libraries here usually have names like LibXYZ.so."1"`
+
+## What lives in /lib?
+
+| Directory/File | What It Does |
+|----------------|--------------|
+| `libc.so.*` | The GNU C library (the core library for Linux) |
+| `ld-linux.so.*` | Dynamic linker/loader |
+| `modules/` | Kernel modules (*.ko files) |
+| `systemd/` | Libraries needed for system initialization |
+| `libm.so.*` | Math library |
+
+
+
+
+
+## Why is /lib important
 
 It’s critical for system booting and running basic binaries.
  • Without /lib, binaries in /bin and /sbin wouldn’t work because they rely on these libraries.
@@ -525,79 +443,86 @@ It’s critical for system booting and running basic binaries.
 
 🛡️ If you accidentally delete /lib, your system becomes unbootable.
 
-Real-World Examples
- • Dynamic Linking: When you run ls, it calls libraries in /lib (like libc.so).
- • Kernel Modules: Load extra hardware support by pulling modules from /lib/modules/.
+## Real-World Examples
 
-Troubleshooting: If a program complains about “missing shared library,” check /lib.
+- `Dynamic Linking: When you run ls, it calls libraries in /lib (like libc.so)`
+- `Kernel Modules: Load extra hardware support by pulling modules from /lib/modules/`
 
-On 64-bit systems, you’ll also see:
- • /lib64: Libraries specifically for 64-bit binaries.
+## Troubleshooting
 
-Dragon Wisdom About /lib
- • 🪄 It’s the system’s magic: Without it, binaries are useless shells.
- • 🧑‍💻 Cybersecurity tip: Attackers sometimes replace /lib libraries with malicious ones (called library hijacking).
+- `if a program complains about “missing shared library,” check /lib`
 
-/proc directory
+## On 64-bit systems, you’ll also see
 
-What is it?
- • /proc stands for “process.”
- • It’s a virtual filesystem (not stored on disk) that provides a window into the kernel and running processes.
- • Think of it as the control room where Linux displays real-time information about the system.
+- `/lib64: Libraries specifically for 64-bit binaries`
 
-Mounted automatically at boot under:
-/proc
+## Dragon Wisdom About /lib
 
-What lives in /proc
-File/Folder What It Represents
-cpuinfo Details about the CPU (model, cores, speed)
-meminfo RAM usage statistics
-uptime How long the system has been running
-version Kernel version information
-mounts Mounted filesystems
-cmdline Kernel boot parameters
-[PID]/ Subdirectories for each running process by their PID
-kallsyms Kernel symbol table
-sys/ Kernel tunables (used by sysctl)
+- `It’s the system’s magic: Without it, binaries are useless shells`
+- `Cybersecurity tip: Attackers sometimes replace /lib libraries with malicious ones (called library hijacking)`
 
-What’s So Special About /proc?
+# /proc 
 
-✅ It’s dynamic: Data in /proc is generated on-the-fly by the kernel every time you access it.
-✅ It’s read-only for most files, but some files (like /proc/sys) can be modified to change kernel parameters in real-time.
+## What is /proc?
 
-🛡️ This is why /proc is vital for system monitoring, debugging, and tuning.
+- `/proc stands for “process.”`
+- `It’s a virtual filesystem (not stored on disk) that provides a window into the kernel and running processes`
+- `Think of it as the control room where Linux displays real-time information about the system`
+- `Mounted automatically at boot under: `/proc`` 
 
-Real world examples
+## What lives in /proc?
 
-See CPU Details:
+| File/Folder | What It Represents |
+|-------------|--------------------|
+| `cpuinfo` | Details about the CPU (model, cores, speed) |
+| `meminfo` | RAM usage statistics |
+| `uptime` | How long the system has been running |
+| `version` | Kernel version information |
+| `mounts` | Mounted filesystems |
+| `cmdline| Kernel boot parameters |
+| `[PID]/` | Subdirectories for each running process by their PID |
+| `kallsyms` | Kernel symbol table |
+| `sys/` | Kernel tunables (used by sysctl) |
 
-cat /proc/cpuinfo
+## What’s So Special About /proc?
 
-Check Memory Usage:
+- `It’s dynamic: Data in /proc is generated on-the-fly by the kernel every time you access it`
+- `It’s read-only for most files, but some files (like /proc/sys) can be modified to change kernel parameters in real-time`
+- `This is why /proc is vital for system monitoring, debugging, and tuning`
 
-cat /proc/meminfo
+## Real world examples
 
-List all running processes (by PID):
+## See CPU Details
 
-ls /proc | grep '^[0-9]
+- `cat /proc/cpuinfo`
 
-Tweak Kernel Settings (as root):
+## Check Memory Usage:
 
-echo 1 > /proc/sys/net/ipv4/ip_forward
+- `cat /proc/meminfo`
 
-View Kernel Version:
+## List all running processes (by PID)
 
-cat /proc/version
+- `ls /proc | grep '^[0-9]`
 
-How /proc Powers Cybersecurity
- • 🛡️ Monitor system activity: Watch process behavior during an incident.
- • 🧑‍💻 Forensics: Inspect /proc/[PID]/cmdline to see what commands a process ran.
- • ⚙️ Hardening: Adjust kernel security flags via /proc/sys.
+## Tweak Kernel Settings (as root)
 
-Dragon Wisdom About /proc
- • 🪄 It’s like reading the system’s live neural network.
- • 🛡️ Some files in /proc/sys can literally change system behavior—so handle with care.
- • 🧑‍💻 As a cybersecurity pro, you’ll visit /proc often to monitor or control processes.
+- `echo 1 > /proc/sys/net/ipv4/ip_forward`
+
+## View Kernel Version
+
+- `cat /proc/version`
+
+## How /proc Powers Cybersecurity
+
+- `Monitor system activity: Watch process behavior during an incident`
+- `Forensics: Inspect /proc/[PID]/cmdline to see what commands a process ran`
+- `Hardening: Adjust kernel security flags via /proc/sys`
+
+## Dragon Wisdom About /proc
+
+- `It’s like reading the system’s live neural network`
+- `Some files in /proc/sys can literally change system behavior—so handle with care`
+- `As a cybersecurity pro, you’ll visit /proc often to monitor or control processes`
 
 # /dev
 
@@ -605,9 +530,9 @@ Dragon Wisdom About /proc
 
 ## What is /dev?
 
-- In Linux, everything is a file – even hardware like disks, terminals, and printers
-- The files in /dev are interfaces to kernel drivers that let you interact with hardware or virtual devices.
-- You don’t directly “open” these files to edit them, but commands and programs can use them to send or receive data to/from hardware.
+- `In Linux, everything is a file – even hardware like disks, terminals, and printers`
+- `The files in /dev are interfaces to kernel drivers that let you interact with hardware or virtual devices`
+- `You don’t directly “open” these files to edit them, but commands and programs can use them to send or receive data to/from hardware`
 
 ## Types of Device Files in /dev
 
@@ -615,63 +540,69 @@ Dragon Wisdom About /proc
 
 ### Character Devices (c)
 
-- Data is handled one character at a time.
-- Example: keyboards, mice, serial ports, terminals.
-- Found with ls -l showing a c at the start:
+- `Data is handled one character at a time`
+- `Example: keyboards, mice, serial ports, terminals`
+- `Found with ls -l showing a c at the start`
 
 - `crw-rw-rw- 1 root root 1, 3 Jul 16 10:12 /dev/null`
 
 ### Block Devices (b)/
 
-- Data is handled in blocks (like disks).
-- Example: hard drives, SSDs, USB drives.
-- Found with ls -l showing a b at the start
+- `Data is handled in blocks (like disks)`
+- `Example: hard drives, SSDs, USB drives`
+- `Found with ls -l showing a b at the start`
 
 - `brw-rw---- 1 root disk 8, 0 Jul 16 10:12 /dev/sda`
 
-Key Special Files in /dev
+## Key Special Files in /dev
 
-Here’s a tour of the most common ones you’ll see:
+|File | What It Represents |
+|-----|--------------------|
+| `/dev/null` | A “black hole” – data written here is discarded (used to suppress output) |
+| `/dev/zero` | Infinite stream of zeros. Useful for overwriting or allocating space |
+| `/dev/random` | Generates random data (good for cryptography) |
+| `/dev/random` | Like /dev/random, but faster and less “truly random” |
+| `/dev/tty` | The terminal currently in use |
+| `/dev/sda` | The first hard disk (block device). Subsequent disks are /dev/sdb, /dev/sdc, etc |
+| `/dev/sr0` | First CD/DVD-ROM drive |
+| `/dev/loop0` | A loopback device (lets you mount a file as if it were a disk) |
+| `/dev/fd0` | First floppy disk (mostly historical now) |
 
-File What It Represents
-/dev/null A “black hole” – data written here is discarded (used to suppress output).
-/dev/zero Infinite stream of zeros. Useful for overwriting or allocating space.
-/dev/random Generates random data (good for cryptography).
-/dev/urandom Like /dev/random, but faster and less “truly random”.
-/dev/tty The terminal currently in use.
-/dev/sda The first hard disk (block device). Subsequent disks are /dev/sdb, /dev/sdc, etc.
-/dev/sr0 First CD/DVD-ROM drive.
-/dev/loop0 A loopback device (lets you mount a file as if it were a disk).
-/dev/fd0 First floppy disk (mostly historical now).
+## Why is /dev special?
 
-Why is /dev special?
- • Dynamic: Modern Linux uses udev, which populates /dev automatically as devices are added/removed.
- • Virtual Filesystem: /dev isn’t a real directory on disk. It’s provided by the devtmpfs filesystem mounted at boot.
+- `Dynamic: Modern Linux uses udev, which populates /dev automatically as devices are added/removed`
+- `Virtual Filesystem: /dev isn’t a real directory on disk. It’s provided by the devtmpfs filesystem mounted at boot`
 
-⸻
+## Real-World Examples
 
-🖐️ Real-World Uses
+## Suppressing Output
 
-✔ Suppressing Output
-
+```bash
 command > /dev/null 2>&1
+```
 
-(Send all output and errors to the void.)
+**(Send all output and errors to the void.)**
 
-Wiping a Drive
+## Wiping a Drive
 
+```bash
 sudo dd if=/dev/zero of=/dev/sdb bs=1M
+```
 
-(Overwrite /dev/sdb with zeros.)
+**(Overwrite /dev/sdb with zeros.)**
 
-Testing Randomness
+## Testing Randomness
 
+```bash
 head -c 100 /dev/random | od -t x1
+```
 
-Checking USB Device
+## Checking USB Device
 
+```bash
 dmesg | grep sdb
 ls -l /dev/sd*
+```
 
 # /boot
 
@@ -687,15 +618,15 @@ ls -l /dev/sd*
 | `System.map-*` | Kernel symbol table (for debugging and crash analysis) |
 | `config` | Kernel build configuration |
 
-- The asterisks (*) represent the kernel version (e.g., vmlinuz-5.15.0-1051).
+**The asterisks (*) represent the kernel version (e.g., vmlinuz-5.15.0-1051)**
 
 ## Why is /boot Important?
 
 ## Without /boot, the system
 
-- can’t load the kernel
-- can’t initialize hardware drivers
-- can’t hand control to user space
+- `can’t load the kernel`
+- `can’t initialize hardware drivers`
+- `can’t hand control to user space`
 
 ## Real-World Examples
 
@@ -729,10 +660,10 @@ sudo update-grub
 
 ## Key Properties of /tmp
 
-- Ephemeral: Anything here is not meant to last. Don’t save important files here!
-- World-Writable: Any user can write here, but files are protected from other users by the sticky bit.
-- Any user or program can write here (with some restrictions).
-- It’s cleared out automatically, either: On reboot or by tmpwatch / systemd-tmpfiles if a file is unused for too long
+- `Ephemeral: Anything here is not meant to last. Don’t save important files here`
+- `World-Writable: Any user can write here, but files are protected from other users by the sticky bit`
+- `Any user or program can write here (with some restrictions)`
+- `It’s cleared out automatically, either: On reboot or by tmpwatch / systemd-tmpfiles if a file is unused for too long`
 
 ## Example
 
@@ -759,11 +690,10 @@ drwxrwxrwt 10 root root 4096 Jul 16 09:42 /tmp
 
 ## What Goes in /tmp
 
-- Programs use /tmp for:
-- Temporary data while running
-- Socket files for inter-process communication (IPC)
-- Lock files
-- Cache files during installations
+- `Temporary data while running`
+- `Socket files for inter-process communication (IPC)`
+- `Lock files`
+- `Cache files during installations`
 
 ## File Purpose Examples
 
@@ -783,28 +713,24 @@ drwxrwxrwt 10 root root 4096 Jul 16 09:42 /tmp
 
 - `/tmp/ssh-XXXXXX/`
 
-Sticky Bit in Action
+## Sticky Bit in Action
 
-To see it:
-
+```bash
 ls -ld /tmp
 
-You’ll get:
-
 drwxrwxrwt 10 root root 4096 Jul 16 09:42 /tmp
+```
 
-The t at the end means:
- • Users can’t delete files they don’t own.
+## The t at the end means:
 
-Without sticky bit? Any user could delete anyone else’s temp files 🫠.
+- `Users can’t delete files they don’t own`
+- `Without sticky bit? Any user could delete anyone else’s temp files`
 
-Security Notes
+## Security Notes
 
-✔️ Modern Linux mounts /tmp with noexec and nosuid to prevent abuse:
- • noexec: Stops programs from running directly from /tmp.
- • nosuid: Stops set-user-ID programs from escalating privileges.
-
-⸻
+- `Modern Linux mounts /tmp with noexec and nosuid to prevent abuse`
+- `noexec: Stops programs from running directly from /tmp`
+- `nosuid: Stops set-user-ID programs from escalating privileges`
 
 ## Real-World Examples
 
@@ -817,10 +743,9 @@ echo "test" > testfile.txt
 
 ## Temporary Download
 
+```bash
 wget -O /tmp/testfile.zip <http://example.com/file.zip>
-
-Debugging
-Programs often leave traces in /tmp when they fail.
+```
 
 ## /tmp vs /var/tmp
 
