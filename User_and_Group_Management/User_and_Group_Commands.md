@@ -15,14 +15,10 @@
 - `groupdel`
 - `gpasswd`
 - `groups`
-- `id`
 - `whoami`
 - `getent`
 - `finger`
 - `user`
-- `chmod`
-- `chown`
-- `chgrp`
 - `newgrp`
 - `deluser`
 - `delgroup`
@@ -235,39 +231,6 @@ groups
 
 groups name
 
-# Command: id
-
-## Description: Show a user’s UID, GID, and group memberships.
-
-## Syntax
-
-- `id [OPTIONS] [USERNAME]`
-
-### Options
-
--u	Show only the UID.
--g	Show only the GID.
--G	Show all group IDs.
--n	Show names instead of numeric IDs.
-
-### Examples
-
-### Show your user and group IDs
-
-id
-
-### Show IDs for user "name"
-
-id name
-
-### Show only UID for user "name"
-
-id -u name
-
-### Show only GID for user "name"
-
-id -g name
-
 # Command: whoami
 
 ## Description:
@@ -299,36 +262,6 @@ id -g name
 ### Examples
 
 # Command: user
-
-## Description:
-
-## Syntax
-
-### Options
-
-### Examples
-
-# Command: chmod
-
-## Description:
-
-## Syntax
-
-### Options
-
-### Examples
-
-# Command: chown
-
-## Description:
-
-## Syntax
-
-### Options
-
-### Examples
-
-# Command: chgrp
 
 ## Description:
 

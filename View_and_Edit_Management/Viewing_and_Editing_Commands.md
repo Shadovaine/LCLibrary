@@ -10,7 +10,6 @@
 - `head`
 - `tail`
 - `fold`
-- `stat`
 - `tac`
 - `strings`
 - `od`
@@ -28,13 +27,32 @@
 
 ### Options
 
--n     Numbers all output lines
--b.    Number only non-blank lines
--s.    Suppress repeated blank lines ( squeeze  them)
--E.    Show $ at end of each line
--T.    Show tabs as ^I ( useful for debugging whitespace)
+| Options | Descriptions | Examples |
+|---------|--------------|----------|
+| `-A` | Shows all characters tabs, line ends, non-printing char | `cat -A secretfile` |
+| `-b` | Numbers non-blank lines | `cat -b story.txt` |
+| `-e` | Show $ at line ends and non-printing characters | `cat -e quote.txt` |
+| `-E` | Show $ at end of each line | `cat -E poem.txt` |
+| `-n` | Number all lines | `cat -n code.py` |
+| `-s` | Squeeze multiple blank lines into one | `cat -s journal.txt` |
+| `-T` | Show tabs as ^I | `cat -T notes.txt` |
+| `-v` | Show non-printing characters | `cat -v dumpfile.txt` |
 
 ### Examples
+
+### Number all lines
+
+```bash
+cat -n script.sh
+```
+
+### Breakdown
+
+| Breakdown | Description |
+|-----------|-------------|
+| `cat` | Viewer command |
+| `-n` | Directs to number lines |
+| `script.sh` | Target file |
 
 # Command: Less
 
@@ -145,52 +163,72 @@ fold -w 40 longfile.txt
 ### Wrap lines but don’t split words
 
 fold -s -w 40 longfile.txt
+d
+# Command: tac 
 
-# Command: stat
-
-## Description: Detailed file information**
-
-## Syntax
-
--`stat [file]`
-
-### Options
-
-### Examples
-
-- stat /etc/passwd
-
-# Pro Tip and Examples
-
-## You can chain these together with pipes (|)
-
-## View only the first 20 lines of a huge file
-
-cat bigfile.txt | head -n 20
-
-## View a growing log file in real-time
-
-tail -f /var/log/syslog | grep "error"
-
-# Command: tac
-
-## Description:
+## Description: Reads a file from bottom to top line by line
 
 ## Syntax
 
+- `tac [Option]...[File]...`
+
 ### Options
 
+| Options | Descriptions | Examples |
+|---------|--------------|----------|
+| `-b` | Attach the separator before instead of after | `tac -b data.txt` |
+| `-r` | Treat the separator as a regex | `tac -r -s [0-9]{4}-' logs.txt` | 
+| `-s<separator>` | Use a custom separator instead of newline | `tac -s ":" /etc/passwd` |
+
 ### Examples
+
+### Reverse a file line-by-line
+
+```bash
+tac notes.txt
+```
+
+### Breakdown
+
+| Breakdown | Description |
+|-----------|-------------|
+| `tac` | Viewer command |
+| `notes.txt` | Target file |
 
 # Command: strings
 
-## Description:
+## Description: Extracts and prints human-readable strings from binary files or blobs of data
 
 ## Syntax
 
+- `strings [Options] file`
+
 ### Options
 
+| Options | D*escriptions | Examples |
+|---------|--------------|----------|
+| `-a` | Scan entire file | `strings -a malware.exe` |
+| `-n<numbers>--bytes=<number>` | Minimum string length to print | `strings -n 5 binary.dump` |
+| `-t <radix>` | Print offset of string in file | `strings -t x /bin/ls` |
+| `-e <encoding>` | Character encoding | `strings -e 1 firmaware.bin` |
+| `-f` | Show the file name before each string | `strings -e 1 firmware.bin` |
+| `-o` | Legacy: same as -t d -- show decimal offset | `strings -f *.o` |
+| `-T<encoding>` | Specify encoding for output terminal | `strings -T UTF-8 core.dump` |
+
 ### Examples
+
+### Scan a binary and show readable text
+
+```bash
+strings /usr/bin/whoami
+```
+
+### Breakdown
+
+| Breakdown | Description |
+|-----------|-------------|
+| `strings` | Decoder command |
+| `/usr/bin/whoami` | Target file to decode |
 
 # Command: od
 
@@ -214,8 +252,30 @@ tail -f /var/log/syslog | grep "error"
 | `j<num>` | Skip N bytes before dumping | `od -j 16 -x myfile` |
 | -v` | Do not suppress repeated lines | `od -v -x myfile` |
 
-### 
+### od Output Formats
+
+| od Formats | Descriptions |
+|------------|--------------|
+| `x1, x2` | Hex 1 or 2byte grouplings |
+| `u1, u2, u4` | Unsigned ints |
+| `d2, d4` | signed decimals |
+| `f4, f8` | floating point |
+
 ### Examples 
+
+### Dump stdin as hex
+
+```bash
+cat | od -tx1
+```
+
+### Breakdown
+
+| Breakdown | Description |
+|-----------|-------------|
+| `cat` | viewing command |
+| `od` | Dumping command |
+| `-tx1` | Specifies output format |
 
 # Command: xxd
 

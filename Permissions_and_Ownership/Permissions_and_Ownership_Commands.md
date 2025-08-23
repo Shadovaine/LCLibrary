@@ -238,6 +238,17 @@ chgrp staff file.txt
 
 ### Examples
 
+```bash
+stat /etc/passwd
+```
+
+### Breakdown
+
+| Breakdown | Description |
+|-----------|-------------|
+| `stat` | Viewing command |
+| `/etc/passwd` | Target file |
+
 # Command: namei
 
 ## Description: Resolves and displays each component of a file path, it shows how the system interprets directories, symlinks, and files along the path
