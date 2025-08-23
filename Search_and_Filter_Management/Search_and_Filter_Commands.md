@@ -14,7 +14,6 @@
 - `uniq`
 - `jg`
 
-
 # Command: Grep
 
 ## Description: Classic text and content search command
@@ -50,6 +49,8 @@
 | `--color` | color Matches | `grep --color=always "error" logfile.txt` |
 
 ### Examples
+
+### Search for the keyword "password" in the folder `/etc/passwd` and do not worry about case-sensitivity
 
 ```bash
 grep -i "password" /etc/passwd
@@ -226,6 +227,12 @@ fgrep -r "127.0.0.1" /etc/
 
 ### Examples
 
+### Cut out the first field before the colon on every line
+
+```bash
+cut -d ":" -f 1 /etc/passwd
+```
+
 ### Breakdown
 
 | Breakdown | Description |
@@ -235,6 +242,12 @@ fgrep -r "127.0.0.1" /etc/
 | `:` | Specified delimiter |
 | `-f 1` | Specified to list a specific field |
 | `/etc/passwd` | Target file |
+
+### 
+
+```bash
+cut -d ":" -f 1 /etc/passwd | sort
+```
 
 ### Breakdown
 
@@ -409,12 +422,33 @@ sort file.txt | uniq -c
 
 ## Syntax
 
-- `jg [query] < file.json`
+- `jg [Options] [Pattern] [Path]`
 
 ### Options
 
+| Options | Descriptions | Examples |
+|---------|--------------|----------|
+| `--query<Query>` | Print the query input | `jg --query error` |
+| `--cwd<DIR>` | Sets the working directory for search | `--cwd ~/projects` |
+| `--hidden` | Includes hidden files in search | `jg --hidden` |
+| `--no-ignore` | Do not respect .gitignore, .ignore, etc. | `jg --no-ignore` |
+| `--smart-case` | Use smart casing for query matching | `jg --smart-case` |
+| `--case-sensitive` | Force case-sensitive search | `jg --case-sensitive` |
+| `--ignore-case` | Force case-insensitive search | `jg --ignore-case` |
+| `--type<Type>` | Restrict to file types | `jg --tyep py` |
+| `--type-not<Type>` | Exclude certain file types | `jg --type-not md` |
+
 ### Examples
 
-- cat authlog.json | jg "user.name == 'jake'"
+### Search inside a specific directory
 
-Useful for analyzing logs or leaked dumps in structured formats.
+```bash
+jg --cwd ~/logs
+```
+### Breakdown
+
+| Breakdown | Description |
+|-----------|-------------|
+| `jg` | Parsing command |
+| `--cwd` | Sets the working directory for search |
+| `~/logs` | Target files |

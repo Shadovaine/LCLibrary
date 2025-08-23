@@ -194,36 +194,126 @@ tail -f /var/log/syslog | grep "error"
 
 # Command: od
 
-## Description:
+## Description: Stands for `octal dump`, it can display files in hex, binary, octal, ASCII, decimal, or all at once. Its a raw byte-level viewer for binary files.
 
 ## Syntax
 
+- `od [Options] [File]`
+
 ### Options
 
-### Examples
+| Options | Descriptions | Examples |
+|---------|--------------|----------|
+| `-o`or`(none)` | Shows octal bytes | `od` |
+| `-x` | Hexadecimal output | `od -x myfile` |
+| `-c` | Character dump (ASCiI) | `od -c myfile` |
+| `-b` | Binary(octal) dump of bytes | `od -b myfile` |
+| `-d` | Unsigned decimal format | `od -d myfile` |
+| `-t` | Specify output format | `od -t x1 myfile` |
+| `-N<num>` | Read only N bytes | `od -N 16 myfile` |
+| `j<num>` | Skip N bytes before dumping | `od -j 16 -x myfile` |
+| -v` | Do not suppress repeated lines | `od -v -x myfile` |
+
+### 
+### Examples 
 
 # Command: xxd
 
-## Description:
+## Description: Creates a hex dump of a given file, or STDIN, and can convert it back to binary if needed
 
 ## Syntax
 
+- `xxd [Options] [file] [outfile]`
+
 ### Options
+
+| Options | Descriptions | Examples |
+|---------|--------------|----------|
+| `-p` | Plain hexdump (no addresses, no ASCII) | `xxd -p myfile` |
+| `-r` | Reverse operation (hex back to binary; essential to reverse a patch or decode raw hex data) | `xxd -r -p hexfile.txt > recovered.txt` |
+| `-c<cols>` | Change number of bytes per line | `xxd -c 8 myfile` |
+| `-g<bytes>` | Group bytes together | `xxd -g 2 myfile` |
+| `-s<offset>` | Start at byte offset (can use hex) | `xxd -s 0x10 myfile` |
+| `-l<length>` | Limit output to N bytes | `xxd -l 32 myfile` |
+| `-u` | Uppercase hex | `xxd -u myfile` |
+| `-i` | output as C-style include array | `xxd -i myfile` |
+| `-e` | Little-endian hex dump (rarely used) | `xxd -e myfile` |
+
+### Reverse a patch
+
+### Step 1: Hexdump the binary
+
+```bash
+xxd -p original.bin > dump.hex
+```
+
+### Step 2: Edit the hex dump in a text editor
+
+### Step 3: Convert back
+
+```bash
+xxd -r -p dump.hex > modified.bin
+```
 
 ### Examples
 
-# vipe
+### View a file as hex
 
-## Description: Edit stdin input in your $EDITOR (usually nano or vim)
+```bash
+xxd /bin/ls | less
+```
+
+### Breakdown
+
+| Breakdown | Description |
+|-----------|-------------|
+| `xxd` | Hex command |
+| `/bin/ls` | Target file to hexdump |
+| `less` | Piped and less Directs to view hexdump |
+
+### Dump first 64 bytes of a file
+
+```bash
+xxd -l 64 myfile
+```
+
+### Breakdown
+
+| Breakdown | Description |
+|-----------|-------------|
+| `xxd` | Hex command |
+| `-l 64` | Sets the length to be hexdumped to 64 bytes |
+| `myfile` | Target file |
+
+# Command: vipe
+
+## Description: Edit stdin input in your $EDITOR (usually nano or vim). Acts as a pipe-based "pause and edit" tool. Use it in between pipes.
+
+## Overall vipe process
+
+- `It takes input from a command`
+- `Opens a text editor`
+- `then saves and exits to continue processing`
 
 ## Syntax
 
-- `some_command | vipe | another_command`
+- `[command] vipe [command]`
 
 ### Options
 
+- `No standard options`
+- `User does need to set specific editor to have vipe use during session. It can be temporary or made permanent`
+
 ### Examples
 
-echo "classified content" | vipe | gpg -c > encrypted.gpg
+### Edit output from `echo` before saving
 
-Use case: Intercept CLI data to review/modify securely before sending it along a pipeline.
+```bash
+echo "Name is learning Linux like a beast!" | vipe > notes.txt
+```
+
+### Interactive editing during a pipeline
+
+```bash
+cat /etc/passwd | vipe | grep bash
+```
