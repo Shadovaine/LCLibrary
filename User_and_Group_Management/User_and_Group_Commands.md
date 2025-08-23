@@ -568,59 +568,141 @@ sudo groupmod -g 2000 staff
 
 ### Options
 
-| Options | Descriptions | Examples |
-|---------|--------------|----------|
+- `No options for groupdel`
+
 ### Examples
+
+### Delete a group
+
+```bash
+sudo groupdel testers
+```
+
+### Breakdown
+
+| Breakdown | Description |
+|-----------|-------------|
+| `sudo` | Superuser command |
+| `groupdel` | Group command |
+| `testers` | Specified group |
 
 # Command: gpasswd
 
-## Description:
+## Description: It handles group passwords and memberships directly. It can set or change passwords, add or remove users from groups, set group administrators, and lock or unlock groups. It uses the `/etc/group` and `/etc/gshadow` files
 
 ## Syntax
 
-### Options
-
-### Examples
-
-# Command: groups
-
-## Description: Show which groups a user belongs to
-
-## Syntax
-
-- `groups [USERNAME]`
+- `gpasswd [Options] GROUP`
+- `gpasswd [Options] -a USER GROUP`
+- `gpasswd [Options] -d USER GROUP`
 
 ### Options
 
+| Options | Descriptions | Examples |
+|---------|--------------|----------|
+| `-a USER` | Add user to group | `sudo gpasswd -a name newname` |
+| `-d USER` | Remove user from group | `sudo gpasswd -d name newname` |
+| `-r` | Remove group password | `sudo gpasswd -r name` |
+| `-R` | Restrict group access to members only | `sudo gpasswd -R name` |
+| `-A USER1,USER2` | Set group administrators | `sudo gpasswd -A name,oldname newnamex` |
+| `-M USER1,USER2 | Define group members | `sudo gpasswd -M name,oldnane newnames` |
+
 ### Examples
 
-### Show your groups
+### Add user name to docker group
 
-groups
+```bash
+sudo gpasswd -a name docker
+```
 
-### Show groups for user "name"
+### Breakdown
 
-groups name
+| Breakdown | Description |
+|-----------|-------------|
+| `sudo` | Superuser command |
+| `gpasswd` | Group command |
+| `-a` | Add a user to a group |
+| `name` | Name of a new user |
+| `docker` | Specified group to add new user |
+
+### Assign admins name and oldname to group qa
+
+```bash
+sudo gpasswd -A name, oldname qa
+```
+
+### Breakdown
+
+| Breakdown | Description |
+|-----------|-------------|
+| `sudo` | Superuser command |
+| `gpasswd` | Group command |
+| `-A` | Directs to add specified users as admin to group |
+| `name, oldname` | Specified users to be admin |
+| `qa` | Specified group |
+
 
 # Command: whoami
 
-## Description:
+## Description: Displays the current effective username of the shell or process running the command. It is a shortcut for `id -un`
 
 ## Syntax
 
+- `whoami [Options]`
+
 ### Options
 
+- `no options`
+
 ### Examples
+
+### Check current username
+
+```bash
+whoami
+```
+
+### Breakdown
+
+| Breakdown | Description |
+|-----------|-------------|
+| `whoami` | User command |
 
 # Command: getent
 
-## Description:
+## Description: Retrieves entries from administrative databases configured in `/etc/nsswitch.conf`. It can pull user accounts, groups, hosts, network services, protocols, and more
 
 ## Syntax
 
+- `getent [Options] DATABASE [Keyword...]`
+
 ### Options
 
+| Options | Descriptions | Examples |
+|---------|--------------|----------|
+| `(none)` | Dumps all user accounts | `getent passwd` |
+| `with KEY` | Returns only name's entry from passwd database | `getent passwd name` |
+| `hosts` | Queries from hosts database | `getent hosts localhosts` |
+| `service` | Queries from service database | `getent services ssh` |
+| `protocols` | Queries from protocols database | `getent protocols tcp` |
+| `networks` | Queries from networks database | `getent networks loopback` |
+| `ahosts` | Outputs IPv4 and IPv6 addresses | `getent ahosts google.com` |
+| `alias` | Queries mail alias if configured | `getent aliases mail |
+
 ### Examples
+
+### List all groups
+
+```bash
+getent group
+```
+
+### Breakdown
+
+| Breakdown | Description |
+|-----------|-------------|
+| `getent` | Database command |
+| `group` | Specified target to query |
 
 # Command: finger
 
