@@ -509,22 +509,67 @@ newgrp newname
 
 # Command: groupmod
 
-## Description: Modifies 
+## Description: Modifies existing group's name, change its GID, or update its password
 
 ## Syntax
 
+- `groupmod [Options] GROUP`
+
 ### Options
+
+| Options | Descriptions | Examples |
+|---------|--------------|----------|
+| `-g` | Change the group's numeric Group ID | `sudo groupmod -g 1000 developers` |
+| `-n`or`--new-name NEW_GROUP` | Rename a group | `sudo groupmod -n devs developers` |
+| `-o`or`--non-unique` | Allow a duplicate GID | `sudo groupmod -g 1001 -o duplicategroup` |
+| `-p`or`--password ENCRYPTED` | "$(openssl passwd -l GroupPass123)" admins` |
 
 ### Examples
 
+### Rename group qa to quality
+
+```bash
+sudo groupmod -n quality qa
+```
+
+### Breakdown
+
+| Breakdown | Descriptions | Examples |
+|-----------|--------------|----------|
+| `sudo` | Superuser command |
+| `groupmod` | User command |
+| `-n` | Rename a group |
+| `quality` | New Group name |
+| `qa` | Old group name |
+
+### Change GID of staff group to 2000
+
+```bash
+sudo groupmod -g 2000 staff
+```
+
+### Breakdown
+
+| Breakdown | Description |
+|-----------|-------------|
+| `sudo` | Superuser command |
+| `groupmod` | User command |
+| `-g` | Directs to change the group's ID |
+| `2000` | New Group ID |
+| `staff` | Group name |
+
 # Command: groupdel
 
-## Description:
+## Description: Deletes a group from the system by removing the entry from `/etc/group` and `/etc/shadow`. Does not delete user
 
 ## Syntax
 
+- `groupdel [Options] GROUP`
+
 ### Options
 
+| Options | Descriptions | Examples |
+|---------|--------------|----------|
 ### Examples
 
 # Command: gpasswd
