@@ -28,7 +28,7 @@
 
 
 
-## Command: ls 
+# Command: ls 
 
 ## Descriptions: Lists files in a directory
 
@@ -36,7 +36,7 @@
 
 - `ls [option] [directory]`
 
-### Option
+## Option
 
 | Options | Descriptions | Examples |
 |---------|--------------|----------|
@@ -60,9 +60,9 @@
 | `--color` |  Colorize the output. | `ls --color` |
 | `--group-directories-first` |  List directories before files. | `ls --group-directories-first` |
 
-### Examples
+## Examples
 
-### List all files in detail in readable format
+## List all files in detail in readable format
 
 ```bash
 ls -alh /etc
@@ -78,7 +78,7 @@ ls -alh /etc
 | `-h` | Converts the file's raw bites into a human readable format. |
 | `/etc` | Target Directory. |
 
-### List all files in detail in readable form sorting them by file size.
+## List all files in detail in readable form sorting them by file size.
 
 ```bash
 ls -alhS /etc
@@ -95,7 +95,7 @@ ls -alhS /etc
 | `-S` | Directs to sort files by size. |
 | `/etc` | Target directory to list. |
 
-## Command: cd
+# Command: cd
 
 ## Description: Change Directory
 
@@ -103,7 +103,7 @@ ls -alhS /etc
 
 - `cd [directory]`
 
-### Special Behaviors (cd does not have options due to it being built into the shell)
+## Special Behaviors (cd does not have options due to it being built into the shell)
 
 | Special Behaviors | Description |
 |-------------------|-------------|
@@ -116,9 +116,9 @@ ls -alhS /etc
 | `cd ./dirname` | Enter a directory in the current location explicitly. |
 | `cd ~username` | Change to another user's home directory. |
 
-### Example
+## Example
 
-### Change to a specific file
+## Change to a specific file
 
 ```bash
 cd ~/Desktop/profile
@@ -132,7 +132,7 @@ cd ~/Desktop/profile
 | `~` | Home directory. |
 | `/Desktop/profile` | Target Directory to change to `/Desktop/profile`. |
 
-## Command: pwd
+# Command: pwd
 
 ## Description: Print working directory
 
@@ -140,7 +140,7 @@ cd ~/Desktop/profile
 
 - `pwd [options]`
 
-### Options
+## Options
 
 | Options | Descriptions | Examples|
 |---------|--------------|---------|
@@ -149,9 +149,9 @@ cd ~/Desktop/profile
 | `--help` | Display help for the command. | `pwd --help` |
 | `--version` | Shows version information. | `pwd --version` |
   
-### Example
+## Example
 
-### Show the physical path of the current working directory
+## Show the physical path of the current working directory
 
 ```bash
 pwd -p
@@ -164,7 +164,7 @@ pwd -p
 | `pwd` | Print working directory command. |
 | `-p` | Will print the physical path. |
 
-## Command: mkdir
+# Command: mkdir
 
 ## Description: Makes a new directory
 
@@ -172,7 +172,7 @@ pwd -p
 
 - `mkdir [options] directory_name`
 
-### Options
+## Options
 
 | Options | Descriptions | Examples |
 |---------|--------------|----------|
@@ -182,15 +182,15 @@ pwd -p
 | `--help` | Display help information.| `mkdir --help` |
 | `--version` |Show version information. | `mkdir --version` |
   
-### Examples
+## Examples
 
-### Create a new directory along with parent directories and output the detailed locations
+## Create a new directory along with parent directories and output the detailed locations
 
 ```bash
 mkdir -pv /tmp/dragonnest
 ```
 
-## Breakdown
+### Breakdown
 
 | Breakdown | Description |
 |-----------|-------------|
@@ -199,7 +199,7 @@ mkdir -pv /tmp/dragonnest
 | `-v` | Shows all created directories. |
 | `/tmp/dragonnest` | Target directory. |
 
-## Command: rmdir
+# Command: rmdir
 
 ## Descriptions: Removes a directory
 
@@ -207,7 +207,7 @@ mkdir -pv /tmp/dragonnest
 
 - `rmdir [options] directory_name`
 
-### Options
+## Options
 
 | Options | Descriptions | Examples |
 |---------|--------------|----------|
@@ -217,9 +217,9 @@ mkdir -pv /tmp/dragonnest
 | `--help` | Display help information. | `rmdir --help` |
 | `--version` | Show version informawtion. | `rmdir --version` |
 
-### Example
+## Example
 
-### Remove a directory
+## Remove a directory
 
 ```bash
 rmdir empty_folder
@@ -232,9 +232,7 @@ rmdir empty_folder
 | `rmdir` | Command to remove directory. |
 | `empty_folder` | Name of directory to be removed. |
 
-
-
-## Command: cp
+# Command: cp
 
 ## Description: Makes a copy of a file or directory to destination location. It leaves an original copy in source location
 
@@ -242,7 +240,7 @@ rmdir empty_folder
 
 - `cp [options] source destination`
 
-### Options
+## Options
 
 | Option | Description | Example |
 |--------|-------------|---------|
@@ -261,9 +259,9 @@ rmdir empty_folder
 | `--remove-destination` | Remove destination before copying. | `cp --remove-destination folder/ backup/` |
 | `--backup` | Create a backup of each existing destination file before copying. | `cp --backup folder/ backup/` | 
 
-### Examples
+## Examples
 
-### Copy a file into another directory
+## Copy a file into another directory
 
 ```bash
 cp file.txt backup/
@@ -277,7 +275,7 @@ cp file.txt backup/
 | `file.txt` | Source file to copy. |
 | `backup/` | Destination location for new copy. |
   
-### Copy a directory recursively with verbose output
+## Copy a directory recursively with verbose output
 
 ```bash
 cp -rv project /backup/
@@ -293,7 +291,7 @@ cp -rv project /backup/
 | `project/` | Source location. |
 | `backup/` | Destination Location. |
 
-### Prompt before overwriting a file
+## Prompt before overwriting a file
 
 ```bash
 cp -i file.txt backup/
@@ -308,7 +306,7 @@ cp -i file.txt backup/
 | `file.txt`:  Source file. |
 | `backup/` | Destination location. |
 
-## Command: mv
+# Command: mv
 
 ## Description: Moves a file or directory to a destination location. It does not leave an original copy in source location.
 
@@ -316,7 +314,7 @@ cp -i file.txt backup/
 
 - `mv [options] source destination`
 
-### Options
+## Options
 
 | Options | Descriptions | Examples |
 |---------|--------------|----------|
@@ -329,9 +327,9 @@ cp -i file.txt backup/
 | `--backup[=CONTROL]` | Make a backup of each destination file. | `mv --backup=simple project.txt backup/` |
 | `--strip-trailing-slashes` | Removes trailing slashes from source arguments. | `mv --strip-trailing-slashes project/ backup/` |
 
-### Example
+## Example
 
-### Prompt user before moving file then show detailed path of new location
+## Prompt user before moving file then show detailed path of new location
 
 ```bash
 mv -iv file.txt /tmp/
@@ -346,7 +344,7 @@ mv -iv file.txt /tmp/
 | `file.txt` | Source file.
 | `/tmp/` | Destination location. |
   
-## Command: rm
+# Command: rm
 
 ## Description: Removes files or directories
 
@@ -354,7 +352,7 @@ mv -iv file.txt /tmp/
 
 - `rm [options] target`
 
-### Options
+## Options
 
 | Options | Descriptions | Examples |
 |---------|--------------|----------|
@@ -368,9 +366,9 @@ mv -iv file.txt /tmp/
 | `--no-preserve-root` | Removes the protection from \. | `rm --no-preserve-root backup` |
 | `--one-file-system` | When deleting recursively, skip files on other file systems. | `rm -r --one-file-system backup/` |
 
-### Example
+## Example
 
-### Remove all directories and contents and force deletion on target directory
+## Remove all directories and contents and force deletion on target directory
 
 ```bash
 rm -rf /tmp/testdir
@@ -385,7 +383,7 @@ rm -rf /tmp/testdir
 | `-f` | Forced Deletion. |
 | `/tmp/testdir` | Target file to be deleted. |
 
-## Command: touch
+# Command: touch
 
 ## Description: Creates a file
 
@@ -393,7 +391,7 @@ rm -rf /tmp/testdir
 
 - `touch [options] file_name`
 
-### Options
+## Options
 
 | Options | Descriptions | Examples |
 |---------|--------------|----------|
@@ -404,9 +402,9 @@ rm -rf /tmp/testdir
 | `-t <stamp>` | Set a specific timestamp. | `touch -t <1300> backup` |
 | `-r <file>` | Use the timestamp from another file instead of the current time. | `rm -r <backup> backup1` |
 
-### Example
+## Example
 
-### Create a file
+## Create a file
 
 ```bash
 touch dragon.txt
@@ -419,7 +417,7 @@ touch dragon.txt
 | `-touch` | Create a file Command. |
 | `dragon.txt` | Name of new file. |
 
-## Command: echo
+# Command: echo
 
 ## Description: Print what is in the string" "
 
@@ -427,7 +425,7 @@ touch dragon.txt
 
 -`echo [options] [string]`
 
-### Options
+## Options
 
 | Options | Descriptions | Examples |
 |---------|--------------|----------|
@@ -448,7 +446,7 @@ touch dragon.txt
 | `\\` | Backslash. |
 | `\c` | Suppress further output. |
 
-### Example
+## Example
 
 ```bash
 echo -e “Watcher\nmode”
@@ -464,7 +462,7 @@ echo -e “Watcher\nmode”
 | `\n` | Directs everything after it to print on a new line. |
 | `"mode"` | Rest of string prints on a new line. |
 
-## Command: find
+# Command: find
 
 ## Description: Searches files and directories
 
@@ -472,7 +470,7 @@ echo -e “Watcher\nmode”
 
 - `find [PATH] [OPTIONS] [EXPRESSION] [ACTION]`
 
-### Options
+## Options
 
 | Options | Descriptions | Examples |
 |---------|--------------|----------|
@@ -485,9 +483,9 @@ echo -e “Watcher\nmode”
 | `-print` | Print full path of each file. | `find /home  -type f -print` |
 | `-perm` | World writable (others have permission to write). | `find /home -perm 644` |
 
-### Examples
+## Examples
 
-### Remove all log files found in /var/log
+## Remove all log files found in /var/log
 
 ```bash
 find /var/log -name "*.log" -exec rm {} \;
@@ -506,7 +504,7 @@ find /var/log -name "*.log" -exec rm {} \;
 | `{}` | A placeholder for each file as find command searches each file. |
 | `\;` | The end of the -exec command. |
 
-## Command: tree
+# Command: tree
 
 ## Description: Displays directory structure in a tree like form
 
@@ -514,7 +512,7 @@ find /var/log -name "*.log" -exec rm {} \;
 
 - `tree [OPTIONS] [DIRECTORY]`
 
-### OPTIONS
+## OPTIONS
 
 | Options | Descriptions | Examples |
 |---------|--------------|----------|
@@ -537,9 +535,9 @@ find /var/log -name "*.log" -exec rm {} \;
 | `--prune` | Prune empty directories from the output. | `tree --prune` |
 | `--dirsfirst` | List directories before files. | `tree --dirsfirst` |
   
-### Example
+## Example
 
-### Show all files including hisden ones in a tree structure
+## Show all files including hisden ones in a tree structure
 
 ```bash
 tree -a /home
@@ -553,7 +551,7 @@ tree -a /home
 | `-a` | Show all hidden files. |
 | `/home` | Target directory. |
 
-## Command: Locate
+# Command: Locate
 
 ## Description: Searches filesystem
 
@@ -561,7 +559,7 @@ tree -a /home
 
 - `locate [OPTIONS] PATTERN`
 
-### Options
+## Options
 
 | Options | Descriptions | Examples |
 |---------|--------------|----------|
@@ -579,9 +577,9 @@ tree -a /home
 | `-S` | Shows database statistics. | `locate -S backup` |
 | `-V`: |  Shows version information. | `locate -V backup` |
 
-### Example
+## Example
 
-### Print out the top 10 results and make the search case-insensitive
+## Print out the top 10 results and make the search case-insensitive
 
 ```bash
 locate -i -n 10 readme
@@ -596,7 +594,7 @@ locate -i -n 10 readme
 | `-n 10` | Sets the amount of lines to print out to 10 lines. |
 | `readme` | target pattern. |
 
-## Command: ripgrep(rg)
+# Command: ripgrep(rg)
 
 ## Descriptions: Lightning-fast file search Command
 
@@ -604,7 +602,7 @@ locate -i -n 10 readme
 
 - `rg [pattern] [path]`
 
-### Options
+## Options
 
 | Options | Descriptions | Examples |
 |---------|--------------|----------|
@@ -620,7 +618,7 @@ locate -i -n 10 readme
 | `-T <ext>` | Excludes a certain file type. | `rg -T "*.log"` |
 | `-t <type>` | Searches only files of a certain type. | `rg -t "*.sh"` |
 | `-u` | Search hidden and ignored files. | `rg -u /etc` |
-| `-iglob <pattern>` | Case-insensitive glob matching. | `-ig "TOO" |
+| `-iglob <pattern>` | Case-insensitive glob matching. | `-ig "TOO"` |
 | `--hidden` | Include hidden files or directories. | `rg --hidden "error"` |
 | `-H` | Always show the filename in results. | `rg -H "error"` |
 | `-L` | Print only filenames without matches. | `rg -L "error"` |
@@ -643,9 +641,9 @@ locate -i -n 10 readme
 | `-B <NUM>` | Show NUM lines before each match. | `rg -B 2 "error"` |
 | `-C <NUM>` | Show NUM lines of context. | `rg -C 2 "error"` |
 
-### Example
+## Example
 
-### Search for sudo in all of /etc directory
+## Search for sudo in all of /etc directory
 
 ```bash
 rg "sudo" /etc
@@ -659,7 +657,7 @@ rg "sudo" /etc
 | `"sudo"` | Selected pattern. |
 | `/etc` | Targeted location. |
 
-## Command: fd
+# Command: fd
 
 ## Description: `find` command alternative
 
@@ -667,7 +665,7 @@ rg "sudo" /etc
 
 - `fd [options] [pattern] [path]`
 
-### Options
+## Options
 
 | Options | Descriptions | Examples |
 |---------|--------------|----------|
@@ -694,9 +692,9 @@ rg "sudo" /etc
 | `-s` | Case-sensitive search. | `fd -s` |
 | `-F` | Treat the pattern as a literal string. | `fd -F` |
 
-### Example
+## Example
 
-### Find passwd within the directory /etc
+## Find passwd within the directory /etc
 
 ```bash
 fd passwd /etc
@@ -710,7 +708,7 @@ fd passwd /etc
 | `passwd` | Target pattern. |
 | `/etc` | Target location to find pattern. |
 
-## Command: fzf
+# Command: fzf
 
 ## Description: Interactive fuzzy file finder
 
@@ -735,9 +733,9 @@ fd passwd /etc
 | `--preview-window <opts>` | Control preview window position and size. | `fzf --preview head -50 {}` |
 | `--ansi` | Enable ANSI color codes. | `fzf --ansi` |
 
-### Example
+## Example
 
-### Finds all files and send them through the fuzzy file finder
+## Finds all files and send them through the fuzzy file finder
 
 ```bash
 find -type f | fzf
@@ -751,7 +749,7 @@ find -type f | fzf
 | `-type f` | Directs `find` command to loook in files. |
 | `fzf` | Piped Outputs results in the Fuzzy file finder. |
 
-## Command: ranger
+# Command: ranger
 
 ## Description Terminal-based file manager that lets you navigate, preview, and manage files efficiently
 
@@ -759,7 +757,7 @@ find -type f | fzf
 
 - `ranger [options] [path]`
 
-### Options
+## Options
 
 | Options | Descriptions | Examples|
 |---------|--------------|---------|
@@ -791,9 +789,9 @@ find -type f | fzf
 | `:` | Command mode. |
 | `q` | Quit. |
   
-### Example
+## Example
 
-### Show a specific file
+## Show a specific file
 
 ```bash
 ranger -t file1.txt
@@ -815,7 +813,7 @@ ranger -t file1.txt
 
 - `z [OPTIONS] [KEYWORD]`
 
-### Options
+## Options
 
 | Options | Descriptions | Examples |
 |---------|--------------|----------|
@@ -825,9 +823,9 @@ ranger -t file1.txt
 | `-s` or `--score` | Along with list, display frequency. | `z -s projects` |
 | `-t` or `--type<dir/file>` | Filter by directory or file type. | `z -t f projects` |
   
-### Example
+## Example
 
-### Show frequency of projects
+## Show frequency of projects
 
 ```bash
 z -s projects
@@ -841,7 +839,7 @@ z -s projects
 | `-s` | To show the frequency of usage. |
 | `projects` | Queried keyword. |
 
-## Command: exa
+# Command: exa
 
 ## Description: Modern `ls` command
 
@@ -849,7 +847,7 @@ z -s projects
 
 - `exa [options] [path]`
 
-### Options
+## Options
 
 | Options | Descriptions | Examples |
 |---------|--------------|----------|
@@ -867,9 +865,9 @@ z -s projects
 | `-@` | Show extended attributes. | `exa -@` |
 | `--icons` | Show file-type icons.| `exa --icons` |
 
-### Example
+## Example
 
-### Show long form with hidden files in a tree structure of directory
+## Show long form with hidden files in a tree structure of directory
 
 ```bash
 exa -la -T /etc
@@ -893,7 +891,7 @@ exa -la -T /etc
 
 - `shred [options] [file]`
 
-### Options
+## Options
 
 | Options | Descriptions | Examples |
 |---------|--------------|----------|
@@ -905,7 +903,7 @@ exa -la -T /etc
 | `-v` | Verbose mode | `shred -v -n 7 secret.txt` |
 | `--random-source=<file>` | Specify a source of random data(default = /dev/urandom/) | `shred --random-source=/dev/random secret.txt` |
 
-### Examples
+## Examples
 
 ```bash
 shred -u -n 5 secrets.txt
@@ -928,14 +926,14 @@ shred -u -n 5 secrets.txt
 
 - `vidir [Options] [directory] [file...]`
 
-### Options
+## Options
 
 | Options | Descriptions | Examples |
-|---------|--------------|----------}
-| `-v` | Verbose mode | `vidir -v /home/name/projects |
+|---------|--------------|----------|
+| `-v` | Verbose mode | `vidir -v /home/name/projects` |
 | `-c` | Create mode | `vidir -c /tmp` |
 
-### Examples
+## Examples
 
 ```bash
 vidir ~/Downloads
