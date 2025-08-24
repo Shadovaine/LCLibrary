@@ -1,4 +1,4 @@
-# File Viewing and Editing
+# File Viewing and Editing Management
 
 ## Description: Commands used to see and/or modify files
 
@@ -16,10 +16,7 @@
 - `xxd`
 - `vipe`
 
-
-
-
-# Command: Cat
+# Command: cat
 
 ## Syntax
 
@@ -104,7 +101,7 @@ less -S /var/log/syslog
 | `-S` | Directs to view without wrapping |
 | `/var/log/syslog` | Specified file |
 
-# Command: More
+# Command: more
 
 ## Description: Similar to less but can only scroll forward
 
@@ -152,7 +149,7 @@ more +20 bigfile.txt
 | `+20` | Directs to go to line 20 |
 | `bigfile.txt` | Specified file |
 
-# Command: Head
+# Command: head
 
 ## Description: outputs the first few lines of a file, by default it spits out the first 10 lines
 
@@ -162,14 +159,26 @@ more +20 bigfile.txt
 
 ### Options
 
--n NUM	Show first NUM lines.
--c NUM	Show first NUM bytes (not lines).
+| Options | Descriptions | Examples |
+|---------|--------------|----------|
+| `-n`or`--lines=[NUM]` | Show the first NUM lines of a file | `head -n 20 file.txt` |
+| `-c`or`--bytes=[NUM]` | Show the first NUM bytes of a file | `head -c 59 file.txt` |
 
 ### Examples
 
 ### Show the first 10 lines
 
-head /etc/passwd
+```bash
+head -n 10 /etc/passwd
+```
+
+### Breakdown
+
+| Breakdown | Description |
+|-----------|-------------|
+| `head` | Viewing command |
+| `-n 10` | Directs to list the first 10 lines |
+| `/etc/passwd` | Specified file |
 
 ### Show the first 5 lines
 
@@ -180,10 +189,15 @@ head -n 5 myfile.txt
 ### Breakdown
 
 | Breakdown | Description |
+|-----------|-------------|
+| `head` | Viewing command |
+| `-n 5` | Directs to output the first 5 lines |
+| `myfile.txt` | Specified file |
+
 ###
 # Command: tail
 
-## Description: outputs the last few lines of a file. Spits out the last 10 lines by default
+## Description: Outputs the last few lines of a file. Spits out the last 10 lines by default
 
 ## Syntax
 
@@ -191,9 +205,18 @@ head -n 5 myfile.txt
 
 ### Options
 
--n NUM	Show last NUM lines.
--f	“Follow” the file as it grows.
--c NUM	Show last NUM bytes.
+| Options | Descriptions | Examples |
+|---------|--------------|----------|
+| `-n`or`--lines=[NUM]` | Show the last NUM of a file | `tail -n 20 /var/log/syslog` |
+| `-c`or`--bytes=[NUM]` | Show the last NUM bytes of a file | `tail -c 50 file.txt` |
+| `-f` | Follow the file as it grows | `tail -f /var/log/auth.log` |
+| `--retry` | Keep trying to open a file even if it is inaccessible at first | `tail --retry -f /var/log/app.log` |
+| `-F` | Shortcut `--follow=name` `--retry` | `tail -F /var/log/syslog` |
+| `-q` | Suppresses file headers when tailing multiple files | `tail -n 5 file1,file2` |
+| `-v` | Always output headers | `tail -n 5 -v file.txt` |
+| `--pid=PID` | Follow until the process with given PID terminates | `tail -f --pid=1234 /var/log/myapp.log` |
+| `--max-unchanged-stats=N` | With `--follow-name` reopen a file after N iterations | `tail -F --max-unchanged-stats=5 /var/log/syslog` |
+| `--sleep-interval=N` | Set how long `tail` sleeps between checks when using `-f` | `tail -f --sleep-interval=2 /var/log/syslog` |
 
 ### Examples
 
