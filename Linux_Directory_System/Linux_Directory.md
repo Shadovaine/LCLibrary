@@ -134,7 +134,7 @@
 
 **Passwords are not in `/etc/passwd`they are in `/etc/shadow` which is more restricted.**
 
-## Example
+# Example
 
 - `name: x : 1001 : 1001 : first name: /home/name:/bin/bash`
 
@@ -173,7 +173,7 @@
 - `Cached downloads to speed things up`
 - `Queued tasks for printers or cron jobs`
 
-## Real world examples
+# Real world examples
 
 ## See failed login attempts (great for cybersecurity)
 
@@ -336,12 +336,12 @@
 
 | Example | Binary | What It Does |
 |---------|--------|--------------|
-| `my_script.sh` | :x: | A custom shell script you created |
-| `node_Node.js` | Binary | Installed manually |
-| `go Golang` | Binary (if installed from source)
-custom-tool | Any utility installed outside package manager |
+| `my_script.sh` | ❌ | A custom shell script you created |
+| `node_Node.js` | ✅ | Installed manually |
+| `go Golang` | ✅ | if installed from source |
+| `custom-tool` | ❌ | Any utility installed outside package manager |
 
-**If you install software manually with make && make install, it usually ends up here**
+**If you install software manually with `make && make install`, it usually ends up here**
 
 # /usr/local/sbin
 
@@ -368,7 +368,7 @@ custom-tool | Any utility installed outside package manager |
 | `/usr/bin` | Package Manager |All users | Installed software (python3, nano) |
 | `/usr/sbin` | Package Manager | Root/admin only | Installed admin tools (sshd, apache2) |
 | `/usr/local/bin` | You (manual install) | All users |Custom binaries/scripts |
-| `/usr/local/sbin` | You (manual install) |Root/admin only |
+| `/usr/local/sbin` | You (manual install) |Root/admin only | custom-made admin script tools |
 
 # /opt
 
@@ -378,7 +378,7 @@ custom-tool | Any utility installed outside package manager |
 - `It’s a directory designed to hold add-on application software packages that aren’t part of the base OS`
 - `Think of it like the “VIP room” for third-party apps`
 
-**Located at the root level (/), separate from system binaries and configs**
+**Located at the root level `/`, separate from system binaries and configs**
 
 ## What lives in /opt
 
@@ -406,7 +406,7 @@ custom-tool | Any utility installed outside package manager |
 - `A company installs Oracle software in /opt/oracle/`
 - `Games like Steam (if manually installed) often go here`
 
-## Dragon Wisdom About /opt
+## Pro Tips on /opt
 
 - `Good for cybersecurity tools: Pen-testing apps like Burp Suite, Nessus, or custom scripts often live here when installed manually`
 - `Avoids “dependency hell”: Since apps in /opt bring their own dependencies, they don’t break when you update the system`
@@ -435,7 +435,7 @@ custom-tool | Any utility installed outside package manager |
 
 
 
-## Why is /lib important
+## Why is /lib important?
 
 It’s critical for system booting and running basic binaries.
  • Without /lib, binaries in /bin and /sbin wouldn’t work because they rely on these libraries.
@@ -456,7 +456,7 @@ It’s critical for system booting and running basic binaries.
 
 - `/lib64: Libraries specifically for 64-bit binaries`
 
-## Dragon Wisdom About /lib
+## Pro Tips on /lib
 
 - `It’s the system’s magic: Without it, binaries are useless shells`
 - `Cybersecurity tip: Attackers sometimes replace /lib libraries with malicious ones (called library hijacking)`
@@ -518,7 +518,7 @@ It’s critical for system booting and running basic binaries.
 - `Forensics: Inspect /proc/[PID]/cmdline to see what commands a process ran`
 - `Hardening: Adjust kernel security flags via /proc/sys`
 
-## Dragon Wisdom About /proc
+## Pro Tips on /proc
 
 - `It’s like reading the system’s live neural network`
 - `Some files in /proc/sys can literally change system behavior—so handle with care`
@@ -534,24 +534,20 @@ It’s critical for system booting and running basic binaries.
 - `The files in /dev are interfaces to kernel drivers that let you interact with hardware or virtual devices`
 - `You don’t directly “open” these files to edit them, but commands and programs can use them to send or receive data to/from hardware`
 
-## Types of Device Files in /dev
+## 2 main types of device files in /dev
 
-## 2 main types
-
-### Character Devices (c)
+## Character Devices (c)
 
 - `Data is handled one character at a time`
 - `Example: keyboards, mice, serial ports, terminals`
 - `Found with ls -l showing a c at the start`
-
 - `crw-rw-rw- 1 root root 1, 3 Jul 16 10:12 /dev/null`
 
-### Block Devices (b)/
+## Block Devices (b)
 
 - `Data is handled in blocks (like disks)`
 - `Example: hard drives, SSDs, USB drives`
 - `Found with ls -l showing a b at the start`
-
 - `brw-rw---- 1 root disk 8, 0 Jul 16 10:12 /dev/sda`
 
 ## Key Special Files in /dev
@@ -622,11 +618,9 @@ ls -l /dev/sd*
 
 ## Why is /boot Important?
 
-## Without /boot, the system
-
-- `can’t load the kernel`
-- `can’t initialize hardware drivers`
-- `can’t hand control to user space`
+- `It load the kernel`
+- `Initialize hardware drivers`
+- `Hands control to user space`
 
 ## Real-World Examples
 
@@ -721,7 +715,7 @@ ls -ld /tmp
 drwxrwxrwt 10 root root 4096 Jul 16 09:42 /tmp
 ```
 
-## The t at the end means:
+## The t at the end means
 
 - `Users can’t delete files they don’t own`
 - `Without sticky bit? Any user could delete anyone else’s temp files`

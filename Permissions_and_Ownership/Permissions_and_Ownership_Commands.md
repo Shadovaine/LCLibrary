@@ -18,7 +18,9 @@
 - `lsattr`
 - `chattr`
 
-## MODE Description: Persmission you want to set (symbolic or numeric)
+# MODE 
+
+## Description: Persmission you want to set (symbolic or numeric)
 
 ## Symbolic Notation
 
@@ -60,7 +62,7 @@
 
 - `chmod [options] MODE file`
 
-### Options
+## Options
 
 | Options | Descriptions | Examples |
 |---------|--------------|----------|
@@ -70,10 +72,12 @@
 | `—reference=RFILE` | Set permissions to match another file | `chmod --reference-template.txt newfile.txt` |
 | `--preserve-root` | Do not operate recursively on / | `chmod --preserve-root -R 755 /` |
 
-### Examples
+## Examples
+
+## Allow all users read permission on `myprog`
 
 ```bash
-chmod u+s myprog
+chmod u+r myprog
 ```
 
 ### Breakdown
@@ -81,7 +85,7 @@ chmod u+s myprog
 | Breakdown | Description |
 |-----------|-------------|
 | `chmod` | Permission command |
-| `u+s` | Setuid command |
+| `u+r` | Directs to allow all users read permission |
 | `myprog` | specified directory to set user ID |
 
 # Command: chown
@@ -101,7 +105,7 @@ chmod u+s myprog
 | `:group` | If only group is given, only the group changes |
 | `Owner:` | If only owner is given, only the owner changes |
 
-### Options
+## Options
 
 | Options | Descriptions | Examples |
 |---------|--------------|----------|
@@ -114,9 +118,9 @@ chmod u+s myprog
 | `--from=CURRENT_OWNER:CURRENT_GROUP` | Change ownership only if the current owner and group match | `chown --from=olduser:oldgroup name:newgroup file.txt` |
 | `—reference=RFILE` | Sets ownership to match another file's owner/group | `chown --reference=template.txt file.txt` |
 
-### Examples
+## Examples
 
-### Change owner to name
+## Change owner to name
 
 ```bash
 chown name file.txt
@@ -138,7 +142,7 @@ chown name file.txt
 
 - `chgrp [options] group file`
 
-### Options
+## Options
 
 | Options | Descriptions | Examples |
 |---------|--------------|----------|
@@ -152,9 +156,9 @@ chown name file.txt
 | `-P` | Never follow symbolic links when using -R | `chgrp -RP name /project` |
 | `-reference=RFILE` | Set group ownership to match another file's group | `chgrp --reference=template.txt file.txt` |
 
-### Examples
+## Examples
 
-### Change group to staff
+## Change group to staff
 
 ```bash
 chgrp staff file.txt 
@@ -170,7 +174,7 @@ chgrp staff file.txt
 
 # Command: umask
 
-## Description: sets default file permissions for newly created files and directories
+## Description: Sets default file permissions for newly created files and directories by subtracting permission from the system default permission setting
 
 ## Common umask Values
 
@@ -185,7 +189,7 @@ chgrp staff file.txt
 
 - `umask [OPTIONS] [MASK]`
 
-### Options
+## Options
 
 | Options | Descriptions | Examples |
 |---------|--------------|----------|
@@ -196,7 +200,20 @@ chgrp staff file.txt
 | `Temporary umask` | Used in the same shell session; resets after logout | `umask 0007` |
 | `Persisenet umask` | No direct flag - set it in shell startup files to make it permanent | `echo "umask 0027" >> ~/.bashrc source ~/.bashrc` |
 
-### Examples
+## Examples
+
+## Set file permissions to `644` and directory permissions to 755
+
+```bash
+umask 022
+```
+
+### Breakdown
+
+| Breakdown | Description |
+|-----------|-------------|
+| `umask` | Permission command |
+|`022` | Permission to be subtracted (Files: 666 - 022 = 644; Directories 777 - 022 = 755) |
 
 # Command: stat
 
@@ -206,7 +223,7 @@ chgrp staff file.txt
 
 - `stat [OPTIONS] FILE`
 
-### Options
+## Options
 
 | Options | Descriptions | Examples |
 |---------|--------------|----------|
@@ -216,7 +233,7 @@ chgrp staff file.txt
 | `-c` | custom output format | `stat -c "%n %s" file.txt` |
 | `--print=FORMAT` | like `--format` but without automatically adding a newline | `stat --print="Size: %s bytes" file.txt` |
 
-### Common Format Sequences
+## Common Format Sequences
 
 | Code | Meaning |
 |------|---------|
@@ -236,7 +253,9 @@ chgrp staff file.txt
 | `%i` | Inode Number |
 | `%h` | Number of hard links |
 
-### Examples
+## Examples
+
+## Return default output on `/etc/passwd`
 
 ```bash
 stat /etc/passwd
@@ -257,7 +276,7 @@ stat /etc/passwd
 
 - `namei [Options] [File path]`
 
-### Options
+## Options
 
 | Options | Descriptions | Examples |
 |---------|--------------|----------|
@@ -269,9 +288,9 @@ stat /etc/passwd
 | `-n` | Do not follow symlinks | `namei -n /etc/passwd` |
 | `-a` | Show all components including `.` and `..` | `namei -a /etc/passwd` |
 
-### Examples
+## Examples
 
-### Show owner and group for each component
+## Show owner and group for each component
 
 ```bash
 namei -o /tmp/test
@@ -293,11 +312,11 @@ namei -o /tmp/test
 
 - `id [options] [username]`
 
-### Options
+## Options
 
-| Option      | Description                                      | Example                      |
-|-------------|--------------------------------------------------|------------------------------|
-| (none)      | Show user and group info for current user        | `id`                         |
+| Options | Description | Examples |
+|--------|-------------|---------|
+| `(none)`      | Show user and group info for current user        | `id`                         |
 | `username`  | Show info for specified user                     | `id jake`                    |
 | `-u`        | Show only the user ID                            | `id -u`                      |
 | `-g`        | Show only the group ID                           | `id -g`                      |
@@ -307,7 +326,9 @@ namei -o /tmp/test
 | `-Z`        | Show SELinux security context                    | `id -Z`                      |
 | `-a`        | (Obsolete, ignored)                              | `id -a`                      |
 
-### Examples
+## Examples
+
+## Display information on `name`
 
 ```bash
 id name
@@ -328,14 +349,16 @@ id name
 
 - `groups [username]`
 
-### Options
+## Options
 
-| Option      | Description                                 | Example           |
-|-------------|---------------------------------------------|-------------------|
-| (none)      | Show groups for current user                | `groups`          |
+| Options | Description | Examples |
+|--------|-------------|---------|
+| `(none)`      | Show groups for current user                | `groups`          |
 | `username`  | Show groups for specified user              | `groups name`     |
 
-### Examples
+## Examples
+
+## Display information on group `name`
 
 ```bash
 groups name
@@ -356,9 +379,9 @@ groups name
 
 - `setfacl [options] [acl] file`
 
-### Options
+## Options
 
-| Option | Description | Examples |
+| Options | Description | Examples |
 |--------|-------------|----------|
 | `-m`| Modify ACL by adding or changing permissions | `setfacl -m u:jake:rwx file.txt` |
 | `-x` | Remove an entry from the ACL | `setfacl -x u:jake file.txt` |
@@ -369,9 +392,9 @@ groups name
 | `--set` | Set ACLs from a string, replacing existing entries  | `setfacl --set u::rw-,g::r--,o::r-- file.txt` |
 | `--set-file`| Set ACLs from a file | `setfacl --set-file=acls.txt file.txt`  |
 
-### Examples
+## Examples
 
-### Remove a user from the ACL
+## Remove a user from the ACL
 
 ```bash
 setfacl -x u:name file.txt
@@ -394,24 +417,24 @@ setfacl -x u:name file.txt
 
 - `getfacl [options] file`
 
-### Options
+## Options
 
-| Option      | Description                                         | Example                       |
-|-------------|-----------------------------------------------------|-------------------------------|
-| (none)      | Show ACLs for a file or directory                   | `getfacl file.txt`            |
+| Options |Description | Examples |
+|--------|------------|----------|
+| `(none)`      | Show ACLs for a file or directory                   | `getfacl file.txt`            |
 | `-R`        | Recursively list ACLs for directories and contents   | `getfacl -R dir/`             |
 | `--absolute-names` | Print absolute pathnames                      | `getfacl --absolute-names file.txt` |
 | `--tabular` | Output in tabular format (if supported)             | `getfacl --tabular file.txt`   |
 
-### Examples
+## Examples
 
-### Show ACLs for target directory
+## Show ACLs for target directory
 
 ```bash
 getfacl file.txt
 ```
 
-### List ACLs for specified directory
+## List ACLs for specified directory
 
 ```bash
 getfacl -R /var/log
@@ -425,20 +448,20 @@ getfacl -R /var/log
 
 - `lsattr [options] [files]`
 
-### Options
+## Options
 
-| Option      | Description                                         | Example                       |
-|-------------|-----------------------------------------------------|-------------------------------|
-| (none)      | List attributes for files in current directory      | `lsattr`                      |
+| Options | Description | Examples |
+|--------|-------------|----------|
+| `(none)`      | List attributes for files in current directory      | `lsattr`                      |
 | `-a`        | List all files, including hidden files              | `lsattr -a`                   |
 | `-R`        | Recursively list attributes in directories          | `lsattr -R /home/user`        |
 | `-d`        | List attributes of directories themselves           | `lsattr -d /home/user`        |
 | `-v`        | List file version/generation number                 | `lsattr -v file.txt`          |
 | `-V`        | Show program version                                | `lsattr -V`                   |
 
-### Examples
+## Examples
 
-### List all files including hidden files
+## List all files including hidden files
 
 ```bash
 lsattr -a
@@ -459,19 +482,19 @@ lsattr -a
 
 - `chattr [options] [attributes] file`
 
-### Options
+## Options
 
-| Option      | Description                                         | Example                       |
-|-------------|-----------------------------------------------------|-------------------------------|
-| (none)      | Change attributes for a file                        | `chattr +i file.txt`          |
+| Options | Description | Examples |
+|---------|-------------|----------|
+| `(none)`      | Change attributes for a file                        | `chattr +i file.txt`          |
 | `-R`        | Recursively change attributes in directories         | `chattr -R +a /var/log`       |
 | `-V`        | Show program version                                | `chattr -V`                   |
 | `-f`        | Suppress most error messages                        | `chattr -f +i file.txt`       |
 | `-v version`| Set the file's version/generation number            | `chattr -v 2 file.txt`        |
 
-### Examples
+## Examples
 
-### make file immutable
+## make file immutable
 
 ```bash
 chattr +i file.txt
@@ -485,7 +508,7 @@ chattr +i file.txt
 | `+i` | Directs to make file immutable |
 | `file.txt` | Target file |
 
-### Make all files in /var/log append-only
+## Make all files in /var/log append-only
 
 ```bash
 chattr -R +a /var/log

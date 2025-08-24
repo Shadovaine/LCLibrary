@@ -37,7 +37,7 @@
 
 - `ping [OPTIONS] DESTINATION`
 
-### Options
+## Options
 
 | Options | Descriptions | Examples |
 |---------|--------------|----------|
@@ -54,9 +54,9 @@
 | `-4` |  Force IPv4 ping. | `ping -4 google.com` |
 | `-6` | Force IPv6 ping. | `ping -6 google.com` |
 
-### Examples
+## Examples
 
-### Ping google.com until stopped
+## Ping google.com until stopped
 
 ```bash  
 ping google.com
@@ -69,7 +69,7 @@ ping google.com
 | `ping` | Network command. |
 | `google.com` | Target location. |
   
-### Send 5 packets
+## Send 5 packets
 
 ```bash
 ping -c 5 google.com
@@ -97,7 +97,7 @@ ping -i 2 google.com
 | `-i 2` | Interval of 2 sec in between packets. |
 | `google.com` | Target location. |
   
-### Check TTL value
+## Check TTL value
 
 ```bash
 ping -t 64 google.com
@@ -119,7 +119,7 @@ ping -t 64 google.com
 
 - `ssh [OPTIONS] USER@HOST`
 
-### Options
+## Options
 
 | Options | Descriptions | Examples |
 |---------|--------------|----------|
@@ -138,9 +138,9 @@ ping -t 64 google.com
 | `-6` |  Force IPv6. |`ssh -6 test@1.1.1.1` |
 | `-q` |  Quiet mode. | `ssh -q test@1.1.1.1` |
 
-### Examples
+## Examples
 
-### Login with a specific key
+## Login with a specific key
 
 ```bash
 ssh -i ~/.ssh/id_rsa jake@192.168.1.50
@@ -162,7 +162,7 @@ ssh -i ~/.ssh/id_rsa jake@192.168.1.50
 
 - `scp [OPTIONS] SOURCE USER@HOST:DEST`
 
-### Options
+## Options
 
 | Options | Descriptions | Examples |
 |---------|--------------|----------|
@@ -178,9 +178,9 @@ ssh -i ~/.ssh/id_rsa jake@192.168.1.50
 | `-4` | Forces IPv4. | `scp -4 file.txt name@server:/backup/` |
 | `-6` | Forces IPv6. | `scp -6 file.txt name@server:/backup/` |
 
-### Examples
+## Examples
 
-### Copy file to remote host
+## Copy file to remote host
 
 ```bash
 scp file.txt name@192.168.1.50:/home/name/
@@ -202,7 +202,7 @@ scp file.txt name@192.168.1.50:/home/name/
 
 - `wget [OPTIONS] URL`
 
-### Options
+## Options
 
 | Options | Descriptions | Examples |
 |---------|--------------|----------|
@@ -226,9 +226,9 @@ scp file.txt name@192.168.1.50:/home/name/
 | `--random-wait` |  Random delay between downloads. | `wget --randowm-wait https://example.com/files/` |
 | `-b`| Run in background. | `wget -b https://example.com/bigfile.iso` |
 
-### Example
+## Example
 
-### Download a file and rename it
+## Download a file and rename it
 
 ```bash
 wget -O ubuntu.iso http://example.com/ubuntu.iso
@@ -250,7 +250,7 @@ wget -O ubuntu.iso http://example.com/ubuntu.iso
 
 - `curl [OPTIONS] URL`
 
-### Options
+## Options
 
 | Options | Descriptions | Examples |
 |---------|--------------|----------|
@@ -271,9 +271,9 @@ wget -O ubuntu.iso http://example.com/ubuntu.iso
 | `--data-urlencode "<data>"` |  URL-encode data before sending. | `curl --data-urlencode "search=linux commands" https://example.com/search` |
 | `--limit-rate <speed>` |  Limit download speed. | `curl --limit-rate 200k -O https://example.com/file.zip` | 
   
-### ##Examples
+## ##Examples
 
-### Save file with original name
+## Save file with original name
 
 ```bash
 curl -O http://example.com/file.txt
@@ -287,7 +287,7 @@ curl -O http://example.com/file.txt
 | `-O` | Directs to save file with original name. |
 | `http://example.com/file.txt` | Target file. |
 
-### Authenticating with username and password
+## Authenticating with username and password
 
 ```bash
 curl -u user:pass https://api.example.com/data
@@ -310,7 +310,7 @@ curl -u user:pass https://api.example.com/data
 
 - `ifconfig [INTERFACE] [OPTIONS]`
 
-### Options
+## Options
 
 | Options | Descriptions | Examples |
 |---------|--------------|----------|
@@ -328,7 +328,7 @@ curl -u user:pass https://api.example.com/data
 | `promisc` |  Enable promiscuous mode. | `ifconfig eth0 promisc` |
 | `-promisc` |  Disable promiscuous mode. | `ifconfig eth0 -promisc` |
 
-### Examples
+## Examples
 
 ## View all network interfaces
 
@@ -356,7 +356,7 @@ ifconfig eth0 up
 | `eth0` |  Selected interface. |
 | `up` |  Enable selected interface. |
 
-### Bring down an interface
+## Bring down an interface
 
 ```bash
 ifconfig eth0 down
@@ -370,7 +370,7 @@ ifconfig eth0 down
 | `eth0` |  Specific network interface to show |
 | `down` | Directs to disable the eth0 network |
 
-### Set IP address
+## Set IP address
 
 ```bash
 ifconfig eth0 192.168.1.100
@@ -392,7 +392,7 @@ ifconfig eth0 192.168.1.100
 
 - `ip [OPTIONS] OBJECT { COMMAND | help}`
 
-### Options
+## Options
 
 | Options | Descriptions | Examples |
 |---------|--------------|----------|
@@ -407,9 +407,9 @@ ifconfig eth0 192.168.1.100
 | `monitor` | Watch changes to netlink | `ip monitor all` |
 | `help` | Show help | `ip help` |
 
-### Examples
+## Examples
 
-### Show all IP addresses
+## Show all IP addresses
 
 ```bash
 ip addr
@@ -422,7 +422,7 @@ ip addr
 | `ip` | Network command |
 | `addr` | Directs to show all IP addresses |
 
-### Enable eth0 network interface
+## Enable eth0 network interface
 
 ```bash
 ip link set eth0 up
@@ -437,7 +437,7 @@ ip link set eth0 up
 | `set eth0` | Specific interface. |
 | `up` | enables specific interface |
 
-### Add default route
+## Add default route
 
 ```bash
 ip route add default via 192.168.1.1
@@ -451,7 +451,7 @@ ip route add default via 192.168.1.1
 | `route` | Show routing table |
 | `add default via 192.168.1.1` | Add a default route at IP address |
 
-### View routes
+## View routes
 
 ```bash
 ip route show
@@ -472,7 +472,7 @@ ip route show
 
 - `task <Filter> <command> [<modification> | <args>]`
 
-### Options
+## Options
 
 | Options | Descriptions | Examples |
 |---------|--------------|----------|
@@ -503,9 +503,9 @@ ip route show
 | `import` | Import tasks from JSON | `task import pending.json` |
 | `sync` | Sync with taskserver | `task sync` |
 
-### Examples
+## Examples
 
-### Add a task
+## Add a task
 
 ```bash
 task add "Finish Linux+ drills"
@@ -519,7 +519,7 @@ task add "Finish Linux+ drills"
 | `add` | Directs to add a task |
 | `Finish Linux+ drills` | task to add |
 
-### Show list of tasks
+## Show list of tasks
 
 ```bash
 task list
@@ -540,7 +540,7 @@ task list
 
 - `ts [OPTION] ... [Format]`
 
-### Options
+## Options
 
 | Options | Descriptions | Examples |
 |---------|--------------|----------|
@@ -568,9 +568,9 @@ task list
 | `-D <ID>` | Run only if specific job ID succeeded | `ts echo "Step 1" / ts -D 1 echo "Step 2"` |
 | `-d` | Run only if last job succeeded | `ts -d echo "Step 2"` |
 
-### Examples
+## Examples
 
-### Prefix with timestamps
+## Prefix with timestamps
 
 ```bash
 echo -e "Line 1\nLine 2" | ts
@@ -593,7 +593,7 @@ echo -e "Line 1\nLine 2" | ts
 
 - `systemd-analyze [OPTIONS] COMMAND [COMMAND OPTIONS]`
 
-### Options
+## Options
 
 | Options | Descriptions | Examples |
 |---------|--------------|----------|
@@ -606,8 +606,9 @@ echo -e "Line 1\nLine 2" | ts
 | `dump` | Dump Manager State | `systemd-analyze dump | less` |
 | `security` | Security posture for all services | `systemd-analyze security | less` |
 
+## Example
 
-### Example
+## Display slowest unit first
 
 ```bash
 systemd-analyze blame
@@ -628,7 +629,7 @@ systemd-analyze blame
 
 - `lazydocker`
 
-### Options
+## Options
 
 | Options | Descriptions | Examples |
 |---------|--------------|----------|
@@ -639,9 +640,9 @@ systemd-analyze blame
 | `--help` | Prints the built in help text | `lazydocker --help` |
 | `--version` | Displays the current version | `lazydocker --version` |
 
-### Example
+## Example
 
-### View running containers, images, logs, and volumes
+## View running containers, images, logs, and volumes
 
 ```bash
 lazydocker
@@ -661,7 +662,7 @@ lazydocker
 
 - `fab [task]`
 
-### Options
+## Options
 
 | Options | Descriptions | Examples |
 |---------|--------------|----------|
@@ -669,16 +670,16 @@ lazydocker
 | `cleanup` | Cleanups tasks | `fab cleanup` |
 | `-H` | Specifies a host | `fab -H server1, server2 restart_service` |
 | `-i` | Overrides the SSH key, and uses a targeted authentication | `fab -H prod.server.com -i ~/.ssh/prod_key deploy` |
-| `--prompt-for-passphrase` | Prompts user to enter password | fab -H host1 --prompt-for-login-password deploy` |
+| `--prompt-for-passphrase` | Prompts user to enter password | `fab -H host1 --prompt-for-login-password deploy` |
 | `--list` | lists all the defined tasks | `fab --list` |
 | `-R` | Dry run, just echos with no execution | `fab -H host1 -R test_deploy` |
 | `-P` | Run tasks in parallel | `fab -H host1, host2 -P backup_db` |
 | `-f` | Instructs to fun custom fab.py files instead of default ones | `fab -f custom_fabfile.py deploy` |
 | `--connect-timeout, --command-timeout` | Sets timeouts | `fab -H host1 --connect-timeout=10 --command-timeout=30 deploy` |
 
-### Examples
+## Examples
 
-### Specify a host
+## Specify a host
 
 ```bash
 fab -H server1, server2 restart_service
@@ -702,7 +703,7 @@ fab -H server1, server2 restart_service
 
 - `asciinema rec [filename]`
 
-### Options
+## Options
 
 | Options | Descriptions | Examples |
 |---------|--------------|----------|
@@ -721,9 +722,9 @@ fab -H server1, server2 restart_service
 | `upload` | pushes file to asciinema.org | `asciinema upload demo.cast` |
 | `auth` | Links local client to online account for uploads and management | `asciinema auth` |
 
-### Examples
+## Examples
 
-### Start a recording
+## Start a recording
 
 ```bash
 asciinema rec install_hardened_linux.cast
@@ -745,7 +746,7 @@ asciinema rec install_hardened_linux.cast
 
 - `netstat [OPTIONS]`
 
-### Options
+## Options
 
 | Options | Descriptions | Examples |
 |---------|--------------|----------|
@@ -763,9 +764,9 @@ asciinema rec install_hardened_linux.cast
 | `-g` | Show multicast group membership | `netstat -g` |
 | `-o` | Show timers for connections | `netstat -o` |
 
-### Examples
+## Examples
 
-### Show all connections
+## Show all connections
 
 ```bash
 netstat -a
@@ -778,7 +779,7 @@ netstat -a
 | `netstat` | Network command|
 | `-a` | Show all networks |
 
-### Show only listening ports
+## Show only listening ports
 
 ```bash
 netstat -l
@@ -791,7 +792,7 @@ netstat -l
 | `netstat` | Network command |
 | `-l` | Show listening ports only |
 
-### Show TCP connections
+## Show TCP connections
 
 ```bash
 netstat -t
@@ -804,7 +805,7 @@ netstat -t
 | `netstat` | Network Command |
 | `-t` | Show TCP connections only |
 
-### Show process names
+## Show process names
 
 ```bash
 netstat -tulpn
@@ -829,7 +830,7 @@ netstat -tulpn
 
 - `ss [OPTIONS] [FILTER]`
 
-### Options
+## Options
 
 | Options | Descriptions | Examples |
 |---------|--------------|----------|
@@ -849,9 +850,9 @@ netstat -tulpn
 | `-f` | Specify socket family | `ss -f inet` |
 | `-H` | No header line in output | `ss -H -t` |
 
-### Examples
+## Examples
 
-### Show all TCP connections
+## Show all TCP connections
 
 ```bash
 ss -t
@@ -864,7 +865,7 @@ ss -t
 | `ss` | Network Command |
 | `-t` | Show TCP connections |
 
-### Show listening sockets
+## Show listening sockets
 
 ```bash
 ss -l
@@ -877,7 +878,7 @@ ss -l
 | `ss` | Network command |
 | `-l` | Show listening sockets |
 
-### Show processes using sockets
+## Show processes using sockets
 
 ```bash
 ss -tunap
@@ -902,7 +903,7 @@ ss -tunap
 
 - `rsync [OPTIONS] SOURCE DEST`
 
-### Options
+## Options
 
 | Options | Descriptions | Examples |
 |---------|--------------|----------|
@@ -910,7 +911,7 @@ ss -tunap
 | `-a` | Archive mode | `rsync -a /home/name/ /backup/name/` |
 | `-r` | Copy directories recursively | `rsync -r doc/ /backup/docs/` |
 | `-l` | Copy symlinks as symlinks | `rsync -l source/ target/` |
-| `-p` | Preserve permissions | `rsync -p file.txt /backup/ |
+| `-p` | Preserve permissions | `rsync -p file.txt /backup/` |
 | `-t` | Preserve modification times | `rsync -t file.txt /backup/` |
 | `-g` | Preserve group ownership | `rsync -g file.txt /backup/` |
 | `-o` | Preserve owner | `rsync -o file.txt /backup/` |
@@ -936,9 +937,9 @@ ss -tunap
 | `--append` | Append data to partially transferred files | `rsync --append bigfile /backup/` |
 | `--apend-verify` | Append and verify checksum | `rsync --append-verify bigfile /backup/` |
 
-### Examples
+## Examples
 
-### Sync two directories
+## Sync two directories
 
 ```bash
 rsync -av /home/name/ /mnt/backup/
@@ -948,13 +949,13 @@ rsync -av /home/name/ /mnt/backup/
 
 | Breakdown | Description |
 |-----------|-------------|
-| `rsync` | Network Commdand |
+| `rsync` | Network Command |
 | `-a` | Archive mode |
 | `-v` | Verbose mode |
 | `/home/name/` | Source location |
 | `/mnt/backup/` | Target location |
 
-### Sync over SSH
+## Sync over SSH
 
 ```bash
 rsync -avz /home/name user@server:/backup/
@@ -971,7 +972,7 @@ rsync -avz /home/name user@server:/backup/
 | `/home/name/` | Source lcoation |
 | `user@server:/backup/` | Destination location |
 
-### Mirror source to destination (delete extras)
+## Mirror source to destination (delete extras)
 
 ```bash
 rsync -av --delete /source/ /dest/
@@ -985,7 +986,7 @@ rsync -av --delete /source/ /dest/
 | `-a` | Archive mode |
 | `-v` | Verbose mode |
 | `--delete` | Directs to delete extra files at destination |
-| `/source/` | source location |
+| `/source/` | Source location |
 | `/dest/` | Destination Location |
 
 # Command: ftp
@@ -996,7 +997,7 @@ rsync -av --delete /source/ /dest/
 
 - `ftp [OPTIONS] HOSTNAME`
 
-### Options
+## Options
 
 | Options | Descriptions | Examples |
 |---------|--------------|----------|
@@ -1008,9 +1009,9 @@ rsync -av --delete /source/ /dest/
 | `-d` | Enable debugging messages | `ftp -d ftp.example.com` |
 | `-u user[,pass]` | Specify username and optional password on the command line | `ftp -u name, password ftp.example.com` |
 
-### Examples
+## Examples
 
-### Connect to an FTP server
+## Connect to an FTP server
 
 ```bash
 ftp ftp.example.com
@@ -1031,7 +1032,7 @@ ftp ftp.example.com
 
 - `mtr [options] [host]`
 
-### Options
+## Options
 
 | Options | Descriptions | Examples |
 |---------|--------------|----------|
@@ -1052,9 +1053,9 @@ ftp ftp.example.com
 | `-u` | Use UDP mode | `mtr -u google.com` |
 | `--json` | Output results in JSON format | `mtr --JSON google.com` |
 
-### Examples
+## Examples
 
-### Show both hostname and IP addresses
+## Show both hostname and IP addresses
 
 ```bash
 mtr -b google.com
@@ -1076,7 +1077,7 @@ mtr -b google.com
 
 - `mosh [Options] [--] [user@host] [Command]`
 
-### Options
+## Options
 
 | Options | Descriptions | Examples |
 |---------|--------------|----------|
@@ -1090,9 +1091,9 @@ mtr -b google.com
 | `--help` | Shows help menu | `mosh --help` |
 | `--version | Shows working version | `mosh --version` |
 
-### Example
+## Example
 
-### connecting using a specific port
+## connecting using a specific port
 
 ```bash
 mosh -p 60000:60010 \
@@ -1114,7 +1115,7 @@ mosh -p 60000:60010 \
 
 -`dog [ query Options] [Domain]`
 
-### Options
+## Options
 
 | Options | Descriptions | Examples |
 |---------|--------------|----------|
@@ -1123,7 +1124,7 @@ mosh -p 60000:60010 \
 | `-n` or `--nameserver=ADDR` | Query a specific nameserver | `dog -q example.com -t A -n 8.8.8.8` |
 | `--class=CLASS` | Sets DNS class | `dog -q example.com --class=IN` |
 
-### Example
+## Example
 
 ```bash
 dog -q example.com
@@ -1145,7 +1146,7 @@ dog -q example.com
 
 - `termshark [Options] [<capture filter>]`
 
-### Options
+## Options
 
 | Options | Descriptions | Examples |
 |---------|--------------|----------|
@@ -1158,7 +1159,9 @@ dog -q example.com
 | `-s <snaplen>` | Set the snapshot length | `termshark -s 128` |
 | `-l` | Launch directly into live capture mode | `termshark -l` |
 
-### Example
+## Example
+
+## Capture live traffic from a eth0
 
 ```bash
 - sudo termshark -i eth0
@@ -1181,7 +1184,7 @@ dog -q example.com
 
 - `lsof [Options] [names]`
 
-### Options
+## Options
 
 | Options | Descriptions | Examples |
 |---------|--------------|----------|
@@ -1199,9 +1202,9 @@ dog -q example.com
 | `+d <dir>` | List files opened in a specific directory | `sudo lsof +d /etc` |
 | `+D <dir>` | Recursively list files opened under a directory | `sudo lsof +D /var/log` |
 
-### Examples
+## Examples
 
-### Who’s using SSH
+## Who is using SSH
 
 ```bash
 sudo lsof -i :22            
@@ -1215,7 +1218,7 @@ sudo lsof -i :22
 | `lsof` | List open files command |
 | `-i :22` | Directs to list processes using port 22 |
 
-### Filter by host and IP address
+## Filter by host and IP address
 
 ```bash
 lsof -i @192.168.1.10
@@ -1236,7 +1239,7 @@ lsof -i @192.168.1.10
 
 - `ipcalc [ip-address/cidr]`
 
-### Options
+## Options
 
 | Options | Descriptions | Examples |
 |---------|--------------|----------|
@@ -1248,7 +1251,7 @@ lsof -i @192.168.1.10
 | `-r` | Create a random private IP given mask | `ipcalc -r \24` |
 | `-h` | Give me the possible hostname for that IP | `ipcalc --hostname 8.8.8.8` |
 | `-j` | Output results as JSON | `ipcalc -j --all-info 192.168.1.10/24` |
-| `--no-decorate` | Raw output with no fluff | ipcalc -S 26 192.168.1.0/24` |
+| `--no-decorate` | Raw output with no fluff | `ipcalc -S 26 192.168.1.0/24` |
 | `--addrspace` | Info about address space category | `ipcalc --addrspace 192.168.1.0/24` |
 | `-p` | Show the CIDR prefix | `ipcalc --prefix 192.168.1.10 255.255.255.0` |
 | `--class-prefix` | Use classful defaults for netmask | `ipcalc --class-prefix 10.0.0.1` |\
@@ -1257,9 +1260,9 @@ lsof -i @192.168.1.10
 | `--minaddr` | Lowest usable host IP in the network | `ipcalc --minaddr 192.168.1.0/24` |
 | `--maxaddr` | Highest usable host IP | `ipcalc --maxaddr 192.168.1.0/24` |
 
-### Example
+## Example
 
-### Validate if the IP is legit
+## Validate if the IP is legit
 
 ```bash
 ipcalc -c 192.168.1.5/24
@@ -1271,7 +1274,7 @@ ipcalc -c 192.168.1.5/24
 |-----------|-------------|
 | `ipcalc` | Network Command |
 | `-c` | Directs to validate IP |
-| `192.168.1.5/24` | IP address
+| `192.168.1.5/24` | IP address |
 
 # Command: wormhole
 
@@ -1281,14 +1284,16 @@ ipcalc -c 192.168.1.5/24
 
 - `wormhole [OPTIONS] COMMAND [ARGUEMENT]`
 
-### Options
+## Options
 
 | Options | Description | Examples |
 |---------|-------------|----------|
-| `send[f or d]` | Kicks off a transfer, spits out a code | `wormhole send backup` |
+| `send[f or d]` | Start an encrypted transfer, spits out a code | `wormhole send backup` |
 | `receive` | Waits for someone to punch in that code | `wormhole receive` |
 
-### Example
+## Example
+
+## Start an encrypted transfer
 
 ```bash
 wormhole send secrets.tar.gz

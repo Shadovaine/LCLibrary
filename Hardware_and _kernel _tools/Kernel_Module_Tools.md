@@ -16,7 +16,7 @@
 
 - `lsmod`
 
-### Options
+## Options
 
 - `No flags or options`
 
@@ -28,7 +28,7 @@
 
 - `modinfo [Options] [module_file] | module_name`
 
-### Options
+## Options
 
 | Options | Descriptions | Examples |
 |---------|--------------|----------|
@@ -41,9 +41,9 @@
 | `-k<kernel>` | Query module info for a specific kernel version | `modinfo -k 6.8.0-31-generic i915` |
 | `-O` | Seperate output fields with NUL instead of newline | `modinfo -O i915` |
 
-### Examples
+## Examples
 
-### Retrieve information about a module by name
+## Retrieve information about a module by name
 
 ```bash
 modinfo i915
@@ -64,11 +64,11 @@ modinfo i915
 
 - `modprobe [Options] <module_name> [parameters ...]`
 
-### Options
+## Options
 
 | Options | Descriptions | Examples |
 |---------|--------------|----------|
-| `-a` | Inserts all listed modules | `modprobe -a i915 e1000e |
+| `-a` | Inserts all listed modules | `modprobe -a i915 e1000e` |
 | `-r` | Remove a module | `modprobe -r i915` |
 | `-r -a` | Remove multiple modules | `modprobe -r -a e1000e i915` |
 | `--show`or`-n` | Dry-run | `modprobe -n i915` |
@@ -81,9 +81,9 @@ modinfo i915
 | `--quiet` | Supress errors | `modprobe --quiet badmodule` |
 | `-C<file>` | Use alternate config file | `modprobe -C /tmp/custom.conf e1000e` |
 
-### Examples
+## Examples
 
-### Remove a module
+## Remove a module
 
 ```bash
 sudo modprobe -r i915

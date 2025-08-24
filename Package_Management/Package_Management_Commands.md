@@ -20,7 +20,7 @@
 
 - `apt [OPTIONS] COMMAND [PACKAGE...]`
 
-### Options
+## Options
 
 | Options | Descriptions | Examples |
 |---------|--------------|----------|
@@ -44,9 +44,9 @@
 | `--reinstall` | Reinstalls the specified packages. | `apt --reinstall package-name` |
 | `--fix-broken` | Fixes broken dependencies. | `apt --fix-broken package-name`|
   
-### Examples
+## Examples
 
-### Update repositories
+## Update repositories
 
 ```bash
 sudo apt update
@@ -60,7 +60,7 @@ sudo apt update
 | `apt` | Package manager command |
 | `update` | Refreshes the package index from repositories |
 
-### Upgrade all packages
+## Upgrade all packages
 
 ```bash
 sudo apt upgrade
@@ -74,7 +74,7 @@ sudo apt upgrade
 | `apt` | Package manager command |
 | `upgrade` | Upgrades all upgradable packages |
   
-### Install nmap
+## Install nmap
 
 ```bash
 sudo apt install nmap
@@ -89,7 +89,7 @@ sudo apt install nmap
 | `install` | Directs to install target package |
 | `nmap` | Target package to install |
 
-### Remove package (keep configs)
+## Remove package (keep configs)
 
 ```bash
 sudo apt remove apache2
@@ -104,7 +104,7 @@ sudo apt remove apache2
 | `remove` | Directs to remove target package |
 | `apache2` | Target package to remove |
 
-### Purge package (remove configs also)
+## Purge package (remove configs also)
 
 ```bash
 sudo apt purge apache2
@@ -127,7 +127,7 @@ sudo apt purge apache2
 
 - `snap [OPTIONS] COMMAND [PACKAGE...]`
 
-### Options
+## Options
 
 | Options | Descriptions | Examples |
 |---------|--------------|----------|
@@ -150,7 +150,7 @@ sudo apt purge apache2
 | `snap interface <int>` | Show details of a specific interface. | `snap interface name` |
 | `snap aliases` | Shows current snap command aliases. | `snap aliases` |
 | `snap alias` | Creates a command alias for a snap. | `snap alias` |
-| `snap unalias` | Removes a command alias. | snap unalias` |
+| `snap unalias` | Removes a command alias. | `snap unalias` |
 | `snap warnings` | Show warnings for snaps. | `snap warnings` |
 | `snap changes` | Lists recent snap changes and transactions. | `snap changes` |
 | `snap change <id>` | Show details for a specific change ID. | `snap change 3333` |
@@ -162,9 +162,9 @@ sudo apt purge apache2
 | `snap set <pkg> key=value` | Set configuration for a snap. | `snap set package-name` |
 | `snap get <pkg>` | Get configurations for a snap. | `snap get package-name` |
 
-### Examples
+## Examples
 
-### Search for VS Code
+## Search for VS Code
 
 ```bash
 snap find code
@@ -178,7 +178,7 @@ snap find code
 | `find` | Directs package manager to find target package |
 | `code` | Target package to search for |
   
-### Install VS Code
+## Install VS Code
 
 ```bash
 sudo snap install code --classic
@@ -193,7 +193,7 @@ sudo snap install code --classic
 | `install` | Directs to install specific package |
 | `code --classic` | Specific package |
 
-### Update snaps
+## Update snaps
 
 ```bash
 sudo snap refresh
@@ -215,7 +215,7 @@ sudo snap refresh
 
 - `dpkg [OPTIONS] PACKAGE`
 
-### Options
+## Options
 
 | Options | Descriptions | Examples |
 |---------|--------------|----------|
@@ -236,9 +236,9 @@ sudo snap refresh
 | `--update-avail` | Update available package info from /var/lib/dpkg/available | `sudo dpkg --update-avail` |
 | `--clear-avail` | Clear available package info | `sudo dpkg --clear-avail` |
 
-### Examples
+## Examples
 
-### Install a .deb file
+## Install a .deb file
 
 ```bash
 sudo dpkg -i google-chrome.deb
@@ -253,7 +253,7 @@ sudo dpkg -i google-chrome.deb
 | `-i` | Install a .deb package |
 | `google-chrome.deb` | Specific pacakge to install |
 
-### Remove a package
+## Remove a package
 
 ```bash
 sudo dpkg -r google-chrome-stable
@@ -268,7 +268,7 @@ sudo dpkg -r google-chrome-stable
 | `-r` | Directs to remove a pacakge |
 | `google.chrome-stable` | Specified pacakge to remove |
 
-### List installed packages
+## List installed packages
 
 ```bash
 dpkg -l
@@ -281,7 +281,7 @@ dpkg -l
 | `dpkg` | Package Manager Command |
 | `-l` | Directs to list installed packages |
 
-### List package contents
+## List package contents
 
 ```bash
 dpkg -L vim
@@ -303,7 +303,7 @@ dpkg -L vim
 
 - `yum [OPTIONS] COMMAND [PACKAGE...]`
 
-### Options
+## Options
 
 | Options | Descriptions | Examples |
 |---------|--------------|----------|
@@ -326,9 +326,9 @@ dpkg -L vim
 | `group remove` | Remove all packages in a group | `sudo yum group remove "Example List"` |
 | `update-to` | Update a pacakge to a specific version | `sudo yum update-to vim 1.1.1` |
 
-### Examples
+## Examples
 
-### Install httpd
+## Install httpd
 
 ```bash
 sudo yum install httpd
@@ -343,7 +343,7 @@ sudo yum install httpd
 | `install` | Directs to install specified package |
 | `httpd` | Specified package |
 
-### Update all packages
+## Update all packages
 
 ```bash
 sudo yum update
@@ -357,7 +357,7 @@ sudo yum update
 | `yum` | Package Manager Command |
 | `update` | Specified command to update all packages |
 
-### Search for nginx
+## Search for nginx
 
 ```bash
 yum search nginx
@@ -373,13 +373,13 @@ yum search nginx
 
 # Command: dnf (Dandified YUM)
 
-## Description: The modern replacement for yum on RHEL/CentOS 8+ and Fedora.
+## Description: The modern replacement for yum on RHEL/CentOS 8+ and Fedora
 
 ## Syntax
 
 - `dnf [OPTIONS] COMMAND [PACKAGE...]`
 
-### Options
+## Options
 
 | Options | Descriptions | Examples |
 |---------|--------------|----------|
@@ -404,9 +404,9 @@ yum search nginx
 | `repoquery` | Query information from enabled repos |  `dnf repoquery --available` |
 | `autoremove` | Remove packages installed as dependencies but no longer needed | `sudo dnf autoremove` |
 
-### Examples
+## Examples
 
-### Install git
+## Install git
 
 ```bash
 sudo dnf install git
@@ -421,7 +421,7 @@ sudo dnf install git
 | `install` | Directs to install specified package |
 | `git` | Specified package |
 
-### Upgrade all packages
+## Upgrade all packages
 
 ```bash
 sudo dnf upgrade
@@ -435,7 +435,7 @@ sudo dnf upgrade
 | `dnf` | Package Manager Command |
 | `upgrade` | Directs to upgrade all packages that can be ugraded |
 
-### Search for docker
+## Search for docker
 
 ```bash
 dnf search docker
@@ -457,7 +457,7 @@ dnf search docker
 
 - `rpm [OPTIONS] PACKAGE`
 
-### Options
+## Options
 
 | Options | Descriptions | Examples |
 |---------|--------------|----------|
@@ -479,9 +479,9 @@ dnf search docker
 | `--nodeps` | Ignore dependencies | `sudp rpm -i --nodeps package.rpm` |
 | `--force` | Force install/upgrade | `sudo rpm -i --force package.rpm` |
 
-### Examples
+## Examples
 
-### Install a .rpm file
+## Install a .rpm file
 
 ```bash
 sudo rpm -i package.rpm
@@ -496,7 +496,7 @@ sudo rpm -i package.rpm
 | `-i` | Directs to install a specified pacakge |
 | `package.rpm` | Specified package |
 
-### Query installed package
+## Query installed package
 
 ```bash
 rpm -q httpd
@@ -510,7 +510,7 @@ rpm -q httpd
 | `-q` | Query installed package |
 | `httpd` | Specified package |
 
-### List files installed by package
+## List files installed by package
 
 ```bash
 rpm -ql httpd
@@ -532,7 +532,7 @@ rpm -ql httpd
 
 - `flatpak [OPTIONS] COMMAND [PACKAGE...]`
 
-### Options
+## Options
 
 | Options | Descriptions | Examples |
 |---------|--------------|----------|
@@ -553,9 +553,9 @@ rpm -ql httpd
 | `remote-add [NAME][URL]` | Add a new remote |`sudo flatpak remote-add flathub https://flathub.org/repo/flathub.flatpakrepo` |
 | `remote-list` | List configured Flatpak remotes |`flatpak remote-list` |
 
-### Examples
+## Examples
 
-### Search for Spotify
+## Search for Spotify
 
 ```bash
 flatpak search spotify
@@ -568,7 +568,7 @@ flatpak search spotify
 | `search` | Directs to search for a specified app |
 | `spotify` | specified app to search for |
 
-### Install Spotify
+## Install Spotify
 
 ```bash
 sudo flatpak install flathub com.spotify.Client
@@ -584,7 +584,7 @@ sudo flatpak install flathub com.spotify.Client
 | `flathub` | Remote repository of apps |
 | `com.spotify.client` | specified app |
 
-### Run Spotify
+## Run Spotify
 
 ```bash
 flatpak run com.spotify.Client

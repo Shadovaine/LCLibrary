@@ -20,8 +20,7 @@
 - `btop`
 - `agg`
 
-
-## Command: ps
+# Command: ps
 
 ## Description: Short for `process` status. Shows a snapshot of current processes
 
@@ -29,7 +28,7 @@
 
 - `ps [OPTIONS]`
 
-### Options
+## Options
 
 | Options | Descriptions | Examples |
 |---------|---------------|----------|
@@ -44,9 +43,9 @@
 | `--ppid<PID>` | Show children of a specific process | `ps ppid 1` |
 
 
-### Examples
+## Examples
 
-### Show all running processes
+## Show all running processes
 
 ```bash
 ps -e
@@ -59,7 +58,7 @@ ps -e
 | `ps` | Process manager command |
 | `-e` | Show all running processes |
 
-### Show full details (UID, PID, etc.)
+## Show full details (UID, PID, etc.)
 
 ```bash
 ps -ef
@@ -73,7 +72,7 @@ ps -ef
 | `-e` | Show all running processes |
 | `-f` | Show full-format |
 
-### Show processes for user “username"
+## Show processes for user “username"
 
 ```bash
 ps -u username
@@ -87,7 +86,7 @@ ps -u username
 | `-u` | Show processes for a specific user |
 | `username` | Target user |
 
-### BSD style
+## BSD style
 
 ```bash
 ps aux
@@ -102,7 +101,7 @@ ps aux
 | `u` | Display user/owner |
 | `x` | Include deamons and background tasks |
 
-### Show only PID and COMMAND columns
+## Show only PID and COMMAND columns
 
 ```bash
 ps -eo pid,cmd
@@ -125,7 +124,7 @@ ps -eo pid,cmd
 
 - `top [OPTIONS]`
 
-### Options
+## Options
 
 | Options | Descriptions | Examples |
 |---------|--------------|----------|
@@ -135,7 +134,7 @@ ps -eo pid,cmd
 | `-u<username>` | Show only processes by a soecific user | `top -u username` |
 | `-p<PID>` | Monitors a specific process by PID | `top -p 1234` | 
 
-### Interactive Keystrokes
+## Interactive Keystrokes
 
 ### Description: Keystrokes used within top
 
@@ -155,9 +154,9 @@ ps -eo pid,cmd
 | `f` | Add or remove columns |
 | `W` | Save configuration |
 
-### Examples
+## Examples
 
-### Run top
+## Run top
 
 ```bash
 top
@@ -169,7 +168,7 @@ top
 |-----------|-------------|
 | `top` | Process Manager command |
 
-### Show processes for user “username"
+## Show processes for user “username"
 
 ```bash
 top -u username
@@ -183,7 +182,7 @@ top -u username
 | `-u` | Show processes only for username |
 | `username` | Target username |
 
-### Monitor only PID 1234
+## Monitor only PID 1234
 
 ```bash
 top -p 1234
@@ -205,7 +204,7 @@ top -p 1234
 
 - `htop [Options]`
 
-### Options
+## Options
 
 | Options | Descriptions | Examples |
 |---------|--------------|----------|
@@ -217,7 +216,7 @@ top -p 1234
 | `-t` | Tree view enabled by default | `htop -t` |
 | `--sort-key<column>` | Like -s, far clarify | `htop --sort-key PERCENT_CPU` |
 
-### Interactive Keystroks
+## Interactive Keystroks
 
 ### Description: Keystrokes used within htop
 
@@ -241,9 +240,9 @@ top -p 1234
 | `s` | Trace system calls |
 | `l` | Display open files |
 
-### Examples
+## Examples
 
-### Run htop
+## Run htop
 
 ```bash
 htop
@@ -264,7 +263,7 @@ htop
 
 - `glances`
 
-### Options
+## Options
 
 | Options | Descriptions | Examples |
 |---------|--------------|----------|
@@ -288,7 +287,9 @@ htop
 | `-B` | No bold text | `glances -B` |
 | `-q` | Only critical messages | `glances -q` |
 
-### Interactive Keystrokes
+## Interactive Keystrokes
+
+### Description: Keystrokes used with `glances`
 
 | Interactive Keystrokes | Description |
 |------------------------|-------------|
@@ -307,7 +308,9 @@ htop
 | `s` | Toggle sensors |
 | `l` | toggle logs |
 
-### Examples
+## Examples
+
+## Display output in web UI mode
 
 ```bash
 glances -w
@@ -328,7 +331,7 @@ glances -w
 
 - `sudo iotop`
 
-### Options
+## Options
 
 | Options | Descriptions | Examples |
 |---------|--------------|----------|
@@ -342,7 +345,9 @@ glances -w
 | `-k` | Show I/O in KB instead of bytes | `sudo iotop -k` |
 | `-q` | Suppress header lines | `sudo iotop -b -qqq > io_only.txt` |
 
-### Examples
+## Examples
+
+## Display only process actually doing I/O
 
 ```bash
 sudo iotop -o
@@ -364,7 +369,7 @@ sudo iotop -o
 
 - `kill [OPTIONS] PID`
 
-### Options
+## Options
 
 | Options | Descriptions | Examples |
 |---------|--------------|----------|
@@ -373,9 +378,9 @@ sudo iotop -o
 | `-l` | Lists all available signals by name | `kill -l` |
 | `-L` | List all available signals in a table format | `kill -L` |
 
-### Examples
+## Examples
 
-### Gracefully terminate PID 1234
+## Gracefully terminate PID 1234
 
 ```bash
 kill 1234
@@ -388,7 +393,7 @@ kill 1234
 | `kill` | Process command |
 | `1234` | Target process |
 
-### Force kill PID 1234
+## Force kill PID 1234
 
 ```bash
 kill -9 1234
@@ -402,7 +407,7 @@ kill -9 1234
 | `-9` | Directs to send SIGKILL to target process |
 | `1234` | Target Process |
 
-### List signals
+## List signals
 
 ```bash
 kill -l
@@ -423,7 +428,7 @@ kill -l
 
 - `killall [OPTIONS] PROCESS_NAME`
 
-### Options
+## Options
 
 | Options | Descriptions | Examples |
 |---------|--------------|----------|
@@ -441,9 +446,9 @@ kill -l
 | `-y` | Kills only processes younger than 5 minutes | `killall -y 5m process` |
 | `-o` or `--older-than<time>` | Kills only processes older than one hour | `killall -o 1h process` |
 
-### Examples
+## Examples
 
-### Kill all processes named “firefox”
+## Killall processes named `firefox`
 
 ```bash
 killall firefox
@@ -456,7 +461,7 @@ killall firefox
 | `killall` | Process Command |
 | `firefox` | process to be killed |
 
-### Prompt before killing
+## Prompt before killing
 
 ```bash
 killall -i python3
@@ -472,13 +477,13 @@ killall -i python3
 
 # Command: jobs
 
-## Description: Lists background jobs in the current shell session. 
+## Description: Lists background jobs in the current shell session
 
 ## Syntax
 
 - `jobs [OPTIONS][job_spec ..]`
 
-### Options
+## Options
 
 | Options | Descriptions | Examples |
 |---------|--------------|----------|
@@ -489,9 +494,9 @@ killall -i python3
 | `-r` | Lists only jobs that are stopped/suspended | `jobs -s` |
 | `-s` | Show only stopped jobs | `jobs -s` |
 
-### Examples
+## Examples
 
-### List currently working jobs
+## List currently working jobs
 
 ```bash
 jobs -r
@@ -504,7 +509,7 @@ jobs -r
 | `jobs` | Process command |
 | `-r` | Directs to only list currently running jobs |
 
-### List jobs with PID
+## List jobs with PID
 
 ```bash
 jobs -l
@@ -537,7 +542,7 @@ jobs -l
 | `%na` | Resume by partial job name | `bg %na` |
 | `%?sleep` | Job whose command contains a string | `bg %?sleep` |
 
-### Examples
+## Examples
 
 ### Resume job #1 in background
 
@@ -552,7 +557,7 @@ bg %1
 | `bg` | process command |
 | `%1` | Directs to resume a specific job by number |
 
-### Resume most recent stopped job
+## Resume most recent stopped job
 
 ```bash
 bg
@@ -572,7 +577,7 @@ bg
 
 - `fg [JOB_SPEC]`
 
-### Options
+## Options
 
 | Options | Descriptions | Examples |
 |---------|--------------|----------|
@@ -584,9 +589,9 @@ bg
 | `%?string` | Bring a job by substring match | `fg %?1000` |
 
 
-### Examples
+## Examples
 
-### Bring job #1 to foreground
+## Bring job #1 to foreground
 
 ```bash
 fg %1
@@ -599,7 +604,7 @@ fg %1
 | `fg` | Process command |
 | `%1` | Bring a specific job by number | 
 
-### Bring most recent background job
+## Bring most recent background job
 
 ```bash
 fg
@@ -627,9 +632,9 @@ fg
 | `--help` | Prints usage help | `nice --help` |
 | `--version` | Prints version of nice | `nice --version` |
 
-### Examples
+## Examples
 
-### Run a script with lower priority
+## Run a script with lower priority
 
 ```bash
 nice -n 10 ./backup.sh
@@ -644,7 +649,7 @@ nice -n 10 ./backup.sh
 | `10` | Priority Value to assign to target file |
 | `./backup.sh` | Target file |
 
-### Run with highest priority (requires sudo)
+## Run with highest priority (requires sudo)
 
 ```bash
 sudo nice -n -20 ./critical_task.sh
@@ -668,6 +673,8 @@ sudo nice -n -20 ./critical_task.sh
 
 - `renice [Options] priority [PID]`
 
+## Syntax Components
+
 | Syntax Component | Description |
 |------------------|-------------|
 | `Priority` | The new nice value (between -20 = highest priority and 19 = lowest) |
@@ -682,9 +689,9 @@ sudo nice -n -20 ./critical_task.sh
 | `-u` | Changes priority of all processes owned by a user | `renice -n +5 -u name` | 
 | `-g` | Changes priority for a whole process group | `renice -n -5 -g 1234` | 
 
-### Examples
+## Examples
 
-### Change priority of PID 1234
+## Change priority of PID 1234
 
 ```bash
 renice 5 -p 1234
@@ -699,7 +706,7 @@ renice 5 -p 1234
 | `-p` | Directs to only change target PID |
 | `1234` | Target PID |
 
-### Make PID 5678 highest priority
+## Make PID 5678 highest priority
 
 ```bash
 sudo renice -20 -p 5678
@@ -723,16 +730,39 @@ sudo renice -20 -p 5678
 
 - `procs`
 
-### Options
+## Options
 
-### Examples
+| Options | Descriptions | Examples |
+|---------|--------------|----------|
+| `-t`or`--tree` | Show processes as a hierachical tree view | `procs --t` |
+| `-w` | Like top, updates process list dynamically in place | `procs -w` |
+| `--watch-interval<seconds>` | Sets refresh interval | `procs --watch-interval 3` |
+| `--sorta<column>`or`--sortd<column>` | Sort ascending or descending by specific column | `procs --sorta` |
+| `--color`or`--page` | Visual tweaks | `procs --color` |
 
+## Boolean Filtering Flags
+
+| Flags | Description |
+|-------|-------------|
+| `--and`or`-a` | Both conditions need to be met to be true |
+| `--or`or`-o` | At least one condition has to be met to be true |
+| `--nand` | Matches all processes except those that meet all of the given filter |
+| `--nor` | Matches process that satisfy neither of the given filters |
+
+## Examples
+
+## Continuous live updates
+
+```bash
 procs --watch
+```
 
-Features:
-	•	Color-coded CPU/mem usage
-	•	Shows user, start time, I/O
-	•	--tree view like pstree
+### Breakdown
+
+| Breakdown | Desciption |
+|-----------|------------|
+| `procs` | Process command |
+| `--watch` | Directs to perform continuous live updates |
 
 # Command: btop
 
@@ -742,21 +772,49 @@ Features:
 
 - `btop`
 
-### Example
+## Options
 
- Just run btop
-	•	Shows:
-	•	CPU, memory, disks, temps, processes — all in a colorful interface
+| Options | Descriptions | Examples |
+|---------|--------------|----------|
+| `(none)` | Launch default btop | `btop` |
+| `--low-color` | Force 256-color mode | `btop --low-color` |
+| `--tty-on` | Launch in simple TTY-friendly mode | `btop --tty-on` |
+| `--preset 2` | Load layout/preset number 2 | `btop --preset 2` | 
+| `--update 1000` | Refresh every 1000 ms | `btop --update 1000` |
+| `--filter ssh` | Only show process matching `ssh` | `btop --filter ssh` |
+| `--config /path/to/my.conf` | use a custom config file | `btop --conf /path/to/my.conf` | 
+| `--force-utf` | Start even if terminal lacks UTF-8 | `btop --force-utf` | 
+| `--debug` | Start with debug logging and timers | `btop --debug` |
 
-🧠 Great for demoing system status during training or incident reviews.	
+## Example
+
+## Set refresh rate to 1000 ms
+
+```bash
+btop --update 1000 
+```
+
+### Breakdown
+
+| Breakdown | Desciption |
+|-----------|------------|
+| `btop` | Process command |
+| `--update 1000` | Directs to set refresh rate 1000 |
 
 # Command: agg
 
 ## Description: Aggregate and visualize logs or command output
 
-## Syntax agg 
+## Syntax
+
+- `agg <asciicast_filename_or_URL> <output_gif_filename>`
 
 ### Options
+
+| Options | Descriptions | Examples |
+|---------|--------------|----------|
+| `--theme<name or palette>` | Choose color theme | `agg --theme monokai --font-size 20 --font-family "Fira  Code" --speed 2 demo.cast demo.gif` |
+
 
 ### Examples
 

@@ -17,7 +17,7 @@
 
 - `lspci [Options]`
 
-### Options
+## Options
 
 | Options | Descriptions | Examples |
 |---------|--------------|----------|
@@ -30,13 +30,14 @@
 | `-mm` | Show machine-readable/ scripting format | `lspci -mm` |
 | `-t` | Tree view | `lspci -t` |
 
-### Examples
+## Examples
 
-### Show IDs instead of text
+## Show IDs instead of text
 
 ```bash
 lspci -n
 ```
+
 ### Breakdown
 
 | Breakdown | Description |
@@ -52,7 +53,7 @@ lspci -n
 
 - `lsusb [Options]`
 
-### Options
+## Options
 
 | Options | Descriptions | Examples |
 |---------|--------------|----------|
@@ -63,9 +64,9 @@ lspci -n
 | `-t` | Displays USB devices as a tree view | `lsusb -t` |
 | `-v -s` | Great for troubleshooting or reverse-engineering | `sudo lsusb -s 001:002 -v` |
 
-### Examples
+## Examples
 
-### USB Port Tree layout
+## USB Port Tree layout
 
 ```bash
 lsusb -t
@@ -86,7 +87,7 @@ lsusb -t
 
 - `sensors [Options]`
 
-### Options
+## Options
 
 |Options | Descriptions | Examples |
 |--------|--------------|----------|
@@ -100,9 +101,9 @@ lsusb -t
 | `-jA` | JSON output with no adapter lines | `sensors -jA` |
 | `-c<file>`or`--config-file=<file>` | Use an alternate config file | `sensors -c /etc/sensors3.conf` |
 
-### Examples
+## Examples
 
-### Check CPU temps in Fahrenheit
+## Check CPU temps in Fahrenheit
 
 ```bash
 sensors -f
@@ -123,7 +124,7 @@ sensors -f
 
 - `hwinfo [Options]`
 
-### Options
+## Options
 
 | Options | Descriptions | Examples |
 |---------|--------------|----------|
@@ -138,7 +139,7 @@ sensors -f
 | `--netcard` | Show details of network interfaces | `hwinfo --netcard` | 
 | `--sound` | Show sound card info | `hwinfo --sound` |
 | `--printer` | Show printers detected | `hwinfo --printer` |
-| ``--monitor` | Show details of connected monitors | `hwinfo --monitor` |
+| `--monitor` | Show details of connected monitors | `hwinfo --monitor` |
 | `--mouse` | Show details about the mouse | `hwinfo --mouse` |
 | `--keyboard` | Show keybaord device info | `hwinfo --keyboard` |
 | `--bios` | Shows BIOS/UEFI details | `hwinfo --bios` |
@@ -153,9 +154,9 @@ sensors -f
 | `--debug<N>` | Set debug level 0-10 | `hwinfo --cpu --debug 2` |
 | `--log<file>` | Save output to a log file | `sudo hwinfo --all --log hwinfo_full.txt` |
 
-### Examples
+## Examples
 
-### Check GPU vendor and driver
+## Check GPU vendor and driver
 
 ```bash
 hwinfo --gfxcard
