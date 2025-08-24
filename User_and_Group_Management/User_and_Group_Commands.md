@@ -15,12 +15,12 @@
 - `newgroup`
 - `groupmod`
 - `groupdel`
+- `delgroup`
 - `gpasswd`
-- `groups`
 - `whoami`
 - `getent`
 - `finger`
-- `delgroup`
+
 
 # Command: useradd
 
@@ -48,7 +48,7 @@
 | `-c`or`--comment COMMENT` | Add description (stored in /etc/passwd) | `sudo useradd -m -c "QA Tester" qauser` |
 | `-k`or`--ske DIR` | Copy files from custom skeleton directory | `sudo useradd -m -k /etc/skel_custom_trainee` |
 | `-o`or`--non-unique` | Allow duplicate UID (not recommended) | `sudo useradd -m -u 1001 -o cloneuser` |
-| `-p`or`--password PASSWORD` | Set encrypted password (not plain text, must be hashed) | `sudo useradd -m -p "$(openssl passwd -l MyPass123)" secureuser |
+| `-p`or`--password PASSWORD` | Set encrypted password (not plain text, must be hashed) | `sudo useradd -m -p "$(openssl passwd -l MyPass123)" secureuser` |
 | `-D` | Show or change default settings for new user | `sudo useradd -D` |
 
 ### Examples
@@ -253,7 +253,7 @@ sudo usermod -s /bin/zsh name
 |---------|--------------|----------|
 | `-d`or`--delete` | Delete the user's password | `sudo passwd -d name` |
 | `-e`or`--expire` | Expire the password immediately | `sudo passwd -e name` |
-| `-i`or`--inactive DAYS | Set the number of inactive days after password expireation before the account is disabled | `sudo passwd -i 10 name` |
+| `-i`or`--inactive DAYS` | Set the number of inactive days after password expireation before the account is disabled | `sudo passwd -i 10 name` |
 | `-k`or`--keep-token` | Keep non-expired authentication tokens | `sudo passwd -k name` |
 | `-l`or`--lock` | Lock the account's password | `sudo passwd -l name` |
 | `-u`or`--unlock` | Unlock a locked account | `sudo passwd -u name` |
@@ -522,7 +522,7 @@ newgrp newname
 | `-g` | Change the group's numeric Group ID | `sudo groupmod -g 1000 developers` |
 | `-n`or`--new-name NEW_GROUP` | Rename a group | `sudo groupmod -n devs developers` |
 | `-o`or`--non-unique` | Allow a duplicate GID | `sudo groupmod -g 1001 -o duplicategroup` |
-| `-p`or`--password ENCRYPTED` | "$(openssl passwd -l GroupPass123)" admins` |
+| `-p`or`--password ENCRYPTED` | Encrypts password | `sudo groupmod -p "$(openssl passwd -l GroupPass123)" admins` |
 
 ### Examples
 
@@ -534,8 +534,8 @@ sudo groupmod -n quality qa
 
 ### Breakdown
 
-| Breakdown | Descriptions | Examples |
-|-----------|--------------|----------|
+| Breakdown | Descriptions |
+|-----------|--------------|
 | `sudo` | Superuser command |
 | `groupmod` | User command |
 | `-n` | Rename a group |
@@ -586,6 +586,40 @@ sudo groupdel testers
 | `groupdel` | Group command |
 | `testers` | Specified group |
 
+# Command: delgroup
+
+## Description: Deletes a group from filesystem. It can also remove a specific user from a group. More versatile than `groupdel`
+
+## Syntax
+
+- `delgroup [Options] GROUP`
+- `delgroup [Options] USER GROUP`
+
+### Options
+
+| Options | Descriptions | Examples |
+|---------|--------------|----------|
+| `(none)` | Deletes a group | `sudo delgroup names` |
+| `--quiet` | Run silently | `sudo delgroup --quiet names` |
+| `--only-if-empty` | Only delete the group if it has no members left | `sudo delgroup --only-if-empty namesx` |
+
+### Examples
+
+### Remove user namex from docker
+
+```bash
+sudo delgroup namex docker
+```
+
+### Breakdown
+
+| Breakdown | Description |
+|-----------|-------------|
+| `sudo` | Superuser command |
+| `delgroup` | Group command |
+| `namex` | Specified user to remove |
+| `docker` | Specific group |
+
 # Command: gpasswd
 
 ## Description: It handles group passwords and memberships directly. It can set or change passwords, add or remove users from groups, set group administrators, and lock or unlock groups. It uses the `/etc/group` and `/etc/gshadow` files
@@ -605,7 +639,7 @@ sudo groupdel testers
 | `-r` | Remove group password | `sudo gpasswd -r name` |
 | `-R` | Restrict group access to members only | `sudo gpasswd -R name` |
 | `-A USER1,USER2` | Set group administrators | `sudo gpasswd -A name,oldname newnamex` |
-| `-M USER1,USER2 | Define group members | `sudo gpasswd -M name,oldnane newnames` |
+| `-M USER1,USER2` | Define group members | `sudo gpasswd -M name,oldnane newnames` |
 
 ### Examples
 
@@ -687,7 +721,7 @@ whoami
 | `protocols` | Queries from protocols database | `getent protocols tcp` |
 | `networks` | Queries from networks database | `getent networks loopback` |
 | `ahosts` | Outputs IPv4 and IPv6 addresses | `getent ahosts google.com` |
-| `alias` | Queries mail alias if configured | `getent aliases mail |
+| `alias` | Queries mail alias if configured | `getent aliases mail` |
 
 ### Examples
 
@@ -706,26 +740,47 @@ getent group
 
 # Command: finger
 
-## Description:
+## Description: Displays information about system users from `/etc/passwd` and from login sessions. It will show real names, login time and terminal, idle time, home directory, and shell
 
 ## Syntax
 
-### Options
-
-### Examples
-
-
-
-
-
-
-
-# Command: delgroup
-
-## Description:
-
-## Syntax
+- `finger [Options] [USER...]`
 
 ### Options
 
+| Options | Descriptions | Examples |
+|---------|--------------|----------|
+| `USER` | Single user lookup | `finger name` |
+| `-l` | Long Format | `finger -l name` |
+| `-s` | Short format | `finger -s name` |
+| `-p` | Suppresses plan/project files | `finger -p name` |
+| `-m` | Exact match on username | `finger -m name` |
+| `-h` | Suppresses header | `finger -h` |
+| `-w` | Wide output, don't truncate names or office info | `finger -w` |
+| `-b` | Brief output, omits name column | `finger -b` |
+| `-l USER1 USER2` | Shows long info for multiple users | `finger -l name oldname` |
+
 ### Examples
+
+### Check a single user
+
+```bash
+finger -s name
+```
+
+### Breakdown
+
+| Breakdown | Description |
+|-----------|-------------|
+| `finger` | User command |
+| `-s` | Directs to only query specified user |
+| `name` | Specified user |
+
+
+
+
+
+
+
+
+

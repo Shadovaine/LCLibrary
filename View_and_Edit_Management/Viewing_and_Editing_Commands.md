@@ -64,13 +64,45 @@ cat -n script.sh
 
 ### Options
 
--N	Show line numbers.
--S	Disable line wrapping (long lines cut off).
-+F	Open in “follow mode” (like tail -f).
+| Options | Descriptions | Examples |
+|---------|--------------|----------|
+| `-N` | Show line numbers | `less -N /etc/passwd` |
+| `-S` | Truncate long lines instead of wrapping | `less -S /var/log/syslog` |
+| `-X` | Do not clear the screen when exiting | `less -X notes.txt` |
+| `-F` | Quit if the file fits on one screen | `less -F shortfiles.txt` |
+| `-M` | Display a `verbose` prompt showing percentage, file name, etc | `less -M bigfile.log` |
+| `-m` | Show a `short` promt with percentage through the file | `less -m bigfile.log` |
+| `-P PROMPT` | Set a custom prompt | `less -P "Viewing file: %f line: %lb/%L"` |
+| `-i` | Ignore case in searches unless the pattern has uppercase letters | `less -i /etc/passwd` |
+| `-I` | Ignore case in all searches | `less -I /etc/passwd` |
+| `-G` | Do not highlight matches in searches | `less -G logfile.txt` |
+| `-p PATTERN` | Start with the first match of PATTERN | `less -p error /var/log/syslog` |
+| `-+option` | Disable an option | `less -+i file.txt` |
+| `-e` | Quit at end of file | `less -e notex.txt` |
+| `-f` | Force open non-text/binary files | `less -f /bin/ls` |
+| `-r` | Output `raw` control characters | `less -r colored.log` |
+| `-R` | output `raw` control characters but keep color codes visible | `less -R /var/log/syslog` |
+| `-s` | Squeezes multiple blank lines into one | `less -s bigfile.txt` |
+| `-u` | Suppresses underlining | `less -u manpage.txt` |
+| `-U` | Allow underlining | `less -U text.txt` |
+| `-w` | highlight firest new line after a movement command | `less -w /etc/passwd` |
+| `-#NUM` | Set number of columns to scroll horizontally | `less-# 10 widefile.txt` |
 
 ### Examples
 
-- less /var/log/syslog
+### View a wide log without wrapping
+
+```bash
+less -S /var/log/syslog
+```
+
+### Breakdown
+
+| Breakdown | Description |
+|-----------|-------------|
+| `less` | Viewing command |
+| `-S` | Directs to view without wrapping |
+| `/var/log/syslog` | Specified file |
 
 # Command: More
 
@@ -82,18 +114,43 @@ cat -n script.sh
 
 ### Options
 
-- +n	Start at line n.
-- /pattern	Search forward for “pattern”.
+| Options | Descriptions | Examples |
+|---------|--------------|----------|
+| `-d` | Show helpful prompts instead of just ringing the bell | `more -d /etc/passwd` |
+| `-c` | Repaint screen from the top, instead of scrolling | `more -c /var/log/syslog` |
+| `-p` | Clear screen and display text page by page | `more -p file.txt` |
+| `-s` | Squeeze multiple blank lines into one | `more -s bigfile.txt` |
+| `-u` | Suppress underlining and bold | `more -u doc.txt` |
+| `+NUMBER` | Start at a specific line number | `more +59 file.txt` |
+| `+/<pattern>` | Start display at the first match of a search pattern | `more +/root /etc/passwd` |
 
 ### Examples
 
 ### view a file
 
+```bash
 more /etc/services
+```
+
+### Breakdown
+
+| Breakdown | Description |
+|-----------|-------------|
+| `more` | Viewing command |
+| `/etc/services` | Target file |
 
 ### start viewing from line 20
 
+```bahs
 more +20 bigfile.txt
+```
+### Breakdown
+
+| Breakdown | Description |
+|-----------|-------------|
+| `more` | Viewing command |
+| `+20` | Directs to go to line 20 |
+| `bigfile.txt` | Specified file |
 
 # Command: Head
 
@@ -116,8 +173,14 @@ head /etc/passwd
 
 ### Show the first 5 lines
 
+```bash
 head -n 5 myfile.txt
+```
 
+### Breakdown
+
+| Breakdown | Description |
+###
 # Command: tail
 
 ## Description: outputs the last few lines of a file. Spits out the last 10 lines by default
@@ -136,10 +199,29 @@ head -n 5 myfile.txt
 
 ### Shows the last 10 lines
 
+```bash
 tail /etc/passwd
+```
+
+### Breakdown
+
+| Breakdown | Description |
+|-----------|-------------|
+| `tail` | Viewing command |
+| `/etc/passwd` | Specified file |
+
 ### Shows the last 20 lines
 
+```bash
 tail -n 20 mylog.log
+```
+### Breakdown
+
+| Breakdown | Description |
+|-----------|-------------|
+| `tail` | Viewing command |
+| `n 20` | Directs to only show the last 20 lines |
+| `mylog.log` | Specified file |
 
 # Command: fold
 
@@ -151,19 +233,42 @@ tail -n 20 mylog.log
 
 ### Options
 
--w NUM	Set line width to NUM characters.
--s	Break lines at spaces instead of cutting words.
+| Options | Descriptions | Examples |
+|---------|--------------|----------|
+| `-w`or`--width=WIDTH` | Set the maximum line width | `fold -w 45 longtext.txt` |
+| `-s`or`--spaces` | Breaks lines at the last space before the width limit, instead of cutting words in the middle | `fold -w 44 -s paragraph.txt` |
 
 ### Examples
 
 ### Wrap lines at 40 characters
 
+```bash
 fold -w 40 longfile.txt
+```
+
+### Breakdown
+
+| Breakdown | Description |
+|-----------|-------------|
+| `fold` | Viewing command |
+| `-w 40` | Sets the maximum line width to 40 |
+| `longfile.txt` | Specified file |
 
 ### Wrap lines but don’t split words
 
+```bash
 fold -s -w 40 longfile.txt
-d
+```
+
+### Breakdown
+
+| Breakdown | Description |
+|-----------|-------------|
+| `fold` | Viewing command |
+| `-s` | Directs to not split words |
+| `-w 40` | Directs to set the maximum line width to 40 |
+| `longfile.txt` | Specified file |
+
 # Command: tac 
 
 ## Description: Reads a file from bottom to top line by line
@@ -301,15 +406,15 @@ cat | od -tx1
 
 ### Reverse a patch
 
-### Step 1: Hexdump the binary
+## Step 1: Hexdump the binary
 
 ```bash
 xxd -p original.bin > dump.hex
 ```
 
-### Step 2: Edit the hex dump in a text editor
+## Step 2: Edit the hex dump in a text editor
 
-### Step 3: Convert back
+## Step 3: Convert back
 
 ```bash
 xxd -r -p dump.hex > modified.bin
@@ -372,8 +477,24 @@ xxd -l 64 myfile
 echo "Name is learning Linux like a beast!" | vipe > notes.txt
 ```
 
+### Breakdown
+
+| Breakdown | Description |
+|-----------|-------------|
+| `echo` | Viewing command |
+| `"Name is learning Linux like a beast!" | String to pipe |
+| `vipe` | Edit command |
+| `> notes.txt` | Specified file output is sent to |
+
 ### Interactive editing during a pipeline
 
 ```bash
 cat /etc/passwd | vipe | grep bash
 ```
+### Breakdown
+
+| Breakdown | Description |
+| `cat` | Viewing command |
+| `/etc/passwd` | Target file to view |
+| `vipe` | Take output from `cat` and pipe it through editor |
+| `grep bash` | Directs to search output file for keyword |
