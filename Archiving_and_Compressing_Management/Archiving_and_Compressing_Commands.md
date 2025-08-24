@@ -13,7 +13,7 @@
 - `xz`
 - `unp`
 
-## Command: tar 
+# Command: tar 
 
 ## Description: Archives multiple files into on file
 
@@ -30,20 +30,20 @@ tar `[OPTIONS] [ARCHIVE_FILE] [FILES/DIRS...]`
 | `-t` | List archive contents. | `tar -tf backup.tar` |
 | `-v` | Verbose mode. | `tar -vf backup.tar` |
 | `-f` | FILE Use archive file. | `tar -f backup.tar` |
-| `-z` | Compress archive with gzip. | `tar -xzf backup.tar.gz |
+| `-z` | Compress archive with gzip. | `tar -xzf backup.tar.gz` |
 | `-j` | Compress archive with bzip2. | `tar -xjf backup.tar.bz2` |
 | `-J` | Compress archive with xz. | `tar -xJf backup.tar.xz` |
-| `-p` | Preserve file permissions. | `tar -cxpf backup.tar |
-| `--same-owner` | Preserve original file ownership. | `tar -xzf backup.tar.gz --same-owner -C / |
-| `-C` | Change to a specific directory before extracting. | `tar -xzf backup.tar.gz --same-owner -C / |
+| `-p` | Preserve file permissions. | `tar -cxpf backup.tar` |
+| `--same-owner` | Preserve original file ownership. | `tar -xzf backup.tar.gz --same-owner -C /` |
+| `-C` | Change to a specific directory before extracting. | `tar -xzf backup.tar.gz --same-owner -C /` |
 | `-A` | Append tar files to an existing archive. | `tar -Af backup.tar original.tar` |
 | `-r` | Append files to the end of an archive. | `tar -rf backup.tar original.tar` |
-| `-u` | Append only files that area newer than what is in the archive. | `tar -cuf backup.tar original.tar |
+| `-u` | Append only files that area newer than what is in the archive. | `tar -cuf backup.tar original.tar` |
 | `--remove-files` | Remove files after adding them to the archive. | `tar --remove-files -cf backup.tar original1.txt original2.txt` |
-| `--exclude=PATTERN` | Exclude files matching a pattern. | `tar -czf backup.tar.gz --exclude=secret.txt original/ |
+| `--exclude=PATTERN` | Exclude files matching a pattern. | `tar -czf backup.tar.gz --exclude=secret.txt original/` |
 | `--wildcards` | Enable wildcard matching for patterns. | `tar -xzf backup.tar.gz --wildcards `*.log` |
 | `--overwrite` | Overwrite existing file during extraction. | `tar -xvf backup.tar --overwrite` |
-| `--strip-components=N` | Remove the firest N directory components when extracting. | 
+| `--strip-components=N` | Remove the firest N directory components when extracting. |
 | `-k` | Do not overwrite existing files when extracting. | `tar -xf backup.tar --strip-component-1` |
 | `-lzma` | LZMA compression. | `tar --lzma -xvf backup.tar.lzma` |
   
@@ -57,9 +57,9 @@ tar `[OPTIONS] [ARCHIVE_FILE] [FILES/DIRS...]`
 | `.tar.xz` | Compressed with `xz`. | Slow | 
 | `.tar.zst` | Compressed with `zstd`. | Very Fast | 
 
-### Examples
+## Examples
 
-### Create an archive
+## Create an archive
 
 ```bash
 tar -cvf backup.tar /home/sue
@@ -76,7 +76,7 @@ tar -cvf backup.tar /home/sue
 | `backup.tar` | Name of archive file. |
 | `/home/sue` | Source file/directory to be archived. |
 
-### Create a gzip-compressed archive
+## Create a gzip-compressed archive
 
 ```bash
 tar -czvf backup.tar.gz /home/sue
@@ -94,7 +94,7 @@ tar -czvf backup.tar.gz /home/sue
 | `backup.tar.gz`| Name of archive file. |
 | `/home/sue` | Source file/directory to be archived. |
 
-### List contents of an archive
+## List contents of an archive
 
 ```bash
 tar -tvf backup.tar.gz
@@ -110,7 +110,7 @@ tar -tvf backup.tar.gz
 | `-f` | Directs source FILE to use archive FILE. |
 | `backup.tar.gz` | Name of archived file to list. |
 
-### Extract an archive
+## Extract an archive
 
 ```bash
 tar -xvf backup.tar
@@ -126,7 +126,7 @@ tar -xvf backup.tar
 | `-f` | Directs source FILE to use archive FILE. |
 | `backup.tar` | Archived file to extract. |
 
-### Extract to a specific directory
+## Extract to a specific directory
 
 ```bash
 tar -xvf backup.tar -C /tmp
@@ -153,7 +153,7 @@ tar -xvf backup.tar -C /tmp
 
 - `gzip [OPTIONS] FILE`
 
-### Options
+## Options
 
 | Options | Description | Example |
 |---------|-------------|---------|
@@ -169,9 +169,9 @@ tar -xvf backup.tar -C /tmp
 | `-s` | Use a custom file extension instead of `.gz`. | `gzip -s files.txt` |
 | `-#` | Set compression level ( 1 is the fastest/least compressed and 9 is slowest/most compressed). | `gzip -1 files.txt` |
 
-### Examples
+## Examples
 
-### Compress a file
+## Compress a file
 
 ```bash
 gzip file.txt
@@ -184,7 +184,7 @@ gzip file.txt
 | `gzip` | File Compression Command. |
 | `file.txt` | File to be compressed. |
 
-### Compress but keep original
+## Compress but keep original
 
 ```bash
 gzip -k file.txt
@@ -198,7 +198,7 @@ gzip -k file.txt
 | `-k` | Keep original file. |
 | `file.txt` | File to be compressed. |
   
-### Decompress with gzip
+## Decompress with gzip
 
 ```bash
 gzip -d file.txt.gz
@@ -213,7 +213,7 @@ gzip -d file.txt.gz
 | `file.txt.gz` | File to decompress. |
 
   
-## Command: gunzip
+# Command: gunzip
 
 ## Description: Decompresses .gz files and is an alias for gzip
 
@@ -221,7 +221,7 @@ gzip -d file.txt.gz
 
 - `gunzip [OPTIONS] FILE.gz`
 
-### Options
+## Options
 
 | Options | Descriptions | Examples |
 |---------|--------------|----------|
@@ -235,9 +235,9 @@ gzip -d file.txt.gz
 | `-s` | Use a custom suffix for compressed/decompressed files. | `gunzip -s file.txt.gz` |
 | `-d` | Decompress (for gzip, but default for gunzip). | `gunzip -d file.txt.gz` |
 
-### Examples
+## Examples
 
-### Decompress a file
+## Decompress a file
 
 ```bash
 gunzip file.txt.gz
@@ -250,7 +250,7 @@ gunzip file.txt.gz
 | `gunzip` | Decompression Command. |
 | `file.txt.gz` | Archived File to Decompress. |
   
-### Keep compressed file after decompressing
+## Keep compressed file after decompressing
 
 ```bash
 gunzip -k file.txt.gz
@@ -264,7 +264,7 @@ gunzip -k file.txt.gz
 | `-k` | Directs to keep the original file. |
 | `file.txt.gz` | Target file. |
   
-## Command: zip
+# Command: zip
 
 ## Description: Compresses files into .zip archives
 
@@ -272,7 +272,7 @@ gunzip -k file.txt.gz
 
 - `zip [OPTIONS] ARCHIVE_NAME.zip FILES...`
 
-### Options
+## Options
 
 | Options | Descriptions | Examples |
 |---------|--------------|----------|
@@ -290,9 +290,9 @@ gunzip -k file.txt.gz
 | `-n` | Do not compress files with certain suffixes. | `zip -n backup.zip project/` |
 | `-m` | Move files into the archive. | `zip -m backup.zip file1.txt file2.txt` |
 
-### Example
+## Example
 
-### Create a zip archive
+## Create a zip archive
 
 ```bash
 zip archive.zip file1.txt file2.txt
@@ -306,7 +306,7 @@ zip archive.zip file1.txt file2.txt
 | `archive.zip` | Target archive file. |
 | `file1.txt file2.txt` | Files to be compressed. |
   
-### Zip a directory
+## Zip a directory
 
 ```bash
 zip -r archive.zip /home/sue
@@ -321,7 +321,7 @@ zip -r archive.zip /home/sue
 | `archive.zip` | Target archive file. |
 | `/home/sue` | Directory to compress. |
   
-### Create password-protected zip
+## Create password-protected zip
 
 ```bash  
 zip -e archive.zip secret.txt
@@ -344,7 +344,7 @@ zip -e archive.zip secret.txt
 
 - `unzip [OPTIONS] ARCHIVE_NAME.zip`
 
-### Options
+## Options
 
 | Options | Descriptions | Examples |
 |---------|--------------|----------|
@@ -362,9 +362,9 @@ zip -e archive.zip secret.txt
 | `-z` | Display the archive comment | `unzip -z archive.zip` |
 | `-o` | Overwrite files automatically without prompting | `unzip -o archive.zip` |
 
-### Example
+## Example
 
-### Extract a zip archive
+## Extract a zip archive
 
 ```bash  
 unzip archive.zip
@@ -377,7 +377,7 @@ unzip archive.zip
 | `unzip` | Extraction Command. |
 | `archive.zip` | Target file to be extracted. |
 
-### Extract to a directory
+## Extract to a directory
 
 ```bash
 unzip archive.zip -d /tmp
@@ -392,7 +392,7 @@ unzip archive.zip -d /tmp
 | `-d` | Directs extractiong to a specific directory. |
 | `/tmp` | Specific location for extaction. |
   
-### List archive contents
+## List archive contents
 
 ```bash  
 unzip -l archive.zip
@@ -414,7 +414,7 @@ unzip -l archive.zip
 
 - `bzip2 [OPTIONS] FILE`
 
-### Options
+## Options
 
 | Options | Descriptions | Examples |
 |---------|--------------|----------|
@@ -430,9 +430,9 @@ unzip -l archive.zip
 | `-z` | Force compression. | `bzip2 -z file.txt.bz2` |
 | `-s` | Reduce memory usage. | `bzip2 -s file.txt.bz2` |
 
-### Example
+## Example
 
-### Compress a file
+## Compress a file
 
 ```bash
 bzip2 file.txt
@@ -445,7 +445,7 @@ bzip2 file.txt
 | `bzip2` | Compression Command. |
 | `file.txt` | Target file. |
   
-### Decompress
+## Decompress
 
 ```bash  
 bzip2 -d file.txt.bz2
@@ -459,7 +459,7 @@ bzip2 -d file.txt.bz2
 | `-d` | Directs to decompress file. |
 | `file.txt.bz2` | Target file. |
   
-### Keep original file
+## Keep original file
 
 ```bash  
 bzip2 -k file.txt
@@ -481,7 +481,7 @@ bzip2 -k file.txt
 
 - `xz [OPTIONS] FILE`
 
-### Options
+## Options
 
 | Options | Descriptions | Examples |
 |---------|--------------|----------|
@@ -496,9 +496,9 @@ bzip2 -k file.txt
 | `--threads=NUM` | Use multithreading to speed up compression or decompression. | `xz --threads=4 backup.iso` |
 | `--single-stream` | Decompress only the first stream in a multi-stream `.xz` file. | `xz --single-stream backup.xz` |
 
-### Examples
+## Examples
 
-### Compress a file
+## Compress a file
 
 ```bash  
 xz file.txt
@@ -511,7 +511,7 @@ xz file.txt
 | `xz` | Compression Command. |
 | `file.txt` | Target file. |
   
-### Decompress
+## Decompress
 
 ```bash  
 xz -d file.txt.xz
@@ -525,7 +525,7 @@ xz -d file.txt.xz
 | `-d` | Directs to decompress file. |
 | `file.txt.xz` | Target file. |
 
-### Keep original file
+## Keep original file
 
 ```bash  
 xz -k file.txt
@@ -549,7 +549,7 @@ xz -k file.txt
 
 - `unp [Options] [archive1] [archive2...]`
 
-### Options
+## Options
 
 | Options | Descriptions | Examples |
 |---------|--------------|----------|
@@ -562,9 +562,9 @@ xz -k file.txt
 | `-t` | test archive without extracting | `unp -t archive.7z |
 | `-e` | Expand archive recursively | `unp -e nested.tar.gz` |
 
-### Examples
+## Examples
 
-### Delete archive after successfully extracting items
+## Delete archive after successfully extracting items
 
 ```bash
 unp -d secrets.tar.gz
