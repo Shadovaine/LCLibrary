@@ -24,14 +24,14 @@
 
 - `strace [OPTIONS] COMMAND`
 
-### Options
+## Options
 
 -p PID	Attach to a running process by PID.
 -o FILE	Write trace output to FILE.
 -e	Filter system calls (e.g., -e open,read,write).
 -c	Count calls and display summary.
 
-### Examples
+## Examples
 
 ### Trace a command
 

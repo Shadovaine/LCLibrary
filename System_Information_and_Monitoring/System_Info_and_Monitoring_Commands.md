@@ -26,7 +26,6 @@
 - `watch`
 - `progress`
 
-
 # Command: uname
 
 ## Description: Shows system information (kernel, architecture, etc.)
@@ -35,7 +34,7 @@
 
 - `uname [OPTIONS]`
 
-### Options
+## Options
 
 -a	Show all system information.
 -r	Show kernel release.
@@ -43,17 +42,17 @@
 -n	Show network hostname.
 -m	Show machine hardware name (arch).
 
-### Examples
+## Examples
 
-### Show kernel name
+## Show kernel name
 
 uname 
 
-### Show all system details
+## Show all system details
 
 uname -a
 
-### Show only architecture
+## Show only architecture
 
 uname -m
 

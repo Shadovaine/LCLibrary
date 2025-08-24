@@ -803,7 +803,7 @@ btop --update 1000
 
 # Command: agg
 
-## Description: Aggregate and visualize logs or command output
+## Description: Aggregate and visualize logs or command output. It will parse structured logs and output charts. It is perfect for turning large CLI data into summaries or bar charts
 
 ## Syntax
 
@@ -814,18 +814,28 @@ btop --update 1000
 | Options | Descriptions | Examples |
 |---------|--------------|----------|
 | `--theme<name or palette>` | Choose color theme | `agg --theme monokai --font-size 20 --font-family "Fira  Code" --speed 2 demo.cast demo.gif` |
+| `--font-size<px>` | Set the font size in pixels | `agg --font-size 20` |
+| `--font-family "<list>"` | Define preferred mnospace fonts | `agg --font-family "Source Code Pro, Fira Code"` |
+| `--font-dir <path>` | Specify additional font directories | `agg --font-dir ./fonts` |
+| `--speed<factor>` | Playback speed multiplier | `agg --speed 2` |
+| `--idle-time-limit <seconds>` | Limits pauses between frames | `agg --idle-time-limit 2` |
 
 
 ### Examples
 
-journalctl -b | agg -f user.name
+## Set the font size to 50
 
-Features:
-	•	Parses structured logs
-	•	Outputs charts or breakdowns
+```bash
+agg --font-size 50
+```
 
-🧠 Perfect for turning large CLI data (logs, JSON, etc.) into summaries or bar charts.
+### Breakdown
 
-error – (revisited) Helps explain error messages in CLI tools
+| Breakdown | Description |
+|-----------|-------------|
+| `agg` | Process command |
+| `--font-size` | Directs to set font to a specified size |
+| `50` | Specified font pixel size |
 
-Worth another look in combo with other output-heavy tools like agg, journalctl, dstat.
+
+

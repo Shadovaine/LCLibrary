@@ -2,7 +2,7 @@
 
 ## Description: Overview of what aliases are, what they do, and how they help a user
 
-# ## Why are aliases important?
+# Why are aliases important?
 
 | Alias Characteristic | Description |
 |----------------------|-------------|
@@ -11,7 +11,7 @@
 | `Customization` | Tailor your terminal to match your workflow. |
 | `Readability` | Makes complex commands easier to remember and share |
 
-# Pro Tips
+## Pro Tips
 
 - `Hackers and sysadmins often create aliases for pentesting tools, log monitoring, or jumping into certain directories`
 - `Instead of typing `rm -rf /path/to/something`; you can create a safer alias `alias rm='rm -i``
@@ -44,19 +44,19 @@
 
 # Permanent (loads every time you open terminal)
 
-# To make an alias named `alias gs` to represent `git status`
+## To make an alias named `alias gs` to represent `git status`
 
-## Step 1: Edit your shell config file (~/.bashrc for bash, ~/.zshrc for zsh) with a text editor `nano` or `vim`
+- Step 1: Edit your shell config file (~/.bashrc for bash, ~/.zshrc for zsh) with a text editor `nano` or `vim`
 
-- `nano ~/.bashrc`
+    - `nano ~/.bashrc`
 
-## Step 2: Add the following to the bottom of the shell config file 
+- Step 2: Add the following to the bottom of the shell config file 
 
-- `alias gs=git status`
+    - `alias gs=git status`
 
-## Step 3: Save and Reload (nano = Ctl + o, ENTER, Ctl + x; vim wq!, ENTER)
+- Step 3: Save and Reload (nano = Ctl + o, ENTER, Ctl + x; vim wq!, ENTER)
 
-- `source ~/.bashrc`
+    - `source ~/.bashrc`
 
 # Common Alias Examples
 

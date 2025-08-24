@@ -25,7 +25,7 @@
 
 - `echo [OPTIONS] [STRING...]`
 
-### Options
+## Options
 
 -n	Do not output the trailing newline.
 -e	Enable interpretation of backslash escapes.

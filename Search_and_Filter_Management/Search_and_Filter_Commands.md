@@ -22,7 +22,7 @@
 
 - `grep [options] pattern [file…]`
 
-### Options
+## Options
 
 | Options | Descriptions | Examples |
 |---------|--------------|----------|
@@ -48,9 +48,9 @@
 | `--exclude` | Exclude files | `grep -r "error" /var/log/ --exclude-dir="old"` |
 | `--color` | color Matches | `grep --color=always "error" logfile.txt` |
 
-### Examples
+## Examples
 
-### Search for the keyword "password" in the folder `/etc/passwd` and do not worry about case-sensitivity
+## Search for the keyword "password" in the folder `/etc/passwd` and do not worry about case-sensitivity
 
 ```bash
 grep -i "password" /etc/passwd
@@ -73,7 +73,7 @@ grep -i "password" /etc/passwd
 
 - `egrep [OPTIONS] PATTERN [FILE...]`
 
-### Options
+## Options
 
 | Options | Descriptions | Examples |
 |---------|--------------|----------|
@@ -97,9 +97,9 @@ grep -i "password" /etc/passwd
 | `-r` or `-R` | Recursive search in directories | `egrep -r "TODO/FIXME` |
 | `-Z` or `--null` | Output filenames with NULL instead of newline | `egrep -Z "pattern" *.txt` |
 
-### Examples
+## Examples
 
-### Find lines with “error” or “fail”
+## Find lines with “error” or “fail”
 
 ```bash
 egrep "error|fail" logfile.txt
@@ -113,7 +113,7 @@ egrep "error|fail" logfile.txt
 | `error/fail` | Pattern to search for |
 | `logfile.txt` | Target file |
 
-### Case-insensitive search
+## Case-insensitive search
 
 ```bash
 egrep -i "warning" logfile.txt
@@ -128,7 +128,7 @@ egrep -i "warning" logfile.txt
 | `warning` | Pattern to search for |
 | `logfile.txt` | Target file |
 
-### Recursive search for .conf files
+## Recursive search for .conf files
 
 ```bash
 egrep -r "Listen" /etc/apache2/
@@ -151,7 +151,7 @@ egrep -r "Listen" /etc/apache2/
 
 - `fgrep [OPTIONS] PATTERN [FILE...]`
 
-### Options
+## Options
 
 | Options | Descriptions | Examples |
 |---------|--------------|----------|
@@ -174,9 +174,9 @@ egrep -r "Listen" /etc/apache2/
 | `-r` or `-R` | Recursive search in directories | `fgrep -r "TODO/FIXME` |
 | `-Z` or `--null` | Output filenames with NULL instead of newline | `fgrep -Z "pattern" *.txt` |
 
-### Examples
+## Examples
 
-### Find exact string
+## Find exact string
 
 ```bash
 fgrep "if [ $USER == root ]" script.sh
@@ -190,7 +190,7 @@ fgrep "if [ $USER == root ]" script.sh
 | `"if [ $USER == root ]"` | Specified pattern |
 | `script.sh` | Target file |
 
-### Recursive literal search
+## Recursive literal search
 
 ```bash
 fgrep -r "127.0.0.1" /etc/
@@ -213,7 +213,7 @@ fgrep -r "127.0.0.1" /etc/
 
 - `cut [OPTIONS] [FILE...]`
 
-### Options
+## Options
 
 | Options | Descriptions | Examples |
 |---------|--------------|----------|
@@ -225,9 +225,9 @@ fgrep -r "127.0.0.1" /etc/
 | `--complement` | Invert selection | `cut -c 1-4 --complement file.txt` |
 | `--output-delimiter=STR` | Change output delimiter | `cut -d ":" -f 1,2 --output delimiter=:` |
 
-### Examples
+## Examples
 
-### Cut out the first field before the colon on every line
+## Cut out the first field before the colon on every line
 
 ```bash
 cut -d ":" -f 1 /etc/passwd
@@ -243,7 +243,7 @@ cut -d ":" -f 1 /etc/passwd
 | `-f 1` | Specified to list a specific field |
 | `/etc/passwd` | Target file |
 
-### 
+## Cut out the first field before the colon on every line then sort all the output 
 
 ```bash
 cut -d ":" -f 1 /etc/passwd | sort
@@ -268,7 +268,7 @@ cut -d ":" -f 1 /etc/passwd | sort
 
 - `sed [OPTIONS] 'SCRIPT' [FILE...]`
 
-### Options
+## Options
 
 | Options | Descriptions | Examples | 
 |---------|--------------|----------|
@@ -277,7 +277,7 @@ cut -d ":" -f 1 /etc/passwd | sort
 | `-f` | Use a script file with multiple `sed` instructions | `sed -f script.sed file.txt` |
 | `-i` | Overwrites the original file | `sed -i 's/cat/dog/g' pets.txt` |
 
-### Commonly Used `sed` commands
+## Commonly Used `sed` commands
 
 | Common Commands | Description |
 |-----------------|-------------|
@@ -289,9 +289,9 @@ cut -d ":" -f 1 /etc/passwd | sort
 | `a` | Append line after match |
 | `c` | Change lines |
 
-### Examples
+## Examples
 
-### Replace “foo” with “bar” globally
+## Replace “foo” with “bar” globally
 
 ```bash
 sed 's/foo/bar/g' file.txt
@@ -313,7 +313,7 @@ sed 's/foo/bar/g' file.txt
 
 - `awk [OPTIONS] 'PATTERN { ACTION }' [FILE...]`
 
-### Options
+## Options
 
 | Options | Descriptions | Example |
 |---------|--------------|---------|
@@ -323,9 +323,9 @@ sed 's/foo/bar/g' file.txt
 | `-W compat` | Enable compatibility mode | `awk -W compat '{print $1}' file.txt` |
 | `-W posix` | Strict POSIX compliance | `awk -W posix '{print $1}' file.txt` |
 
-### Examples
+## Examples
 
-### Print first column
+## Print first column
 
 ```bash
 awk '{print $1}' file.txt
@@ -347,7 +347,7 @@ awk '{print $1}' file.txt
 
 - `sort [OPTIONS] [FILE]`
 
-### Options
+## Options
 
 | Options | Descriptions | Examples |
 |---------|--------------|----------|
@@ -362,9 +362,9 @@ awk '{print $1}' file.txt
 | `-o FILE` | Write result to file | `sort -o sorted.txt file.txt` |
 | `--parallel=N` | Use N threads | `sort --parallel=4 bigfile.txt` |
 
-### Examples
+## Examples
 
-### Sort numerically on the second column
+## Sort numerically on the second column
 
 ```bash
 sort -n -k2 file.txt
@@ -387,7 +387,7 @@ sort -n -k2 file.txt
 
 - `uniq [OPTIONS] [INPUT [OUTPUT]]`
 
-### Options
+## Options
 
 | Options | Descriptions | Examples |
 |---------|--------------|----------|
@@ -399,9 +399,9 @@ sort -n -k2 file.txt
 | `-w N` | Compare only first N chareacters | `uniq -w 5 file.txt` |
 | `-i` | Ignore case when comparing | `uniq -i file.txt` |
 
-### Examples
+## Examples
 
-### Counts unique sorted lines
+## Counts unique sorted lines
 
 ```bash
 sort file.txt | uniq -c
@@ -424,7 +424,7 @@ sort file.txt | uniq -c
 
 - `jg [Options] [Pattern] [Path]`
 
-### Options
+## Options
 
 | Options | Descriptions | Examples |
 |---------|--------------|----------|
@@ -438,13 +438,14 @@ sort file.txt | uniq -c
 | `--type<Type>` | Restrict to file types | `jg --tyep py` |
 | `--type-not<Type>` | Exclude certain file types | `jg --type-not md` |
 
-### Examples
+## Examples
 
-### Search inside a specific directory
+## Search inside a specific directory
 
 ```bash
 jg --cwd ~/logs
 ```
+
 ### Breakdown
 
 | Breakdown | Description |

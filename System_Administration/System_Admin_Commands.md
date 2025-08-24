@@ -23,7 +23,7 @@
 
 - `sudo [OPTIONS] COMMAND`
 
-### Options
+## Options
 
 | Options | Descriptions | Examples |
 |---------|--------------|----------|
@@ -47,9 +47,9 @@
 | `-S` | Read password from standard input | `sudo -S ls /root` |
 | `-A` | Use an external program for the password prompt | `sudo -A ls /root` |
 
-### Examples
+## Examples
 
-### Run command as root
+## Run command as root
 
 ```bash
 sudo apt update
@@ -63,7 +63,7 @@ sudo apt update
 | `apt` | Package manager |
 | `update` | directs to update all installed packages |
 
-### Run as another user
+## Run as another user
 
 ```bash
 sudo -u name ls /home/name
@@ -87,7 +87,7 @@ sudo -u name ls /home/name
 
 - `su [OPTIONS] [-] [USERNAME [ARG]...]`
 
-### Options
+## Options
 
 | Options | Descriptions | Examples |
 |---------|--------------|----------|
@@ -98,9 +98,9 @@ sudo -u name ls /home/name
 | `m` or `-p` | Preserve the current user's environment | `su -m name` |
 | `-(shortcut for full login shell)` | this is the same as `-l` | `su -` |
 
-### Examples
+## Examples
 
-### Switch to root
+## Switch to root
 
 ```bash
 su
@@ -112,7 +112,7 @@ su
 |-----------|-------------|
 | `su` | switches user to root |
 
-### Switch to user **name**
+## Switch to user **name**
 
 ```bash
 su name
@@ -133,7 +133,7 @@ su name
 
 - `sudo visudo`
 
-### Options
+## Options
 
 | Options | Descriptions | Examples |
 |---------|--------------|----------|
@@ -143,9 +143,9 @@ su name
 | `-x` | Export the parsed `sudoers` file in JSON format | `sudo visudo -x` |
 | `-q` | Quiet mode | `sudo visudo -q` |
 
-### Examples
+## Examples
 
-### Add user “nane" to sudoers
+## Add user “nane" to sudoers
 
 ```bash
 sudo visudo
@@ -163,7 +163,7 @@ name ALL=(ALL) ALL
 | `=(ALL)` | who u can impersonate |
 | `ALL` | what commands u can run |
 
-### Allow “name” to run only shutdown
+## Allow “name” to run only shutdown
 
 ```bash
 name ALL=(ALL) /sbin/shutdown
@@ -177,7 +177,7 @@ name ALL=(ALL) /sbin/shutdown
 
 - `systemctl [OPTIONS] COMMAND [SERVICE]`
 
-### Options
+## Options
 
 | Options | Descriptions | Examples |
 |---------|--------------|----------|
@@ -194,11 +194,9 @@ name ALL=(ALL) /sbin/shutdown
 | `is-enabled<services>` | Check if service starts at boot | `systemctl is-enabled service` |
 | `is-failed<services>` | Check if service has failed | `systemctl is-failed service` |
 
+## Examples
 
-
-### Examples
-
-### Start Apache service
+## Start Apache service
 
 ```bash
 sudo systemctl start apache2
@@ -213,7 +211,7 @@ sudo systemctl start apache2
 | `start` | starts a service |
 | `apache2` | 
 
-### List all services
+## List all services
 
 ```bash
 sudo systemctl list-units --type=service
@@ -230,13 +228,13 @@ sudo systemctl list-units --type=service
 
 # Command: service (SysVinit Service Control)
 
-## Description: Manages SysVinit services (legacy tool; still works on many systems).
+## Description: Manages SysVinit services (legacy tool; still works on many systems)
 
 ## Syntax
 
 - `service [SERVICE_NAME] COMMAND`
 
-### Options
+## Options
 
 | Options | Descriptions | Examples |
 |---------|--------------|----------|
@@ -247,9 +245,9 @@ sudo systemctl list-units --type=service
 | `ststus` | Check the status | `service ssh status` |
 | `--status-all` | List all services | `service --status-all` |
 
-### Examples
+## Examples
 
-### Start Apache service
+## Start Apache service
 
 ```bash
 sudo service apache2 start
@@ -264,7 +262,7 @@ sudo service apache2 start
 | `apache2` | target service |
 | `start` | Directs to start service |
 
-### Check service status
+## Check service status
 
 ```bash
 sudo service cron status
