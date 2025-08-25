@@ -1,0 +1,7 @@
+[project]
+name = "lcl"
+version = "0.1.0"
+requires-python = ">=3.10"
+dependencies = ["typer>=0.12.3", "pyraml>=6.0.1", "rich>=13.7.1"]
+[project.scripts]
+lcl = "app.cli.main:app"
