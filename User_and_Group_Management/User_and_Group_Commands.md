@@ -30,7 +30,7 @@
 
 - `useradd [OPTIONS] USERNAME`
 
-### Options
+## Options
 
 | Options | Descriptions | Examples |
 |---------|--------------|----------|
@@ -51,9 +51,9 @@
 | `-p`or`--password PASSWORD` | Set encrypted password (not plain text, must be hashed) | `sudo useradd -m -p "$(openssl passwd -l MyPass123)" secureuser` |
 | `-D` | Show or change default settings for new user | `sudo useradd -D` |
 
-### Examples
+## Examples
 
-### Create a user with default settings
+## Create a user with default settings
 
 ```bash
 sudo useradd name
@@ -67,7 +67,7 @@ sudo useradd name
 | `useradd` | User command |
 | `name` | New user name |
 
-### Create user with home dir and bash shell
+## Create user with home dir and bash shell
 
 ```bash
 sudo useradd -m -s /bin/bash name
@@ -84,7 +84,7 @@ sudo useradd -m -s /bin/bash name
 | `/bin/bash` | Assigned shell |
 | `name` | New user account name |
 
-### Create user with specific UID and comment
+## Create user with specific UID and comment
 
 ```bash
 sudo useradd -m -u 1500 -c "name"
@@ -101,7 +101,7 @@ sudo useradd -m -u 1500 -c "name"
 | `-c` | Directs to add a comment that is stored in `/etc/passwd` |
 | `name` | Specified comment |
 
-### Create user and assign to group “admins”
+## Create user and assign to group “admins”
 
 ```bash
 sudo useradd -m -G admins name
@@ -126,7 +126,7 @@ sudo useradd -m -G admins name
 
 - `adduser [Options] USERNAME`
 
-### Options
+## Options
 
 | Options | Descriptions | Examples |
 |---------|--------------|----------|
@@ -139,16 +139,15 @@ sudo useradd -m -G admins name
 | `--system` | Create a system account | `sudo adduser --system name` |
 | `--disabled-password` | Account with no usable password | `sudo adduser --disabled-password name` |
 | `--disabled-login` | Account completely disabled for login | `sudo adduser --disabled-login noname` |
-| `--gecos "INFO" | Fill GECOS (comment) field non-interactively | `sudo adduser --gecos "QA Tester" name` |
+| `--gecos "INFO"` | Fill GECOS (comment) field non-interactively | `sudo adduser --gecos "QA Tester" name` |
 | `--quiet` | Suppresses log messages | `sudo adduser --quiet noname` |
 | `--debug` | show debug info | `sudo adduser --debug name` |
 | `--force-badname` | Allow usernames that don't match the normal pattern | `sudo adduser --force-badname noname` |
 | `--encrypt-home` | Encrypt user's home directory | `sudo adduser --encrypt-home noname` |
 
+## Examples
 
-### Examples
-
-### Create dev01 in Bash shell and add to dev groups
+## Create dev01 in Bash shell and add to dev groups
 
 ```bash
 sudo adduser --shell /bin/bash --ingroup devs --gecos "Dev Account" dev01
@@ -168,7 +167,7 @@ sudo adduser --shell /bin/bash --ingroup devs --gecos "Dev Account" dev01
 | `"Dev Account"` | Specified comment to add |
 | `dev01` | New account user name |
 
-### Differences between useradd and adduser
+## Differences between useradd and adduser
 
 | Characteristic | useradd | adduser |
 |----------------|---------|---------|
@@ -185,7 +184,7 @@ sudo adduser --shell /bin/bash --ingroup devs --gecos "Dev Account" dev01
 
 - `usermod [OPTIONS] USERNAME`
 
-### Options
+## Options
 
 | Options | Descriptions | Examples |
 |---------|--------------|----------|
@@ -205,9 +204,9 @@ sudo adduser --shell /bin/bash --ingroup devs --gecos "Dev Account" dev01
 | `-o`or`--non-unique` | Allow duplicate UID (use with -u) | `sudo usermod -u 1001 -o newname` |
 | `-R`or`--root CHROOT_DIR` | Apply change inside alternate root directory (useful for chroot) | `sudo usermod -R /mnt/chroot -s /bin/bash noname` |
 
-### Examples
+## Examples
 
-### Change username from “username” to “name”
+## Change username from “username” to “name”
 
 ```bash
 sudo usermod -l name username
@@ -223,7 +222,7 @@ sudo usermod -l name username
 | `name` | New username |
 | `username` | Old username |
 
-### Change user’s shell to zsh
+## Change user shell to zsh
 
 ```bash
 sudo usermod -s /bin/zsh name
@@ -247,7 +246,7 @@ sudo usermod -s /bin/zsh name
 
 - `passwd [OPTIONS] [USERNAME]`
 
-### Options
+## Options
 
 | Options | Descriptions | Examples |
 |---------|--------------|----------|
@@ -262,9 +261,9 @@ sudo usermod -s /bin/zsh name
 | `-w`or`--wanrdays DAYS` | Set number of days before expireation that the user is warned | `sudo passwd -w 8 name` |
 | `-S`or`--status` | Dsplay password status information for the account | `sudo paswd -S name` |
 
-### Examples
+## Examples
 
-### Change your own password
+## Change your own password
 
 ```bash
 passwd
@@ -276,7 +275,7 @@ passwd
 |-----------|-------------|
 | `passwd` | password command |
 
-### Set password for user "name"
+## Set password for user "name"
 
 ```bash
 sudo passwd name
@@ -298,7 +297,7 @@ sudo passwd name
 
 - `chage [Options] USERNAME`
 
-### Options
+## Options
 
 | Options | Descriptions | Examples |
 |---------|--------------|----------|
@@ -310,9 +309,9 @@ sudo passwd name
 | `-W`or`--warndays DAYS` | Sets number of days before expireation that the user is warned | `sudo chage -W 8 name` |
 | `-l`or`--list` | Lists current password aging settings | `chage -l name` |
 
-### Examples
+## Examples
 
-### Reset the clock 
+## Reset the clock
 
 ```bash
 sudo chage -d 2025-08-23 name
@@ -328,7 +327,7 @@ sudo chage -d 2025-08-23 name
 | `2025-08-23` | Specified date |
 | `name` | Target user account |
 
-### User Account expires at the end of 2025
+## User Account expires at the end of 2025
 
 ```bash
 sudo chage -E 2025-12-31 name
@@ -352,16 +351,16 @@ sudo chage -E 2025-12-31 name
 
 - `userdel [Options] USERNAME`
 
-### Options
+## Options
 
 | Options | Descriptions | Examples |
 |---------|--------------|----------|
 | `-r`or`--remove` | Removes the user's home directory and mail spool in addition to the account | `sudo userdel -r name` |
 | `-f`or`--force` | Force removal of the account, kills processes, removes account if user is still logged in | `sudo userdel -f name` |
 
-### Examples
+## Examples
 
-### Delete name's account, home directory, and mail spool
+## Delete name's account, home directory, and mail spool
 
 ```bash
 sudo userdel -r name
@@ -385,7 +384,7 @@ sudo userdel -r name
 - `deluser [Options] USERNAME`
 - `deluser [Options] USERNAME GROUP`
 
-### Options
+## Options
 
 | Options | Descriptions | Examples |
 |---------|--------------|----------|
@@ -395,9 +394,9 @@ sudo userdel -r name
 | `--backup-to DIR` | Specifies to backup destination directory | `sudo deluser --remove-all-files --backup --backups name` |
 | `--system` | Remove a system user | `sudo deluser --system www-data` |
 
-### Examples
+## Examples
 
-### Remove name and delete name's home directory
+## Remove name and delete name's home directory
 
 ```bash
 sudo deluser --remove-home name
@@ -412,7 +411,7 @@ sudo deluser --remove-home name
 | `--remove-home` | Directs to remove home |
 | `name` | Specified user account |
 
-### Remove name and all files across system
+## Remove name and all files across system
 
 ```bash
 sudo deluser --remove-all-files name
@@ -435,7 +434,7 @@ sudo deluser --remove-all-files name
 
 - `groupadd [OPTIONS] GROUPNAME`
 
-### Options
+## Options
 
 | Options | Descriptions | Examples |
 |---------|--------------|----------|
@@ -445,9 +444,9 @@ sudo deluser --remove-all-files name
 | `-o`or`--non-unique` | Allow creation of group with duplicate GID | `sudo groupadd -g 1001 -o dubgroup` |
 | `-p`or`--password ENCRYPTED` | Assigns an encrypted password for the group | `sudo groupadd -p "$(openssl passwd -l MyGroupPass)" securegroup` |
 
-### Examples
+## Examples
 
-### Create a group called “admins”
+## Create a group called “admins”
 
 ```bash
 sudo groupadd admins
@@ -461,7 +460,7 @@ sudo groupadd admins
 | `groupadd` | Group command |
 | `admins` | Specified group name |
 
-### Create group with specific GID
+## Create group with specific GID
 
 ```bash
 sudo groupadd -g 1001 developers
@@ -485,15 +484,15 @@ sudo groupadd -g 1001 developers
 
 - `newgrp [Options] [Group]`
 
-### Options
+## Options
 
 | Options | Descriptions | Examples |
 |---------|--------------|----------|
 | `-` | Starts a new login shell | `newgrp - developers` |
 
-### Examples
+## Examples
 
-### Switch to another group
+## Switch to another group
 
 ```bash
 group name
@@ -515,7 +514,7 @@ newgrp newname
 
 - `groupmod [Options] GROUP`
 
-### Options
+## Options
 
 | Options | Descriptions | Examples |
 |---------|--------------|----------|
@@ -524,9 +523,9 @@ newgrp newname
 | `-o`or`--non-unique` | Allow a duplicate GID | `sudo groupmod -g 1001 -o duplicategroup` |
 | `-p`or`--password ENCRYPTED` | Encrypts password | `sudo groupmod -p "$(openssl passwd -l GroupPass123)" admins` |
 
-### Examples
+## Examples
 
-### Rename group qa to quality
+## Rename group qa to quality
 
 ```bash
 sudo groupmod -n quality qa
@@ -542,7 +541,7 @@ sudo groupmod -n quality qa
 | `quality` | New Group name |
 | `qa` | Old group name |
 
-### Change GID of staff group to 2000
+## Change GID of staff group to 2000
 
 ```bash
 sudo groupmod -g 2000 staff
@@ -566,13 +565,13 @@ sudo groupmod -g 2000 staff
 
 - `groupdel [Options] GROUP`
 
-### Options
+## Options
 
 - `No options for groupdel`
 
-### Examples
+## Examples
 
-### Delete a group
+## Delete a group
 
 ```bash
 sudo groupdel testers
@@ -595,7 +594,7 @@ sudo groupdel testers
 - `delgroup [Options] GROUP`
 - `delgroup [Options] USER GROUP`
 
-### Options
+## Options
 
 | Options | Descriptions | Examples |
 |---------|--------------|----------|
@@ -603,9 +602,9 @@ sudo groupdel testers
 | `--quiet` | Run silently | `sudo delgroup --quiet names` |
 | `--only-if-empty` | Only delete the group if it has no members left | `sudo delgroup --only-if-empty namesx` |
 
-### Examples
+## Examples
 
-### Remove user namex from docker
+## Remove user namex from docker
 
 ```bash
 sudo delgroup namex docker
@@ -630,7 +629,7 @@ sudo delgroup namex docker
 - `gpasswd [Options] -a USER GROUP`
 - `gpasswd [Options] -d USER GROUP`
 
-### Options
+## Options
 
 | Options | Descriptions | Examples |
 |---------|--------------|----------|
@@ -641,9 +640,9 @@ sudo delgroup namex docker
 | `-A USER1,USER2` | Set group administrators | `sudo gpasswd -A name,oldname newnamex` |
 | `-M USER1,USER2` | Define group members | `sudo gpasswd -M name,oldnane newnames` |
 
-### Examples
+## Examples
 
-### Add user name to docker group
+## Add user name to docker group
 
 ```bash
 sudo gpasswd -a name docker
@@ -659,7 +658,7 @@ sudo gpasswd -a name docker
 | `name` | Name of a new user |
 | `docker` | Specified group to add new user |
 
-### Assign admins name and oldname to group qa
+## Assign admins name and oldname to group qa
 
 ```bash
 sudo gpasswd -A name, oldname qa
@@ -675,7 +674,6 @@ sudo gpasswd -A name, oldname qa
 | `name, oldname` | Specified users to be admin |
 | `qa` | Specified group |
 
-
 # Command: whoami
 
 ## Description: Displays the current effective username of the shell or process running the command. It is a shortcut for `id -un`
@@ -684,13 +682,13 @@ sudo gpasswd -A name, oldname qa
 
 - `whoami [Options]`
 
-### Options
+## Options
 
 - `no options`
 
-### Examples
+## Examples
 
-### Check current username
+## Check current username
 
 ```bash
 whoami
@@ -710,7 +708,7 @@ whoami
 
 - `getent [Options] DATABASE [Keyword...]`
 
-### Options
+## Options
 
 | Options | Descriptions | Examples |
 |---------|--------------|----------|
@@ -723,9 +721,9 @@ whoami
 | `ahosts` | Outputs IPv4 and IPv6 addresses | `getent ahosts google.com` |
 | `alias` | Queries mail alias if configured | `getent aliases mail` |
 
-### Examples
+## Examples
 
-### List all groups
+## List all groups
 
 ```bash
 getent group
@@ -746,7 +744,7 @@ getent group
 
 - `finger [Options] [USER...]`
 
-### Options
+## Options
 
 | Options | Descriptions | Examples |
 |---------|--------------|----------|
@@ -760,9 +758,9 @@ getent group
 | `-b` | Brief output, omits name column | `finger -b` |
 | `-l USER1 USER2` | Shows long info for multiple users | `finger -l name oldname` |
 
-### Examples
+## Examples
 
-### Check a single user
+## Check a single user
 
 ```bash
 finger -s name
@@ -775,12 +773,3 @@ finger -s name
 | `finger` | User command |
 | `-s` | Directs to only query specified user |
 | `name` | Specified user |
-
-
-
-
-
-
-
-
-

@@ -22,7 +22,7 @@
 
 - `cat [option] [ file….]`
 
-### Options
+## Options
 
 | Options | Descriptions | Examples |
 |---------|--------------|----------|
@@ -35,9 +35,9 @@
 | `-T` | Show tabs as ^I | `cat -T notes.txt` |
 | `-v` | Show non-printing characters | `cat -v dumpfile.txt` |
 
-### Examples
+## Examples
 
-### Number all lines
+## Number all lines
 
 ```bash
 cat -n script.sh
@@ -59,7 +59,7 @@ cat -n script.sh
 
 - `less [OPTIONS] [FILE]`
 
-### Options
+## Options
 
 | Options | Descriptions | Examples |
 |---------|--------------|----------|
@@ -85,9 +85,9 @@ cat -n script.sh
 | `-w` | highlight firest new line after a movement command | `less -w /etc/passwd` |
 | `-#NUM` | Set number of columns to scroll horizontally | `less-# 10 widefile.txt` |
 
-### Examples
+## Examples
 
-### View a wide log without wrapping
+## View a wide log without wrapping
 
 ```bash
 less -S /var/log/syslog
@@ -109,7 +109,7 @@ less -S /var/log/syslog
 
 - `more [OPTIONS] [FILE]`
 
-### Options
+## Options
 
 | Options | Descriptions | Examples |
 |---------|--------------|----------|
@@ -121,9 +121,9 @@ less -S /var/log/syslog
 | `+NUMBER` | Start at a specific line number | `more +59 file.txt` |
 | `+/<pattern>` | Start display at the first match of a search pattern | `more +/root /etc/passwd` |
 
-### Examples
+## Examples
 
-### view a file
+## view a file
 
 ```bash
 more /etc/services
@@ -136,11 +136,12 @@ more /etc/services
 | `more` | Viewing command |
 | `/etc/services` | Target file |
 
-### start viewing from line 20
+## Start viewing from line 20
 
-```bahs
+```bash
 more +20 bigfile.txt
 ```
+
 ### Breakdown
 
 | Breakdown | Description |
@@ -157,16 +158,16 @@ more +20 bigfile.txt
 
 - `head [OPTIONS] [FILE]`
 
-### Options
+## Options
 
 | Options | Descriptions | Examples |
 |---------|--------------|----------|
 | `-n`or`--lines=[NUM]` | Show the first NUM lines of a file | `head -n 20 file.txt` |
 | `-c`or`--bytes=[NUM]` | Show the first NUM bytes of a file | `head -c 59 file.txt` |
 
-### Examples
+## Examples
 
-### Show the first 10 lines
+## Show the first 10 lines
 
 ```bash
 head -n 10 /etc/passwd
@@ -180,7 +181,7 @@ head -n 10 /etc/passwd
 | `-n 10` | Directs to list the first 10 lines |
 | `/etc/passwd` | Specified file |
 
-### Show the first 5 lines
+## Show the first 5 lines
 
 ```bash
 head -n 5 myfile.txt
@@ -194,7 +195,6 @@ head -n 5 myfile.txt
 | `-n 5` | Directs to output the first 5 lines |
 | `myfile.txt` | Specified file |
 
-###
 # Command: tail
 
 ## Description: Outputs the last few lines of a file. Spits out the last 10 lines by default
@@ -203,7 +203,7 @@ head -n 5 myfile.txt
 
 - `tail [OPTIONS] [FILE]`
 
-### Options
+## Options
 
 | Options | Descriptions | Examples |
 |---------|--------------|----------|
@@ -218,9 +218,9 @@ head -n 5 myfile.txt
 | `--max-unchanged-stats=N` | With `--follow-name` reopen a file after N iterations | `tail -F --max-unchanged-stats=5 /var/log/syslog` |
 | `--sleep-interval=N` | Set how long `tail` sleeps between checks when using `-f` | `tail -f --sleep-interval=2 /var/log/syslog` |
 
-### Examples
+## Examples
 
-### Shows the last 10 lines
+## Shows the last 10 lines
 
 ```bash
 tail /etc/passwd
@@ -233,11 +233,12 @@ tail /etc/passwd
 | `tail` | Viewing command |
 | `/etc/passwd` | Specified file |
 
-### Shows the last 20 lines
+## Shows the last 20 lines
 
 ```bash
 tail -n 20 mylog.log
 ```
+
 ### Breakdown
 
 | Breakdown | Description |
@@ -254,16 +255,16 @@ tail -n 20 mylog.log
 
 - `fold [OPTIONS] [FILE]`
 
-### Options
+## Options
 
 | Options | Descriptions | Examples |
 |---------|--------------|----------|
 | `-w`or`--width=WIDTH` | Set the maximum line width | `fold -w 45 longtext.txt` |
 | `-s`or`--spaces` | Breaks lines at the last space before the width limit, instead of cutting words in the middle | `fold -w 44 -s paragraph.txt` |
 
-### Examples
+## Examples
 
-### Wrap lines at 40 characters
+## Wrap lines at 40 characters
 
 ```bash
 fold -w 40 longfile.txt
@@ -277,7 +278,7 @@ fold -w 40 longfile.txt
 | `-w 40` | Sets the maximum line width to 40 |
 | `longfile.txt` | Specified file |
 
-### Wrap lines but don’t split words
+## Wrap lines but don’t split words
 
 ```bash
 fold -s -w 40 longfile.txt
@@ -300,7 +301,7 @@ fold -s -w 40 longfile.txt
 
 - `tac [Option]...[File]...`
 
-### Options
+## Options
 
 | Options | Descriptions | Examples |
 |---------|--------------|----------|
@@ -308,9 +309,9 @@ fold -s -w 40 longfile.txt
 | `-r` | Treat the separator as a regex | `tac -r -s [0-9]{4}-' logs.txt` | 
 | `-s<separator>` | Use a custom separator instead of newline | `tac -s ":" /etc/passwd` |
 
-### Examples
+## Examples
 
-### Reverse a file line-by-line
+## Reverse a file line-by-line
 
 ```bash
 tac notes.txt
@@ -331,7 +332,7 @@ tac notes.txt
 
 - `strings [Options] file`
 
-### Options
+## Options
 
 | Options | D*escriptions | Examples |
 |---------|--------------|----------|
@@ -343,9 +344,9 @@ tac notes.txt
 | `-o` | Legacy: same as -t d -- show decimal offset | `strings -f *.o` |
 | `-T<encoding>` | Specify encoding for output terminal | `strings -T UTF-8 core.dump` |
 
-### Examples
+## Examples
 
-### Scan a binary and show readable text
+## Scan a binary and show readable text
 
 ```bash
 strings /usr/bin/whoami
@@ -366,7 +367,7 @@ strings /usr/bin/whoami
 
 - `od [Options] [File]`
 
-### Options
+## Options
 
 | Options | Descriptions | Examples |
 |---------|--------------|----------|
@@ -380,18 +381,18 @@ strings /usr/bin/whoami
 | `j<num>` | Skip N bytes before dumping | `od -j 16 -x myfile` |
 | -v` | Do not suppress repeated lines | `od -v -x myfile` |
 
-### od Output Formats
+## `od` Output Formats
 
-| od Formats | Descriptions |
+| `od` Formats | Descriptions |
 |------------|--------------|
 | `x1, x2` | Hex 1 or 2byte grouplings |
 | `u1, u2, u4` | Unsigned ints |
 | `d2, d4` | signed decimals |
 | `f4, f8` | floating point |
 
-### Examples 
+## Examples 
 
-### Dump stdin as hex
+## Dump stdin as hex
 
 ```bash
 cat | od -tx1
@@ -413,7 +414,7 @@ cat | od -tx1
 
 - `xxd [Options] [file] [outfile]`
 
-### Options
+## Options
 
 | Options | Descriptions | Examples |
 |---------|--------------|----------|
@@ -427,7 +428,7 @@ cat | od -tx1
 | `-i` | output as C-style include array | `xxd -i myfile` |
 | `-e` | Little-endian hex dump (rarely used) | `xxd -e myfile` |
 
-### Reverse a patch
+## Reverse a patch
 
 ## Step 1: Hexdump the binary
 
@@ -443,9 +444,9 @@ xxd -p original.bin > dump.hex
 xxd -r -p dump.hex > modified.bin
 ```
 
-### Examples
+## Examples
 
-### View a file as hex
+## View a file as hex
 
 ```bash
 xxd /bin/ls | less
@@ -459,7 +460,7 @@ xxd /bin/ls | less
 | `/bin/ls` | Target file to hexdump |
 | `less` | Piped and less Directs to view hexdump |
 
-### Dump first 64 bytes of a file
+## Dump first 64 bytes of a file
 
 ```bash
 xxd -l 64 myfile
@@ -487,14 +488,14 @@ xxd -l 64 myfile
 
 - `[command] vipe [command]`
 
-### Options
+## Options
 
 - `No standard options`
 - `User does need to set specific editor to have vipe use during session. It can be temporary or made permanent`
 
-### Examples
+## Examples
 
-### Edit output from `echo` before saving
+## Edit output from `echo` before saving
 
 ```bash
 echo "Name is learning Linux like a beast!" | vipe > notes.txt
@@ -509,11 +510,12 @@ echo "Name is learning Linux like a beast!" | vipe > notes.txt
 | `vipe` | Edit command |
 | `> notes.txt` | Specified file output is sent to |
 
-### Interactive editing during a pipeline
+## Interactive editing during a pipeline
 
 ```bash
 cat /etc/passwd | vipe | grep bash
 ```
+
 ### Breakdown
 
 | Breakdown | Description |

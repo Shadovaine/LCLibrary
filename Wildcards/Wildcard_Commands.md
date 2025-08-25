@@ -1,4 +1,4 @@
-# Linux wildcards
+# Linux Wildcards
 
 ## Description: Special characters used to represent unknown or variable parts
 
@@ -19,15 +19,15 @@
 
 ## Description: Matches zero or more characters in a file name
 
-### Examples
+## Examples
 
-### List all files in the current directory
+## List all files in the current directory
 
 ```bash
 ls *.txt
 ```
 
-### Delete all files ending with .txt
+## Delete all files ending with .txt
 
 ```bash
 rm *.txt
@@ -37,15 +37,15 @@ rm *.txt
 
 ## Description: Matches exactly one character
 
-### Examples
+## Examples
 
-### Match file1.txt, fileA.txt
+## Match file1.txt, fileA.txt
 
 ```bash
 ls file?.txt
 ```
 
-### Move all .jpg files with one character filenames into images
+## Move all .jpg files with one character filenames into images
 
 ```bash
 mv ?.jpg images/
@@ -55,15 +55,15 @@ mv ?.jpg images/
 
 ## Description: Matches a single character from the set/range you specify
 
-### Examples
+## Examples
 
-### Matches file1.txt, file2.txt, file3.txt
+## Matches file1.txt, file2.txt, file3.txt
 
 ```bash
 ls file[1-3].txt
 ```
 
-### Matches filea.txt, fileb.txt, filec.txt
+## Matches filea.txt, fileb.txt, filec.txt
 
 ```bash
 ls file[abc].txt
@@ -73,21 +73,21 @@ ls file[abc].txt
 
 ## Description: Generates a sequence or comma-separated list of items
 
-### Examples
+## Examples
 
-### Expands to file1.txt file2.txt file3.txt
+## Expands to file1.txt file2.txt file3.txt
 
 ```bash
 echo file{1,2,3}.txt
 ```
 
-### Creates dirs project/docs, src, bin
+## Creates dirs project/docs, src, bin
 
 ```bash
 mkdir project/{docs,src,bin}
 ```
 
-### Copy all files from fileA.txt to fileZ.txt
+## Copy all files from fileA.txt to fileZ.txt
 
 ```bash
 cp file{A..Z}.txt /tmp/
@@ -97,15 +97,15 @@ cp file{A..Z}.txt /tmp/
 
 ## Description: Expands to the home directory of the current user
 
-### Examples
+## Examples
 
-### Go to your home directory
+## Go to your home directory
 
 ```bash
 cd ~
 ```
 
-### Copy all files from Documents to current directory
+## Copy all files from Documents to current directory
 
 ```bash
 cp ~/Documents/* 
@@ -115,9 +115,9 @@ cp ~/Documents/*
 
 ## Description: One period stands for current directory
 
-### Examples
+## Examples
 
-### List current directory contents
+## List current directory contents
 
 ```bash
 ls .
@@ -127,9 +127,9 @@ ls .
 
 ## Description: Two periods stand for parent directory
 
-### Examples
+## Examples
 
-### Move up one level in directory tree
+## Move up one level in directory tree
 
 ```bash
 cd ..
@@ -139,9 +139,9 @@ cd ..
 
 ## Description: Negates a character set in []
 
-### Examples
+## Examples
 
-### Matches files not ending with a, b, c
+## Matches files not ending with a, b, c
 
 ```bash
 ls file[!a-c].txt
@@ -151,9 +151,9 @@ ls file[!a-c].txt
 
 ## Description: Escapes the special meaning of a wildcard
 
-### Examples
+## Examples
 
-### Lists file named *, not all files
+## Lists file named *, not all files
 
 ```bash
 ls \*
@@ -163,27 +163,32 @@ ls \*
 
 ## Description: Used to reference or expand a variable or expression. It tells the shell: "Hey, don’t treat this as a literal word — go get me the value of it.”
 
-### Common Uses of $
+## Common Uses of $
 
 ### Accessing Variables
 
-- `USER="shadowman76"`
-- `echo $USER`
+```bash
+USER="shadowman76"
+echo $USER
+```
 
-	**$USER retrieves the value stored in the USER variable.**
-	**No $ means you’re referencing the variable name literally, not the value.**
+- `$USER` retrieves the value stored in the `USER` variable.
 
-# Bonus
+- No `$` means you’re referencing the variable name literally, not the value.
 
-## Wildcards don’t have options directly but are affected by shell behavior and command options
+## Additional information on Wildcards
 
-## Use find with wildcards for recursive matching
+- Wildcards do not have options directly  
+
+- They are affected by shell behavior and command options
+
+### Use `find` with wildcards for recursive matching
 
 ```bash
 find . -name "*.txt"
 ```
 
-## Match only directories
+### Match only directories
 
 ```bash
 ls -d */
