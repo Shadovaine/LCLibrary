@@ -22,46 +22,138 @@
 
 ## Syntax
 
-- `strace [OPTIONS] COMMAND`
+- `strace [OPTIONS] COMMAND [args...]`
 
 ## Options
 
--p PID	Attach to a running process by PID.
--o FILE	Write trace output to FILE.
--e	Filter system calls (e.g., -e open,read,write).
--c	Count calls and display summary.
+| Options | Descriptions | Examples |
+|---------|--------------|----------|
+| `-o<FILE>` | Write a trace output to a file | `strace -o trace.log ls` |
+| `-p<PID>` | Attach to an already running process | `strace -p 1234` |
+| `-c` | Count syscalls | `strace -c ls` |
+| `-f` | Follow forks | `strace -f firefox` |
+| `-ff` | Follow forks and write separate trace files | `strace -ff -o trace firefox` |
+| `-t` | Add timestamp to each line | `strace -t ls` |
+| `-tt` | Microsecond timestamps | `strace -tt ls` |
+| `-ttt` | Prints UNIX epoch timestamps | `strace -ttt ls` |
+| `-T` | Show syscall time | `strace -T ls` |
+| `-r` | Relative timestamp | `strace -r ls` |
+| `-i` | Show syscall instruction pointer | `strace -i ls` |
+| `-k` | Print kernel stack trace for each syscall | `strace -k ls` |
+| `-E VAR=VAL` `-E VAR` `-E VAR-` | Modify environment variables | `strace -E HOME=/tmp ls` |
+| `-u <username>` | Run command as another user | `sudo strace -u nobody ls` |
+| `-P <path>` | Trace only syscalls that access a specific path | `strace -P /etc/passwd cat /etc/passwd` |
+| `-yy` | Pring file descriptor paths | `strace -yy ls` |
+| `-v` | Verbose mode | `strace -v ls` |
+| `-s <size>` | Increase maximum string size shown | `strace -s 200 ls` |
+| `-e <trace=<set>` `-e signal=<set>` `-e status=<set>` | Trace only specified sets | `strace -e trace=file ls` |
+
+## Syscall Categories
+
+| Syscall Categories | Specific Names |
+|--------------------|----------------|
+| `file` | File-related syscalls |
+| `network` | Networking syscalls |
+| `process` | Process mgmt |
+| `ipc` | inter-process communication |
+| `signal` | Signal-related |
+| `desc` | File Descriptor |
 
 ## Examples
 
-### Trace a command
+## Trace a command
 
+```bash
 strace ls
+```
 
-### Trace only open calls
+### Breakdown
 
+| Breakdown | Description |
+|-----------|-------------|
+| `strace` | Troubleshooting command |
+| `ls` | Specific file |
+
+## Trace only open calls
+
+```bash
 strace -e open ls
+```
 
-### Attach to a process by PID
+### Breakdown
 
+| Breakdown | Description |
+|-----------|-------------|
+| `strace` | Troubleshooting command |
+| `-e` | Directs to a status command |
+| `open` | Status command |
+| `ls` | Specified file |
+
+## Attach to a process by PID
+
+```bash
 sudo strace -p 1234
+```
 
-### Write trace to file
+### Breakdown
 
+| Breakdown | Description |
+|-----------|-------------|
+| `sudo` | Superuser Command |
+| `strace` | Troubleshooting command |
+| `-p` | Directs to use specific PID |
+| `1234` | Specified PID |
+
+## Write trace to file
+
+```bash
 strace -o trace.log ls
+```
 
-### Summary of system call counts
+### Breakdown
 
-strace -c ls
+| Breakdown | Description |
+|-----------|-------------|
+| `strace` | Troubleshooting command |
+| `-o` | Directs to write a trace file |
+| `trace.log` | Specified trace file |
+| `ls` | Specifed command to trace |
 
 # Command: tracepath
 
-## Description:
+## Description: Traces the path packets take to a destination host
 
 ## Syntax
 
-### Options
+- `tracepath [Options] <destination> [Port]`
 
-### Examples
+## Options
+
+| Options | Descriptions | Examples |
+|---------|--------------|----------|
+| `-n` | Do not resolve hostname, show numeric IPs | `tracepath -n google.com` |
+| `-b` | Show both IP addresses and hostnames | `tracepath -b google.com` |
+| `-m<max_hops>` | Set maximum hop limit | `tracepath -m 15 google.com` |
+| `-l <pktlen>` | Set packet length in bytes | `tracepath -l 1200 google.com` |
+| `-p<port>` | Set base destination port | `tracepath -p 4444 google.com` |
+| `-4` | Force IPv4 | `tracepath -4 google.com` |
+| `-6` | Force IPv6 | `tracepath -6 ipv6.google.com` |
+| `-V` | Print version information | `tracepath -V` |
+
+## Examples
+
+## Trace without DNS resolution
+
+```bash
+tracepath -n 8.8.8.8
+```
+### Breakdown
+
+| Breakdown | Description |
+|-----------|-------------|
+| `tracepath` | Troubleshooting command |
+| `-n` | Directs to not resolve DNS | 
+| `8.8.8.8` | IPv4 address |
 
 # Command: lsof (List Open Files)
 
@@ -69,36 +161,56 @@ strace -c ls
 
 ## Syntax
 
-- `lsof [OPTIONS]`
+- `lsof [OPTIONS] [names...]`
 
-### Options
+## Options
 
--u USER	Show files opened by a specific user.
--p PID	Show files opened by a specific process.
--i	Show network connections.
-+D DIR	Show files opened in a directory
+| Options | Descriptions | Examples |
+|---------|--------------|----------|
+| `-p <pid>` | List open files for a specific process ID | `lsof -p 1234` |
+| `-c <command>` | Show files opened by processes whose command starts with `<command>` | `lsof -c ssh` |
+| `-u <user>` | Show files opened by a specific user | `lsof -u name` |
+| `-i` | Show network connections | `lsof -i` |
+| `-F` | Machine-reachable output | `lsof -F -p 1234` |
+| `-r <intervals>` | Repeat listing at a time interval | `lsof -r -i:80` |
+| `-d <fd>` | Filter by file descriptor | `lsof -d 0,1,2` |
+| `-g <gid>` | Show processes using specific group ID | `lsof -g 1000` |
+| `-a` | Logical AND when combining multiple options | `lsof -u name -a -i` |
+| `-P` | Do not resolve port numbers to service names | `lsof -nP -i` |
+| `-n` | Do not resolve hostname | `lsof -n -i` |
+| `-t` | Print only PID | `lsof -t -i:80` |
+| `+D <directory>` | Show all open files under a directory | `sudo lsof +D /var/log` |
+| `+d <directory>` | Same as +D but non-recursive | `sudo lsof +d /tmp` |
 
-### Examples
+## Examples
 
-### List all open files
+## List all open files
 
+```bash
 sudo lsof
+```
 
-### Show files for user “name"
+### Breakdown
 
+| Breakdown | Description |
+|-----------|-------------|
+| `sudo` | Superuser command |
+| `lsof` | Lists all open files |
+
+## Show files for user “name"
+
+```bash
 sudo lsof -u name
+```
 
-### List network connections
+### Breakdown
 
-sudo lsof -i
-
-### List files opened in /var/log
-
-sudo lsof +D /var/log
-
-### Show files opened by PID 1234
-
-sudo lsof -p 1234
+| Breakdown | Description |
+|-----------|-------------|
+| `sudo` | Superuser command |
+| `lsof` | Lists all open files |
+| `-u` | Directs to a specific user |
+| `name` | Specified user |
 
 # Command: tcpdump (Packet Sniffer)
 
@@ -244,12 +356,17 @@ sudo iptables -D INPUT -p tcp --dport 22 -j ACCEPT
 
 # Command: nc
 
-## Description:
+## Description: A versatile networking utility that reads and writes data across network connections using TCP or UDP. It is a useful debugging, testing, file transfer, and port scanning.
 
 ## Syntax
 
+- `nc [Options] host port
+
 ### Options
 
+| Options | Descriptions | Examples |
+|---------|--------------|----------|
+| 
 ### Examples
 
 
