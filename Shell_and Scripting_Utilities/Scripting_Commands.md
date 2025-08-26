@@ -248,3 +248,20 @@ atrm 2
 ### Options
 
 ### Examples
+
+## **lazygit – TUI interface for Git inside terminal**
+	•	Category: Git / Dev Tooling
+	•	Syntax: lazygit
+	•	Features:
+	•	View branches, diffs, stashes
+	•	Commit & push without typing Git CLI
+
+
+
+## **zellij – Terminal multiplexer (like tmux, but modular)**
+	•	Category: Workflow / DevOps Enhancement
+	•	Syntax: zellij
+	•	Features:
+	•	Tabbed terminal interface
+	•	Resize panes, plugins, floating windows
+	•	Beginner-friendly, config file is sane

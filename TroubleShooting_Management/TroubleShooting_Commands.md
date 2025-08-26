@@ -298,7 +298,7 @@ sudo tcpdump -r capture.pcap
 
 # Command: nmap (Network Mapper)
 
-## Description: Scans networks for hosts, ports, and vulnerabilities
+## Description: A network scanning tool used to discover hosts and services. it can identify open ports, running services, OS details, and vulnerabilities
 
 ## Syntax
 
@@ -306,11 +306,36 @@ sudo tcpdump -r capture.pcap
 
 ## Options
 
--sS	TCP SYN scan (stealth).
--sV	Detect service versions.
--O	Detect OS of target.
--p PORTS	Scan specific ports.
--Pn	Skip host discovery (treat all as online).
+| Options | Descriptions | Examples |
+|---------|--------------|----------|
+| `-sS` | TCP SYN scan | `nmap -sS 192.168.1.1` |
+| `-sT` | TCP connect scan | `nmap -sT 192.168.1.1` |
+| `-sU` | UDP scan | `nmap -sU 192.168.1.1` |
+| `-sA` | ACK scan | `nmap -sA 192.168.1.1` |
+| `-sW` | Window scan | `nmap -sW 192.168.1.1` |
+| `-sM` | TCP Maimon scan | `nmap -sM 192.168.1.1` |
+| `-sN` | Null scan | `nmap -sN 192.168.1.1` |
+| `-sF` | FIN scan | `nmap -sF 192.168.1.1` |
+| `-sX` | Xmas scan | `nmap -sX 192.168.1.1` |
+| `-p <port>` | Scans specified port only | `nmap -p 22` |
+| `-p 1-1000` | Scans a specified range | `nmap -p 1-1000` |
+| `-p U:53,T:80` | Specific UDP and TCP ports to scan | `nmap -p U:53,T:80` |
+| `-F` | Fast scan | `nmap -F 192.168.1.1` |
+| `-p-` | Scan all 65535 ports | `nmap -p` |
+| `-sV` | Detect service version | `nmap -sV 192.168.1.1` |
+| `-O` | Detect operating system | `nmap -O 192.168.1.1` |
+| `-T0` | Paranoid - very slow, avoids detection | `nmap -T0 192.168.1.1` |
+| `-T3` | Normal Performance | `nmap -T3 192.168.1.1` |
+| `-T4` | Aggressive - faster, more noticeable | `nmap -T4 192.168.1.1` |
+| `-T5` | Insane - super fast and noisy | `nmap -T5 192.168.1.1` |
+| `-sn` | Ping scan | `nmap -sn 192.168.1.1` |
+| `-Pn` | Treat all hosts as online | `nmap -Pn 192.168.1.1` |
+| `-PE` | ICMP echo request discovery | `nmap -PE 192.168.1.1` |
+| `-v` | Verbose mode | `nmap -v 192.168.1.1` |
+| `--reason` | Show why ports are in a specific state | `nmap --reason 22` |
+| `--open` | Show only open ports | `nmap --open 192.168.1.1` |
+| `--top-ports 20` | Scan the 20 most common ports | `nmap --top-ports 20 192.168.1.1` | 
+| `--traceroute` | Trace the path to target | `nmap --traceroute 192.168.1.1` |
 
 ## Examples
 
@@ -570,7 +595,7 @@ nslookup 8.8.8.8
 | `-e <program>` | Execute a program after connection | `nc -l -p 4444 -e /bin/bash` |
 | `-k` | Keep listening after client disconnects | `nc -lk 1234` |
 | `-w <secs>` | Timeout for connects and final net reads | `nc -w 5 google.com 80` |
-| `-n` | Do not resolve DNS (use raw IPs) | nc -n 192.168.1.1 80` |
+| `-n` | Do not resolve DNS (use raw IPs) | `nc -n 192.168.1.1 80` |
 | `-vv` | Extra verbose mode | `nc -vv example.com 22` |
 | `-v` | Verbose mode | `nc -v google.com 80` |
 | `-z` | Zero-I/O mode(useful for scanning) | `nc -zv 192.168.1.1 20-80` |
@@ -608,33 +633,3 @@ nc 192.168.1.1 1234
 |-----------|-------------|
 | `nc` | Troubleshooting command |
 | `192.168.1.1 1234` | Specified IPv4 address with port number |
-
-
-## **lazygit – TUI interface for Git inside terminal**
-	•	Category: Git / Dev Tooling
-	•	Syntax: lazygit
-	•	Features:
-	•	View branches, diffs, stashes
-	•	Commit & push without typing Git CLI
-
-
-
-## **zellij – Terminal multiplexer (like tmux, but modular)**
-	•	Category: Workflow / DevOps Enhancement
-	•	Syntax: zellij
-	•	Features:
-	•	Tabbed terminal interface
-	•	Resize panes, plugins, floating windows
-	•	Beginner-friendly, config file is sane
-
-Bonus: AI CLI Tools (Mentioned in your list as “AI custom commands”)
-
-This space is rapidly growing. Here are a few to explore:
-
-Tool	Description
-aicommits	Auto-generates commit messages using OpenAI
-continue	CLI coding assistant from the terminal
-codellama	Run LLMs locally for code/infra help
-chatblade	GPT wrapper for terminal use (secure prompt shell)
-
-
