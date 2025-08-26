@@ -220,6 +220,7 @@ dmesg -T
 | `dmesg` | Monitoring command |
 | `-T` | Directs to print human readable timestamps |
 
+
 # Command: lsblk
 
 ## Description: Lists block devices (disks, partitions, etc.)
