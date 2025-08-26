@@ -249,6 +249,25 @@ dmesg -T
 | `dmesg` | Monitoring command |
 | `-T` | Directs to print human readable timestamps |
 
+# Command: findmnt
+
+## Syntax
+
+## Description
+
+## Options
+
+## Examples
+
+# Command: fsck
+
+## Description:
+
+## Syntax
+
+## Options
+
+## Examples
 # Command: lsblk
 
 ## Description: Lists block devices (disks, partitions, etc.)
@@ -322,6 +341,26 @@ lscpu
 | Breakdown | Description |
 |-----------|-------------|
 | `lscpu` | system command |
+
+# Command: mount
+
+## Description:
+
+## Syntax
+
+## Options
+
+## Examples
+
+# Command: umount
+
+## Description:
+
+## Syntax
+
+## Options
+
+## Examples
 
 # Command: iostat
 
