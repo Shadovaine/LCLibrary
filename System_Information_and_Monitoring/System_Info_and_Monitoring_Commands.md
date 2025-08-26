@@ -93,7 +93,26 @@ uptime
 |-----------|-------------|
 | `uptime` | Monitoring command |
 
-# 
+# Command: blkid
+
+## Description: 
+
+## Syntax
+
+## Options
+
+## Examples
+
+# Command: file
+
+## Description: 
+
+## Syntax
+
+## Options
+
+## Examples
+
 # Command: free
 
 ## Description: Shows RAM and swap usage
@@ -179,6 +198,16 @@ df -T
 | `df` | System command |
 | `-T` | Directs to show filesystem types |
 
+# Command: du
+
+## Description:
+
+## Syntax
+
+## Options
+
+## Examples
+
 # Command: dmesg
 
 ## Description: Prints kernel ring buffer messages (boot logs, driver info)
@@ -220,7 +249,29 @@ dmesg -T
 | `dmesg` | Monitoring command |
 | `-T` | Directs to print human readable timestamps |
 
+<<<<<<< HEAD
 
+=======
+# Command: findmnt
+
+## Syntax
+
+## Description
+
+## Options
+
+## Examples
+
+# Command: fsck
+
+## Description:
+
+## Syntax
+
+## Options
+
+## Examples
+>>>>>>> 92ea0f6203aaafb48631556e43e9fd106a53637b
 # Command: lsblk
 
 ## Description: Lists block devices (disks, partitions, etc.)
@@ -294,6 +345,26 @@ lscpu
 | Breakdown | Description |
 |-----------|-------------|
 | `lscpu` | system command |
+
+# Command: mount
+
+## Description:
+
+## Syntax
+
+## Options
+
+## Examples
+
+# Command: umount
+
+## Description:
+
+## Syntax
+
+## Options
+
+## Examples
 
 # Command: iostat
 
