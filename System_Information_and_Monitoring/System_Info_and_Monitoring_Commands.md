@@ -93,7 +93,26 @@ uptime
 |-----------|-------------|
 | `uptime` | Monitoring command |
 
-# 
+# Command: blkid
+
+## Description: 
+
+## Syntax
+
+## Options
+
+## Examples
+
+# Command: file
+
+## Description: 
+
+## Syntax
+
+## Options
+
+## Examples
+
 # Command: free
 
 ## Description: Shows RAM and swap usage
@@ -178,6 +197,16 @@ df -T
 |-----------|-------------|
 | `df` | System command |
 | `-T` | Directs to show filesystem types |
+
+# Command: du
+
+## Description:
+
+## Syntax
+
+## Options
+
+## Examples
 
 # Command: dmesg
 
