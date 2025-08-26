@@ -46,15 +46,28 @@
 
 ## Show kernel name
 
+```bash
 uname 
+```
+
+### Breakdown
+
+| Breakdown | Description |
+|-----------|-------------|
+| `uname` | Monitoring command |
 
 ## Show all system details
 
+```bash
 uname -a
+```
 
-## Show only architecture
+### Breakdown
 
-uname -m
+| Breakdown | Description |
+|-----------|-------------|
+| `uname` | Monitoring command |
+| `-a` | Directs to display all system information |
 
 # Command: uptime
 
@@ -64,15 +77,23 @@ uname -m
 
 - `uptime`
 
-### Options
+## Options
 
-### Examples
+## Examples
 
-- Show uptime and load averages:
+## Show uptime and load averages
+
+```bash
 uptime
+```
 
-Output: 14:36:29 up 3 days, 5:42, 3 users, load average: 0.08, 0.05, 0.01)
+### Breakdown
 
+| Breakdown | Description |
+|-----------|-------------|
+| `uptime` | Monitoring command |
+
+# 
 # Command: free
 
 ## Description: Shows RAM and swap usage
@@ -81,22 +102,40 @@ Output: 14:36:29 up 3 days, 5:42, 3 users, load average: 0.08, 0.05, 0.01)
 
 - `free [OPTIONS]`
 
-### Options
+## Options
 
 -h	Human-readable (MB, GB).
 -m	Show output in MB.
 -g	Show output in GB.
 -t	Show totals.
 
-### Examples
+## Examples
 
-### Show memory in MB
+## Show memory in MB
 
-- free -m
+```bash
+free -m
+```
+
+### Breakdown
+
+| Breakdown | Description |
+|-----------|-------------|
+| `free` | Monitoring command |
+| `-m` | Directs to show memory in MB |
 
 ### Human-readable format
 
+```bash
 free -h
+```
+
+### Breakdown
+
+| Breakdown | Description |
+|-----------|-------------|
+| `free` | Monitoring Command |
+| `-h` | Directs to output in human-readable format |
 
 # Command: df
 
@@ -106,21 +145,39 @@ free -h
 
 - `df [OPTIONS] [FILESYSTEM]`
 
-### Options
+## Options
 
 -h	Human-readable sizes.
 -T	Show filesystem type.
 -a	Include pseudo, duplicate, and inaccessible file systems.
 
-### Examples
+## Examples
 
-### Show disk usage in human-readable format
+## Show disk usage in human-readable format
 
+```bash
 df -h
+```
 
-### Show filesystem types
+### Breakdown
 
+| Breakdown | Description |
+|-----------|-------------|
+| `df` | System command |
+| `-h` | Directs to show output in human-readable format |
+
+## Show filesystem types
+
+```bash
 df -T
+```
+
+### Breakdown
+
+| Breakdown | Description |
+|-----------|-------------|
+| `df` | System command |
+| `-T` | Directs to show filesystem types |
 
 # Command: dmesg
 
@@ -130,24 +187,38 @@ df -T
 
 - `dmesg [OPTIONS]`
 
-### Options
+## Options
 
 -T	Print human-readable timestamps.
 -k	Only show kernel messages.
  
-### Examples
+## Examples
 
-### Show boot logs
+## Show boot logs
 
+```bash
 dmesg | less
+```
+
+### Breakdown
+
+| Breakdown | Description |
+|-----------|-------------|
+| `dmesg` | Monitoring command |
+| `less | Output is piped through `less` to show only one page at a time |
 
 ### Show with timestamps
 
+```bash
 dmesg -T
+```
 
-### Filter for USB events
+### Breakdown
 
-dmesg | grep usb
+| Breakdown | Description |
+|-----------|-------------|
+| `dmesg` | Monitoring command |
+| `-T` | Directs to print human readable timestamps |
 
 # Command: lsblk
 
@@ -157,20 +228,37 @@ dmesg | grep usb
 
 - `lsblk [OPTIONS]`
 
-### Options
+## Options
 
 -f	Show filesystem info.
 -a	Show all devices.
 
-### Examples
+## Examples
 
-### Show block devices tree
+## Show block devices tree
 
+```bash
 lsblk
+```
+
+### Breakdown
+
+| Breakdown | Description |
+|-----------|-------------|
+| `lsblk` | System command |
 
 ### Show with filesystem info
 
+```bash
 lsblk -f
+```
+
+### Breakdown
+
+| Breakdown | Description |
+|-----------|-------------|
+| `lsblk` | System command |
+| `-f` | Directs to show filesystem information |
 
 # Command: lscpu
 
@@ -178,17 +266,33 @@ lsblk -f
 
 ## Syntax
 
-### Options
+## Options
 
-### Examples
+## Examples
 
-- `lscpu`
+## Display CPU architecture information
 
-### Show CPU details
-
+```bash
 lscpu
+```
 
-Outputs info like cores, threads, architecture, etc.)
+### Breakdown
+
+| Breakdown | Description |
+|-----------|-------------|
+| `lscpu` | System command |
+
+## Show CPU details
+
+```bash
+lscpu
+```
+
+### Breakdown
+
+| Breakdown | Description |
+|-----------|-------------|
+| `lscpu` | system command |
 
 # Command: iostat
 
@@ -198,25 +302,37 @@ Outputs info like cores, threads, architecture, etc.)
 
 - `iostat [OPTIONS] [INTERVAL [COUNT]]`
 
-### Options
+## Options
 
 -c	CPU utilization only.
 -d	Device utilization only.
 
-### Examples
+## Examples
 
-### Show CPU and disk stats
+## Show CPU and disk stats
 
+```bash
 iostat
+```
 
-### Update every 2 sec, 3 times
+### Breakdown
 
-iostat 2 3
+| Breakdown | Description |
+|-----------|-------------|
+| `iostat` | System command |
 
 ### Show only CPU stats
 
+```bash
 iostat -c
+```
 
+### Breakdown
+
+| Breakdown | Description |
+|-----------|-------------|
+| `iostat` | System command |
+| `-c` | 
 # Command: vmstat
 
 ## Description: Reports virtual memory, CPU activity, I/O stats
