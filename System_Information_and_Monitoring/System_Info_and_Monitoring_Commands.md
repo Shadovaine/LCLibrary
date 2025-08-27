@@ -262,19 +262,63 @@ df -T
 | `--max-depth=N` | Same as `-d N` | `du -h --max-depth=2 /var` |
 | `-x` | Skips directories on different filesystems | `du -xh /` |
 | `--apparent-size` | Report the actual size instead of disk blocks | `du --apparent-size -h bigfile` |
-
+| `-k,m` | Forces sizes to be in kilobytes or megabytes | `du -k /usr` |
+| `-B <SIZE>` | Show sizes in specific block size | `du -B M /home/name` |
+| `--time` | Show the last modification time of each f/d | `du --time -h /var/log` |
+| `--exclude=PATTERN` | Exclude matching files | `du -h --exclude="*.log" /var/log` |
+| `--inodes` | List inodes usage instead of block sizes | `du --inodes /home` |
 
 ## Examples
 
+## Find the file size of home directory
+
+```bash
+du -sh ~
+```
+
+### Breakdown
+
+| Breakdown | Description |
+|-----------|-------------|
+| `du` | System command |
+| `-sh` | Shows only in human readable form and only displays the total size of specified f/d |
+| `~` | Spwcified location |
+
+## Check a specific file's disk usage
+
+```bash
+du -h /var/log/syslog
+```
+
+### Breakdown
+
+| Breakdown | Description |
+|-----------|-------------|
+| `du` | System command |
+| `-h` | Prints sizes in himan readable form |
+| `/var/log/syslog` | Specified location |
+
 # Command: dmesg
 
-## Description: Prints kernel ring buffer messages (boot logs, driver info)
+## Description: Stands for diagnostic message. Prints kernel ring buffer messages (boot logs, driver info). A key tool for troubleshooting hardware, drivers, networking, and system startup issues
 
 ## Syntax
 
 - `dmesg [OPTIONS]`
 
 ## Options
+
+| Options | Descriptions | Examples |
+|---------|--------------|----------|
+| `-C` | Clear the kernel ring buffer | `sudo dmesg -C` |
+| `-c` | Print then clear the ring buffer | `sudo dmesg -c` |
+| `-D` | Disables printing message to the console | `sudo dmesg -D` |
+| `-E` | Re-enable messages to the console | `sudo dmesg -E` |
+| `-d` | Shows only messages added since the last `dmesg` | `dmesg -e` |
+| `-e` | Interpret the timesyamps onyo human readable formats | `dmesg -e` |
+| `-H` | Human-readable output | `dmesg -H` |
+| `-k` | Print only kernel messages | `dmesg -k` |
+| `-I 
 
 -T	Print human-readable timestamps.
 -k	Only show kernel messages.
