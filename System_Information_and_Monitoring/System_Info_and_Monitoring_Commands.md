@@ -39,12 +39,13 @@
 | Options | Descriptions | Examples |
 |---------|--------------|----------|
 | `-s` | Prints the kernel name | `uname -s`|
-
--a	Show all system information.
--r	Show kernel release.
--s	Show kernel name.
--n	Show network hostname.
--m	Show machine hardware name (arch).
+| `-n` | Prints the node name | `uname-n` |
+| `-r` | Prints the kernel version | `uname -v` |
+| `-m` | Prints the. machine hardware name | `uname -m` |
+| `-p` | Prints the processor type | `uname -p` |
+| `-i` | Prints the hardware platform | `uname -i` |
+| `-o` | Prints the operating system | `uname -o` |
+| `-a` | Prints all available system information | `uname -a` |
 
 ## Examples
 
@@ -75,13 +76,19 @@ uname -a
 
 # Command: uptime
 
-## Description: Displays how long the system has been running
+## Description: Displays how long the system has been running, how many users are logged in, and system load averages. It is used hy sysadmins to check system stability and performance trends
 
 ## Syntax
 
 - `uptime`
 
 ## Options
+
+| Options | Descriptions | Examples |
+|---------|--------------|----------|
+| `(none)` | Default output of current time, uptime, users, load averages | `uptime` |
+| `-p` | Shows output in human friendly form | `uptime -p` |
+| `-s` | Shows wxact time system was booted | `uptime -s` |
 
 ## Examples
 
@@ -162,6 +169,20 @@ blkid -L backup
 
 ## Examples
 
+## Quickly check file type without filename
+
+```bash
+file -b document.pdf`
+```
+
+### Breakdown
+
+| Breakdown | Description | 
+|-----------|-------------|
+| `file` | Monitoring command |
+| `-b` | Directs to not show filename in output |
+| `document.pdf` | Specified file |
+
 # Command: free
 
 ## Description: Shows RAM and swap usage
@@ -172,10 +193,17 @@ blkid -L backup
 
 ## Options
 
--h	Human-readable (MB, GB).
--m	Show output in MB.
--g	Show output in GB.
--t	Show totals.
+| Options | Descriptions | Examples |
+|---------|--------------|----------|
+| `-b`,`-k`,`-m`,`-g` | Displays in the selected byte size | `free -m` |
+| `-h` | Human readablw format | `free -h` |
+| `--kilo`,`--mega`,`--giga`,`--tera` | Forces specified units | `free --mega` |
+| `--si` | Use powers of 1000 instead of 1024 | `free -si` |
+| `-t` | Shows totals | `free -t` |
+| `-l` | Show low and high memory statistics | `free -l` |
+| `-c<count>` | Repeat output NUM times | `free -c 5` |
+| `-s<seconds>` | Update output continuously every specified seconds | `free -s 4` |
+| `--wide` | Wider output to avoid column truncation | `free --wide` |
 
 ## Examples
 
