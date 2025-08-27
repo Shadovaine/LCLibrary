@@ -1,0 +1,2 @@
+[console_scripts]
+lcl = app.cli.main:app
