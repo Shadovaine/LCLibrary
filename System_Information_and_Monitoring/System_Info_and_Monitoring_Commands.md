@@ -95,21 +95,66 @@ uptime
 
 # Command: blkid
 
-## Description: 
+## Description: Is used to locate and print block device attributes. It is used to find UUIDs, filesystem types, labels, and other metadata of partition of drives
 
 ## Syntax
 
+- `[Options] [Device..]`
+
 ## Options
+
+| Options | Descriptions | Examples |
+|---------|--------------|----------|
+| `-c <cachefile>` | Specify a cache file for device attributes | `blkid -c /dev/null` |
+| `-o <format>` | Set output format (Full, value, list, and udev) | `blkid -o list` |
+| `-s <tag0>` | Show only a specific attribute | `blkid -s UUID /dev/sda1` |
+| `-t <token>` | Search for devices that match a specific attribute | `blkid -t TYPE=ext4` |
+| `-L <label>` | Search for a partition by filesystem | `blkid -L mydata` |
+| `-U <UUID>` | Search for a partition by UUID | `blkid -U <number>` |
+| `-g` | Garbage collect the blkid cache file | `sudo blkid -g` |
+| `-k` | list all known filesystem and partition types `blkid` can recognize | `blkid -k` |
+| `-i` | Display I/O limits | `blkid -i /dev/sda` |
+| `-p` | probe a device directly, even if not in cache | `sudo blkid -p /dev/sdb1` |
+| `-w <cachefile>` | Write results to a custom cache file instead of default | `blkid -w /tmp/myblkid.tab` |
 
 ## Examples
 
+## Find which device has the label `backup`
+
+```bash
+blkid -L backup
+```
+
+### Breakdown
+
+| Breakdown | Description |
+|-----------|-------------|
+| `blkid` | System command |
+| `-L` | Directs to find a device with a specific label |
+| `backup` | Specified Label |
+
 # Command: file
 
-## Description: 
+## Description: Used to identify the type of a file by examining its contents rather than just relying on its extension
 
 ## Syntax
 
+- `file [Options] file...`
+
 ## Options
+
+| Options | Descriptions | Examples |
+|---------|--------------|----------|
+| `-b` | Do not show the filename in output | `file -b /bin/ls` |
+| `-i` | Pring the MIME type instead of descriptive text | `file -i picture.jpg` |
+| `-e <test>` | Excludes certain tests | `file -e compress archive.gz` |
+| `-f <namefile>` | Read filenames to examine from a file | `file -f filelist.txt` |
+| `-F <separator>` | Use a custom separator instead of `:` after filenames | `file -F " -> " /bin/ls` |
+| `-h` | Do not follow symlink | `file -h symlink_to_file` |
+| `-k` | Keep going after the first match | `file -k script.sh` |
+| `-Z` | Output SELinux security context | `file -Z /bin/ls` |
+| `-z` | Try to look inside compressed file | `file -z archive.gz` |
+| `-s` | Read block/character devices | `sudo file -s /dev/sda` |
 
 ## Examples
 
