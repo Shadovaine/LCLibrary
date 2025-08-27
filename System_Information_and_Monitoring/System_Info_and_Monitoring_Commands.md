@@ -36,6 +36,10 @@
 
 ## Options
 
+| Options | Descriptions | Examples |
+|---------|--------------|----------|
+| `-s` | Prints the kernel name | `uname -s`|
+
 -a	Show all system information.
 -r	Show kernel release.
 -s	Show kernel name.
