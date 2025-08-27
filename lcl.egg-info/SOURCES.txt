@@ -2,6 +2,8 @@ README.md
 pyproject.toml
 ./app/_init_.py
 ./app/cli/_init_.py
+app/_init_.py
+app/cli/_init_.py
 lcl.egg-info/PKG-INFO
 lcl.egg-info/SOURCES.txt
 lcl.egg-info/dependency_links.txt
