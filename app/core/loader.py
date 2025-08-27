@@ -8,7 +8,7 @@ def load_all(root: str = "data/commands"):
     """
 
     out = {}
-    for p in Path(root).rglob("*.yml"):
+    for p in Path(root).rglob("**/*.yml"):
         d = yaml.safe_load(p.read_text(encoding="utf-8"))
         out[d["name"]] = d
     return out
