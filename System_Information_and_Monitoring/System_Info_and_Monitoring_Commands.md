@@ -99,7 +99,7 @@ uptime
 
 ## Syntax
 
-- `[Options] [Device..]`
+- `blkid [Options] [Device..]`
 
 ## Options
 
@@ -245,11 +245,24 @@ df -T
 
 # Command: du
 
-## Description:
+## Description: Stands for Disk Usage. It used yo estimate and display the amount of disk space
 
 ## Syntax
+- `du [Options] [file...]`
 
 ## Options
+
+| Options | Descriptions | Examples |
+|---------|--------------|----------|
+| `-a` | Displays sizes of all files and directories | `du -a /home/name` |
+| `-h` | Prints sizes in human-friendly units (K,M,G) | `du -h /var/log` |
+| `-s` | Shows only the total size for each argument | `du -sh /home/name` |
+| `-c` | Produces a grand total wt the end | `du -ch /etc` |
+| `-d <Num>` | Limut recursion to NUM levels deep | `du -h -d 1 /home/name` |
+| `--max-depth=N` | Same as `-d N` | `du -h --max-depth=2 /var` |
+| `-x` | Skips directories on different filesystems | `du -xh /` |
+| `--apparent-size` | Report the actual size instead of disk blocks | `du --apparent-size -h bigfile` |
+
 
 ## Examples
 
