@@ -1,0 +1,9 @@
+name: <command_name>
+category: <category>
+description: <what the command does>
+syntax: <command syntax>
+options:
+  - flag: <option>
+    explains: <what it does>
+examples:
+  - <example usage>
