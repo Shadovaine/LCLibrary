@@ -1,6 +1,6 @@
 # Archiving and Compressing Management
 
-## Description: Commands used to create, extract, and manage archive files.
+## Description: Commands used to create, extract, and manage archive files
 
 ## Table of Contents
 
@@ -15,11 +15,11 @@
 
 # Command: tar 
 
-## Description: Archives multiple files into on file
+## Description: Archives multiple files into one file
 
 ## Syntax
 
-tar `[OPTIONS] [ARCHIVE_FILE] [FILES/DIRS...]`
+- `tar [OPTIONS] [ARCHIVE_FILE] [FILES/DIRS...]`
 
 ### Options
 

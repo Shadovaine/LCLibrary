@@ -1,0 +1,54 @@
+name: <tar>
+category: <Archive_Compression_Mgmt>
+description: <Archives multiple files into one file>
+syntax: <tar [OPTIONS] [ARCHIVE_FILE] [FILES/DIRS...]>
+options:
+  - flag: <-c>  
+  - flag: <-x> 
+  - flag: <-t> 
+  - flag: <-v> 
+  - flag: <-f> 
+  - flag: <-z> 
+  - flag: <-j>
+  - flag: <-J> 
+  - flag: <-p> 
+  - flag: <--same-owner> 
+  - flag: <-C> 
+  - flag: <-A> 
+  - flag: <-r> 
+  - flag: <-u> 
+  - flag: <--remove-files> 
+  - flag: <--exclude=PATTERN> 
+    explains: <Create a new archive>
+    explains: <Extract files from an archive>
+    explains: <List archive contents>
+    explains: <Verbose mode>
+    explains: <Use archive file>
+    explains: <Compress archive with gzip>
+    explains: <Compress archive with bzip2>
+    explains: <Compress archive with xz>
+    explains: <Preserve file permissions>
+    explains: <Preserve original file ownership>
+    explains: <Change to a specific directory before extracting>
+    explains: <Append tar files to an existing archive>
+    explains: <Append files to the end of an archive>
+    explains: <Append only files that area newer than what is in the archive>
+    explains: <Remove files after adding them to the archive>
+    explains: <Exclude files matching a pattern>
+examples:
+  - <tar -cf backup.tar /home/original>
+  - <tar -xf backup.tar>
+  - <tar -tf backup.tar>
+  - <tar -vf backup.tar>
+  - <tar -f backup.tar>
+  - <tar -xzf backup.tar.gz>
+  - <tar -xjf backup.tar.bz2>
+  - <tar -xJf backup.tar.xz>
+  - <tar -cxpf backup.tar>
+  - <tar -xzf backup.tar.gz --same-owner -C />
+  - <tar -xzf backup.tar.gz --same-owner -C />
+  - <tar -Af backup.tar original.tar>
+  - <tar -rf backup.tar original.tar>
+  - <tar -cuf backup.tar original.tar>
+  - <tar --remove-files -cf backup.tar original1.txt original2.txt>
+  - <tar -czf backup.tar.gz --exclude=secret.txt original/>
