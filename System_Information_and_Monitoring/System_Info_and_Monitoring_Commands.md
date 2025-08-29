@@ -243,9 +243,16 @@ free -h
 
 ## Options
 
--h	Human-readable sizes.
--T	Show filesystem type.
--a	Include pseudo, duplicate, and inaccessible file systems.
+| Options | Descriptions | Examples |
+|---------|--------------|----------|
+| `-h` | Human-readable sizes | `df -h` |
+| `-i` | Inodes instead of blocks | `df -i` |
+| `-a` | All file systems | `df -a` |
+| `-k`,`-m`,`-BG`,`-B` | Block size control | `df -k` |
+| `-p` | POSIX compliance | `df -p` |
+| `-l` | Local file system only | `df -l` |
+| `-t <file>` | File system type filter | `df -t ext4` |
+| `--total` | Grand total | `df --total` |
 
 ## Examples
 
@@ -350,11 +357,7 @@ du -h /var/log/syslog
 | `-e` | Interpret the timesyamps onyo human readable formats | `dmesg -e` |
 | `-H` | Human-readable output | `dmesg -H` |
 | `-k` | Print only kernel messages | `dmesg -k` |
-| `-I 
 
--T	Print human-readable timestamps.
--k	Only show kernel messages.
- 
 ## Examples
 
 ## Show boot logs
@@ -383,41 +386,105 @@ dmesg -T
 | `dmesg` | Monitoring command |
 | `-T` | Directs to print human readable timestamps |
 
-<<<<<<< HEAD
-
-=======
 # Command: findmnt
+
+## Description: Displays a tree of mounted file systems, finds a particular mount point/device. Its the modern way to query mount information
 
 ## Syntax
 
-## Description
+- `findmnt [Options] [Device] [Mountpoint]`
 
 ## Options
 
+| Options | Descriptions | Examples |
+|---------|--------------|----------|
+| `(default)` | findmnt | `findmnt` |
+| `-l` | List view | `findmnt -l` |
+| `-t` | Specfiy file system type | `findmnt -t ext4` |
+| `-x` | Exclude a type | `findmnt -x tmpfs` |
+| `-o` | Output format | `findmnt -o ...` |
+| `-J` | JSON or fstab-style | `findmnt -J` |
+| `-r` | Mounted vs not yet mounted | `findmnt -r` |
+| `-m` | Show only mounted file systems | `findmnt -m` |
+| `-p` | Poll for changes | `findmnt -p` |
+| `-s` | Shows `fstab`- style format | `findmnt -s` |
 ## Examples
+
+## Print mount info to JSON for auditing
+
+```bash
+findmnt -s
+```
+
+### Breakdown
+
+| Breakdown | Description |
+|-----------|-------------|
+| `findmnt` | Monitoring command |
+| `-s` | Directs to show output in `fstab` format |
 
 # Command: fsck
 
-## Description:
+## Description: It stands for `File System Consistency Check`. It checks and optionally repairs inconsistencies in file systems. Never run `fsck` on a mounted, active file system. Boot from a rescue/live system, or remount read-only if you need to check it safely
 
 ## Syntax
 
+- `fsck [Options] [Filesystem...]`
+
 ## Options
+
+| Options | Descriptions | Examples |
+|---------|--------------|----------|
+| `-A` | Check all file systems | `fsck -A` |
+| `-y` | Automatic repair | `fsck -y /dev/sda1` |
+| `-r` | Interactive mode | `fsck -r /dev/sda1` |
+| `-f` | Force a check | `fsck -f /dev/sda1` |
+| `-v` | Verbose output | `fsck -v /dev/sda1` |
+| `-C` | Check root partition on boot | `fsck -C -y /` |
+| `-t` | Specify file system type | `fsck -t ext4 /dev/sda1` |
+| `-N` | No action taken, check only | `fsck -N /dev/sda1` |
+| `-M` | Skip mounted partitions | `fsck -M -A` |
 
 ## Examples
->>>>>>> 92ea0f6203aaafb48631556e43e9fd106a53637b
+
+## Auto-check all fstab entries at boot safely
+
+```bash
+fsck -AR -y
+```
+
+### Breakdown
+
+| Breakdown | Description |
+|-----------|-------------|
+| `fsck` | Monitoring command |
+| `-A` | Directs to check all files from `/etc/fstab` |
+| `-R` | Directs to skip root file system |
+| `-y` | Directs to fix corrupted files automatically |
+
 # Command: lsblk
 
-## Description: Lists block devices (disks, partitions, etc.)
+## Description: Lists block devices (disks, partitions, etc.). It pulls info from `/sys`. It shows devices in tree form
 
 ## Syntax
 
-- `lsblk [OPTIONS]`
+- `lsblk [OPTIONS] [Device...]`
 
 ## Options
 
--f	Show filesystem info.
--a	Show all devices.
+| Options | Descriptions | Examples |
+|---------|--------------|----------|
+| `-h` | Human-readable sizes | `lsblk -h` |
+| `-a` | List all devices | `lsblk -a` |
+| `-f` | Prints file system info | `lsblk -f` | 
+| `-o` | Output all details | `lsblk -o <column details>` |
+| `-l` | Output in list form | `lsblk -l` |
+| `-n` | Show kernel major:minor numbers | `lsblk -n` |
+| `-p` | Prints device path instead of names | `lsblk -p` |
+| `-t` | Show topology information | `lsblk -t` |
+| `-r` | Show dependencies | `lsblk -r` |
+| `-J` | JSON or tree output | `lsblk -J` |
+| `-d` | Filter by device type | `lsblk -d` |
 
 ## Examples
 
@@ -448,11 +515,23 @@ lsblk -f
 
 # Command: lscpu
 
-## Description: Displays CPU architecture info
+## Description: Displays detailed CPU architecture info. It pulls from `/proc/cpuinfo`. Used for hardware inventory, performance tuning, and security checks
 
 ## Syntax
 
+- `lscpu [Options]`
+
 ## Options
+
+| Options | Descriptions | Examples |
+|---------|--------------|----------|
+| `(Default)` | Dumps everything in a readable key | `lscpu` |
+| `-J` | JSON output | `lscpu -J` |
+| `-e=<Column headings>` | Ouput specific columns | `lscpu -e=CPU,CORE,SOCKET,NODE` |
+| `-e=ALL` | Prints all available columns | `lscpu -e=ALL` |
+| `-p` | Specify output format | `lscpu -p` |
+| `-e=CPU,ONLINE` | Shows which logical CPUs are online vs offline | `lscpu -e=CPU,ONLINE` |
+| `--extended=CPU,SOCKET,NODE,ONLINE` | Shows CPU hotplug states | `lscpu --extended=CPU,SOCKET,NODe, ONLINE` |
 
 ## Examples
 
@@ -482,13 +561,41 @@ lscpu
 
 # Command: mount
 
-## Description:
+## Description: Attaches a filesystem to the system's directory tree. Once mounted, contents of device appear at the specified mount point
 
 ## Syntax
 
+- `mount [Options] DEVICE DIR`
+
 ## Options
 
+| Options | Descriptions | Examples |
+|---------|--------------|----------|
+| `(default)` | View mounted file systems | `mount` |
+| `-t <filetype>` | Specify filesystem type | `sudo mount -t ext4 /dev/sda1 /mnt/data` |
+| `-o ro` | Mount read-only | `sudo mount -o ro /dev/sda1 /mnt/usb` |
+| `--make-private` | Make mount private | `sudo mount --make-private /mnt/usb` |
+| `--make-shared` | Make mount shared | `sudo mount --make-shared /mnt/usb` |
+| `--move` | Move a mount point | `sudo mount --move /mnt/usb /media/usb` |
+| `--bind` | Bind mount | `sudo mount --bind /var/www /mnt/www` |
+
 ## Examples
+
+## Mount USB read-only for forensic analysis
+
+```bash
+sudo mount -o ro,noload /dev/sdb1 /mnt/usb
+```
+
+### Breakdown
+
+| Breakdown | Description |
+|-----------|-------------|
+| `sudo` | Superuser command |
+| `mount` | System command |
+| `-o ro` | Directs to mount with read-only permissions |
+| `/dev/sdb1` | Specified file |
+| `/mnt/usb` | Targeted file |
 
 # Command: umount
 
@@ -652,16 +759,40 @@ who -H
 
 # Command: progress
 
-## Description: Show progress of common commands (cp, mv, etc.)
+## Description: Displays how much data has been processed, gives percentage completion, and estimated time remaining 
 
 ## Syntax
 
-- `progress`
+- `progress [Options]`
 
-### Options
+## Options
 
-	•	-w → Watch mode (auto-refreshing)
-	•	-c → Compact output
-### Examples
+| Options | Descriptions | Examples |
+|---------|--------------|----------|
+| `-q`,`--quiet` | Suppresses messages, silent mode | `progress -q` |
+| `-d`,`--debug` | Show debug and warning messages | `progress -d` |
+| `-w`,`--wait` | Estimate I/O throughput + time remaining | `progress -w` |
+| `-W secs`,`--wait-delay secs` | Delay before calculating throughput | `progress -W` |
+| `-m`,`--monitor` | Loop while monitored throughput | `progress -m` |
+| `-M`,`--monitor-continously` | Monitor indefinitely | `progress -M` |
+| `-c cmd`,`--command cmd` | Only monitor processes named cmd | `progress -c firefox` |
+| `-a cmd`,`--command cmd` | Add cmd to default monitored list | `progress -a rsync` |
+| `-p pid`,`--pid id` | Monitor only a specific process id | `progress -p 1234` |
+| `-i file`,`--ignore-file file` | Do not report processes handling file | `progress -i example.txt` |
 
-- progress -w
+## Example
+
+## Monitor continuously
+
+```bash
+progress -m
+```
+
+### Breakdown
+
+| Breakdown | Description | 
+|-----------|-------------|
+| `progress` | Monitoring command |
+| `-m` | Loop while monitoring throughput |
+
+
