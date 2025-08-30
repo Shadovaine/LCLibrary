@@ -599,13 +599,38 @@ sudo mount -o ro,noload /dev/sdb1 /mnt/usb
 
 # Command: umount
 
-## Description:
+## Description: This command is used to unmount a filesystem from the directory tree
 
 ## Syntax
 
+- `umount [options] <target>`
+
 ## Options
 
+| Options | Descriptions | Examples |
+|---------|--------------|----------|
+| `-a` | Unmount all mounted filesystems mentioned in `/etc/mtab` | `umount -a` |
+| `-r`, `--read-only` | If unmounted fails, remount the filesystem read-only | `umount -r /mnt/data` |
+| `-f`,`--force` | Force unmount | `umount -f /mnt/nfs` |
+| `-f`,`--lazy` | Lazy unmount | `unmount -l /mnt/usb` |
+| `-d` | `When unmounting a loop device, also free the loop device | `umount -d /mnt/loop` |
+| `--types<type>`,`-t<type>` | Unmount only filesystems of the given type | `umount -a -t nfs` |
+| `--fake`, `-n` | Fake unmount | `umount --fake /mnt/test` |
+
 ## Examples
+
+## Unmount USB drive by mount point
+
+```bash
+umount /mnt/usb
+```
+
+### Breakdown
+
+| Breakdown | Description |
+|-----------|-------------|
+| `umount` | System command |
+| `/mnt/usb` | Specified file to unmount |
 
 # Command: iostat
 
@@ -617,8 +642,15 @@ sudo mount -o ro,noload /dev/sdb1 /mnt/usb
 
 ## Options
 
--c	CPU utilization only.
--d	Device utilization only.
+| Options | Descriptions | Examples |
+|---------|--------------|----------|
+| `-c` | Show CPU stats only | `iostat -c 2 5` |
+| `-d` | Show device stats only | `iostat -d` |
+| `-x` | Show extended stats | `iostat -x 1 3` |
+| `-h` | Show human-readable units | `iostat -h -d` |
+| `-k` | Report in KB/sec | `iostat -d -k` |
+| `-m` | Report in MB/sec | `iostat -d -m` |
+| `-t` | Prints timestamp with each line | `iostat -t 2` |
 
 ## Examples
 
@@ -645,7 +677,8 @@ iostat -c
 | Breakdown | Description |
 |-----------|-------------|
 | `iostat` | System command |
-| `-c` | 
+| `-c` | Directs to show CPU utilization only |
+
 # Command: vmstat
 
 ## Description: Reports virtual memory, CPU activity, I/O stats
@@ -654,108 +687,206 @@ iostat -c
 
 - `vmstat [OPTIONS] [DELAY [COUNT]]`
 
-### Options
+## Options
 
--s	Show memory stats in table form.
+| Options | Descriptions | Examples |
+|---------|--------------|----------|
+| `-a` | Show memory in active/inactive pages instead of just free/buffer/cache | `vmstat -a 2 5` |
+| `-s` | Display a table of memory-related event counters | `vmstat -s` |
+| `-d` | Show disk statistics | `vmstat -d` |
+| `-D` | Show disk summary statistics | `vmstat -D` |
+| `-p<partition>` | Show detailed stats for a specific partition | `vmstat -p sda1` |
+| `-f` | Show number of forks since boot | `vmstat -f` |
+| `-m` | Display `slabinfo` (kernel memory caches) | `vmstat -m` |
+| `-t` | Show timestamp with each line | `vmstat -t 1 5` |
+| `-w` | Wide output | `vmstat -w` |
+| `-V` | Show version and exit | `vmstat -V` |
 
-### Examples
+## Examples
 
-### One-shot report
+## One-shot report
 
+```bash
 vmstat
+```
 
-### Update every 2 seconds, 5 times
+### Breakdown
 
+| Breakdown | Description |
+|-----------|-------------|
+| `vmstat` | Monitoring command |
+
+## Update every 2 seconds, 5 times
+
+```bash
 vmstat 2 5
+```
 
-### Memory stats summary
+### Breakdown
 
-vmstat -s
+| Breakdown | Description |
+|-----------|-------------|
+| `vmstat` | Monitoring command |
+| `2` | Directs to update every 2 seconds |
+| `5` | Directs to update a total of 5 times |
 
 # Command: dstat
 
-## Description: All-in-one performance viewer
+## Description: It is vmstat, iostat, netstat, and ifstat all rolled into one tool. It is a versatile real-time system resource monitor
 
 ## Syntax
 
-- `dstat [options]`
+- `dstat [options] [delay [count]]`
 
-### Options
+## Options
 
-### Examples
+| Options | Descriptions | Examples |
+|---------|--------------|----------|
+| `-c` | Shows CPU stats | `dstat -c` |
+| `-m` | Show memory usage | `dstat -m` |
+| `-d` | Show disk I/O | `dstat -d` |
+| `-n` | Show network traffic | `dstat -n` |
+| `-g` | Show page stats | `dstat -g` |
+| `-y` | Show system stats | `dstat -y` |
+| `-p` | Show process stats | `dstat -p` |
 
+## Examples
+
+## Mix multiple options together
+
+```bash
 dstat -cdngyt
+```
 
-### **Options**
-	•	-c → CPU
-	•	-d → Disk
-	•	-n → Network
-	•	-g → Page stats
-	•	-y → System stats
-	•	-t → Time
+### Breakdown
 
+| Breakdown | Description |
+|-----------|-------------|
+| `dstat` | Monitoring command |
+| `-cdngyt` | Directs to monitor the CPU, I/O, network, page, system, and print a timestamp along with all the selected stats |
 
 # Command: w
 
-## Description: Shows who is logged in and what they’re doing
+## Description: Shows who is logged in and their running processes. It displays current time, how long the system has been running, number of users logged in, load averages, and detailed information on user sessions
 
 ## Syntax
 
 - `w [OPTIONS] [USER]`
 
-### Options
+## Options
 
--h	Don’t print header.
+| Options | Descriptions | Examples |
+|---------|--------------|----------|
+| `-h` | Do not print the header | `w -h` |
+| `-u` | Ignore the username when figuring out idle time | `w -u` |
+| `-s` | Short format | `w -s` |
+| `-f` | Toggle form/to showing the FROM field | `w -f` |
+| `[user]` | Specify a username to limit the display | `w name` |
 
-### Examples
+## Examples
 
-### Show active users and processes
+## Show all active users and their activity
 
+```bash
 w
+```
 
-### Show only user “name"
+### Breakdown
 
-w name
+| Breakdown | Description |
+|-----------|-------------|
+| `w` | Monitoring command |
 
 # Command: who
 
-## Description: Shows who is logged in
+## Description: Displays information about users currently logged in th the system. It pulls information from `/var/run/utmp` file
 
 ## Syntax
 
-- `*who [OPTIONS]`
+- `*who [OPTIONS] [file]`
 
-### Options
+## Options
 
-H	Print column headers.
--u	Include idle time.
+| Options | Descriptions | Examples |
+|---------|--------------|----------|
+| `-a`,`--all` | Show all available information | `who -a` |
+| `-b`,`--boot` | Show last system boot time | `who -b` |
+| `-d`,`--dead` | Show dead processes | `who -d` |
+| `-H`,`--heading` | Print column headers | `who -H` |
+| `-l`,`--login` | Show login processes | `who -l` |
+| `-m` | Show only the current terminal session. Same as `whoami` | `who -m` |
+| `-p`,`--process` | Show active processes spawned by init | `who -p` |
+| `-q`,`--count` | Quick list of usernames + total numbers of users | `who -q` |
+| `-r`,`--runlevel` | Show current runlevel | `who -r` |
+| `-s`,`--short` | Default output-username,terminal,login time | `who -s` |
+| `-T`,~--mesg`,`-w`,`--write` | Show users message permission status | `who -T` |
+| `-u`,`--user` | Show idle time of users | `who -u` |
+| `--ips` | Show IP addresses instead of hostnames | `who --ips` |
 
-### Examples
+## Examples
 
-### List logged-in users
+## List logged-in users
 
+```bash
 who
+```
 
-### Show with headers
+## Breakdown
 
+| Breakdown | Description |
+|-----------|-------------|
+| `who` | System command |
+
+## Show with headers
+
+```bash
 who -H
+```
+
+### Breakdown
+
+| Breakdown | Description |
+|-----------|-------------|
+| `who` | System command |
+| `-H` | Directs to print column headers |
 
 # Command: watch
 
-## Description: Repeat a command at intervals
+## Description: Repeatedly runs a specified command at a fixed interval and displays the output fullscreen in the terminal
 
 ## Syntax
 
 - `watch [option] command`
 
-### Options
+## Options
 
-	•	-n → Interval in seconds
-	•	-d → Highlight changes
+| Options | Descriptions | Examples |
+|---------|--------------|----------|
+| `-n`,`--interval<seconds>` | Sets the refresh interval in seconds | `watch -n 4 ls -l` |
+| `-d`,`--differences[=permanent]` | Highlight the differences between updates, if `=permanent` is added, changes remain highlighted permanently | `watch -d free -m` |
+| `-t`,`--no-title` | Removes the header showing interval, command, and timestamp | `watch -t date` |
+| `-g`,`--chgexit` | Exit when the output of the command changes | `watch -g ls /tmp` |
+| `-e`,`--errexit` | Exit if the command returns a non-zero exit code | `watch -e systemctl is-actie ssh` |
+| `-c`,`--color` | Interpret ANSI color codes so colored output displays properly | `watch -c ls --color=always` |
+| `-b`,`--beep` | Beep if the command has non-zero exit code | `watch -b systemctl is-active apache2` |
+| `-p`,`--precise` | Try to run the command at precise intervals, accounting for drift | `watch -n 1 -p date` |
 
-### Examples
+## Examples
 
--watch -n 1 'df -h'
+## Monitor disk usage every 10 seconds
+
+```bash
+watch -n 10 df -h
+```
+
+### Breakdown 
+
+| Breakdown | Description |
+|-----------|-------------|
+| `watch` | Monitoring command |
+| `-n 10` | Sets the refresh interval in seconds |
+| `df` | Directs to display disk usage for each file system |
+| `-h` | Directs to make all output in human readable format |
 
 # Command: progress
 
@@ -794,5 +925,3 @@ progress -m
 |-----------|-------------|
 | `progress` | Monitoring command |
 | `-m` | Loop while monitoring throughput |
-
-
