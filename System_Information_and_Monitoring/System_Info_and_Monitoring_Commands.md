@@ -1,6 +1,6 @@
 # System Information and Monitoring Management
 
-## Description:
+## Description: A collection of Linux commands used to monitor and/or display system information
 
 ## Table of Contents
 
@@ -106,7 +106,7 @@ uptime
 
 # Command: blkid
 
-## Description: Is used to locate and print block device attributes. It is used to find UUIDs, filesystem types, labels, and other metadata of partition of drives
+## Description: Used to locate and print block device attributes, to find UUIDs, filesystem types, labels, and other metadata of partition of drives
 
 ## Syntax
 
@@ -220,7 +220,7 @@ free -m
 | `free` | Monitoring command |
 | `-m` | Directs to show memory in MB |
 
-### Human-readable format
+## Human-readable format
 
 ```bash
 free -h
@@ -284,9 +284,10 @@ df -T
 
 # Command: du
 
-## Description: Stands for Disk Usage. It used yo estimate and display the amount of disk space
+## Description: Stands for Disk Usage. Used to estimate and display the amount of disk space
 
 ## Syntax
+
 - `du [Options] [file...]`
 
 ## Options
@@ -371,9 +372,9 @@ dmesg | less
 | Breakdown | Description |
 |-----------|-------------|
 | `dmesg` | Monitoring command |
-| `less | Output is piped through `less` to show only one page at a time |
+| `less` | Output is piped through `less` to show only one page at a time |
 
-### Show with timestamps
+## Show with timestamps
 
 ```bash
 dmesg -T
@@ -666,7 +667,7 @@ iostat
 |-----------|-------------|
 | `iostat` | System command |
 
-### Show only CPU stats
+## Show only CPU stats
 
 ```bash
 iostat -c
@@ -819,7 +820,7 @@ w
 | `-q`,`--count` | Quick list of usernames + total numbers of users | `who -q` |
 | `-r`,`--runlevel` | Show current runlevel | `who -r` |
 | `-s`,`--short` | Default output-username,terminal,login time | `who -s` |
-| `-T`,~--mesg`,`-w`,`--write` | Show users message permission status | `who -T` |
+| `-T`,`~--mesg`,`-w`,`--write` | Show users message permission status | `who -T` |
 | `-u`,`--user` | Show idle time of users | `who -u` |
 | `--ips` | Show IP addresses instead of hostnames | `who --ips` |
 
@@ -831,7 +832,7 @@ w
 who
 ```
 
-## Breakdown
+### Breakdown
 
 | Breakdown | Description |
 |-----------|-------------|
