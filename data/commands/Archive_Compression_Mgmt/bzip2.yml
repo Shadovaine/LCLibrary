@@ -1,0 +1,59 @@
+#--------------------------------
+# Command YAML Template
+#--------------------------------
+
+# The name of the command (must match the actual Linux command)
+name: bzip2
+
+# Category this command belongs to (text_processing, file_management, user_group_mgmt, networking)
+category: Archiving_and_compressing_Management
+
+# One-Line description of what the command does
+description: Compresses files and is an alias for bunzip2
+# General syntax of the command
+syntax: bzip2 [OPTIONS] FILE
+
+# Options: each flag (or set of flags) with an explanation
+# Use " flags" as a list if there are multiple aliases (e.g. ["-i", "--ignore-case"])
+# Optional: add "arg" if the optin expects a value
+options:
+  - flag: ["-k", "--keep"]
+    explains: Keep original file
+  - flag: ["-d"]
+    explains: Decompress
+  - flag: ["-f"]
+    explains: Force overwrite if the file already exists
+  - flag: ["-t"]
+    explains: Test the integrity of the compressed file
+  - flag: ["-v"]
+    explains: Verbosely list the files being processed
+  - flag: ["-q"]
+    explains: Suppress non-critical error messages
+  - flag: ["-1"]
+    explains: Fastest compression (least compression)
+  - flag: ["-9"]
+    explains: Best compression (slowest compression)
+  - flag: ["-c"]
+    explains: Write to standard output and keep original files
+  - flag: ["--repetitive-best"]
+    explains: Use a more CPU-intensive algorithm to achieve better compression ratios
+  - flag: ["-z"]
+    explains: Compress the file (default behavior)
+  - flag: ["-s"]
+    explains: Compress files in-place, removing the original file after compression
+
+examples:
+  - bzip2 -k file.bz2
+  - bzip2 -d file.bz2
+  - bzip2 -f file.bz2
+  - bzip2 -t file.bz2
+  - bzip2 -v file.bz2
+  - bzip2 -q file.bz2
+  - bzip2 -1 file.bz2
+  - bzip2 -9 file.bz2
+  - bzip2 -c file.bz2
+  - bzip2 --repetitive-best file.bz2
+  - bzip2 -z file.bz2
+  - bzip2 -s file.bz2
+  
+  
