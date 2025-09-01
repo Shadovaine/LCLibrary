@@ -400,7 +400,7 @@ rm -rf /tmp/testdir
 | `-m` | Changes only the modification time of the file. | `touch -m backup` |
 | `-d <time>` | Set a specific date/time instead of using the current time. | `touch -d <0000> backup` |
 | `-t <stamp>` | Set a specific timestamp. | `touch -t <1300> backup` |
-| `-r <file>` | Use the timestamp from another file instead of the current time. | `rm -r <backup> backup1` |
+| `-r <file>` | Use the timestamp from another file instead of the current time. | `touch -r <backup> backup1` |
 
 ## Example
 
