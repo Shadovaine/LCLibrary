@@ -1,0 +1,29 @@
+#--------------------------------
+# Command YAML Template
+#--------------------------------
+
+# The name of the command (must match the actual Linux command)
+name: vidir
+  
+# Category this command belongs to (text_processing, file_management, user_group_mgmt, networking)
+category: File_and_Directory_Management
+
+# One-Line description of what the command does
+description: Edit directory contents in a visual manner
+
+# General syntax of the command
+syntax: vidir [options] <directory>
+
+# Options: each flag (or set of flags) with an explanation
+# Use " flags" as a list if there are multiple aliases (e.g. ["-i", "--ignore-case"])
+# Optional: add "arg" if the optin expects a value
+options:
+  - flag: ["-v"]
+    explains: Verbose mode
+  - flag: ["-c"]
+    explains: Create the directory if it does not exist
+   
+# Examples: List of example usages
+examples:
+  - vidir -v /home/name/projects 
+  - vidir -c /tmp/newdir
