@@ -1,0 +1,49 @@
+#--------------------------------
+# Command YAML Template
+#--------------------------------
+
+# The name of the command (must match the actual Linux command)
+name: rm
+
+# Category this command belongs to (text_processing, file_management, user_group_mgmt, networking)
+category: File_and_Directory_Management
+
+# One-Line description of what the command does
+description: Removes files or directories
+
+# General syntax of the command
+syntax: rm [OPTIONS] target
+
+# Options: each flag (or set of flags) with an explanation
+# Use " flags" as a list if there are multiple aliases (e.g. ["-i", "--ignore-case"])
+# Optional: add "arg" if the optin expects a value
+options:
+  - flag: ["-r"]
+    explains: REmoves directories and contents recursively.
+  - flag: ["-f"]
+    explains: Force deletion (ignore errors/pormpts).
+  - flag: ["-i"]
+    explains: Prompts before each deletion.
+  - flag: ["-v"]
+    explains: Verbose mode.
+  - flag: ["-I"]
+    explains: Less intrusive interactive mode
+  - flag: ["-d"]
+    explains: Remove empty directories.
+  - flag: ["--preserve-root"]
+    explains: Removes the protection from root.
+  - flag: ["--one-file-system"]
+    explains: When deleting recursively, skip files on other file system.
+    
+
+# Examples: List of example usages
+examples:
+  - rm -r project/
+  - rm -f project/
+  - rm -i project/
+  - rm -v project/
+  - rm -I project/
+  - rm -d project/
+  - rm --preserve-root backup/
+  - rm --no-preserve-root backup/
+  - rm -r --one-file-system backup/
