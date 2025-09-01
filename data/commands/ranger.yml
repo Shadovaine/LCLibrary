@@ -1,0 +1,70 @@
+#--------------------------------
+# Command YAML Template
+#--------------------------------
+
+# The name of the command (must match the actual Linux command)
+name: ranger
+
+# Category this command belongs to (text_processing, file_management, user_group_mgmt, networking)
+category: File_and_Directory_Management
+
+# One-Line description of what the command does
+description: A terminal file manager with VI key bindings
+
+
+# General syntax of the command
+syntax: ranger [options] [directory|file ...]
+
+# Options: each flag (or set of flags) with an explanation
+# Use " flags" as a list if there are multiple aliases (e.g. ["-i", "--ignore-case"])
+# Optional: add "arg" if the optin expects a value
+options:
+  - flag: ["-d"]
+    explains: Start in directory view mode
+  - flag: ["-r", "--confdir"]
+    explains: Specify the configuration directory
+  - flag: ["--copy-config"]
+    explains: Copy default configuration files to the specified directory
+    arg:
+      name: DIR      # the placeholder name for the argument
+      required: true # true if mandatory, false if optional
+  - flag: ["-f", "--fail-unless-cd"]
+    explains: Exit with non-zero status if unable to change to the specified directory
+    arg:
+      name: DIR      # the placeholder name for the argument
+      required: true # true if mandatory, false if optional
+  - flag: ["-p", "--profile"]
+    explains: Enable profiling and write results to the specified file
+    arg:
+      name: FILE     # the placeholder name for the argument
+      required: true # true if mandatory, false if optional
+  - flag: ["-S", "--selectfile"]
+    explains: Start with the specified file selected
+    arg:
+      name: FILE     # the placeholder name for the argument
+      required: true # true if mandatory, false if optional
+  - flag: ["-w", "--choosefile"]
+    explains: Write the selected file to the specified file and exit
+    arg:
+      name: FILE     # the placeholder name for the argument
+      required: true # true if mandatory, false if optional
+  - flag: ["-m", "--choosefile-multiple"]
+    explains: Write all selected files to the specified file and exit
+    arg:
+      name: FILE     # the placeholder name for the argument
+      required: true # true if mandatory, false if optional
+  - flag: ["-q", "--list-unused-keys"]
+    explains: List all unbound keys and exit    
+    
+# Examples: List of example usages
+examples:
+  - ranger -d /etc 
+  - ranger -c ~/.config/ranger
+  - ranger --copy-config ~/.config/ranger
+  - ranger -f /home/user/Documents
+  - ranger -p profile.txt
+  - ranger -S myfile.txt
+  - ranger -w selected.txt
+  - ranger -m selected_files.txt
+  - ranger -d /etc -p profile.txt
+  - ranger -c ~/.config/ranger -S myfile.txt
