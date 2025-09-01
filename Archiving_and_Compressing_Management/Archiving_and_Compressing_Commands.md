@@ -485,8 +485,8 @@ bzip2 -k file.txt
 
 | Options | Descriptions | Examples |
 |---------|--------------|----------|
-| `-k` | Keep original file. | ` xz -k backup.txt` |
-| `-d` | Decompress a file. | ` xz -d backup.txt` |
+| `-k` | Keep original file. | `xz -k backup.txt` |
+| `-d` | Decompress a file. | `xz -d backup.txt` |
 | `-f` | Force overwrite if the output file already exists. | `xz -f backup.txt` |
 | `-t` | Test the integrity of a compressed file. | `xz -t backup.txt` |
 | `-v` | Verbose mode. | `xz -v backup.txt` |
