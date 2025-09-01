@@ -3,33 +3,66 @@
 #--------------------------------
 
 # The name of the command (must match the actual Linux command)
-name: <command_name>
+name: cp
 
 # Category this command belongs to (text_processing, file_management, user_group_mgmt, networking)
-category: <category>
+category: File_and_Directory_Management
 
 # One-Line description of what the command does
-description: <what the command does>
+description: Makes a copy of a file or directory to a specified location. It leaves an original copy in source location.
 
 # General syntax of the command
-syntax: <<command [OPTIONS]...[ARGS]...>
+syntax: cp [OPTIONS]... SOURCE... DEST
 
 # Options: each flag (or set of flags) with an explanation
 # Use " flags" as a list if there are multiple aliases (e.g. ["-i", "--ignore-case"])
 # Optional: add "arg" if the optin expects a value
 options:
-  - flag: ["-i", "--ignore-case"]
-    explains: Ignore case distinctions
-  - flag: ["--include"]
-    explains: Only search files matching the GLOB
-    arg:
-      name: GLOB     # the placeholder name for the argument
-      required: true # true if mandatory, false if optional
+  - flag: ["-r"]
+    explains: Copy directories recursively
+  - flag: ["-u"]
+    explains: Copy only when the SOURCE file is newer than the destination file or when the destination file is missing
+  - flag: ["-v"]
+    explains: Explain what is being done
+  - flag: ["-i"]
+    explains: Prompt before overwrite
+  - flag: ["-a"]
+    explains: Archive mode; same as -dR --preserve=all
+  - flag: ["-f"]
+    explains: If an existing destination file cannot be opened, remove it and try again (this option is ignored when the -n option is also used)
   - flag: ["-n"]
-    explains: Show line numbers
+    explains: Do not overwrite an existing file (same as --no-clobber)
+  - flag: ["-p"]
+    explains: Preserve the specified attributes (e.g., mode, ownership, timestamps)
+  - flag: ["-d"]
+    explains: Copy symbolic links as symbolic links
+  - flag: ["-L"]
+    explains: Always follow symbolic links in SOURCE
+  - flag: ["-P"]
+    explains: Never follow symbolic links in SOURCE
+  - flag: ["--parents"]
+    explains: Use full source file name under DIRECTORY
+  - flag: ["--remove-destination"]
+    explains: Remove each existing destination file before attempting to open it (contrast with -f)
+  - flag: ["--backup"]
+    explains: Make a backup of each existing destination file
+    arg:
+      name: CONTROL
+      required: false
 
 # Examples: List of example usages
 examples:
-  - <<command -option>
-  - <<command with multiple options>
-  = <<command with input/output>
+  - cp -r folder/backup/
+  - cp -u folder/backup/
+  - cp -v folder/backup/
+  - cp -i folder/backup/
+  - cp -a folder/backup/
+  - cp -f folder/backup/
+  - cp -n folder/backup/
+  - cp -p folder/backup/
+  - cp -d folder/backup/
+  - cp -L folder/backup/
+  - cp -P folder/backup/
+  - cp --parents folder/backup/
+  - cp --remove-destination folder/backup/
+  - cp --backup folder/backup/
