@@ -1,0 +1,65 @@
+name: exa
+
+# Category this command belongs to (text_processing, file_management, user_group_mgmt, networking)
+category: File_and_Directory_Management
+
+# One-Line description of what the command does
+description: A modern replacement for 'ls' with more features and better defaults
+
+# General syntax of the command
+syntax: exa [OPTIONS]...[ARGS]...
+
+# Options: each flag (or set of flags) with an explanation
+# Use " flags" as a list if there are multiple aliases (e.g. ["-i", "--ignore-case"])
+# Optional: add "arg" if the optin expects a value
+options:
+  - flag: ["-l"]
+    explains: Use a long listing format
+  - flag: ["-a", "--all"]
+    explains: Show all files, including hidden ones   
+  - flag: ["-la", "-al"]
+    explains: Combine long format and hidden files.
+  - flag: ["-l"]
+    explains: List one file per line.
+  - flag: ["-s"]
+    explains: Sort by the file size.
+  - flag: ["-s name"]
+    explains: Sort by name.
+    arg:
+      name: name
+      required: true
+  - flag: ["-s modified"]
+    explains: Sort by modification time.
+    arg: 
+      name: time
+      required: true
+  - flag: ["-r"]
+    explains: Reverse the sort order.
+  - flag: ["-T"]
+    explains: Displays a tree view of directories.
+  - flag: ["-L <NUM>"]
+    explains: Limit depth of recursion in tree view.
+    arg:
+      name: numbers
+      required: true
+  - flag: ["--git"]
+    explains: Show GIT status for files.
+  - flag: ["-@"]
+    explains: Show extended attributes.
+  - flag: ["--icons"]
+    explains: Show extended attributes.
+
+# Examples: List of example usages
+examples:
+  - exa -l
+  - exa -a
+  - exa -la
+  - exa -l 
+  - exa -s 
+  - exa -s backup
+  - exa -r 
+  - exa -T 
+  - exa -L 4
+  - exa --git
+  - exa -@
+  - exa --icons
