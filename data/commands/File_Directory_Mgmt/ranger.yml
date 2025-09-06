@@ -1,0 +1,56 @@
+#--------------------------------
+# Command YAML Template
+#--------------------------------
+
+# The name of the command (must match the actual Linux command)
+name: ranger
+
+# Category this command belongs to (text_processing, file_management, user_group_mgmt, networking)
+category: File_and_Directory_Management
+
+# One-Line description of what the command does
+description: Terminal-based file manager that lets you navigate, preview, and manage files efficiently.
+
+# General syntax of the command
+syntax: ranger [Options] [Path]
+
+# Options: each flag (or set of flags) with an explanation
+# Use " flags" as a list if there are multiple aliases (e.g. ["-i", "--ignore-case"])
+# Optional: add "arg" if the optin expects a value
+options:
+  - flag: ["-d"]
+    explains: Debug mode.
+  - flag: ["-c", "--clean"]
+    explains: Start ranger without loading any configuration files.
+  - flag: ["-r", "--confdir"]
+    explains: Specify an alternate configuration directory.
+  - flag: ["--copy-config"]
+    explains: Copy default config files to config directory for customization.
+  - flag: ["-f", "--fail-unless-cd"]
+    explains: Exit if the initial directory chosen is invalid.
+  - flag: ["-p"]
+    explains: Enable profiling.
+  - flag: ["-s"]
+    explains: Select a file in the give ndirectory when launching.
+  - flag: ["-w", "--choosefiles"]
+    explains: Output the chosen file paths to a file instead of running ranger normally.
+  - flag: ["-t"]
+    explains: Same as `--choosefiles`, but for a single file.
+  - flag: ["-m", "--choosefile-multiple"]
+    explains: Same as `--choosefiles`, but for a single file.
+  - flag: ["-q", "--list-unused-keys"]
+    explains: List all keybindings that are not mapped in the current configuration.
+    
+# Examples: List of example usages
+examples:
+  - ranger -d /etc 
+  - ranger -c /etc
+  - ranger -r /etc 
+  - ranger --copy-config ~/home/backup
+  - ranger -f /backup
+  - ranger -s /backup
+  - ranger -w /backup
+  - ranger -t /backup
+  - ranger -m /backup
+  
+  
