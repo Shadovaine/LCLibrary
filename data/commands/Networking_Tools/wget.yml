@@ -1,0 +1,68 @@
+#--------------------------------
+# Command YAML Template
+#--------------------------------
+
+# The name of the command (must match the actual Linux command)
+name: wget
+
+# Category this command belongs to (text_processing, file_management, user_group_mgmt, networking)
+category: Networking Tools
+
+# One-Line description of what the command does
+description: Downloads files from the web.
+
+# General syntax of the command
+syntax: wget [Options] URL
+
+# Options: each flag (or set of flags) with an explanation
+# Use " flags" as a list if there are multiple aliases (e.g. ["-i", "--ignore-case"])
+# Optional: add "arg" if the optin expects a value
+options:
+  - flag: ["-O <FILE>"]
+    explains: Write output to a specific file.
+  - flag: ["-o <FILE>"]
+    explains: Write log message to a file.
+  - flag: ["-c"]
+    explains: Resume incomplete download.
+  - flag: ["-P <dir>"]
+    explains: Save files to a specific directory.
+  - flag: ["-nv"]
+    explains: Less verbose.
+  - flag: ["-v"]
+    explains: Verbose mode. 
+  - flag: ["-N"]
+    explains: Only download if newer than local copy.
+  - flag: ["--user=<user> --password=PASS"]
+    explains: Authenticate with HTTP/FTP server.
+  - flag: ["--no-check-certificate"]
+    explains: Ignore SSL certificate errors.
+  - flag: ["-r"]
+    explains: Recursive download.
+  - flag: ["-l <depth>"]
+    explains: Set recursion depth.
+  - flag: ["-np"]
+    explains: No parent directories.
+  - flag: ["--accept=PATTERN"]
+    explains: Accept only certain file types.
+  - flag: ["--reject=PATTERN"]
+    explains: Reject certain file types.
+  - flag: ["--limit-rate=<rate>"]
+    explains: Limit download speed.
+  - flag: ["-W <seconds>"]
+    explains: Wait between downloads.
+  - flag: ["--random-wait"]
+    explains: Random delay between downloads.
+  - flag: ["-b"]
+    explains: Run in background.
+
+# Examples: List of example usages
+examples:
+  - wget -O myfile.html https://example.com 
+  - wget -o download.org https://example.com/file.zip 
+  - wget -c https://example.com/bigfile.iso 
+  - wget -P /tmp/downloads https://example.com/file.zip
+  - wget -nv https://example.com/file.zip 
+  - wget -v https://example.com/file.zip
+  - wget -N https://example.com/file.zip
+  - wget --user=name --password=secret ftp://ftp.example.com/file.zip 
+  
