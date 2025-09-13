@@ -1,0 +1,92 @@
+#--------------------------------
+# Command YAML Template
+#--------------------------------
+
+# The name of the command (must match the actual Linux command)
+name: taskwarrior
+
+# Category this command belongs to (text_processing, file_management, user_group_mgmt, networking)
+category: Networking Tools
+
+# One-Line description of what the command does
+description: Terminal task/project manager. Great for tracking recon, post-exploit steps, or learning goals in CLI-only setups.
+
+# General syntax of the command
+syntax: task <FILTER> <Command> [Modification] [ARGS]
+
+# Options: each flag (or set of flags) with an explanation
+# Use " flags" as a list if there are multiple aliases (e.g. ["-i", "--ignore-case"])
+# Optional: add "arg" if the optin expects a value
+options:
+  - flag: ["--debug"]
+    explains: Show debug output.
+  - flag: ["--verbose"]
+    explains: More detailed output.
+  - flag: ["--quiet"]
+    explains: Suppress output.
+  - flag: ["--force"]
+    explains: Ignore warnings.
+  - flag: ["rc:<name>=<value>"]
+    explains: Temporarily override config settings.
+  - flag: ["+<tag>"]
+    explains: Filter: has this tag.
+  - flag: ["-<tag>"]
+    explains: Filter: Does not have this tag.
+  - flag: ["add"]
+    explains: Add a new task.
+  - flag: ["list"]
+    explains: Show pending tasks.
+  - flag: ["done"]
+    explains: Mark task as done.
+  - flag: ["delete"]
+    explains: Delete task.
+  - flag: ["start"]
+    epplains: Mark task as started.
+  - flag: ["stop"]
+    explains: Stop task tracking.
+  - flag: ["Modification"]
+    explains: Modifies task.
+  - flag: ["edit"]
+    explains: Edit task in editor.
+  - flag: ["annotate"]
+    explains: Add a note to a task.
+  - flag: ["denotate"] 
+    explains: Remove a note on a task.
+  - flag: ["project"]
+    explains: Set or view project structured.
+  - flag: ["undo"]
+    explains: Revert last change.
+  - flag: ["statusx"]
+    explains: View summary of tasks.
+  - flag: ["summary"]
+    explains: Project summary report.
+  - flag: ["log"]
+    explains: Show completed tasks.
+  - flag: ["info"]
+    explains: Shows full details of a task.
+  - flag: ["export"]
+    explains: Exports task list in JSON format.
+  - flag: ["import"]
+    explains: Import tasks from JSON
+  - flag: ["sync"]
+    explains: Syncs with task server.
+
+# Examples: List of example usages
+examples:
+  - task diagnostic
+  - task --verbose list
+  - task --quiet list
+  - task --force list
+  - task rc.data.location=/tmp/mytaskslist
+  - task +home list
+  - task -home list
+  - task add "Finish Library"
+  - task list
+  - task 23 done
+  - task 23 done
+  - task 22 delete
+  - task 10 start
+  - task 11 stop
+  - task 15 modify priority: H due:FRi +review
+  - task 33 edit
+  
