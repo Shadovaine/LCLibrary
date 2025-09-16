@@ -1,4 +1,4 @@
-cod# Networking Commands
+# Networking Commands
 
 ## Commands used in network communications, diagnostics, system monitoring, and remote file transfer
 

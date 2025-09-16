@@ -1,0 +1,79 @@
+#--------------------------------
+# Command YAML Template
+#--------------------------------
+
+# The name of the command (must match the actual Linux command)
+name: systemd-analyze
+
+# Category this command belongs to (text_processing, file_management, user_group_mgmt, networking)
+category: Networking Tools
+
+# One-Line description of what the command does
+description: Analyze system boot-up performance and identify bottlenecks
+
+# General syntax of the command
+syntax: systemd-analyze [OPTIONS]...[ARGS]...
+
+# Options: each flag (or set of flags) with an explanation
+# Use " flags" as a list if there are multiple aliases (e.g. ["-i", "--ignore-case"])
+# Optional: add "arg" if the optin expects a value
+options:
+  - flag: ["time"]
+    explains: Overall boot Breakdown
+  - flag: ["blame"]
+    explains: List all running units, ordered by the time they took to initialize
+  - flag: ["critical-chain"]
+    explains: Show the time-critical chain of units 
+  - flag: ["plot"]
+    explains: Generate an SVG plot of the boot sequence
+    arg:
+      name: FILE     # the placeholder name for the argument
+      required: true # true if mandatory, false if optional 
+  - flag: ["dot"]
+    explains: Generate a dot file representing the boot sequence
+    arg:
+      name: FILE     # the placeholder name for the argument
+      required: true # true if mandatory, false if optional
+  - flag: ["list-dependencies"]
+    explains: Show unit dependencies in tree form
+  - flag: ["verify"]
+    explains: Verify the configuration files of one or more units
+    arg:
+      name: UNIT...  # the placeholder name for the argument
+      required: true # true if mandatory, false if optional
+  - flag: ["--no-pager"]
+    explains: Do not pipe output into a pager
+  - flag: ["--no-legend"]
+    explains: Do not print a legend
+  - flag: ["--no-ask-password"]
+    explains: Do not prompt for passwords
+  - flag: ["dump"]
+    explains: Dump the current state of the systemd manager
+  - flag: ["security"]
+    explains: Show security properties of one or more units
+    arg:
+      name: UNIT...  # the placeholder name for the argument
+      required: true # true if mandatory, false if optional
+  - flag: ["show"]
+    explains: Show properties of one or more units
+    arg:
+      name: UNIT...  # the placeholder name for the argument
+      required: true # true if mandatory, false if optional
+  
+# Examples: List of example usages
+examples:
+  - systemd-analyze time
+  - systemd-analyze blame
+  - systemd-analyze critical-chain
+  - systemd-analyze plot > boot.svg 
+  - systemd-analyze dot > boot.dot
+  - systemd-analyze list-dependencies
+  - systemd-analyze verify <unit_name>
+  - systemd-analyze security <unit_name>
+  - systemd-analyze show <unit_name>
+  = systemd-analyze plot > boot.svg
+  = systemd-analyze dot > boot.dot
+  = systemd-analyze list-dependencies
+  = systemd-analyze verify <unit_name>
+  = systemd-analyze security <unit_name>
+  = systemd-analyze show <unit_name>
