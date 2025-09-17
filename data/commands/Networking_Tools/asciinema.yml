@@ -1,0 +1,73 @@
+#--------------------------------
+# Command YAML Template
+#--------------------------------
+
+# The name of the command (must match the actual Linux command)
+name: asciinema
+
+# Category this command belongs to (text_processing, file_management, user_group_mgmt, networking)
+category: Networking Tools
+
+# One-Line description of what the command does
+description: Record and share terminal sessions. Perfect for creating tutorials, logging incident response steps, or leaving a trail for blue teams or audits.
+
+# General syntax of the command
+syntax: asciinema rec [filename]
+
+# Options: each flag (or set of flags) with an explanation
+# Use " flags" as a list if there are multiple aliases (e.g. ["-i", "--ignore-case"])
+# Optional: add "arg" if the optin expects a value
+options:
+  - flag: ["-c"]
+    explains: Records a specific command.
+  - flag: ["-i <NUM>"]
+    explains: Compresses long idle time so viewers do not snooze.
+    arg:
+      name: number
+      required: true
+  - flag: ["rec <filename>"]
+    explains: Records a session.
+  - flag: ["--stdin"]
+    explains: Recoreds your keystrokes along with terminal output.
+  - flag: ["--append"]
+    explains: Adds to existing file.
+  - flag: ["--overwrite"]
+    exolains: Overwrites the existing file.
+  - flag: ["-t"]
+    explains: Adds a descriptive title when uploading.
+    arg:
+      name: title
+      required: true
+  - flag: ["-q"]
+    explains: Suppresses non-essential message.
+  - flag: ["-y"]
+    explains: Automatically answers yes to prompts.
+  - flag: ["play"]
+    explains: Plays the recording.
+  - flag: ["-s <NUM>"]
+    explainns: Allows you to change the playback speed.
+    arg:
+      name: number
+      required: true
+  - flag: ["cat"]
+    explains: Dumps the recordied session output to your terminal without timing.
+  - flag: ["upload"]
+    explains: pushes file to asciinema.org
+  - flag: ["auth"]
+    explains: Links local client to online account for uploads and management.
+
+# Examples: List of example usages
+examples:
+  - asciinema -c "htop" htop-demo.cast
+  - asciinema -i 5 quick-demo.cast
+  - asciinema rec --stdin with-keystrokes.cast
+  - asciinema rec --append session.cast
+  - asciinema rec --overwrite session.cast
+  - asciinema rec -t "Linux Firewall Setup" Firewall.cast
+  - asciinema rec -q silent.cast
+  - asciinema play demo.cast
+  - asciinema play -s 1.5 demo.cast
+  - asciinema cat demo.cast
+  - asciinema upload demo.cast
+  - asciinema auth
+  
