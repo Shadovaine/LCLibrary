@@ -1,0 +1,54 @@
+#--------------------------------
+# Command YAML Template
+#--------------------------------
+
+# The name of the command (must match the actual Linux command)
+name: fabric
+
+# Category this command belongs to (text_processing, file_management, user_group_mgmt, networking)
+category: networking Tools
+
+# One-Line description of what the command does
+description: Python-based remote shell and deployment tool
+
+# General syntax of the command
+syntax: fab [task]
+
+# Options: each flag (or set of flags) with an explanation
+# Use " flags" as a list if there are multiple aliases (e.g. ["-i", "--ignore-case"])
+# Optional: add "arg" if the optin expects a value
+options:
+  - flag: ["deploy"]
+    explains: Deploys tasks
+  - flag: ["cleanup"]
+    explains: Cleanups tasks
+  - flag: ["-H"]
+    explains: Specifies a host.
+  - flag: ["-i"]
+    explains: Overrides the SSH key, and uses a targeted authentication.
+  - flag: ["--prompt-for-login-passpahrase"]
+    expalains: Prompts user to enter password.
+  - flag: ["--list"]
+    explains: Lists all the defined tasks.
+  - flag: ["-R"]
+    explains: Dry run, just echos with no execution.
+  - flag: ["-P"]
+    explains: Runs tasks in parallel.
+  - flag: ["-f"]
+    explains: Instructs to fun custom fab.py files instead of default ones.
+  - flag: ["--connect-timeout", "--command-timeout"]
+    explains: Sets timeouts.
+
+# Examples: List of example usages
+examples:
+  - fab deploy
+  - fab cleanup 
+  - fab -H server1, server2 restart_service
+  - fab -H prod.server.com -i ~/.ssh/prod_key deploy
+  - fab -H host1 --prompt-for-login-password deploy
+  - fab --list
+  - fab -H host1 -R test_deploy
+  - fab -H host1, host2 -P backup_db
+  - fab -f custom_fabfile.py deploy
+  - fab -H host1 --connect-timeout=10 --command-timeout=30 deploy
+  
