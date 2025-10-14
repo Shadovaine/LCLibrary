@@ -1,7 +1,7 @@
 
 # 🐧 Linux Command Library
 
-Welcome to my personal Linux command library — a curated collection of commands, options, and breakdowns as I train for the CompTIA Linux+ certification and real-world sysadmin work.
+Welcome to my personal Linux command library — a collection of Linux command. Each entry includes command name, a general description of the command function, proper syntax, options with explanations of each one, and a collection of examples for each command. I designed this library to help me study for the CompTia Linux+ Certification and real-world sysadmin work. This is the static version for people to reference when needed.
 
 ## 📁 Topics Covered
 
@@ -23,20 +23,4 @@ Welcome to my personal Linux command library — a curated collection of command
 - WildCards
 - Viewing and Edit Management
 
-### 📌 Example Command: `find` 
-Search for Files Matching Criteria
 
-<pre>
-bash
-find /etc -type f -name "*.conf" -user root -mtime -2
-
-</pre>	
-
- **Breakdown**:
- - `find`: Search utility
- - `/etc`: Starting directory
- - `-type f`: Files only
- - `-name "*.conf"`: Only `.conf` files
- - `-user root`: Owned by root
- - `-mtime -2`: Modified in the last 2 days
-	
