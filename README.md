@@ -8,6 +8,8 @@ Welcome to my personal Linux command library — a curated collection of command
 - Archiving & Compression
 - Disk and FileSystem Management
 - File & Directory Management
+- Hardware and Kernel Tools
+- Linux Directory System
 - Networking Tools
 - Package Management
 - Permissions & Ownership
