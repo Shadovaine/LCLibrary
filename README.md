@@ -8,7 +8,7 @@ Welcome to my personal Linux command library — a collection of Linux command. 
 - ## Categories
 
 - [Archive & Compression Management](./Archiving_and_Compressing_Management/Archiving_and_Compressing_Commands.md)
-- [File & Directory Management](./File_Directory_Mgmt/File_Directory_Mgmt.md)
+- [File & Directory Management](./File_and_Directory_Management/File_and_Directory_Commands.md)
 - [Hardware & Kernel Tools](./Hardware_Kernel_Tools/Hardware_Kernel_Tools.md)
 - [Linux Directory System](./Linux_Directory_System/Linux_Directory_System.md)
 - [Networking Tools](./Networking_Tools/Networking_Tools.md)
