@@ -20,7 +20,7 @@ Welcome to my personal Linux command library — a collection of Linux command. 
 - [Searching & Filtering](./Search_and_Filter_Management/Search_and_Filter_Commands.md)
 - [System Administration](./System_Administration/System_Admin_Commands.md)
 - [System Information & Monitoring](./System_Information_and_Monitoring/System_Info_and_Monitoring_Commands.md)
-- [Troubleshooting](./TroubleShooting_Management/TroubleShooting_Management.md)
+- [Troubleshooting](./TroubleShooting_Management/TroubleShooting_Commands.md)
 - [User & Group Management](./User_and_Group_Management/User_and_Group_Management.md)
 - [Viewing & Editing](./Viewing_and_Editing_Management/Viewing_and_Editing_Management.md)
 - [Wildcards](./WildCards/WildCards.md)
