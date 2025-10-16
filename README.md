@@ -18,7 +18,7 @@ Welcome to my personal Linux command library — a collection of Linux command. 
 - [Permission & Ownership](./Permissions_and_Ownership/Permissions_and_Ownership_Commands.md)
 - [Process Management](./Process_Management/Processing_Commands.md)
 - [Searching & Filtering](./Search_and_Filter_Management/Search_and_Filter_Commands.md)
-- [System Administration](./System_Administration/System_Administration.md)
+- [System Administration](./System_Administration/System_Admin_Commands.md)
 - [System Information & Monitoring](./System_Information_and_Monitoring_Management/System_Information_and_Monitoring_Management.md)
 - [Troubleshooting](./TroubleShooting_Management/TroubleShooting_Management.md)
 - [User & Group Management](./User_and_Group_Management/User_and_Group_Management.md)
