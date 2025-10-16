@@ -1,7 +1,7 @@
 
 # 🐧 Linux Command Library
 
-Welcome to my personal Linux command library — a collection of Linux command. Each entry includes command name, a general description of the command function, proper syntax, options with explanations of each one, and a collection of examples for each command. I designed this library to help me study for the CompTia Linux+ Certification and real-world sysadmin work. My hopes are other Linux enthusiasts ranging from beginners to seasoned users might find the Linux Command Library useful.
+Welcome to my personal Linux command library — a collection of Linux command. Each entry includes command name, a general description of the command function, proper syntax, options with explanations of each one, and a collection of examples for each command. I designed this library to help me study for the CompTia Linux+ Certification. My hopes are other Linux enthusiasts ranging from beginners to seasoned users might find the Linux Command Library useful.
 
 ## 📁 Linux Command Library Categories
 
