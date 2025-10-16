@@ -25,5 +25,7 @@ Welcome to my personal Linux command library — a collection of Linux command. 
 - [Viewing & Editing](./View_and_Edit_Management/Viewing_and_Editing_Commands.md)
 - [Wildcards](./Wildcards/Wildcard_Commands.md)
 - **License:**
-- [MIT License](./LICENSE) &copy; 2025-Present ShadoVaine 
+  - [MIT License](./LICENSE) &copy; 2025-Present ShadoVaine
+- **CODE OF CONDUCT**
+  - [CODE_OF_CONDUCT](./CODE_OF_CONDUCT.md) 
 
