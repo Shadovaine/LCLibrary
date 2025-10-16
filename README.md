@@ -13,7 +13,7 @@ Welcome to my personal Linux command library — a collection of Linux command. 
   - [Hardware Discovery](./Hardware_and_kernel_tools/Hardware_Discovery.md)
   - [Kernel Module Tools](./Hardware_and_kernel_tools/Kernel_Module_Tools.md)
 - [Linux Directory System](./Linux_Directory_System/Linux_Directory.md)
-- [Networking Tools](./Networking_Tools/Networking_Tools.md)
+- [Networking Tools](./Networking_Tools/Networking_Commands.md)
 - [Package Management](./Package_Management/Package_Management.md)
 - [Permission & Ownership](./Permission_and_Ownership/Permission_and_Ownership.md)
 - [Process Management](./Process_Management/Process_Management.md)
