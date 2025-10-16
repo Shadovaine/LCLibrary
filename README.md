@@ -9,7 +9,7 @@ Welcome to my personal Linux command library — a collection of Linux command. 
 
 - [Archive & Compression Management](./Archiving_and_Compressing_Management/Archiving_and_Compressing_Commands.md)
 - [File & Directory Management](./File_and_Directory_Management/File_and_Directory_Commands.md)
-- **Hardware & Kernel Tools**
+**Hardware & Kernel Tools**
   - [Hardware Discovery](./Hardware_and_kernel_tools/Hardware_Discovery.md)
   - [Kernel Module Tools](./Hardware_and_kernel_tools/Kernel_Module_Tools.md)
 - [Linux Directory System](./Linux_Directory_System/Linux_Directory.md)
@@ -24,5 +24,6 @@ Welcome to my personal Linux command library — a collection of Linux command. 
 - [User & Group Management](./User_and_Group_Management/User_and_Group_Commands.md)
 - [Viewing & Editing](./View_and_Edit_Management/Viewing_and_Editing_Commands.md)
 - [Wildcards](./Wildcards/Wildcard_Commands.md)
-
+**License:**
+- [MIT License](./LICENSE) &copy; 2025-Present ShadoVaine 
 
