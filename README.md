@@ -23,6 +23,6 @@ Welcome to my personal Linux command library — a collection of Linux command. 
 - [Troubleshooting](./TroubleShooting_Management/TroubleShooting_Commands.md)
 - [User & Group Management](./User_and_Group_Management/User_and_Group_Commands.md)
 - [Viewing & Editing](./View_and_Edit_Management/Viewing_and_Editing_Commands.md)
-- [Wildcards](./WildCards/WildCard_Commands.md)
+- [Wildcards](./Wildcards/Wildcard_Commands.md)
 
 
