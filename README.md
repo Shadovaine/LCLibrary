@@ -16,7 +16,7 @@ Welcome to my personal Linux command library — a collection of Linux command. 
 - [Networking Tools](./Networking_Tools/Networking_Commands.md)
 - [Package Management](./Package_Management/Package_Management_Commands.md)
 - [Permission & Ownership](./Permissions_and_Ownership/Permissions_and_Ownership_Commands.md)
-- [Process Management](./Process_Management/Process_Management.md)
+- [Process Management](./Process_Management/Processing_Commands.md)
 - [Searching & Filtering](./Searching_and_Filtering_Management/Searching_and_Filtering_Management.md)
 - [System Administration](./System_Administration/System_Administration.md)
 - [System Information & Monitoring](./System_Information_and_Monitoring_Management/System_Information_and_Monitoring_Management.md)
