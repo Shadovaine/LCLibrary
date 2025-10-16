@@ -21,8 +21,8 @@ Welcome to my personal Linux command library — a collection of Linux command. 
 - [System Administration](./System_Administration/System_Admin_Commands.md)
 - [System Information & Monitoring](./System_Information_and_Monitoring/System_Info_and_Monitoring_Commands.md)
 - [Troubleshooting](./TroubleShooting_Management/TroubleShooting_Commands.md)
-- [User & Group Management](./User_and_Group_Management/User_and_Group_Management.md)
-- [Viewing & Editing](./Viewing_and_Editing_Management/Viewing_and_Editing_Management.md)
-- [Wildcards](./WildCards/WildCards.md)
+- [User & Group Management](./User_and_Group_Management/User_and_Group_Commands.md)
+- [Viewing & Editing](./View_and_Edit_Management/Viewing_and_Editing_Commands.md)
+- [Wildcards](./WildCards/WildCard_Commands.md)
 
 
