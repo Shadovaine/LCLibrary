@@ -10,8 +10,8 @@ Welcome to my personal LCLibrary — a collection of Linux commands. Each entry 
 - [Archive & Compression Management](./Archiving_and_Compressing_Management/Archiving_and_Compressing_Commands.md)
 - [File & Directory Management](./File_and_Directory_Management/File_and_Directory_Commands.md)
 - **Hardware & Kernel Tools**
-  - [Hardware Discovery](./Hardware_and_kernel_tools/Hardware_Discovery.md)
-  - [Kernel Module Tools](./Hardware_and_kernel_tools/Kernel_Module_Tools.md)
+  - [Hardware Discovery](./Hardware_and_Kernel_Tools/Hardware_Discovery.md)
+  - [Kernel Module Tools](./Hardware_and_Kernel_Tools/Kernel_Module_Tools.md)
 - [Linux Directory System](./Linux_Directory_System/Linux_Directory.md)
 - [Networking Tools](./Networking_Tools/Networking_Commands.md)
 - [Package Management](./Package_Management/Package_Management_Commands.md)
