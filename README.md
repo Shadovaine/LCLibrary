@@ -1,11 +1,17 @@
+<p align="center">
+  <img src="./media/ShadoVaine-Banner.png" alt="ShadoVaine Banner" />
+</p>
 
-# 🐧 LCLibrary
+# LCLibrary
 
-Welcome to my personal LCLibrary — a collection of Linux commands. Each entry includes command name, a general description of the command function, proper syntax, options with explanations of each one, and a collection of examples for each command. I designed this library to help me study for the CompTia Linux+ Certification. My hopes are other Linux enthusiasts ranging from beginners to seasoned users might find LCLibrary useful.
+Welcome to my personal LCLibrary — a collection of Linux commands. Each entry includes command name, a general description of the command function, proper syntax, options with explanations of each one, and a collection of examples for each command. I designed this library to help me study for the CompTia Linux+ Certification. My hopes are other Linux enthusiasts ranging from beginners to seasoned users might find LCLibrary useful.Use it like a cheat-sheet if you would like. PLease contribute when you spot gaps.
+
+## Quickstart
+- Pick a category.
+- Open a command page and copy an example.
+- Adding a new command? Start with [TEMPLATE.md](.github/PULL_REQUEST_TEMPLATE.md).
 
 ## 📁 LCLibrary Categories
-
-- ## Categories
 
 - [Archive & Compression Management](./Archiving_and_Compressing_Management/Archiving_and_Compressing_Commands.md)
 - [File & Directory Management](./File_and_Directory_Management/File_and_Directory_Commands.md)
@@ -24,8 +30,16 @@ Welcome to my personal LCLibrary — a collection of Linux commands. Each entry 
 - [User & Group Management](./User_and_Group_Management/User_and_Group_Commands.md)
 - [Viewing & Editing](./View_and_Edit_Management/Viewing_and_Editing_Commands.md)
 - [Wildcards](./Wildcards/Wildcard_Commands.md)
-- **License:**
-  - [MIT License](./LICENSE) &copy; 2025-Present ShadoVaine
-- **CODE OF CONDUCT**
+
+- ## Contributing
+See [CONTRIBUTING](./CONTRIBUTING.md). PRs welcome.
+
+- ## CODE OF CONDUCT
   - [CODE_OF_CONDUCT](./CODE_OF_CONDUCT.md) 
 
+- ## Roadmap
+- [ ] Release of LCLibrary TUI for terminal use
+- [ ] Developing a Desktop and Mobile version of the LCLibrary containing drills, fill-in-the-blank questions, quizes, and other small games to help learn Linux commands.
+
+ **License:**
+  - [MIT License](./LICENSE) &copy; 2025-Present ShadoVaine
