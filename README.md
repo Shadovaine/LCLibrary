@@ -37,9 +37,5 @@ See [CONTRIBUTING](./CONTRIBUTING.md). PRs welcome.
 - ## CODE OF CONDUCT
   - [CODE_OF_CONDUCT](./CODE_OF_CONDUCT.md) 
 
-- ## Roadmap
-- [ ] Release of LCLibrary TUI for terminal use
-- [ ] Developing a Desktop and Mobile version of the LCLibrary containing drills, fill-in-the-blank questions, quizes, and other small games to help learn Linux commands.
-
- **License:**
+## License:
   - [MIT License](./LICENSE) &copy; 2025-Present ShadoVaine
