@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="./media/ShadoVaine-Banner.png" alt="ShadoVaine Banner" />
+  <img src="./media/LCLibrary.png" alt="LCLibrary Banner" />
 </p>
 
 # LCLibrary
